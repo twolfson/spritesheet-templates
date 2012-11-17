@@ -7,3 +7,32 @@
   ${{name}}_height = {{height}}px;
   ${{name}} = {{x}}px {{y}}px -{{x}}px -{{y}}px {{width}}px {{height}}px;
 {{/items}}
+
+{{#options.functions}}
+  spriteOffsetX($sprite) {
+    return $sprite[2];
+  }
+
+  spriteOffsetY($sprite) {
+    return $sprite[3];
+  }
+
+  spriteWidth($sprite) {
+    return $sprite[4];
+  }
+
+  spriteHeight($sprite) {
+    return $sprite[5];
+  }
+
+  spriteBackground() {
+    return '../images/sprites_new.png';
+  }
+
+  sprite($sprite) {
+    background-image: url(spriteBackground());
+    background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
+    width: spriteWidth($sprite);
+    height: spriteHeight($sprite);
+  }
+{{/options.functions}}
