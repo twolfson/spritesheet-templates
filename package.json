@@ -40,5 +40,8 @@
     "sprite",
     "spritesheet",
     "layout"
-  ]
+  ],
+  "dependencies": {
+    "mustache": "~0.7.0"
+  }
 }
