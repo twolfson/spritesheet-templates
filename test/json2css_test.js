@@ -20,15 +20,23 @@ var json2css = require('../lib/json2css.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports['json2css'] = {
   setUp: function(done) {
     // setup here
     done();
   },
-  'no args': function(test) {
+  'json': function(test) {
     test.expect(1);
-    // tests here
-    test.equal(json2css.awesome(), 'awesome', 'should be awesome.');
+
+    // A basic object
+    var obj = {};
+      // when converted to json
+      var json = json2css(obj);
+        // matches as expected
+        test.equal(json, '{}');
+
+      // when converted to Stylus
+        // matches as expected
     test.done();
   }
 };
