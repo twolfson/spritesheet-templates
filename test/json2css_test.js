@@ -28,7 +28,7 @@ exports['json2css'] = {
     done();
   },
   'json': function(test) {
-    test.expect(1);
+    test.expect(2);
 
     // A basic object
     var obj = [
@@ -36,15 +36,15 @@ exports['json2css'] = {
           {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
           {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
         ];
-      // // when converted to json
-      // var json = json2css(obj);
-      //   // matches as expected
-      //   test.equal(json, '{}');
+      // when converted
+      var json = json2css(obj),
+          expectedJSON = fs.readFileSync(expectedDir + '/json.json', 'utf8');
+        // matches expected json
+        test.equal(json, expectedJSON);
 
       // when converted to Stylus
       var stylus = json2css(obj, {'format': 'stylus'}),
           expectedStylus = fs.readFileSync(expectedDir + '/stylus.styl', 'utf8');
-// fs.writeFileSync('herpderp.styl', stylus, 'utf8');
 
         // matches as expected
         test.equal(stylus, expectedStylus, 'A basic object when converted to Stylus matches as expected');
