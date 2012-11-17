@@ -1,0 +1,44 @@
+{
+  "name": "json2css",
+  "description": "Convert JSON into pre-processor ready CSS",
+  "version": "0.1.0",
+  "homepage": "https://github.com/twolfson/json2css",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/json2css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/json2css/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/twolfson/json2css/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/json2css",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.12"
+  },
+  "keywords": [
+    "json",
+    "css",
+    "sass",
+    "stylus",
+    "less",
+    "sprite",
+    "spritesheet",
+    "layout"
+  ]
+}
