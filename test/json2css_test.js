@@ -1,4 +1,6 @@
-var json2css = require('../lib/json2css.js');
+var json2css = require('../lib/json2css.js'),
+    fs = require('fs'),
+    expectedDir = __dirname + '/expected_files';
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -29,11 +31,11 @@ exports['json2css'] = {
     test.expect(1);
 
     // A basic object
-    var obj = {
-          'sprite1': {'x': 0, 'y': 0, 'width': 10, 'height': 20},
-          'sprite2': {'x': 10, 'y': 20, 'width': 20, 'height': 30},
-          'sprite3': {'x': 30, 'y': 50, 'width': 50, 'height': 50}
-        };
+    var obj = [
+          {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20},
+          {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
+          {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
+        ];
       // // when converted to json
       // var json = json2css(obj);
       //   // matches as expected
@@ -41,8 +43,8 @@ exports['json2css'] = {
 
       // when converted to Stylus
       var stylus = json2css(obj, {'format': 'stylus'}),
-          expectedStylus = require('./expected_files/stylus.styl', 'utf8');
-console.log('zzzzzzzzzzz', stylus);
+          expectedStylus = fs.readFileSync(expectedDir + '/stylus.styl', 'utf8');
+
         // matches as expected
         test.equal(stylus, expectedStylus, 'A basic object when converted to Stylus matches as expected');
 
