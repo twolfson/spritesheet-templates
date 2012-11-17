@@ -42,6 +42,7 @@
     "layout"
   ],
   "dependencies": {
-    "mustache": "~0.7.0"
+    "mustache": "~0.7.0",
+    "underscore": "~1.4.2"
   }
 }
