@@ -43,6 +43,7 @@
   ],
   "dependencies": {
     "mustache": "~0.7.0",
-    "underscore": "~1.4.2"
+    "underscore": "~1.4.2",
+    "json-content-demux": "~0.1.2"
   }
 }
