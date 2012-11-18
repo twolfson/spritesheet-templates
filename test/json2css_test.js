@@ -45,7 +45,6 @@ exports['json2css'] = {
       // when converted to Stylus
       var stylus = json2css(obj, {'format': 'stylus'}),
           expectedStylus = fs.readFileSync(expectedDir + '/stylus.styl', 'utf8');
-
         // matches as expected
         test.equal(stylus, expectedStylus, 'A basic object when converted to Stylus matches as expected');
 
