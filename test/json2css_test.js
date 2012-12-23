@@ -28,7 +28,7 @@ exports['json2css'] = {
     done();
   },
   'json': function(test) {
-    test.expect(2);
+    test.expect(3);
 
     // A basic object
     var obj = [
@@ -47,6 +47,12 @@ exports['json2css'] = {
           expectedStylus = fs.readFileSync(expectedDir + '/stylus.styl', 'utf8');
         // matches as expected
         test.equal(stylus, expectedStylus, 'A basic object when converted to Stylus matches as expected');
+
+      // when converted to LESS
+      var less = json2css(obj, {'format': 'less'}),
+          expectedLess = fs.readFileSync(expectedDir + '/less.less', 'utf8');
+        // matches as expected
+        test.equal(less, expectedLess, 'A basic object when converted to LESS matches as expected');
 
     test.done();
   }
