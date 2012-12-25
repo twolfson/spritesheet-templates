@@ -39,12 +39,12 @@
   }
 
   spriteBackground() {
-    {{#options.spriteDir}}
-      return {{.}};
-    {{/options.spriteDir}}
-    {{^options.spriteDir}}
+    {{#options.spritePath}}
+      return '{{{options.spritePath}}}';
+    {{/options.spritePath}}
+    {{^options.spritePath}}
       return '../img/sprites.png';
-    {{/options.spriteDir}}
+    {{/options.spritePath}}
   }
 
   sprite($sprite) {

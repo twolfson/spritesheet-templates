@@ -29,12 +29,12 @@
   }
 
   .sprite-image() {
-    {{#options.spriteDir}}
-      background-image: url('{{.}}') no-repeat;
-    {{/options.spriteDir}}
-    {{^options.spriteDir}}
+    {{#options.spritePath}}
+      background-image: url('{{{options.spritePath}}}') no-repeat;
+    {{/options.spritePath}}
+    {{^options.spritePath}}
       background-image: url('../img/sprites.png') no-repeat;
-    {{/options.spriteDir}}
+    {{/options.spritePath}}
   }
 
   .sprite(@sprite) {
