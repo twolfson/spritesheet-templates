@@ -27,7 +27,7 @@ exports['json2css'] = {
     // setup here
     done();
   },
-  'json': function(test) {
+  'basic': function (test) {
     test.expect(3);
 
     // A basic object
@@ -53,6 +53,25 @@ exports['json2css'] = {
           expectedLess = fs.readFileSync(expectedDir + '/less.less', 'utf8');
         // matches as expected
         test.equal(less, expectedLess, 'A basic object when converted to LESS matches as expected');
+
+    test.done();
+  },
+  'spritePath': function (test) {
+    test.expect(1);
+
+    // A basic object
+    var obj = [
+          {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20},
+          {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
+          {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
+        ],
+        formatOpts = {'spritePath': 'nested/dir/spritesheet.png'};
+
+      // when converted to Stylus
+      var stylus = json2css(obj, {'format': 'stylus', 'formatOpts': formatOpts}),
+          expectedStylus = fs.readFileSync(expectedDir + '/stylus.spritepath.styl', 'utf8');
+        // matches as expected
+        test.equal(stylus, expectedStylus, 'A basic object with a spritePath when converted to Stylus matches as expected');
 
     test.done();
   }
