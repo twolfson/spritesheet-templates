@@ -48,7 +48,7 @@ json2css is a single function repo
 /**
  * @param {Object|Object[]} input Object to convert into CSS
  * @param {Object} [options] Options to convert JSON with
- * @param {String} [options.format=json] Format to output json in (Available: json, less, stylus)
+ * @param {String} [options.format=json] Format to output json in (Available: json, less, sass, stylus)
  * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
  */
 ```
