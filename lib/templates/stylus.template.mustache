@@ -4,53 +4,53 @@
 }
 
 {{#items}}
-  ${{name}}_x = {{px.x}};
-  ${{name}}_y = {{px.y}};
-  ${{name}}_offset_x = {{px.offset_x}};
-  ${{name}}_offset_y = {{px.offset_y}};
-  ${{name}}_width = {{px.width}};
-  ${{name}}_height = {{px.height}};
-  ${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}};
+${{name}}_x = {{px.x}};
+${{name}}_y = {{px.y}};
+${{name}}_offset_x = {{px.offset_x}};
+${{name}}_offset_y = {{px.offset_y}};
+${{name}}_width = {{px.width}};
+${{name}}_height = {{px.height}};
+${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}};
 {{/items}}
 
 {{#options.functions}}
-  spriteX($sprite) {
-    return $sprite[0];
-  }
+spriteX($sprite) {
+  return $sprite[0];
+}
 
-  spriteY($sprite) {
-    return $sprite[1];
-  }
+spriteY($sprite) {
+  return $sprite[1];
+}
 
-  spriteOffsetX($sprite) {
-    return $sprite[2];
-  }
+spriteOffsetX($sprite) {
+  return $sprite[2];
+}
 
-  spriteOffsetY($sprite) {
-    return $sprite[3];
-  }
+spriteOffsetY($sprite) {
+  return $sprite[3];
+}
 
-  spriteWidth($sprite) {
-    return $sprite[4];
-  }
+spriteWidth($sprite) {
+  return $sprite[4];
+}
 
-  spriteHeight($sprite) {
-    return $sprite[5];
-  }
+spriteHeight($sprite) {
+  return $sprite[5];
+}
 
-  spriteBackground() {
-    {{#options.spritePath}}
-      return '{{{options.spritePath}}}';
-    {{/options.spritePath}}
-    {{^options.spritePath}}
-      return '../img/sprites.png';
-    {{/options.spritePath}}
-  }
+spriteBackground() {
+  {{#options.spritePath}}
+    return '{{{options.spritePath}}}';
+  {{/options.spritePath}}
+  {{^options.spritePath}}
+    return '../img/sprites.png';
+  {{/options.spritePath}}
+}
 
-  sprite($sprite) {
-    background-image: url(spriteBackground());
-    background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
-    width: spriteWidth($sprite);
-    height: spriteHeight($sprite);
-  }
+sprite($sprite) {
+  background-image: url(spriteBackground());
+  background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
+  width: spriteWidth($sprite);
+  height: spriteHeight($sprite);
+}
 {{/options.functions}}
