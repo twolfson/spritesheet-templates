@@ -40,10 +40,9 @@ spriteHeight($sprite) {
 
 spriteBackground() {
   {{#options.spritePath}}
-    return '{{{options.spritePath}}}';
-  {{/options.spritePath}}
-  {{^options.spritePath}}
-    return '../img/sprites.png';
+  return '{{{options.spritePath}}}';
+  {{/options.spritePath}}{{^options.spritePath}}
+  return '../img/sprites.png';
   {{/options.spritePath}}
 }
 
