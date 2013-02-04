@@ -101,7 +101,15 @@ exports['json2css'] = {
       var styl = json2css(obj, {'format': 'stylus'});
 
         // produces valid Stylus
-        // TODO: Append some items that will use the variables and functions
+        // Append some items that will use the variables and functions
+        styl += [
+          '.feature',
+          '  height: $sprite1_height;',
+          '  width: spriteWidth($sprite2);',
+          '  background-image: url(spriteBackground());'
+        ].join('\n');
+
+        // Render the stylus
         var stylus = require('stylus');
         stylus.render(styl, function handleStylus (err, css) {
           test.equal(null, err);
