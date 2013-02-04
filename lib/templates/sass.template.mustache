@@ -1,0 +1,41 @@
+{
+  // Default options
+  'functions': true
+}
+
+{{#items}}
+${{name}}-x: {{px.x}}
+${{name}}-y: {{px.y}}
+${{name}}-offset-x: {{px.offset_x}}
+${{name}}-offset-y: {{px.offset_y}}
+${{name}}-width: {{px.width}}
+${{name}}-height: {{px.height}}
+${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}}
+{{/items}}
+
+{{#options.functions}}
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image()
+  {{#options.spritePath}}
+  background-image: url('{{{options.spritePath}}}')
+  {{/options.spritePath}}
+  {{^options.spritePath}}
+  background-image: url('../img/sprites.png')
+  {{/options.spritePath}}
+
+@mixin sprite($sprite)
+  @include sprite-image()
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+{{/options.functions}}

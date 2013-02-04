@@ -1,0 +1,41 @@
+$sprite1-x: 0px
+$sprite1-y: 0px
+$sprite1-offset-x: 0px
+$sprite1-offset-y: 0px
+$sprite1-width: 10px
+$sprite1-height: 20px
+$sprite1: 0px 0px 0px 0px 10px 20px
+$sprite2-x: 10px
+$sprite2-y: 20px
+$sprite2-offset-x: -10px
+$sprite2-offset-y: -20px
+$sprite2-width: 20px
+$sprite2-height: 30px
+$sprite2: 10px 20px -10px -20px 20px 30px
+$sprite3-x: 30px
+$sprite3-y: 50px
+$sprite3-offset-x: -30px
+$sprite3-offset-y: -50px
+$sprite3-width: 50px
+$sprite3-height: 50px
+$sprite3: 30px 50px -30px -50px 50px 50px
+
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image()
+  background-image: url('../img/sprites.png')
+
+@mixin sprite($sprite)
+  @include sprite-image()
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)

@@ -28,7 +28,7 @@ exports['json2css'] = {
     done();
   },
   'basic': function (test) {
-    test.expect(3);
+    test.expect(5);
 
     // A basic object
     var obj = [
@@ -54,6 +54,18 @@ exports['json2css'] = {
         // matches as expected
         test.equal(less, expectedLess, 'A basic object when converted to LESS matches as expected');
 
+      // when converted to SASS
+      var sass = json2css(obj, {'format': 'sass'}),
+          expectedSass = fs.readFileSync(expectedDir + '/sass.sass', 'utf8');
+        // matches as expected
+        test.equal(sass, expectedSass, 'A basic object when converted to SASS matches as expected');
+
+      // when converted to SCSS
+      var scss = json2css(obj, {'format': 'scss'}),
+          expectedScss = fs.readFileSync(expectedDir + '/scss.scss', 'utf8');
+        // matches as expected
+        test.equal(scss, expectedScss, 'A basic object when converted to SCSS matches as expected');
+
     test.done();
   },
   'spritePath': function (test) {
@@ -74,5 +86,26 @@ exports['json2css'] = {
         test.equal(stylus, expectedStylus, 'A basic object with a spritePath when converted to Stylus matches as expected');
 
     test.done();
+  },
+  'validStylus': function (test) {
+    test.expect(1);
+
+    // A basic object
+    var obj = [
+          {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20},
+          {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
+          {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
+        ];
+
+      // when converted to Stylus
+      var styl = json2css(obj, {'format': 'stylus'});
+
+        // produces valid Stylus
+        // TODO: Append some items that will use the variables and functions
+        var stylus = require('stylus');
+        stylus.render(styl, function handleStylus (err, css) {
+          test.equal(null, err);
+          test.done();
+        });
   }
 };
