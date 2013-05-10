@@ -14,31 +14,31 @@ ${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.
 {{/items}}
 
 {{#options.functions}}
-spriteX($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}X($sprite) {
   return $sprite[0];
 }
 
-spriteY($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Y($sprite) {
   return $sprite[1];
 }
 
-spriteOffsetX($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}OffsetX($sprite) {
   return $sprite[2];
 }
 
-spriteOffsetY($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}OffsetY($sprite) {
   return $sprite[3];
 }
 
-spriteWidth($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Width($sprite) {
   return $sprite[4];
 }
 
-spriteHeight($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Height($sprite) {
   return $sprite[5];
 }
 
-spriteBackground() {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Background() {
   {{#options.spritePath}}
   return '{{{options.spritePath}}}';
   {{/options.spritePath}}{{^options.spritePath}}
@@ -46,7 +46,7 @@ spriteBackground() {
   {{/options.spritePath}}
 }
 
-sprite($sprite) {
+sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}($sprite) {
   background-image: url(spriteBackground());
   background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
   width: spriteWidth($sprite);

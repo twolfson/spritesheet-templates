@@ -14,21 +14,21 @@
 {{/items}}
 
 {{#options.functions}}
-  @mixin sprite-width($sprite) {
+  @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-width($sprite) {
     width: nth($sprite, 5);
   }
 
-  @mixin sprite-height($sprite) {
+  @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-height($sprite) {
     height: nth($sprite, 6);
   }
 
-  @mixin sprite-position($sprite) {
+  @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-position($sprite) {
     $sprite-offset-x: nth($sprite, 3);
     $sprite-offset-y: nth($sprite, 4);
     background-position: $sprite-offset-x  $sprite-offset-y;
   }
 
-  @mixin sprite-image() {
+  @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-image() {
     {{#options.spritePath}}
     background-image: url('{{{options.spritePath}}}');
     {{/options.spritePath}}
@@ -37,7 +37,7 @@
     {{/options.spritePath}}
   }
 
-  @mixin sprite($sprite) {
+  @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}($sprite) {
     @include sprite-image();
     @include sprite-position($sprite);
     @include sprite-width($sprite);
