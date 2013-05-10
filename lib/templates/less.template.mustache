@@ -38,9 +38,9 @@
   }
 
   .sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}(@sprite) {
-    .sprite-image();
-    .sprite-position(@sprite);
-    .sprite-width(@sprite);
-    .sprite-height(@sprite);
+    .sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-image();
+    .sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-position(@sprite);
+    .sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-width(@sprite);
+    .sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-height(@sprite);
   }
 {{/options.functions}}

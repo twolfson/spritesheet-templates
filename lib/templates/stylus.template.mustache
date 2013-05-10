@@ -47,9 +47,9 @@ sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Backgr
 }
 
 sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}($sprite) {
-  background-image: url(spriteBackground());
-  background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
-  width: spriteWidth($sprite);
-  height: spriteHeight($sprite);
+  background-image: url(sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Background());
+  background-position: sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}OffsetX($sprite) sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}OffsetY($sprite);
+  width: sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Width($sprite);
+  height: sprite{{#options.spriteName}}{{options.spriteName}}{{/options.spriteName}}Height($sprite);
 }
 {{/options.functions}}

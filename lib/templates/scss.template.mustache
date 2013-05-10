@@ -38,9 +38,9 @@
   }
 
   @mixin sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}($sprite) {
-    @include sprite-image();
-    @include sprite-position($sprite);
-    @include sprite-width($sprite);
-    @include sprite-height($sprite);
+    @include sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-image();
+    @include sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-position($sprite);
+    @include sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-width($sprite);
+    @include sprite{{#options.spriteName}}-{{options.spriteName}}{{/options.spriteName}}-height($sprite);
   }
 {{/options.functions}}
