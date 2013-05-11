@@ -5,7 +5,7 @@ var assert = require('assert'),
     expectedDir = __dirname + '/expected_files';
 
 var less = require('less');
-console.log(less.render('.abc { derp: "b"]; }', console.log));
+console.log(less.render('.abc { derp: "b"; }', console.log));
 
 module.exports = {
   // Common setup/assertion
