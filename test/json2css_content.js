@@ -150,7 +150,7 @@ module.exports = {
       '.feature {',
       '  height: $sprite1-height;',
       '  @include sprite-width($sprite2);',
-      '  @include sprite-image();',
+      '  @include sprite-image($sprite3);',
       '}'
     ].join('\n');
 
