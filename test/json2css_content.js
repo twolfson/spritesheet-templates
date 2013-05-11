@@ -29,10 +29,10 @@ module.exports = {
     }
   },
   'matches as expected': function () {
-    // // Load in the files and assert
-    // var actual = this.result,
-    //     expected = fs.readFileSync(expectedDir  + '/' + this.filename, 'utf8');
-    // assert.strictEqual(actual, expected);
+    // Load in the files and assert
+    var actual = this.result,
+        expected = fs.readFileSync(expectedDir  + '/' + this.filename, 'utf8');
+    assert.strictEqual(actual, expected);
   },
 
   // JSON

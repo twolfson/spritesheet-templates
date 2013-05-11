@@ -4,21 +4,24 @@ $sprite1-offset-x: 0px
 $sprite1-offset-y: 0px
 $sprite1-width: 10px
 $sprite1-height: 20px
-$sprite1: 0px 0px 0px 0px 10px 20px
+$sprite1-image: 'nested/dir/spritesheet.png'
+$sprite1: 0px 0px 0px 0px 10px 20px 'nested/dir/spritesheet.png'
 $sprite2-x: 10px
 $sprite2-y: 20px
 $sprite2-offset-x: -10px
 $sprite2-offset-y: -20px
 $sprite2-width: 20px
 $sprite2-height: 30px
-$sprite2: 10px 20px -10px -20px 20px 30px
+$sprite2-image: 'nested/dir/spritesheet.png'
+$sprite2: 10px 20px -10px -20px 20px 30px 'nested/dir/spritesheet.png'
 $sprite3-x: 30px
 $sprite3-y: 50px
 $sprite3-offset-x: -30px
 $sprite3-offset-y: -50px
 $sprite3-width: 50px
 $sprite3-height: 50px
-$sprite3: 30px 50px -30px -50px 50px 50px
+$sprite3-image: 'nested/dir/spritesheet.png'
+$sprite3: 30px 50px -30px -50px 50px 50px 'nested/dir/spritesheet.png'
 
 @mixin sprite-width($sprite)
   width: nth($sprite, 5)
@@ -31,11 +34,11 @@ $sprite3: 30px 50px -30px -50px 50px 50px
   $sprite-offset-y: nth($sprite, 4)
   background-position: $sprite-offset-x  $sprite-offset-y
 
-@mixin sprite-image()
-  background-image: url('../img/sprites.png')
+@mixin sprite-image($sprite)
+  background-image: url(nth($sprite, 7))
 
 @mixin sprite($sprite)
-  @include sprite-image()
+  @include sprite-image($sprite)
   @include sprite-position($sprite)
   @include sprite-width($sprite)
   @include sprite-height($sprite)
