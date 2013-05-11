@@ -113,20 +113,19 @@ module.exports = {
   }, 'processed via json2css'],
   'is valid SASS': function () {
     // Add some SASS to our result
-    var sassStr = this.result;
+    // var sassStr = this.result;
+    var sassStr = '';
     sassStr += [
       '.feature {',
-      '  height: @sprite1-height;',
-      '  .sprite-width(@sprite2);',
-      '  .sprite-image(@sprite3);',
+      '  color: #FF00FF;',
+      // '  .sprite-width(@sprite2);',
+      // '  .sprite-image(@sprite3);',
       '}'
     ].join('\n');
 
     // Render the LESS, assert no errors, and valid CSS
-    var sass = require('node-sass'),
-        css = sass.renderSync({
-          data: sassStr
-        });
+    var sass = require('sass'),
+        css = sass.render(sassStr);
     assert.notEqual(css, '');
     console.log(css);
   },
