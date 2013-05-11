@@ -12,6 +12,13 @@ module.exports = {
       {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
     ];
   },
+  'processed via json2css': function () {
+    // Convert info into result via json2css
+    var options = this.options,
+        info = this.info,
+        result = options ? json2css(info, options) : json2css(info);
+    this.result = result;
+  },
   'matches as expected': function () {
     // Load in the files and assert
     var actual = this.result,
@@ -20,32 +27,42 @@ module.exports = {
   },
 
   // JSON
-  'processed into JSON': function () {
-  },
+  'processed into JSON': [function () {
+    // No options specified for JSOn
+    this.filename = 'json.json';
+  }, 'processed via json2css'],
   'is valid JSON': function () {
   },
 
   // Stylus
-  'processed into Stylus': function () {
-  },
+  'processed into Stylus': [function () {
+    this.options = {'format': 'stylus'};
+    this.filename = 'stylus.styl';
+  }, 'processed via json2css'],
   'is valid Stylus': function () {
   },
 
   // LESS
-  'processed into LESS': function () {
-  },
+  'processed into LESS': [function () {
+    this.options = {'format': 'less'};
+    this.filename = 'less.less';
+  }, 'processed via json2css'],
   'is valid LESS': function () {
   },
 
   // SASS
-  'processed into SASS': function () {
-  },
+  'processed into SASS': [function () {
+    this.options = {'format': 'sass'};
+    this.filename = 'sass.sass';
+  }, 'processed via json2css'],
   'is valid SASS': function () {
   },
 
   // SCSS
-  'processed into SCSS': function () {
-  },
+  'processed into SCSS': [function () {
+    this.options = {'format': 'scss'};
+    this.filename = 'scss.scss';
+  }, 'processed via json2css'],
   'is valid SCSS': function () {
   }
 };
