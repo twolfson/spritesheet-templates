@@ -15,38 +15,27 @@ ${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.
 {{/items}}
 
 {{#options.functions}}
-spriteX($sprite) {
-  return $sprite[0];
-}
-
-spriteY($sprite) {
-  return $sprite[1];
-}
-
-spriteOffsetX($sprite) {
-  return $sprite[2];
-}
-
-spriteOffsetY($sprite) {
-  return $sprite[3];
-}
-
 spriteWidth($sprite) {
-  return $sprite[4];
+  width: $sprite[4];
 }
 
 spriteHeight($sprite) {
-  return $sprite[5];
+  height: $sprite[5];
 }
 
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+
 spriteImage($sprite) {
-  return $sprite[6];
+  background-image: url($sprite[6]);
 }
 
 sprite($sprite) {
-  background-image: url(spriteImage($sprite));
-  background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
-  width: spriteWidth($sprite);
-  height: spriteHeight($sprite);
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
 }
 {{/options.functions}}
