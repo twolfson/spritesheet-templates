@@ -1,5 +1,6 @@
 var assert = require('assert'),
     fs = require('fs'),
+    parseCss = require('css').parse,
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
@@ -60,11 +61,19 @@ module.exports = {
       '  background-image: url(spriteBackground($sprite3));'
     ].join('\n');
 
-    // Render the stylus and assert no errors
+    // Render the stylus
     var stylus = require('stylus');
     stylus.render(styl, function handleStylus (err, css) {
+      // Assert no errors and validity of CSS
       assert.equal(err, null);
       assert.notEqual(css, '');
+      assert.doesNotThrow(function assertStylusCss() {
+        console.log(css);
+        parseCss(css);
+        console.log(parseCss(css).stylesheet.rules[0]);
+      });
+
+      // Callback
       done(err);
     });
   },
