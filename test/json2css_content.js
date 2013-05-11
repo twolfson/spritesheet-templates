@@ -1,6 +1,5 @@
 var assert = require('assert'),
     fs = require('fs'),
-    csslint = require('csslint').CSSLint,
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
@@ -113,21 +112,26 @@ module.exports = {
   }, 'processed via json2css'],
   'is valid SASS': function () {
     // Add some SASS to our result
-    // var sassStr = this.result;
-    var sassStr = '';
+    var sassStr = this.result;
     sassStr += [
       '.feature {',
-      '  color: #FF00FF;',
-      // '  .sprite-width(@sprite2);',
-      // '  .sprite-image(@sprite3);',
+      '  height: @sprite1-height;',
+      '  .sprite-width(@sprite2);',
+      '  .sprite-image(@sprite3);',
       '}'
     ].join('\n');
 
-    // Render the LESS, assert no errors, and valid CSS
-    var sass = require('sass'),
-        css = sass.render(sassStr);
-    assert.notEqual(css, '');
-    console.log(css);
+    // Render the SASS, assert no errors, and valid CSS
+    var sass = require('node-sass');
+    sass.render(sassStr, function (err, css) {
+      assert.strictEqual(err, null);
+      assert.notEqual(css, '');
+
+      console.log(css);
+
+      // Callback
+      done(err);
+    });
   },
 
   // SCSS
