@@ -64,16 +64,15 @@ module.exports = {
     // Render the stylus
     var stylus = require('stylus');
 
-    var i = 0;
-    console.log('hey');
     stylus.render(styl, function handleStylus (err, css) {
-      console.log('called', i++);
       // Assert no errors and validity of CSS
-      assert.equal(err, null);
+      assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
+      // TODO: Validate CSS
+
       // Callback
-      cb(err);
+      done(err);
     });
   },
 
@@ -96,10 +95,13 @@ module.exports = {
     // Render the LESS, assert no errors, and valid CSS
     var less = require('less');
     less.render(lessStr, function (err, css) {
-      assert.equal(err, null);
+      assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
-      // TODO: Verify there are no braces
+      // Verify there are no braces in the CSS (array string coercion)
+      assert.strictEqual(css.indexOf(']'), -1);
+
+      // Callback
       done(err);
     });
   },
