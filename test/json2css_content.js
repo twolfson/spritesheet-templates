@@ -4,9 +4,6 @@ var assert = require('assert'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
-var less = require('less');
-console.log(less.render('.abc { derp: "b"; }', console.log));
-
 module.exports = {
   // Common setup/assertion
   'An array of image positions, dimensions, and names': function () {
@@ -61,22 +58,22 @@ module.exports = {
       '.feature',
       '  height: $sprite1_height;',
       '  width: spriteWidth($sprite2);',
-      '  background-image: url(spriteBackground($sprite3));'
+      '  background-image: url(spriteImage($sprite3));'
     ].join('\n');
 
     // Render the stylus
     var stylus = require('stylus');
+
+    var i = 0;
+    console.log('hey');
     stylus.render(styl, function handleStylus (err, css) {
+      console.log('called', i++);
       // Assert no errors and validity of CSS
       assert.equal(err, null);
       assert.notEqual(css, '');
-      assert.doesNotThrow(function assertStylusCss() {
-        // console.log(csslint.verify(css));
-
-        done(err);
-      });
 
       // Callback
+      cb(err);
     });
   },
 
