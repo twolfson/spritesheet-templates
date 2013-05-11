@@ -70,6 +70,8 @@ module.exports = {
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
+      console.log('Stylus', css);
+
       // TODO: Validate CSS
 
       // Callback
@@ -99,6 +101,8 @@ module.exports = {
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
+      console.log('LESS', css);
+
       // Verify there are no braces in the CSS (array string coercion)
       assert.strictEqual(css.indexOf(']'), -1);
 
@@ -119,7 +123,7 @@ module.exports = {
       '.feature',
       '  height: $sprite1-height',
       '  @include sprite-width($sprite2)',
-      '  @include sprite-image()'
+      '  @include sprite-image($sprite3)'
     ].join('\n');
 
     // Render the SASS, assert no errors, and valid CSS
@@ -129,6 +133,7 @@ module.exports = {
       assert.strictEqual(stderr, '');
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
+      console.log('SASS', css);
       done(err);
     });
   },
@@ -156,7 +161,7 @@ module.exports = {
       assert.strictEqual(stderr, '');
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
-      console.log(css);
+      console.log('SCSS', css);
       done(err);
     });
   }
