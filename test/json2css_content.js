@@ -1,8 +1,11 @@
 var assert = require('assert'),
     fs = require('fs'),
-    parseCss = require('css').parse,
+    csslint = require('csslint').CSSLint,
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
+
+var ycssmin = require('ycssmin');
+console.log(ycssmin);
 
 module.exports = {
   // Common setup/assertion
@@ -68,13 +71,12 @@ module.exports = {
       assert.equal(err, null);
       assert.notEqual(css, '');
       assert.doesNotThrow(function assertStylusCss() {
-        console.log(css);
-        parseCss(css);
-        console.log(parseCss(css).stylesheet.rules[0]);
+        console.log(csslint.verify(css));
+
+        done(err);
       });
 
       // Callback
-      done(err);
     });
   },
 
