@@ -85,11 +85,13 @@ module.exports = {
       '}'
     ].join('\n');
 
-    // Render the LESS and assert no errors
+    // Render the LESS, assert no errors, and valid CSS
     var less = require('less');
     less.render(lessStr, function (err, css) {
       assert.equal(err, null);
       assert.notEqual(css, '');
+
+      // TODO: Verify there are no braces
       done(err);
     });
   },

@@ -20,7 +20,7 @@
   }
 
   .sprite-height(@sprite) {
-    height: ~`"@{sprite}".split(', ')[5].slice(0, -1)`;
+    height: ~`"@{sprite}".split(', ')[5]`;
   }
 
   .sprite-position(@sprite) {
@@ -30,8 +30,9 @@
   }
 
   .sprite-image(@sprite) {
-    @sprite-image: ~`"@{sprite}".split(', ')[6]`;
-    background-image: @sprite-image;
+    {{! DEV: We perform a slice due to a trailing brace from string coercion of arrays }}
+    @sprite-image: ~`"@{sprite}".split(', ')[6].slice(0, -1)`;
+    background-image: url(@sprite-image);
   }
 
   .sprite(@sprite) {
