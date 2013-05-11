@@ -4,21 +4,24 @@
   @sprite1-offset-y: 0px;
   @sprite1-width: 10px;
   @sprite1-height: 20px;
-  @sprite1: 0px 0px 0px 0px 10px 20px;
+  @sprite1-image: 'nested/dir/spritesheet.png';
+  @sprite1: 0px 0px 0px 0px 10px 20px 'nested/dir/spritesheet.png';
   @sprite2-x: 10px;
   @sprite2-y: 20px;
   @sprite2-offset-x: -10px;
   @sprite2-offset-y: -20px;
   @sprite2-width: 20px;
   @sprite2-height: 30px;
-  @sprite2: 10px 20px -10px -20px 20px 30px;
+  @sprite2-image: 'nested/dir/spritesheet.png';
+  @sprite2: 10px 20px -10px -20px 20px 30px 'nested/dir/spritesheet.png';
   @sprite3-x: 30px;
   @sprite3-y: 50px;
   @sprite3-offset-x: -30px;
   @sprite3-offset-y: -50px;
   @sprite3-width: 50px;
   @sprite3-height: 50px;
-  @sprite3: 30px 50px -30px -50px 50px 50px;
+  @sprite3-image: 'nested/dir/spritesheet.png';
+  @sprite3: 30px 50px -30px -50px 50px 50px 'nested/dir/spritesheet.png';
 
   .sprite-width(@sprite) {
     width: ~`"@{sprite}".split(', ')[4]`;
@@ -34,12 +37,13 @@
     background-position: @sprite-offset-x  @sprite-offset-y;
   }
 
-  .sprite-image() {
-      background-image: url('../img/sprites.png');
+  .sprite-image(@sprite) {
+    @sprite-image: ~`"@{sprite}".split(', ')[6]`;
+    background-image: @sprite-image;
   }
 
   .sprite(@sprite) {
-    .sprite-image();
+    .sprite-image(@sprite);
     .sprite-position(@sprite);
     .sprite-width(@sprite);
     .sprite-height(@sprite);

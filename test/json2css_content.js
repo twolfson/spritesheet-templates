@@ -7,12 +7,9 @@ module.exports = {
   // Common setup/assertion
   'An array of image positions, dimensions, and names': function () {
     this.info = [
-      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20},
-      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
-      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
-      // {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'image': 'nested/dir/spritesheet.png'},
-      // {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'image': 'nested/dir/spritesheet.png'},
-      // {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/spritesheet.png'}
+      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/spritesheet.png'}
     ];
   },
   'processed via json2css': function () {
@@ -66,7 +63,7 @@ module.exports = {
     // Render the stylus and assert no errors
     var stylus = require('stylus');
     stylus.render(styl, function handleStylus (err, css) {
-      assert.notEqual(err, null);
+      assert.equal(err, null);
       assert.notEqual(css, '');
       done(err);
     });
@@ -77,7 +74,7 @@ module.exports = {
     this.options = {'format': 'less'};
     this.filename = 'less.less';
   }, 'processed via json2css'],
-  'is valid LESS': function () {
+  'is valid LESS': function (done) {
     // Add some LESS to our result
     var lessStr = this.result;
     lessStr += [
@@ -91,7 +88,7 @@ module.exports = {
     // Render the LESS and assert no errors
     var less = require('less');
     less.render(lessStr, function (err, css) {
-      assert.notEqual(err, null);
+      assert.equal(err, null);
       assert.notEqual(css, '');
       done(err);
     });
