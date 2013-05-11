@@ -1,5 +1,7 @@
 var assert = require('assert'),
     fs = require('fs'),
+    exec = require('child_process').exec,
+    Tempfile = require('temporary/lib/file'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
@@ -113,7 +115,7 @@ module.exports = {
   'is valid SASS': function (done) {
     // Add some SASS to our result
     var sassStr = this.result;
-    sassStr += [
+    sassStr += '\n' + [
       '.feature',
       '  height: $sprite1-height',
       '  @include sprite-width($sprite2)',
@@ -121,14 +123,12 @@ module.exports = {
     ].join('\n');
 
     // Render the SASS, assert no errors, and valid CSS
-    var sass = require('node-sass');
-    sass.render(sassStr, function (err, css) {
-      console.log(err, css);
+    var tmp = new Tempfile();
+    tmp.writeFileSync(sassStr);
+    exec('sass ' + tmp.path, function (err, css, stderr) {
+      assert.strictEqual(stderr, '');
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
-
-
-      // Callback
       done(err);
     });
   },
@@ -138,6 +138,26 @@ module.exports = {
     this.options = {'format': 'scss'};
     this.filename = 'scss.scss';
   }, 'processed via json2css'],
-  'is valid SCSS': function () {
+  'is valid SCSS': function (done) {
+    // Add some SCSS to our result
+    var scssStr = this.result;
+    scssStr += '\n' + [
+      '.feature {',
+      '  height: $sprite1-height;',
+      '  @include sprite-width($sprite2);',
+      '  @include sprite-image();',
+      '}'
+    ].join('\n');
+
+    // Render the SCSS, assert no errors, and valid CSS
+    var tmp = new Tempfile();
+    tmp.writeFileSync(scssStr);
+    exec('sass --scss ' + tmp.path, function (err, css, stderr) {
+      assert.strictEqual(stderr, '');
+      assert.strictEqual(err, null);
+      assert.notEqual(css, '');
+      console.log(css);
+      done(err);
+    });
   }
 };
