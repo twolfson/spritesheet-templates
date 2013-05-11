@@ -43,7 +43,7 @@ module.exports = {
   },
   'is deep equal to expected': function () {
     // Load in the files and assert
-    var actual = this.result,
+    var actual = JSON.parse(this.result),
         expected = require(expectedDir  + '/' + this.filename, 'utf8');
     assert.deepEqual(actual, expected);
   },
