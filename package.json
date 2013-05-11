@@ -30,7 +30,8 @@
   },
   "devDependencies": {
     "grunt": "~0.3.12",
-    "stylus": "~0.32.0"
+    "stylus": "~0.32.0",
+    "doubleshot": "~1.0.2"
   },
   "keywords": [
     "json",
