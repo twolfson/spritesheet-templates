@@ -1,7 +1,7 @@
 {
   "name": "json2css",
   "description": "Convert JSON into pre-processor ready CSS",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "homepage": "https://github.com/twolfson/json2css",
   "author": {
     "name": "Todd Wolfson",
