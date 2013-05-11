@@ -110,24 +110,23 @@ module.exports = {
     this.options = {'format': 'sass'};
     this.filename = 'sass.sass';
   }, 'processed via json2css'],
-  'is valid SASS': function () {
+  'is valid SASS': function (done) {
     // Add some SASS to our result
     var sassStr = this.result;
     sassStr += [
-      '.feature {',
-      '  height: @sprite1-height;',
-      '  .sprite-width(@sprite2);',
-      '  .sprite-image(@sprite3);',
-      '}'
+      '.feature',
+      '  height: $sprite1-height',
+      '  @include sprite-width($sprite2)',
+      '  @include sprite-image()'
     ].join('\n');
 
     // Render the SASS, assert no errors, and valid CSS
     var sass = require('node-sass');
     sass.render(sassStr, function (err, css) {
+      console.log(err, css);
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
-      console.log(css);
 
       // Callback
       done(err);
