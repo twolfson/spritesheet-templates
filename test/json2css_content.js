@@ -112,6 +112,23 @@ module.exports = {
     this.filename = 'sass.sass';
   }, 'processed via json2css'],
   'is valid SASS': function () {
+    // Add some SASS to our result
+    var sassStr = this.result;
+    sassStr += [
+      '.feature {',
+      '  height: @sprite1-height;',
+      '  .sprite-width(@sprite2);',
+      '  .sprite-image(@sprite3);',
+      '}'
+    ].join('\n');
+
+    // Render the LESS, assert no errors, and valid CSS
+    var sass = require('node-sass'),
+        css = sass.renderSync({
+          data: sassStr
+        });
+    assert.notEqual(css, '');
+    console.log(css);
   },
 
   // SCSS
