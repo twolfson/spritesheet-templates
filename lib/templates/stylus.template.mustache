@@ -38,7 +38,7 @@ spriteHeight($sprite) {
   return $sprite[5];
 }
 
-spriteBackground() {
+spriteImage() {
   {{#options.spritePath}}
   return '{{{options.spritePath}}}';
   {{/options.spritePath}}{{^options.spritePath}}
@@ -47,7 +47,7 @@ spriteBackground() {
 }
 
 sprite($sprite) {
-  background-image: url(spriteBackground());
+  background-image: url(spriteImage());
   background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
   width: spriteWidth($sprite);
   height: spriteHeight($sprite);

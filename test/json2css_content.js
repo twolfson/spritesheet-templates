@@ -60,12 +60,14 @@ module.exports = {
       '.feature',
       '  height: $sprite1_height;',
       '  width: spriteWidth($sprite2);',
-      '  background-image: url(spriteBackground());'
+      '  background-image: url(spriteBackground($sprite3));'
     ].join('\n');
 
     // Render the stylus and assert no errors
     var stylus = require('stylus');
     stylus.render(styl, function handleStylus (err, css) {
+      assert.notEqual(err, null);
+      assert.notEqual(css, '');
       done(err);
     });
   },
@@ -76,6 +78,23 @@ module.exports = {
     this.filename = 'less.less';
   }, 'processed via json2css'],
   'is valid LESS': function () {
+    // Add some LESS to our result
+    var lessStr = this.result;
+    lessStr += [
+      '.feature {',
+      '  height: @sprite1_height;',
+      '  width: sprite-width(@sprite2);',
+      '  background-image: url(sprite-image(@sprite3));',
+      '}'
+    ].join('\n');
+
+    // Render the LESS and assert no errors
+    var less = require('less');
+    less.render(lessStr, function (err, css) {
+      assert.notEqual(err, null);
+      assert.notEqual(css, '');
+      done(err);
+    });
   },
 
   // SASS
