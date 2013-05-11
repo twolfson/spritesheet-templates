@@ -4,8 +4,8 @@ var assert = require('assert'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
-var ycssmin = require('ycssmin');
-console.log(ycssmin.cssmin('.abc { derp: "b"]; }'));
+var less = require('less');
+console.log(less.render('.abc { derp: "b"]; }', console.log));
 
 module.exports = {
   // Common setup/assertion
