@@ -28,7 +28,7 @@ module.exports = {
 
   // JSON
   'processed into JSON': [function () {
-    // No options specified for JSOn
+    this.options = null;
     this.filename = 'json.json';
   }, 'processed via json2css'],
   'is valid JSON': function () {
