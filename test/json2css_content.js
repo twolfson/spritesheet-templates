@@ -7,9 +7,9 @@ module.exports = {
   // Common setup/assertion
   'An array of image positions, dimensions, and names': function () {
     this.info = [
-      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20},
-      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30},
-      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50}
+      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'path': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'path': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'path': 'nested/dir/spritesheet.png'}
     ];
   },
   'processed via json2css': function () {
@@ -18,6 +18,13 @@ module.exports = {
         info = this.info,
         result = options ? json2css(info, options) : json2css(info);
     this.result = result;
+
+    // If we are debugging, output results to a file
+    if (true) {
+    // if (false) {
+      try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
+      fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
+    }
   },
   'matches as expected': function () {
     // Load in the files and assert
