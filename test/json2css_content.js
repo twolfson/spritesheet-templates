@@ -32,6 +32,10 @@ module.exports = {
     this.filename = 'json.json';
   }, 'processed via json2css'],
   'is valid JSON': function () {
+    var result = this.result;
+    assert.doesNotThrow(function () {
+      JSON.parse(result);
+    });
   },
 
   // Stylus
@@ -39,7 +43,21 @@ module.exports = {
     this.options = {'format': 'stylus'};
     this.filename = 'stylus.styl';
   }, 'processed via json2css'],
-  'is valid Stylus': function () {
+  'is valid Stylus': function (done) {
+    // Add some stylus which hooks into our result
+    var styl = this.result;
+    styl += [
+      '.feature',
+      '  height: $sprite1_height;',
+      '  width: spriteWidth($sprite2);',
+      '  background-image: url(spriteBackground());'
+    ].join('\n');
+
+    // Render the stylus and assert no errors
+    var stylus = require('stylus');
+    stylus.render(styl, function handleStylus (err, css) {
+      done(err);
+    });
   },
 
   // LESS
