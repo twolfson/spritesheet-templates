@@ -49,14 +49,16 @@ json2css is a single function repo
 ```js
 /**
  * @param {Object|Object[]} input Object to convert into CSS
- * @param {String} input.name Name to use for the image (if input is an object, the key will be the name by default)
+ * @param {String} input.name Name to use for the image
+ *                 If input is an object, the key will be the name by default
  * @param {Number} input.x Horizontal coordinate of top-left corner of image
  * @param {Number} input.y Vertical coordinate of top-left corner of image
  * @param {Number} input.width Horizontal length of image
  * @param {Number} input.height Vertical length of image
  * @param {Number} input.image Path to image itself (used as a URL component)
  * @param {Object} [options] Options to convert JSON with
- * @param {String} [options.format=json] Format to output json in (Available: json, less, sass, scss, stylus)
+ * @param {String} [options.format=json] Format to output json in
+ *                                       Available: json, less, sass, scss, stylus
  * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
  */
 ```
