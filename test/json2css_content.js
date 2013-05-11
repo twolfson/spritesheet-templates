@@ -5,7 +5,7 @@ var assert = require('assert'),
     expectedDir = __dirname + '/expected_files';
 
 var ycssmin = require('ycssmin');
-console.log(ycssmin);
+console.log(ycssmin.cssmin('.abc { derp: "b"]; }'));
 
 module.exports = {
   // Common setup/assertion
@@ -71,7 +71,7 @@ module.exports = {
       assert.equal(err, null);
       assert.notEqual(css, '');
       assert.doesNotThrow(function assertStylusCss() {
-        console.log(csslint.verify(css));
+        // console.log(csslint.verify(css));
 
         done(err);
       });
