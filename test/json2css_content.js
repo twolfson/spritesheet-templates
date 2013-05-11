@@ -79,9 +79,9 @@ module.exports = {
     var lessStr = this.result;
     lessStr += [
       '.feature {',
-      '  height: @sprite1_height;',
-      '  width: sprite-width(@sprite2);',
-      '  background-image: url(sprite-image(@sprite3));',
+      '  height: @sprite1-height;',
+      '  .sprite-width(@sprite2);',
+      '  .sprite-image(@sprite3);',
       '}'
     ].join('\n');
 
