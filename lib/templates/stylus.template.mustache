@@ -10,7 +10,8 @@ ${{name}}_offset_x = {{px.offset_x}};
 ${{name}}_offset_y = {{px.offset_y}};
 ${{name}}_width = {{px.width}};
 ${{name}}_height = {{px.height}};
-${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}};
+${{name}}_image = '{{{image}}}';
+${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} '{{{image}}}';
 {{/items}}
 
 {{#options.functions}}
@@ -38,16 +39,12 @@ spriteHeight($sprite) {
   return $sprite[5];
 }
 
-spriteImage() {
-  {{#options.spritePath}}
-  return '{{{options.spritePath}}}';
-  {{/options.spritePath}}{{^options.spritePath}}
-  return '../img/sprites.png';
-  {{/options.spritePath}}
+spriteImage($sprite) {
+  return $sprite[6];
 }
 
 sprite($sprite) {
-  background-image: url(spriteImage());
+  background-image: url(spriteImage($sprite));
   background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
   width: spriteWidth($sprite);
   height: spriteHeight($sprite);
