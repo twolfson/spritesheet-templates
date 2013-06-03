@@ -29,8 +29,8 @@ module.exports = {
     this.result = result;
 
     // If we are debugging, output results to a file
-    if (true) {
-    // if (false) {
+    // if (true) {
+    if (false) {
       try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
       fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
     }
@@ -58,6 +58,22 @@ module.exports = {
     assert.doesNotThrow(function () {
       JSON.parse(result);
     });
+  },
+
+  // CSS
+  'processed into CSS': [function () {
+    this.options = {'format': 'css'};
+    this.filename = 'css.css';
+  }, 'processed via json2css'],
+  'is valid CSS': function () {
+    // Add some stylus which hooks into our result
+    var css = this.result;
+
+    // Assert no errors and validity of CSS
+    assert.notEqual(css, '');
+
+    // TODO: Validate CSS
+    console.log('CSS', css);
   },
 
   // Stylus

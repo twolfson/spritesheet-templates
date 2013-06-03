@@ -4,6 +4,10 @@ module.exports = {
       'matches as expected': true,
       'is valid JSON': true
     },
+    'processed into CSS': {
+      'matches as expected': true,
+      'is valid CSS': true
+    },
     'processed into Stylus': {
       'matches as expected': true,
       'is valid Stylus': true
