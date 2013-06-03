@@ -31,7 +31,8 @@
   "dependencies": {
     "mustache": "~0.7.0",
     "underscore": "~1.4.2",
-    "json-content-demux": "~0.1.2"
+    "json-content-demux": "~0.1.2",
+    "walrus": "~0.10.1"
   },
   "devDependencies": {
     "grunt": "~0.3.12",

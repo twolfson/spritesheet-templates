@@ -1,9 +1,8 @@
-{{!TODO: Optimize repetition of background-image}}
-{{#items}}
+{{:each items do}}
 {{class}} {
-  background-image: url('{{{image}}}');
+  background-image: url('{{=image}}');
   background-position: {{px.offset_x}} {{px.offset_y}};
   width: {{px.width}};
   height: {{px.height}};
 }
-{{/items}}
+{{end}}
