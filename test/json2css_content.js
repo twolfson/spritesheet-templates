@@ -29,8 +29,8 @@ module.exports = {
     this.result = result;
 
     // If we are debugging, output results to a file
-    if (true) {
-    // if (false) {
+    // if (true) {
+    if (false) {
       try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
       fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
     }
@@ -73,7 +73,7 @@ module.exports = {
     assert.notEqual(css, '');
 
     // TODO: Validate CSS
-    console.log('CSS', css);
+    // console.log('CSS', css);
   },
 
   // Stylus
