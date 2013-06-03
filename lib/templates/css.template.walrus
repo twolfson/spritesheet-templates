@@ -1,3 +1,12 @@
+{{:each items | :before(1) do}}
+{{class}},
+{{end}}
+{{:each items | :last do}}
+{{class}}
+{{end}} {
+  background-image: url('{{=image}}');
+}
+
 {{:each items do}}
 {{class}} {
   background-image: url('{{=image}}');
