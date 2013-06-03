@@ -57,7 +57,7 @@ json2css is a single function repo
  * @param {Number} input.height Vertical length of image
  * @param {Number} input.image Path to image itself (used as a URL component)
  * @param {Object} [options] Options to convert JSON with
- * @param {String} [options.format=json] Format to output json in
+ * @param {String} [options.format=css] Format to output json in
  *                                       Available: json, css, less, sass, scss, stylus
  * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
  */
