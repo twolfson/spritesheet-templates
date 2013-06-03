@@ -50,7 +50,7 @@ module.exports = {
 
   // JSON
   'processed into JSON': [function () {
-    this.options = null;
+    this.options = {'format': 'json'};
     this.filename = 'json.json';
   }, 'processed via json2css'],
   'is valid JSON': function () {
@@ -62,7 +62,7 @@ module.exports = {
 
   // CSS
   'processed into CSS': [function () {
-    this.options = {'format': 'css'};
+    this.options = null;
     this.filename = 'css.css';
   }, 'processed via json2css'],
   'is valid CSS': function () {
