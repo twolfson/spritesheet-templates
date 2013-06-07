@@ -23,6 +23,9 @@ module.exports = {
     'processed into SCSS': {
       'matches as expected': true,
       'is valid SCSS': true
+    },
+    'processed into SCSS with size': {
+      'is valid SCSS': true
     }
   },
   'An object of image positions and dimensions keyed by names': {

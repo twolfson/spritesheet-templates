@@ -1,8 +1,20 @@
 {
   // Default options
-  'functions': true
+  'functions': true,
+  'size': false
 }
 
+{{#options.size}}
+{{#options.name}}
+  ${{options.name}}_total_height: {{options.size.height}}px;
+  ${{options.name}}_total_width: {{options.size.width}}px;
+{{/options.name}}
+{{^options.name}}
+  $total_height: {{options.size.height}}px;
+  $total_width: {{options.size.width}}px;
+{{/options.name}}
+
+{{/options.size}}
 {{#items}}
 ${{name}}_x = {{px.x}};
 ${{name}}_y = {{px.y}};
