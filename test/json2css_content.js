@@ -19,7 +19,7 @@ module.exports = {
     this.info = {
       'sprite1': {'x': 0, 'y': 0, 'width': 10, 'height': 20, 'image': 'nested/dir/spritesheet.png'},
       'sprite2': {'x': 10, 'y': 20, 'width': 20, 'height': 30, 'image': 'nested/dir/spritesheet.png'},
-      'sprite3': {'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/spritesheet.png'}
+      'sprite3': {'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/( \'")/spritesheet.png'}
     };
   },
   'processed via json2css': function () {
@@ -30,8 +30,8 @@ module.exports = {
     this.result = result;
 
     // If we are debugging, output results to a file
-    // if (true) {
-    if (false) {
+    if (true) {
+    // if (false) {
       try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
       fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
     }
