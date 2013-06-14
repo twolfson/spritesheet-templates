@@ -136,7 +136,7 @@ module.exports = {
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
-      // console.log('LESS', css);
+      console.log('LESS', css);
 
       // Verify there are no braces in the CSS (array string coercion)
       assert.strictEqual(css.indexOf(']'), -1);

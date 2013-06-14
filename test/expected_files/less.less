@@ -38,7 +38,7 @@
   }
 
   .sprite-image(@sprite) {
-    @sprite-image: ~`"@{sprite}".split(', ')[6].slice(0, -1)`;
+    @sprite-image: ~`"@{sprite}".split(', ')[6].slice(1, -2)`;
     background-image: url(@sprite-image);
   }
 
