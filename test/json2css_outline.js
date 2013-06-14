@@ -8,10 +8,10 @@ module.exports = {
       'matches as expected': true,
       'is valid CSS': true
     },
-    // 'processed into Stylus': {
-    //   'matches as expected': true,
-    //   'is valid Stylus': true
-    // },
+    'processed into Stylus': {
+      'matches as expected': true,
+      'is valid Stylus': true
+    },
     'processed into LESS': {
       'matches as expected': true,
       'is valid LESS': true
