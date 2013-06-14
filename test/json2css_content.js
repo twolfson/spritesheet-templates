@@ -104,7 +104,7 @@ module.exports = {
       assert.notEqual(css, '');
 
       // TODO: Validate CSS
-      console.log('Stylus', css);
+      // console.log('Stylus', css);
 
       // Callback
       done(err);
