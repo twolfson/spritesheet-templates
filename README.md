@@ -1,4 +1,4 @@
-# json2css
+# json2css [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
 
 Convert JSON into pre-processor ready CSS.
 
