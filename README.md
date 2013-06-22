@@ -55,6 +55,8 @@ json2css is a single function repo
  * @param {Number} input.y Vertical coordinate of top-left corner of image
  * @param {Number} input.width Horizontal length of image
  * @param {Number} input.height Vertical length of image
+ * @param {Number} input.total_width Horizontal length of spritesheet
+ * @param {Number} input.total_height Vertical length of spritesheet
  * @param {Number} input.image Path to image itself (used as a URL component)
  * @param {Object} [options] Options to convert JSON with
  * @param {String} [options.format=css] Format to output json in
