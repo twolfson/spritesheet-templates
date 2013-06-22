@@ -10,16 +10,16 @@ module.exports = {
   'An array of image positions, dimensions, and names': function () {
     // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
     this.info = [
-      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/( \'")/spritesheet.png'}
+      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/( \'")/spritesheet.png'}
     ];
   },
   'An object of image positions and dimensions keyed by names': function () {
     this.info = {
-      'sprite1': {'x': 0, 'y': 0, 'width': 10, 'height': 20, 'image': 'nested/dir/spritesheet.png'},
-      'sprite2': {'x': 10, 'y': 20, 'width': 20, 'height': 30, 'image': 'nested/dir/spritesheet.png'},
-      'sprite3': {'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'nested/dir/( \'")/spritesheet.png'}
+      'sprite1': {'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/spritesheet.png'},
+      'sprite2': {'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/spritesheet.png'},
+      'sprite3': {'x': 30, 'y': 50, 'width': 50, 'height': 50, 'total-width': 80, 'total-height': 100, 'image': 'nested/dir/( \'")/spritesheet.png'}
     };
   },
   'processed via json2css': function () {
