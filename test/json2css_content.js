@@ -233,7 +233,6 @@ module.exports = {
     // Render the SCSS, assert no errors, and valid CSS
     var tmp = new Tempfile();
     tmp.writeFileSync(scssStr);
-    console.log(scssStr);
     exec('sass --scss ' + tmp.path, function (err, css, stderr) {
       assert.strictEqual(stderr, '');
       assert.strictEqual(err, null);
