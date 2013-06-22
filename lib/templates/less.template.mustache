@@ -3,10 +3,6 @@
   'functions': true
 }
 
-{{#options.size}}
-{{/options.name}}
-
-{{/options.size}}
 {{#items}}
   @{{name}}-x: {{px.x}};
   @{{name}}-y: {{px.y}};
@@ -16,8 +12,8 @@
   @{{name}}-height: {{px.height}};
   @{{name}}-total-width: {{px.total_width}};
   @{{name}}-total-height: {{px.total_height}};
-  @{{name}}-image: '{{{image}}}';
-  @{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total-width}} {{px.total-height}} '{{{image}}}';
+  @{{name}}-image: '{{{escaped_image}}}';
+  @{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total-width}} {{px.total-height}} '{{{escaped_image}}}';
 {{/items}}
 
 {{#options.functions}}
@@ -37,7 +33,7 @@
 
   .sprite-image(@sprite) {
     {{! DEV: We perform a slice due to a trailing brace from string coercion of arrays }}
-    @sprite-image: ~`"@{sprite}".split(', ')[8].slice(0, -1)`;
+    @sprite-image: ~`"@{sprite}".split(', ')[8].slice(1, -2)`;
     background-image: url(@sprite-image);
   }
 

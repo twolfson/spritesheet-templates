@@ -113,6 +113,13 @@ sprite($sprite) {
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
 
+## Changelog
+3.1.0 - Moved all templates to `escaped_image` to allow for safely escaped and some quote-free URLs
+
+3.0.0 - Moved `css` as the default engine
+
+Before 3.0.0 - See commit logs
+
 ## License
 Copyright (c) 2012 Todd Wolfson
 

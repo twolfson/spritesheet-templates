@@ -1,7 +1,7 @@
 {
   "name": "json2css",
   "description": "Convert JSON into pre-processor ready CSS",
-  "version": "3.0.0",
+  "version": "3.1.1",
   "homepage": "https://github.com/twolfson/json2css",
   "author": {
     "name": "Todd Wolfson",
@@ -31,8 +31,7 @@
   "dependencies": {
     "mustache": "~0.7.0",
     "underscore": "~1.4.2",
-    "json-content-demux": "~0.1.2",
-    "walrus": "~0.10.1"
+    "json-content-demux": "~0.1.2"
   },
   "devDependencies": {
     "grunt": "~0.3.12",
