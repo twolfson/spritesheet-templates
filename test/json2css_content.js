@@ -207,38 +207,5 @@ module.exports = {
       // console.log('SCSS', css);
       done(err);
     });
-  },
-
-  // SCSS with size
-  'processed into SCSS with size': [function () {
-    this.options = {'format': 'scss'};
-    this.options.formatOpts = {'size': {'height': '100', 'width': '50'}, 'name': 'spriteName'};
-    this.filename = 'scss.scss';
-  }, 'processed via json2css'],
-  'is valid SCSS': function (done) {
-    // Add some SCSS to our result
-    var scssStr = this.result;
-    scssStr += '\n' + [
-      '.feature {',
-      '  height: $sprite1-height;',
-      '  @include sprite-width($sprite2);',
-      '  @include sprite-image($sprite3);',
-      '}',
-      '',
-      '.feature2 {',
-      '  @include sprite($sprite2);',
-      '}'
-    ].join('\n');
-
-    // Render the SCSS, assert no errors, and valid CSS
-    var tmp = new Tempfile();
-    tmp.writeFileSync(scssStr);
-    exec('sass --scss ' + tmp.path, function (err, css, stderr) {
-      assert.strictEqual(stderr, '');
-      assert.strictEqual(err, null);
-      assert.notEqual(css, '');
-      // console.log('SCSS', css);
-      done(err);
-    });
   }
 };
