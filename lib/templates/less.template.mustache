@@ -1,17 +1,9 @@
 {
   // Default options
-  'functions': true,
-  'size': false
+  'functions': true
 }
 
 {{#options.size}}
-{{#options.name}}
-  @{{options.name}}-total-height: {{options.size.height}}px;
-  @{{options.name}}-total-width: {{options.size.width}}px;
-{{/options.name}}
-{{^options.name}}
-  @total-height: {{options.size.height}}px;
-  @total-width: {{options.size.width}}px;
 {{/options.name}}
 
 {{/options.size}}
@@ -22,8 +14,10 @@
   @{{name}}-offset-y: {{px.offset_y}};
   @{{name}}-width: {{px.width}};
   @{{name}}-height: {{px.height}};
+  @{{name}}-total-width: {{px.total_width}};
+  @{{name}}-total-height: {{px.total_height}};
   @{{name}}-image: '{{{image}}}';
-  @{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} '{{{image}}}';
+  @{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total-width}} {{px.total-height}} '{{{image}}}';
 {{/items}}
 
 {{#options.functions}}
@@ -43,7 +37,7 @@
 
   .sprite-image(@sprite) {
     {{! DEV: We perform a slice due to a trailing brace from string coercion of arrays }}
-    @sprite-image: ~`"@{sprite}".split(', ')[6].slice(0, -1)`;
+    @sprite-image: ~`"@{sprite}".split(', ')[8].slice(0, -1)`;
     background-image: url(@sprite-image);
   }
 

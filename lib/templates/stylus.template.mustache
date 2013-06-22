@@ -1,20 +1,8 @@
 {
   // Default options
-  'functions': true,
-  'size': false
+  'functions': true
 }
 
-{{#options.size}}
-{{#options.name}}
-  ${{options.name}}_total_height: {{options.size.height}}px;
-  ${{options.name}}_total_width: {{options.size.width}}px;
-{{/options.name}}
-{{^options.name}}
-  $total_height: {{options.size.height}}px;
-  $total_width: {{options.size.width}}px;
-{{/options.name}}
-
-{{/options.size}}
 {{#items}}
 ${{name}}_x = {{px.x}};
 ${{name}}_y = {{px.y}};
@@ -22,8 +10,10 @@ ${{name}}_offset_x = {{px.offset_x}};
 ${{name}}_offset_y = {{px.offset_y}};
 ${{name}}_width = {{px.width}};
 ${{name}}_height = {{px.height}};
+${{name}}_total_width: {{px.total_width}};
+${{name}}_total_height: {{px.total_height}};
 ${{name}}_image = '{{{image}}}';
-${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} '{{{image}}}';
+${{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{image}}}';
 {{/items}}
 
 {{#options.functions}}
@@ -40,7 +30,7 @@ spritePosition($sprite) {
 }
 
 spriteImage($sprite) {
-  background-image: url($sprite[6]);
+  background-image: url($sprite[8]);
 }
 
 sprite($sprite) {
