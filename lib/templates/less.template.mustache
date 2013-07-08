@@ -43,4 +43,19 @@
     .sprite-width(@sprite);
     .sprite-height(@sprite);
   }
+
+  .sprite-background-size(@sprite) {
+    @total-width: ~`"@{sprite}".split(', ')[6]`;
+    @total-height: ~`"@{sprite}".split(', ')[7]`;
+    background-size: @total-width @total-height;
+  }
+
+  {{! DEV: To use this, you must generate two identical spritesheets. One with each image at 2x resolution and one with each image at 1x resolution }}
+  .sprite-2x(@sprite2x, @sprite1x) {
+    .sprite(@sprite2x);
+    .sprite-position(@sprite1x);
+    .sprite-width(@sprite1x);
+    .sprite-height(@sprite1x);
+    .sprite-background-size(@sprite1x);
+  }
 {{/options.functions}}

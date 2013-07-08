@@ -33,10 +33,22 @@ spriteImage($sprite) {
   background-image: url($sprite[8]);
 }
 
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
 sprite($sprite) {
   spriteImage($sprite)
   spritePosition($sprite)
   spriteWidth($sprite)
   spriteHeight($sprite)
+}
+
+sprite2x($sprite2x, $sprite1x) {
+  sprite($sprite2x)
+  sprite-position($sprite1x)
+  sprite-width($sprite1x)
+  sprite-height($sprite1x)
+  sprite-background-size($sprite1x)
 }
 {{/options.functions}}
