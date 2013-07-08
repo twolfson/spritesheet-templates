@@ -35,10 +35,22 @@
     background-image: url(nth($sprite, 9));
   }
 
+  @mixin sprite-background-size($sprite)
+    $total-width: nth($sprite, 7)
+    $total-height: nth($sprite, 8)
+    background-size: $total-width $total-height
+
   @mixin sprite($sprite) {
     @include sprite-image($sprite);
     @include sprite-position($sprite);
     @include sprite-width($sprite);
     @include sprite-height($sprite);
   }
+
+  @mixin sprite-2x($sprite2x, $sprite1x)
+    @include sprite($sprite2x)
+    @include sprite-position($sprite1x)
+    @include sprite-width($sprite1x)
+    @include sprite-height($sprite1x)
+    @include sprite-background-size($sprite1x)
 {{/options.functions}}

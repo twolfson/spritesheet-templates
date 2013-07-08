@@ -8,6 +8,7 @@
     "email": "todd@twolfson.com",
     "url": "http://twolfson.com/"
   },
+  "contributors": ["Alex Bain <alex@alexba.in>"],
   "repository": {
     "type": "git",
     "url": "git://github.com/twolfson/json2css.git"
