@@ -35,12 +35,6 @@ module.exports = {
         expected = fs.readFileSync(expectedDir  + '/' + this.filename, 'utf8');
     assert.strictEqual(actual, expected);
   },
-  'is deep equal to expected': function () {
-    // Load in the files and assert
-    var actual = JSON.parse(this.result),
-        expected = require(expectedDir  + '/' + this.filename, 'utf8');
-    assert.deepEqual(actual, expected);
-  },
 
   // JSON
   'processed into JSON': [function () {
