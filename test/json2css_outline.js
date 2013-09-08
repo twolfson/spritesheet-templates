@@ -24,11 +24,5 @@ module.exports = {
       'matches as expected': true,
       'is valid SCSS': true
     }
-  },
-  'An object of image positions and dimensions keyed by names': {
-    'processed into JSON': {
-      'is deep equal to expected': true,
-      'is valid JSON': true
-    }
   }
 };
