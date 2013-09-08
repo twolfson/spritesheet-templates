@@ -1,4 +1,4 @@
-# json2css [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
+# json2css
 
 Convert JSON into pre-processor ready CSS.
 
@@ -73,10 +73,25 @@ json2css.addTemplate(name, fn);
 json2css.addMustacheTemplate(name, tmplStr);
 ```
 
+## Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.p
+ng
+[gittip]: https://www.gittip.com/twolfson/
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/cowboy/grunt) and test via `npm test`.
 
-## License
-Copyright (c) 2012 Todd Wolfson
+## Unlicense
+As of Sep 08 2013, Todd Wolfson has released this repository and its contents to the public domain.
 
-Licensed under the MIT license.
+It has been released under the [UNLICENSE][].
+
+[UNLICENSE]: UNLICENSE
+
+Prior to Sep 08 2013, this repository and its contents were licensed under the [MIT license][].
+
+[MIT license]: https://github.com/twolfson/json2css/blob/e601307209b75faa48cb65388a17e0047b561aa0/LICENSE-MIT
