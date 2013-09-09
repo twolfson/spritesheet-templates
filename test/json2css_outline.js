@@ -4,6 +4,10 @@ module.exports = {
       'matches as expected': true,
       'is valid JSON': true
     },
+    'processed into an array': {
+      'matches as expected': true,
+      'is valid JSON': true
+    },
     'processed into CSS': {
       'matches as expected': true,
       'is valid CSS': true

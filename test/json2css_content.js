@@ -48,6 +48,12 @@ module.exports = {
     });
   },
 
+  // JSON (array)
+  'processed into an array': [function () {
+    this.options = {'format': 'jsonArray'};
+    this.filename = 'array.json';
+  }, 'processed via json2css'],
+
   // CSS
   'processed into CSS': [function () {
     this.options = null;
