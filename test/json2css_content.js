@@ -51,7 +51,7 @@ module.exports = {
   // JSON (array)
   'processed into an array': [function () {
     this.options = {'format': 'jsonArray'};
-    this.filename = 'array.json';
+    this.filename = 'jsonArray.json';
   }, 'processed via json2css'],
 
   // CSS
