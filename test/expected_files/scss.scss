@@ -1,13 +1,13 @@
-  $sprite1-x: 0px;
-  $sprite1-y: 0px;
-  $sprite1-offset-x: 0px;
-  $sprite1-offset-y: 0px;
+  $sprite1-x: 0;
+  $sprite1-y: 0;
+  $sprite1-offset-x: 0;
+  $sprite1-offset-y: 0;
   $sprite1-width: 10px;
   $sprite1-height: 20px;
   $sprite1-total-width: 80px;
   $sprite1-total-height: 100px;
   $sprite1-image: 'nested/dir/spritesheet.png';
-  $sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
+  $sprite1: 0 0 0 0 10px 20px 80px 100px 'nested/dir/spritesheet.png';
   $sprite2-x: 10px;
   $sprite2-y: 20px;
   $sprite2-offset-x: -10px;
