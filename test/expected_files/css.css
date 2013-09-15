@@ -1,6 +1,6 @@
 .icon-sprite1 {
   background-image: url(nested/dir/spritesheet.png);
-  background-position: 0px 0px;
+  background-position: 0 0;
   width: 10px;
   height: 20px;
 }
