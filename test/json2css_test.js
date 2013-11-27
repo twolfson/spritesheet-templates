@@ -5,99 +5,8 @@ var assert = require('assert'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
-describe('An array of image positions, dimensions, and names', function () {
-  describe('processed into JSON', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid JSON', function () {
-
-    });
-  });
-
-  describe('processed into an array', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid JSON', function () {
-
-    });
-  });
-
-  describe('processed into CSS', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid CSS', function () {
-
-    });
-  });
-
-  describe('processed into Stylus', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid Stylus', function () {
-
-    });
-  });
-
-  describe('processed into LESS', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid LESS', function () {
-
-    });
-  });
-
-  describe('processed into SASS', function () {
-
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid SASS', function () {
-
-    });
-
-    describe.skip('is valid SASS (ruby)', function () {
-
-    });
-
-    describe.skip('is valid SASS (libsass)', function () {
-
-    });
-  });
-
-  describe('processed into SCSS', function () {
-    describe('matches as expected', function () {
-
-    });
-
-    describe('is valid SCSS', function () {
-
-    });
-  });
-});
-
-
-module.exports = {
-  // Common setup/assertion
-  'An array of image positions, dimensions, and names': function () {
-    // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
-    this.info = [
-      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/( \'")/spritesheet.png'}
-    ];
-  },
-  'processed via json2css': function () {
+function processedViaJson2Css() {
+  before(function () {
     // Convert info into result via json2css
     var options = this.options,
         info = this.info,
@@ -105,130 +14,168 @@ module.exports = {
     this.result = result;
 
     // If we are debugging, output results to a file
-    if (true) {
-    // if (false) {
+    if (process.env.TEST_DEBUG) {
       try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
       fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
     }
-  },
-  'matches as expected': function () {
+  });
+}
+
+function itMatchesAsExpected() {
+  it('matches as expected', function () {
     // Load in the files and assert
     var actual = this.result,
         expected = fs.readFileSync(expectedDir  + '/' + this.filename, 'utf8');
     assert.strictEqual(actual, expected);
-  },
+  });
+}
 
-  // JSON
-  'processed into JSON': [function () {
-    this.options = {'format': 'json'};
-    this.filename = 'json.json';
-  }, 'processed via json2css'],
-  'is valid JSON': function () {
+function itIsValidJson() {
+  it('is valid JSON', function () {
     var result = this.result;
     assert.doesNotThrow(function () {
       JSON.parse(result);
     });
-  },
+  });
+}
 
-  // JSON (array)
-  'processed into an array': [function () {
-    this.options = {'format': 'jsonArray'};
-    this.filename = 'jsonArray.json';
-  }, 'processed via json2css'],
+describe('An array of image positions, dimensions, and names', function () {
+  before(function () {
+    // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
+    this.info = [
+      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
+      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/( \'")/spritesheet.png'}
+    ];
+  });
 
-  // CSS
-  'processed into CSS': [function () {
-    this.options = null;
-    this.filename = 'css.css';
-  }, 'processed via json2css'],
-  'is valid CSS': function () {
-    // Add some stylus which hooks into our result
-    var css = this.result;
+  describe('processed into JSON', function () {
+    before(function () {
+      this.options = {'format': 'json'};
+      this.filename = 'json.json';
+    });
+    processedViaJson2Css();
 
-    // Assert no errors and validity of CSS
-    assert.notEqual(css, '');
+    itMatchesAsExpected();
+    itIsValidJson();
+  });
 
-    // TODO: Validate CSS
-    // console.log('CSS', css);
-  },
+  describe('processed into an array', function () {
+    before(function () {
+      this.options = {'format': 'jsonArray'};
+      this.filename = 'jsonArray.json';
+    });
+    processedViaJson2Css();
 
-  // Stylus
-  'processed into Stylus': [function () {
-    this.options = {'format': 'stylus'};
-    this.filename = 'stylus.styl';
-  }, 'processed via json2css'],
-  'is valid Stylus': function (done) {
-    // Add some stylus which hooks into our result
-    var styl = this.result;
-    styl += [
-      '.feature',
-      '  height: $sprite1_height;',
-      '  spriteWidth($sprite2)',
-      '  spriteImage($sprite3)',
-      '',
-      '.feature2',
-      '  sprite($sprite2)'
-    ].join('\n');
+    itMatchesAsExpected();
+    itIsValidJson();
+  });
 
-    // Render the stylus
-    var stylus = require('stylus');
+  describe('processed into CSS', function () {
+    before(function () {
+      this.options = null;
+      this.filename = 'css.css';
+    });
+    processedViaJson2Css();
 
-    stylus.render(styl, function handleStylus (err, css) {
+    itMatchesAsExpected();
+    it('is valid CSS', function () {
+      // Add some stylus which hooks into our result
+      var css = this.result;
+
       // Assert no errors and validity of CSS
-      assert.strictEqual(err, null);
       assert.notEqual(css, '');
 
       // TODO: Validate CSS
-      // console.log('Stylus', css);
-
-      // Callback
-      done(err);
+      // console.log('CSS', css);
     });
-  },
+  });
 
-  // LESS
-  'processed into LESS': [function () {
-    this.options = {'format': 'less'};
-    this.filename = 'less.less';
-  }, 'processed via json2css'],
-  'is valid LESS': function (done) {
-    // Add some LESS to our result
-    var lessStr = this.result;
-    lessStr += [
-      '.feature {',
-      '  height: @sprite1-height;',
-      '  .sprite-width(@sprite2);',
-      '  .sprite-image(@sprite3);',
-      '}',
-      '',
-      '.feature2 {',
-      '  .sprite(@sprite2);',
-      '}'
-    ].join('\n');
-
-    // Render the LESS, assert no errors, and valid CSS
-    var less = require('less');
-    less.render(lessStr, function (err, css) {
-      assert.strictEqual(err, null);
-      assert.notEqual(css, '');
-
-      // console.log('LESS', css);
-
-      // Verify there are no braces in the CSS (array string coercion)
-      assert.strictEqual(css.indexOf(']'), -1);
-
-      // Callback
-      done(err);
+  describe('processed into Stylus', function () {
+    before(function () {
+      this.options = {'format': 'stylus'};
+      this.filename = 'stylus.styl';
     });
-  },
+    processedViaJson2Css();
 
-  // SASS
-  'processed into SASS': [function () {
-    this.options = {'format': 'sass'};
-    this.filename = 'sass.sass';
-  }, 'processed via json2css'],
-  '_write_sass_to_file': {
-    before: function () {
+    itMatchesAsExpected();
+    it('is valid Stylus', function (done) {
+      // Add some stylus which hooks into our result
+      var styl = this.result;
+      styl += [
+        '.feature',
+        '  height: $sprite1_height;',
+        '  spriteWidth($sprite2)',
+        '  spriteImage($sprite3)',
+        '',
+        '.feature2',
+        '  sprite($sprite2)'
+      ].join('\n');
+
+      // Render the stylus
+      var stylus = require('stylus');
+
+      stylus.render(styl, function handleStylus (err, css) {
+        // Assert no errors and validity of CSS
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+
+        // TODO: Validate CSS
+        // console.log('Stylus', css);
+
+        // Callback
+        done(err);
+      });
+    });
+  });
+
+  describe('processed into LESS', function () {
+    before(function () {
+      this.options = {'format': 'less'};
+      this.filename = 'less.less';
+    });
+    processedViaJson2Css();
+
+    itMatchesAsExpected();
+    it('is valid LESS', function (done) {
+      // Add some LESS to our result
+      var lessStr = this.result;
+      lessStr += [
+        '.feature {',
+        '  height: @sprite1-height;',
+        '  .sprite-width(@sprite2);',
+        '  .sprite-image(@sprite3);',
+        '}',
+        '',
+        '.feature2 {',
+        '  .sprite(@sprite2);',
+        '}'
+      ].join('\n');
+
+      // Render the LESS, assert no errors, and valid CSS
+      var less = require('less');
+      less.render(lessStr, function (err, css) {
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+
+        // console.log('LESS', css);
+
+        // Verify there are no braces in the CSS (array string coercion)
+        assert.strictEqual(css.indexOf(']'), -1);
+
+        // Callback
+        done(err);
+      });
+    });
+  });
+
+  describe('processed into SASS', function () {
+    before(function () {
+      this.options = {'format': 'sass'};
+      this.filename = 'sass.sass';
+    });
+    processedViaJson2Css();
+    before(function writeSassToFile () {
       // Add some SASS to our result
       var sassStr = this.result;
       sassStr += '\n' + [
@@ -245,50 +192,60 @@ module.exports = {
       var tmp = new Tempfile();
       tmp.writeFileSync(sassStr);
       this.tmp = tmp;
-    },
-    after: function () {
+    });
+    after(function () {
       this.tmp.unlinkSync();
-    }
-  },
-  'is valid SASS': ['_write_sass_to_file', function (done) {
-    exec('sass ' + this.tmp.path, function (err, css, stderr) {
-      assert.strictEqual(stderr, '');
-      assert.strictEqual(err, null);
-      assert.notEqual(css, '');
-      // console.log('SASS', css);
-      done(err);
     });
-  }],
 
-  // SCSS
-  'processed into SCSS': [function () {
-    this.options = {'format': 'scss'};
-    this.filename = 'scss.scss';
-  }, 'processed via json2css'],
-  'is valid SCSS': function (done) {
-    // Add some SCSS to our result
-    var scssStr = this.result;
-    scssStr += '\n' + [
-      '.feature {',
-      '  height: $sprite1-height;',
-      '  @include sprite-width($sprite2);',
-      '  @include sprite-image($sprite3);',
-      '}',
-      '',
-      '.feature2 {',
-      '  @include sprite($sprite2);',
-      '}'
-    ].join('\n');
-
-    // Render the SCSS, assert no errors, and valid CSS
-    var tmp = new Tempfile();
-    tmp.writeFileSync(scssStr);
-    exec('sass --scss ' + tmp.path, function (err, css, stderr) {
-      assert.strictEqual(stderr, '');
-      assert.strictEqual(err, null);
-      assert.notEqual(css, '');
-      // console.log('SCSS', css);
-      done(err);
+    itMatchesAsExpected();
+    it('is valid SASS', function (done) {
+      exec('sass ' + this.tmp.path, function (err, css, stderr) {
+        assert.strictEqual(stderr, '');
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+        // console.log('SASS', css);
+        done(err);
+      });
     });
-  }
-};
+    it.skip('is valid SASS (ruby)', function () {
+    });
+    it.skip('is valid SASS (libsass)', function () {
+    });
+  });
+
+  describe('processed into SCSS', function () {
+    before(function () {
+      this.options = {'format': 'scss'};
+      this.filename = 'scss.scss';
+    });
+    processedViaJson2Css();
+
+    itMatchesAsExpected();
+    it('is valid SCSS', function (done) {
+      // Add some SCSS to our result
+      var scssStr = this.result;
+      scssStr += '\n' + [
+        '.feature {',
+        '  height: $sprite1-height;',
+        '  @include sprite-width($sprite2);',
+        '  @include sprite-image($sprite3);',
+        '}',
+        '',
+        '.feature2 {',
+        '  @include sprite($sprite2);',
+        '}'
+      ].join('\n');
+
+      // Render the SCSS, assert no errors, and valid CSS
+      var tmp = new Tempfile();
+      tmp.writeFileSync(scssStr);
+      exec('sass --scss ' + tmp.path, function (err, css, stderr) {
+        assert.strictEqual(stderr, '');
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+        // console.log('SCSS', css);
+        done(err);
+      });
+    });
+  });
+});
