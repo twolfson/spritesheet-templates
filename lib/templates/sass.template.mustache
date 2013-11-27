@@ -29,7 +29,8 @@ ${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.h
   background-position: $sprite-offset-x  $sprite-offset-y
 
 @mixin sprite-image($sprite)
-  background-image: url(nth($sprite, 9))
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
 
 @mixin sprite($sprite)
   @include sprite-image($sprite)
