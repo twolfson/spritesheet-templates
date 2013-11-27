@@ -145,30 +145,38 @@ module.exports = {
     this.options = {'format': 'sass'};
     this.filename = 'sass.sass';
   }, 'processed via json2css'],
-  'is valid SASS': function (done) {
-    // Add some SASS to our result
-    var sassStr = this.result;
-    sassStr += '\n' + [
-      '.feature',
-      '  height: $sprite1-height',
-      '  @include sprite-width($sprite2)',
-      '  @include sprite-image($sprite3)',
-      '',
-      '.feature2',
-      '  @include sprite($sprite2)'
-    ].join('\n');
+  '_write_sass_to_file': {
+    before: function () {
+      // Add some SASS to our result
+      var sassStr = this.result;
+      sassStr += '\n' + [
+        '.feature',
+        '  height: $sprite1-height',
+        '  @include sprite-width($sprite2)',
+        '  @include sprite-image($sprite3)',
+        '',
+        '.feature2',
+        '  @include sprite($sprite2)'
+      ].join('\n');
 
-    // Render the SASS, assert no errors, and valid CSS
-    var tmp = new Tempfile();
-    tmp.writeFileSync(sassStr);
-    exec('sass ' + tmp.path, function (err, css, stderr) {
+      // Render the SASS, assert no errors, and valid CSS
+      var tmp = new Tempfile();
+      tmp.writeFileSync(sassStr);
+      this.tmp = tmp;
+    },
+    after: function () {
+      this.tmp.unlinkSync();
+    }
+  },
+  'is valid SASS': ['_write_sass_to_file', function (done) {
+    exec('sass ' + this.tmp.path, function (err, css, stderr) {
       assert.strictEqual(stderr, '');
       assert.strictEqual(err, null);
       assert.notEqual(css, '');
       // console.log('SASS', css);
       done(err);
     });
-  },
+  }],
 
   // SCSS
   'processed into SCSS': [function () {
