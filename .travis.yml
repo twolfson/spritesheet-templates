@@ -7,5 +7,13 @@ matrix:
   allow_failures:
     - node_js: "0.11"
 
+install:
+  # Install node modules
+  - npm install
+
+  # Install sass
+  - sudo gem install sass
+  - sass --version
+
 notifications:
   email: false
