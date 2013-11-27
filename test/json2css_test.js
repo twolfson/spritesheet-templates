@@ -5,6 +5,88 @@ var assert = require('assert'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
+describe('An array of image positions, dimensions, and names', function () {
+  describe('processed into JSON', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid JSON', function () {
+
+    });
+  });
+
+  describe('processed into an array', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid JSON', function () {
+
+    });
+  });
+
+  describe('processed into CSS', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid CSS', function () {
+
+    });
+  });
+
+  describe('processed into Stylus', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid Stylus', function () {
+
+    });
+  });
+
+  describe('processed into LESS', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid LESS', function () {
+
+    });
+  });
+
+  describe('processed into SASS', function () {
+
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid SASS', function () {
+
+    });
+
+    describe.skip('is valid SASS (ruby)', function () {
+
+    });
+
+    describe.skip('is valid SASS (libsass)', function () {
+
+    });
+  });
+
+  describe('processed into SCSS', function () {
+    describe('matches as expected', function () {
+
+    });
+
+    describe('is valid SCSS', function () {
+
+    });
+  });
+});
+
+
 module.exports = {
   // Common setup/assertion
   'An array of image positions, dimensions, and names': function () {
