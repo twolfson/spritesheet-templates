@@ -198,7 +198,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     itMatchesAsExpected();
-    it('is valid SASS', function (done) {
+    it('is valid SASS (ruby)', function (done) {
       exec('sass ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
         assert.strictEqual(err, null);
@@ -207,9 +207,14 @@ describe('An array of image positions, dimensions, and names', function () {
         done(err);
       });
     });
-    it.skip('is valid SASS (ruby)', function () {
-    });
-    it.skip('is valid SASS (libsass)', function () {
+    it('is valid SASS (libsass)', function (done) {
+      exec('sassc ' + this.tmp.path, function (err, css, stderr) {
+        assert.strictEqual(stderr, '');
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+        // console.log('SASS', css);
+        done(err);
+      });
     });
   });
 
