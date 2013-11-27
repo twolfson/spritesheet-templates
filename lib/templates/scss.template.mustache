@@ -32,7 +32,8 @@
   }
 
   @mixin sprite-image($sprite) {
-    background-image: url(nth($sprite, 9));
+    $sprite-image: nth($sprite, 9);
+    background-image: url("#{$sprite-image}");
   }
 
   @mixin sprite($sprite) {
