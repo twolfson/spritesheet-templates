@@ -11,7 +11,9 @@ install:
   # Install node modules
   - npm install
 
-  # Install sass
+  # Install gems and sass
+  - ruby --version
+  - sudo apt-get install rubygems -y
   - sudo gem install sass
   - sass --version
 
