@@ -13,7 +13,12 @@ install:
 
   # Install gems and sass
   - ruby --version
-  - sudo apt-get install rubygems -y
+  - wget http://production.cf.rubygems.org/rubygems/rubygems-2.1.7.tgz
+  - tar xvf rubygems-2.1.7.tgz
+  - cd rubygems-2.1.7
+  - sudo ruby setup.rb
+  - cd ..
+  - gem --version
   - sudo gem install sass
   - sass --version
 
