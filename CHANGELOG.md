@@ -1,4 +1,6 @@
 # json2css changelog
+4.2.0 - Moved to mocha, patched regression for SCSS + libsass
+
 4.1.1 - Added .travis.yml
 
 4.1.0 - Added jsonArray template
