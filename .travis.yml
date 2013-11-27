@@ -11,7 +11,7 @@ install:
   # Install node modules
   - npm install
 
-  # Install gems and sass
+  # Install gem and sass
   - ruby --version
   - wget http://production.cf.rubygems.org/rubygems/rubygems-2.1.7.tgz
   - tar xvf rubygems-2.1.7.tgz
