@@ -207,7 +207,7 @@ describe('An array of image positions, dimensions, and names', function () {
         done(err);
       });
     });
-    it('is valid SASS (libsass)', function (done) {
+    it.only('is valid SASS (libsass)', function (done) {
       exec('sassc ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
         assert.strictEqual(err, null);
