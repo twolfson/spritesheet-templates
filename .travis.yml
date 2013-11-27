@@ -19,7 +19,7 @@ install:
   - sudo ruby setup.rb
   - cd ..
   - gem --version
-  - sudo gem install sass
+  - gem install sass
   - sass --version
 
 notifications:
