@@ -251,7 +251,7 @@ describe('An array of image positions, dimensions, and names', function () {
       });
     });
 
-    it.only('is valid SCSS (libsass)', function (done) {
+    it('is valid SCSS (libsass)', function (done) {
       exec('sassc ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
         assert.strictEqual(err, null);
