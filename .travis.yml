@@ -22,5 +22,15 @@ install:
   - gem install sass
   - sass --version
 
+  # Install libsass
+  - git clone https://github.com/hcatlin/libsass.git libsass
+  - export SASS_LIBSASS_PATH=$PWD/libsass
+  - git clone https://github.com/hcatlin/sassc.git sassc
+  - cd sassc
+  - make
+  - sudo ln -s $PWD/bin/sassc /usr/local/bin/sassc
+  - cd ..
+  - sassc -h
+
 notifications:
   email: false
