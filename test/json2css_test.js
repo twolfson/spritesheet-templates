@@ -198,17 +198,8 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     itMatchesAsExpected();
-    it('is valid SASS (ruby)', function (done) {
+    it('is valid SASS', function (done) {
       exec('sass ' + this.tmp.path, function (err, css, stderr) {
-        assert.strictEqual(stderr, '');
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
-        // console.log('SASS', css);
-        done(err);
-      });
-    });
-    it.only('is valid SASS (libsass)', function (done) {
-      exec('sassc ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
         assert.strictEqual(err, null);
         assert.notEqual(css, '');
@@ -225,8 +216,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
     processedViaJson2Css();
 
-    itMatchesAsExpected();
-    it('is valid SCSS', function (done) {
+    before(function writeScssToFile () {
       // Add some SCSS to our result
       var scssStr = this.result;
       scssStr += '\n' + [
@@ -241,10 +231,28 @@ describe('An array of image positions, dimensions, and names', function () {
         '}'
       ].join('\n');
 
-      // Render the SCSS, assert no errors, and valid CSS
+      // Render the SASS, assert no errors, and valid CSS
       var tmp = new Tempfile();
       tmp.writeFileSync(scssStr);
-      exec('sass --scss ' + tmp.path, function (err, css, stderr) {
+      this.tmp = tmp;
+    });
+    after(function () {
+      this.tmp.unlinkSync();
+    });
+
+    itMatchesAsExpected();
+    it('is valid SCSS (ruby)', function (done) {
+      exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
+        assert.strictEqual(stderr, '');
+        assert.strictEqual(err, null);
+        assert.notEqual(css, '');
+        // console.log('SCSS', css);
+        done(err);
+      });
+    });
+
+    it.only('is valid SCSS (libsass)', function (done) {
+      exec('sassc ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
         assert.strictEqual(err, null);
         assert.notEqual(css, '');
