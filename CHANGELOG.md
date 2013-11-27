@@ -1,4 +1,6 @@
 # json2css changelog
+4.1.1 - Added .travis.yml
+
 4.1.0 - Added jsonArray template
 
 4.0.0 - Deprecated object as input. Now only accepting arrays.
