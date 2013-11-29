@@ -1,34 +1,8 @@
 var assert = require('assert'),
-    fs = require('fs'),
     exec = require('child_process').exec,
-    Tempfile = require('temporary/lib/file'),
     validateCss = require('css-validator'),
-    json2css = require('../');
-
-function processedViaJson2Css() {
-  before(function () {
-    // Convert info into result via json2css
-    var options = this.options,
-        info = this.info,
-        result = options ? json2css(info, options) : json2css(info);
-    this.result = result;
-
-    // If we are debugging, output results to a file
-    if (process.env.TEST_DEBUG) {
-      try { fs.mkdirSync(__dirname + '/actual_files/'); } catch (e) {}
-      fs.writeFileSync(__dirname + '/actual_files/' + this.filename, result, 'utf8');
-    }
-  });
-}
-
-function itMatchesAsExpected() {
-  it('matches as expected', function () {
-    // Load in the files and assert
-    var actual = this.result,
-        expected = fs.readFileSync(__dirname + '/expected_files/' + this.filename, 'utf8');
-    assert.strictEqual(actual, expected);
-  });
-}
+    Tempfile = require('temporary/lib/file'),
+    utils = require('./utils');
 
 function itIsValidJson() {
   it('is valid JSON', function () {
@@ -54,9 +28,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'json'};
       this.filename = 'json.json';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     itIsValidJson();
   });
 
@@ -65,9 +39,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'jsonArray'};
       this.filename = 'jsonArray.json';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     itIsValidJson();
   });
 
@@ -76,9 +50,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = null;
       this.filename = 'css.css';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     it('is valid CSS', function (done) {
       // Add some stylus which hooks into our result
       var css = this.result;
@@ -101,9 +75,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'stylus'};
       this.filename = 'stylus.styl';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     it('is valid Stylus', function (done) {
       // Add some stylus which hooks into our result
       var styl = this.result;
@@ -139,9 +113,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'less'};
       this.filename = 'less.less';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     it('is valid LESS', function (done) {
       // Add some LESS to our result
       var lessStr = this.result;
@@ -179,7 +153,7 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'sass'};
       this.filename = 'sass.sass';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
     before(function writeSassToFile () {
       // Add some SASS to our result
       var sassStr = this.result;
@@ -202,7 +176,7 @@ describe('An array of image positions, dimensions, and names', function () {
       this.tmp.unlinkSync();
     });
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     it('is valid SASS', function (done) {
       exec('sass ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
@@ -219,7 +193,7 @@ describe('An array of image positions, dimensions, and names', function () {
       this.options = {'format': 'scss'};
       this.filename = 'scss.scss';
     });
-    processedViaJson2Css();
+    utils.runJson2Css();
 
     before(function writeScssToFile () {
       // Add some SCSS to our result
@@ -245,7 +219,7 @@ describe('An array of image positions, dimensions, and names', function () {
       this.tmp.unlinkSync();
     });
 
-    itMatchesAsExpected();
+    utils.assertMatchesAsExpected();
     it('is valid SCSS (ruby)', function (done) {
       exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
         assert.strictEqual(stderr, '');
