@@ -50,7 +50,7 @@ describe('An array of image positions, dimensions, and names', function () {
     ];
   });
 
-  describe('processed into JSON', function () {
+  describe('processed by `json2css` into JSON', function () {
     before(function () {
       this.options = {'format': 'json'};
       this.filename = 'json.json';
@@ -61,7 +61,7 @@ describe('An array of image positions, dimensions, and names', function () {
     itIsValidJson();
   });
 
-  describe('processed into an array', function () {
+  describe('processed by `json2css` into an array', function () {
     before(function () {
       this.options = {'format': 'jsonArray'};
       this.filename = 'jsonArray.json';
@@ -72,7 +72,7 @@ describe('An array of image positions, dimensions, and names', function () {
     itIsValidJson();
   });
 
-  describe('processed into CSS', function () {
+  describe('processed by `json2css` into CSS', function () {
     before(function () {
       this.options = null;
       this.filename = 'css.css';
@@ -97,7 +97,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 
-  describe('processed into Stylus', function () {
+  describe('processed by `json2css` into Stylus', function () {
     before(function () {
       this.options = {'format': 'stylus'};
       this.filename = 'stylus.styl';
@@ -135,7 +135,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 
-  describe('processed into LESS', function () {
+  describe('processed by `json2css` into LESS', function () {
     before(function () {
       this.options = {'format': 'less'};
       this.filename = 'less.less';
@@ -175,7 +175,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 
-  describe('processed into SASS', function () {
+  describe('processed by `json2css` into SASS', function () {
     before(function () {
       this.options = {'format': 'sass'};
       this.filename = 'sass.sass';
@@ -215,7 +215,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 
-  describe('processed into SCSS', function () {
+  describe('processed by `json2css` into SCSS', function () {
     before(function () {
       this.options = {'format': 'scss'};
       this.filename = 'scss.scss';
