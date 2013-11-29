@@ -13,6 +13,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
     utils.assertMatchesAsExpected();
     describe('processed by LESS into CSS', function () {
+      // Process into CSS
       before(function (done) {
         // Add some LESS to our result
         var lessStr = this.result;
@@ -45,6 +46,7 @@ describe('An array of image positions, dimensions, and names', function () {
         });
       });
 
+      // Assert against generated CSS
       utils.assertValidCss();
     });
   });

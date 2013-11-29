@@ -35,14 +35,24 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     utils.assertMatchesAsExpected();
-    it('is valid SASS', function (done) {
-      exec('sass ' + this.tmp.path, function (err, css, stderr) {
-        assert.strictEqual(stderr, '');
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
-        // console.log('SASS', css);
-        done(err);
+    describe('processed by SASS into CSS', function () {
+      // Process the SASS
+      before(function (done) {
+        var that = this;
+        exec('sass ' + this.tmp.path, function (err, css, stderr) {
+          // Assert no errors during conversion
+          assert.strictEqual(stderr, '');
+          assert.strictEqual(err, null);
+          assert.notEqual(css, '');
+
+          // Save CSS for later and callback
+          that.css = css;
+          done(err);
+        });
       });
+
+      // Assert agains the generated CSS
+      utils.assertValidCss();
     });
   });
 });
