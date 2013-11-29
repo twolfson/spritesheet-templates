@@ -13,33 +13,36 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.runJson2Css();
 
     utils.assertMatchesAsExpected();
-    it('is valid Stylus', function (done) {
-      // Add some stylus which hooks into our result
-      var styl = this.result;
-      styl += [
-        '.feature',
-        '  height: $sprite1_height;',
-        '  spriteWidth($sprite2)',
-        '  spriteImage($sprite3)',
-        '',
-        '.feature2',
-        '  sprite($sprite2)'
-      ].join('\n');
 
-      // Render the stylus
-      var stylus = require('stylus');
+    describe('processed by Stylus into CSS', function () {
+      // Process the Stylus
+      before(function (done) {
+        // Add some stylus which hooks into our result
+        var styl = this.result;
+        styl += [
+          '.feature',
+          '  height: $sprite1_height;',
+          '  spriteWidth($sprite2)',
+          '  spriteImage($sprite3)',
+          '',
+          '.feature2',
+          '  sprite($sprite2)'
+        ].join('\n');
 
-      stylus.render(styl, function handleStylus (err, css) {
-        // Assert no errors and validity of CSS
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
+        // Render the stylus
+        var that = this;
+        stylus.render(styl, function handleStylus (err, css) {
+          // Assert no errors and CSS was generated
+          assert.strictEqual(err, null);
+          assert.notEqual(css, '');
 
-        // TODO: Validate CSS
-        // console.log('Stylus', css);
-
-        // Callback
-        done(err);
+          // Save the CSS and callback
+          that.css = css;
+          done(err);
+        });
       });
+
+      utils.assertValidCss();
     });
   });
 });
