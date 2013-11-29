@@ -1,5 +1,6 @@
 var assert = require('assert'),
     fs = require('fs'),
+    validateCss = require('css-validator'),
     json2css = require('../../');
 
 exports.setupImages = function () {
@@ -35,5 +36,24 @@ exports.assertMatchesAsExpected = function () {
     var actual = this.result,
         expected = fs.readFileSync(__dirname + '/../expected_files/' + this.filename, 'utf8');
     assert.strictEqual(actual, expected);
+  });
+};
+
+exports._assertValidCss = function (css, done) {
+  // Assert CSS exists
+  assert.notEqual(css, '');
+
+  // Assert it was fully valid via w3c
+  validateCss(css, function (err, data) {
+    assert.strictEqual(err, null);
+    assert.deepEqual(data.errors, []);
+    assert.deepEqual(data.warnings, []);
+    done();
+  });
+};
+
+exports.assertValidCss = function () {
+  it('is valid CSS', function (done) {
+    exports._assertValidCss(this.css, done);
   });
 };

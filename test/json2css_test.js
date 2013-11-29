@@ -1,5 +1,4 @@
 var assert = require('assert'),
-    validateCss = require('css-validator'),
     utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
@@ -43,19 +42,8 @@ describe('An array of image positions, dimensions, and names', function () {
 
     utils.assertMatchesAsExpected();
     it('is valid CSS', function (done) {
-      // Add some stylus which hooks into our result
       var css = this.result;
-
-      // Assert CSS exists
-      assert.notEqual(css, '');
-
-      // Assert it was fully valid via w3c
-      validateCss(css, function (err, data) {
-        assert.strictEqual(err, null);
-        assert.deepEqual(data.errors, []);
-        assert.deepEqual(data.warnings, []);
-        done();
-      });
+      utils._assertValidCss(css, done);
     });
   });
 });
