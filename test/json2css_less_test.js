@@ -12,35 +12,40 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.runJson2Css();
 
     utils.assertMatchesAsExpected();
-    it('is valid LESS', function (done) {
-      // Add some LESS to our result
-      var lessStr = this.result;
-      lessStr += [
-        '.feature {',
-        '  height: @sprite1-height;',
-        '  .sprite-width(@sprite2);',
-        '  .sprite-image(@sprite3);',
-        '}',
-        '',
-        '.feature2 {',
-        '  .sprite(@sprite2);',
-        '}'
-      ].join('\n');
+    describe('processed by LESS into CSS', function () {
+      before(function (done) {
+        // Add some LESS to our result
+        var lessStr = this.result;
+        lessStr += [
+          '.feature {',
+          '  height: @sprite1-height;',
+          '  .sprite-width(@sprite2);',
+          '  .sprite-image(@sprite3);',
+          '}',
+          '',
+          '.feature2 {',
+          '  .sprite(@sprite2);',
+          '}'
+        ].join('\n');
 
-      // Render the LESS, assert no errors, and valid CSS
-      var less = require('less');
-      less.render(lessStr, function (err, css) {
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
+        // Render the LESS, assert no errors, and valid CSS
+        var less = require('less');
+        var that = this;
+        less.render(lessStr, function (err, css) {
+          // Verify there are no braces in the CSS (array string coercion)
+          assert.strictEqual(err, null);
+          assert.notEqual(css, '');
+          assert.strictEqual(css.indexOf(']'), -1);
 
-        // console.log('LESS', css);
+          // Save the CSS for later
+          that.css = css;
 
-        // Verify there are no braces in the CSS (array string coercion)
-        assert.strictEqual(css.indexOf(']'), -1);
-
-        // Callback
-        done(err);
+          // Callback
+          done(err);
+        });
       });
+
+      utils.assertValidCss();
     });
   });
 });
