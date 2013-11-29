@@ -12,6 +12,7 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.runJson2Css();
 
     utils.assertMatchesAsExpected();
+
     describe('processed by LESS into CSS', function () {
       // Process into CSS
       before(function (done) {

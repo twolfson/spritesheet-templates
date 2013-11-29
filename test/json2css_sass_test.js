@@ -35,6 +35,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     utils.assertMatchesAsExpected();
+
     describe('processed by SASS into CSS', function () {
       // Process the SASS
       before(function (done) {

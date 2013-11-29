@@ -38,24 +38,40 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     utils.assertMatchesAsExpected();
-    it('is valid SCSS (ruby)', function (done) {
-      exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
-        assert.strictEqual(stderr, '');
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
-        // console.log('SCSS', css);
-        done(err);
+
+    describe('processed by `sass --scss` (ruby) into CSS', function () {
+      // Process the SASS
+      before(function (done) {
+        var that = this;
+        exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
+          // Assert no errors during conversion
+          assert.strictEqual(stderr, '');
+          assert.strictEqual(err, null);
+          assert.notEqual(css, '');
+
+          // Save CSS for later and callback
+          that.css = css;
+          done(err);
+        });
       });
+
+      // Assert agains the generated CSS
+      utils.assertValidCss();
     });
 
-    it('is valid SCSS (libsass)', function (done) {
-      exec('sassc ' + this.tmp.path, function (err, css, stderr) {
-        assert.strictEqual(stderr, '');
-        assert.strictEqual(err, null);
-        assert.notEqual(css, '');
-        // console.log('SCSS', css);
-        done(err);
+    describe('processed by `sassc` (libsass) into CSS', function () {
+      // Process the SASS
+      before(function (done) {
+        var that = this;
+        exec('sassc ' + this.tmp.path, function (err, css, stderr) {
+          assert.strictEqual(stderr, '');
+          assert.strictEqual(err, null);
+          assert.notEqual(css, '');
+          that.css = css;
+          done(err);
+        });
       });
+      utils.assertValidCss();
     });
   });
 });
