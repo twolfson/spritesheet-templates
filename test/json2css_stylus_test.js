@@ -1,4 +1,5 @@
 var assert = require('assert'),
+    stylus = require('stylus'),
     utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {

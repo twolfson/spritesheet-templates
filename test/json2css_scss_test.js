@@ -28,7 +28,7 @@ describe('An array of image positions, dimensions, and names', function () {
         '}'
       ].join('\n');
 
-      // Render the SASS, assert no errors, and valid CSS
+      // Save the SCSS to a file for processing
       var tmp = new Tempfile();
       tmp.writeFileSync(scssStr);
       this.tmp = tmp;
@@ -40,7 +40,7 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.assertMatchesAsExpected();
 
     describe('processed by `sass --scss` (ruby) into CSS', function () {
-      // Process the SASS
+      // Process the SCSS
       before(function (done) {
         var that = this;
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
@@ -60,7 +60,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
 
     describe('processed by `sassc` (libsass) into CSS', function () {
-      // Process the SASS
+      // Process the SCSS
       before(function (done) {
         var that = this;
         exec('sassc ' + this.tmp.path, function (err, css, stderr) {

@@ -1,4 +1,5 @@
 var assert = require('assert'),
+    less = require('less'),
     utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
@@ -31,7 +32,6 @@ describe('An array of image positions, dimensions, and names', function () {
         ].join('\n');
 
         // Render the LESS, assert no errors, and valid CSS
-        var less = require('less');
         var that = this;
         less.render(lessStr, function (err, css) {
           // Verify there are no braces in the CSS (array string coercion)

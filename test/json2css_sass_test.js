@@ -25,7 +25,7 @@ describe('An array of image positions, dimensions, and names', function () {
         '  @include sprite($sprite2)'
       ].join('\n');
 
-      // Render the SASS, assert no errors, and valid CSS
+      // Save the SASS to a file for processing
       var tmp = new Tempfile();
       tmp.writeFileSync(sassStr);
       this.tmp = tmp;
