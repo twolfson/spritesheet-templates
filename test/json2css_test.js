@@ -3,8 +3,7 @@ var assert = require('assert'),
     exec = require('child_process').exec,
     Tempfile = require('temporary/lib/file'),
     validateCss = require('css-validator'),
-    json2css = require('../lib/json2css.js'),
-    expectedDir = __dirname + '/expected_files';
+    json2css = require('../');
 
 function processedViaJson2Css() {
   before(function () {
@@ -26,7 +25,7 @@ function itMatchesAsExpected() {
   it('matches as expected', function () {
     // Load in the files and assert
     var actual = this.result,
-        expected = fs.readFileSync(expectedDir  + '/' + this.filename, 'utf8');
+        expected = fs.readFileSync(__dirname + '/expected_files/' + this.filename, 'utf8');
     assert.strictEqual(actual, expected);
   });
 }
@@ -80,7 +79,7 @@ describe('An array of image positions, dimensions, and names', function () {
     processedViaJson2Css();
 
     itMatchesAsExpected();
-    it.only('is valid CSS', function (done) {
+    it('is valid CSS', function (done) {
       // Add some stylus which hooks into our result
       var css = this.result;
 
