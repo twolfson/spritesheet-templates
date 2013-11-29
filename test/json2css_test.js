@@ -4,15 +4,6 @@ var assert = require('assert'),
     Tempfile = require('temporary/lib/file'),
     utils = require('./utils');
 
-function itIsValidJson() {
-  it('is valid JSON', function () {
-    var result = this.result;
-    assert.doesNotThrow(function () {
-      JSON.parse(result);
-    });
-  });
-}
-
 describe('An array of image positions, dimensions, and names', function () {
   before(function () {
     // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
@@ -23,6 +14,14 @@ describe('An array of image positions, dimensions, and names', function () {
     ];
   });
 
+  function assertValidJson() {
+    it('is valid JSON', function () {
+      var result = this.result;
+      assert.doesNotThrow(function () {
+        JSON.parse(result);
+      });
+    });
+  }
   describe('processed by `json2css` into JSON', function () {
     before(function () {
       this.options = {'format': 'json'};
@@ -31,9 +30,8 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.runJson2Css();
 
     utils.assertMatchesAsExpected();
-    itIsValidJson();
+    assertValidJson();
   });
-
   describe('processed by `json2css` into an array', function () {
     before(function () {
       this.options = {'format': 'jsonArray'};
@@ -42,7 +40,7 @@ describe('An array of image positions, dimensions, and names', function () {
     utils.runJson2Css();
 
     utils.assertMatchesAsExpected();
-    itIsValidJson();
+    assertValidJson();
   });
 
   describe('processed by `json2css` into CSS', function () {
