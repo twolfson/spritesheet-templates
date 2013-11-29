@@ -2,6 +2,7 @@ var assert = require('assert'),
     fs = require('fs'),
     exec = require('child_process').exec,
     Tempfile = require('temporary/lib/file'),
+    validateCss = require('css-validator'),
     json2css = require('../lib/json2css.js'),
     expectedDir = __dirname + '/expected_files';
 
@@ -79,15 +80,20 @@ describe('An array of image positions, dimensions, and names', function () {
     processedViaJson2Css();
 
     itMatchesAsExpected();
-    it('is valid CSS', function () {
+    it.only('is valid CSS', function (done) {
       // Add some stylus which hooks into our result
       var css = this.result;
 
-      // Assert no errors and validity of CSS
+      // Assert CSS exists
       assert.notEqual(css, '');
 
-      // TODO: Validate CSS
-      // console.log('CSS', css);
+      // Assert it was fully valid via w3c
+      validateCss(css, function (err, data) {
+        assert.strictEqual(err, null);
+        assert.deepEqual(data.errors, []);
+        assert.deepEqual(data.warnings, []);
+        done();
+      });
     });
   });
 
