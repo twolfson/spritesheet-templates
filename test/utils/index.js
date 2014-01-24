@@ -19,7 +19,9 @@ exports.runJson2Css = function () {
     // Convert info into result via json2css
     var options = this.options,
         info = this.info,
-        result = options ? json2css(info, options) : json2css(info);
+        context = this.context,
+        result = json2css(info, options, context);
+
     this.result = result;
 
     // If we are debugging, output results to a file
