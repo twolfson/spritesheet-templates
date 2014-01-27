@@ -1,5 +1,8 @@
 var assert = require('assert'),
     fs = require('fs'),
+    _ = require('underscore'),
+    eightTrack = require('eight-track'),
+    express = require('express'),
     validateCss = require('css-validator'),
     json2css = require('../../');
 
@@ -39,12 +42,33 @@ exports.assertMatchesAsExpected = function () {
   });
 };
 
+exports.runFakeJigsaw = function () {
+  before(function () {
+    this.fakeJigsaw = express().use(eightTrack({
+      url: 'http://jigsaw.w3.org',
+      fixtureDir: __dirname + '/../test_files/fake_jigsaw/',
+      normalizeFn: function (info) {
+        info.headers = _.defaults({
+          'content-type': info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber')
+        }, info.headers);
+        info.body = info.body.replace(/(\-+)\d+/g, '$1somenumber');
+      }
+    })).listen(1337);
+  });
+  after(function (done) {
+    this.fakeJigsaw.close(done);
+  });
+};
+
 exports._assertValidCss = function (css, done) {
   // Assert CSS exists
   assert.notEqual(css, '');
 
   // Assert it was fully valid via w3c
-  validateCss(css, function (err, data) {
+  validateCss({
+    text: css,
+    w3cUrl: 'http://localhost:1337/css-validator/validator'
+  }, function (err, data) {
     assert.strictEqual(err, null);
     assert.deepEqual(data.errors, []);
     assert.deepEqual(data.warnings, []);
@@ -53,6 +77,7 @@ exports._assertValidCss = function (css, done) {
 };
 
 exports.assertValidCss = function () {
+  exports.runFakeJigsaw();
   it('is valid CSS', function (done) {
     exports._assertValidCss(this.css, done);
   });
