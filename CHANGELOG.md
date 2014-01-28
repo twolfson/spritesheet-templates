@@ -1,4 +1,6 @@
 # json2css changelog
+4.2.2 - Add `eight-track` to CSS validation to remove third party dependency
+
 4.2.1 - Added CSS validation to test suite
 
 4.2.0 - Moved to mocha, patched regression for SCSS + libsass
