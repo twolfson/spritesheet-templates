@@ -3,6 +3,7 @@ var assert = require('assert'),
     _ = require('underscore'),
     eightTrack = require('eight-track'),
     express = require('express'),
+    normalizeMultipart = require('eight-track-normalize-multipart'),
     validateCss = require('css-validator'),
     json2css = require('../../');
 
@@ -47,12 +48,7 @@ exports.runFakeJigsaw = function () {
     this.fakeJigsaw = express().use(eightTrack({
       url: 'http://jigsaw.w3.org',
       fixtureDir: __dirname + '/../test_files/fake_jigsaw/',
-      normalizeFn: function (info) {
-        info.headers = _.defaults({
-          'content-type': info.headers['content-type'].replace(/(\-+)\d+/, '$1somenumber')
-        }, info.headers);
-        info.body = info.body.replace(/(\-+)\d+/g, '$1somenumber');
-      }
+      normalizeFn: normalizeMultipart
     })).listen(1337);
   });
   after(function (done) {
