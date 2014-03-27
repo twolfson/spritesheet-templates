@@ -59,7 +59,7 @@ json2css is a single function repo
  * @param {Number} input[*].image Path to image itself (used as a URL component)
  * @param {Object} [options] Options to convert JSON with
  * @param {String} [options.format=css] Format to output json in
- *     Available: json, jsonArray, css, less, sass, scss, stylus
+ *     Available: json, json_array, css, less, sass, scss, scss_maps, stylus
  * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
  */
 ```
