@@ -43,7 +43,7 @@ $sprites: (
 }
 
 @mixin sprite-height($sprite) {
-  width: sprite($sprite, 'height');
+  height: sprite($sprite, 'height');
 }
 
 @mixin sprite-position($sprite) {
