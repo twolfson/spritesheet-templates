@@ -1,4 +1,6 @@
 # json2css changelog
+4.4.0 - Updated `scss_maps` template to use height for height via @makeable in #26
+
 4.3.0 - Added `scss_maps` template via @leevigraham in #24
 
 4.2.2 - Add `eight-track` to CSS validation to remove third party dependency
