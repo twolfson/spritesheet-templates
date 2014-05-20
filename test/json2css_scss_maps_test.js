@@ -18,7 +18,7 @@ describe('An array of image positions, dimensions, and names', function () {
       var scssStr = this.result;
       scssStr += '\n' + [
         '.feature {',
-        '  height: sprite("sprite1", "height");',
+        '  height: sprite_sprites("sprite1", "height");',
         '  @include sprite-width("sprite2");',
         '  @include sprite-image("sprite3");',
         '}',
