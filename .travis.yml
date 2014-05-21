@@ -24,9 +24,13 @@ install:
 
   # Install libsass/sassc
   - git clone https://github.com/hcatlin/libsass.git libsass
+  - cd libsass
+  - git checkout v1.0.1
+  - cd -
   - export SASS_LIBSASS_PATH=$PWD/libsass
   - git clone https://github.com/hcatlin/sassc.git sassc
   - cd sassc
+  - git checkout v1.0.1
   - make
   - sudo ln -s $PWD/bin/sassc /usr/local/bin/sassc
   - cd ..
