@@ -27,7 +27,11 @@ module.exports = function(grunt) {
         strict: false
       },
       globals: {
-        exports: true
+        exports: true,
+        before: true,
+        after: true,
+        describe: true,
+        it: true
       }
     }
   });
