@@ -34,24 +34,24 @@ $sprites: (
   ),
 );
 
-@function sprite($sprite, $attribute) {
+@function sprite_sprites($sprite, $attribute) {
   @return map-get(map-get($sprites, $sprite), $attribute),
 }
 
 @mixin sprite-width($sprite) {
-  width: sprite($sprite, 'width');
+  width: sprite_sprites($sprite, 'width');
 }
 
 @mixin sprite-height($sprite) {
-  height: sprite($sprite, 'height');
+  height: sprite_sprites($sprite, 'height');
 }
 
 @mixin sprite-position($sprite) {
-  background-position: sprite($sprite, 'offset_x') sprite($sprite, 'offset_y');
+  background-position: sprite_sprites($sprite, 'offset_x') sprite_sprites($sprite, 'offset_y');
 }
 
 @mixin sprite-image($sprite) {
-  background-image: url(sprite($sprite, 'image'));
+  background-image: url(sprite_sprites($sprite, 'image'));
 }
 
 @mixin sprite($sprite) {

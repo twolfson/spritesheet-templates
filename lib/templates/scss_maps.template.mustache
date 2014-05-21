@@ -1,9 +1,10 @@
 {
   // Default options
-  'functions': true
+  'functions': true,
+  'mapName': 'sprites'
 }
 
-$sprites: (
+${{options.mapName}}: (
   {{#items}}
   {{name}}: (
     x: {{px.x}},
@@ -19,24 +20,25 @@ $sprites: (
   {{/items}}
 );
 
-@function sprite($sprite, $attribute) {
-  @return map-get(map-get($sprites, $sprite), $attribute),
+{{#options.functions}}
+@function sprite_{{options.mapName}}($sprite, $attribute) {
+  @return map-get(map-get(${{options.mapName}}, $sprite), $attribute),
 }
 
 @mixin sprite-width($sprite) {
-  width: sprite($sprite, 'width');
+  width: sprite_{{options.mapName}}($sprite, 'width');
 }
 
 @mixin sprite-height($sprite) {
-  height: sprite($sprite, 'height');
+  height: sprite_{{options.mapName}}($sprite, 'height');
 }
 
 @mixin sprite-position($sprite) {
-  background-position: sprite($sprite, 'offset_x') sprite($sprite, 'offset_y');
+  background-position: sprite_{{options.mapName}}($sprite, 'offset_x') sprite_{{options.mapName}}($sprite, 'offset_y');
 }
 
 @mixin sprite-image($sprite) {
-  background-image: url(sprite($sprite, 'image'));
+  background-image: url(sprite_{{options.mapName}}($sprite, 'image'));
 }
 
 @mixin sprite($sprite) {
@@ -45,3 +47,4 @@ $sprites: (
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
+{{/options.functions}}
