@@ -15,25 +15,22 @@ ${{name}} = (
   total_height: {{px.total_height}},
   image: '{{{escaped_image}}}'
 );
-
-@function sprite($sprite, $attribute) {
-  @return map-get(map-get($sprites, $sprite), $attribute),
-}
+{{/items}}
 
 @mixin sprite-width($sprite) {
-  width: sprite($sprite, 'width');
+  width: map-get($sprite, 'width');
 }
 
 @mixin sprite-height($sprite) {
-  height: sprite($sprite, 'height');
+  height: map-get($sprite, 'height');
 }
 
-@mixin sprite-position($sprite) {
-  background-position: sprite($sprite, 'offset_x') sprite($sprite, 'offset_y');
+@mixin sprite-position($map-get) {
+  background-position: map-get($sprite, 'offset_x') map-get($sprite, 'offset_y');
 }
 
 @mixin sprite-image($sprite) {
-  background-image: url(sprite($sprite, 'image'));
+  background-image: url(map-get($sprite, 'image'));
 }
 
 @mixin sprite($sprite) {
