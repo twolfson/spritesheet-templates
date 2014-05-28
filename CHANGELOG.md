@@ -1,4 +1,6 @@
 # json2css changelog
+5.1.1 - Fixed broken tests due to indentation changes
+
 5.1.0 - Fixed indentation and options for LESS, SCSS, and `scss_maps` templates
 
 5.0.0 - Moved `scss_maps` template from map of all sprites to map variable per sprite. Fixes #29
