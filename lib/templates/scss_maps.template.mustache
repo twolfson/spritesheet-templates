@@ -17,6 +17,7 @@ ${{name}}: (
 );
 {{/items}}
 
+{{#options.functions}}
 @mixin sprite-width($sprite) {
   width: map-get($sprite, 'width');
 }
@@ -39,3 +40,4 @@ ${{name}}: (
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
+{{/options.functions}}
