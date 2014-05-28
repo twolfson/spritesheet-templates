@@ -1,3 +1,13 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+*/
 $sprite1_x = 0px;
 $sprite1_y = 0px;
 $sprite1_offset_x = 0px;
@@ -29,6 +39,17 @@ $sprite3_total_height = 100px;
 $sprite3_image = 'nested/dir/%28%20%27%22%29/spritesheet.png';
 $sprite3 = 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/%28%20%27%22%29/spritesheet.png';
 
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
 spriteWidth($sprite) {
   width: $sprite[4];
 }
