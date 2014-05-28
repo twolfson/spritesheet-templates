@@ -1,4 +1,6 @@
 # json2css changelog
+5.2.0 - Added comments explaining how to use each template
+
 5.1.1 - Fixed broken tests due to indentation changes
 
 5.1.0 - Fixed indentation and options for LESS, SCSS, and `scss_maps` templates
