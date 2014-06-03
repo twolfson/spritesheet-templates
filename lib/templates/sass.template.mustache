@@ -51,8 +51,10 @@ ${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.h
   background-image: url(#{$sprite-image})
 
 @mixin sprite($sprite)
-  @include sprite-image($sprite)
-  @include sprite-position($sprite)
+  $sprite-image: nth($sprite, 9)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background: url(#{$sprite-image} no-repeat $sprite-offset-x  $sprite-offset-y  
   @include sprite-width($sprite)
   @include sprite-height($sprite)
 {{/options.functions}}

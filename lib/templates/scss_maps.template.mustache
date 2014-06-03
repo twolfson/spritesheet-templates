@@ -53,8 +53,7 @@ The provided mixins are intended to be used with variables directly
 }
 
 @mixin sprite($sprite) {
-  @include sprite-image($sprite);
-  @include sprite-position($sprite);
+  background: url(map-get($sprite, 'image')) no-repeat map-get($sprite, 'offset_x') map-get($sprite, 'offset_y');
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
