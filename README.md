@@ -1,4 +1,4 @@
-# json2css [![Build status](https://travis-ci.org/twolfson/json2css.png?branch=master)](https://travis-ci.org/twolfson/json2css)
+# json2css [![Build status](https://travis-ci.org/twolfson/json2css.svg?branch=master)](https://travis-ci.org/twolfson/json2css)
 
 Convert JSON into pre-processor ready CSS.
 
