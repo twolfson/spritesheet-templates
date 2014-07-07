@@ -1,4 +1,6 @@
 # json2css changelog
+5.2.1 - Updated Travis CI badge via @shinn in #32
+
 5.2.0 - Added comments explaining how to use each template
 
 5.1.1 - Fixed broken tests due to indentation changes
