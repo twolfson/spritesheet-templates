@@ -54,10 +54,33 @@ spriteImage($sprite) {
   background-image: url($sprite[8]);
 }
 
+spriteWidthRetina($sprite) {
+  width: ($sprite[4]/2);
+}
+
+spriteHeightRetina($sprite) {
+  height: ($sprite[5]/2);
+}
+
+spritePositionRetina($sprite) {
+  background-position: ($sprite[2]/2) ($sprite[3]/2);
+}
+
+spriteSizeRetina($sprite) {
+  background-size: ($sprite[6]/2) ($sprite[7]/2);
+}
+
 sprite($sprite) {
   spriteImage($sprite)
   spritePosition($sprite)
   spriteWidth($sprite)
   spriteHeight($sprite)
+}
+
+spriteRetina($sprite) {
+  spriteImage($sprite)
+  spritePositionRetina($sprite)
+  spriteWidthRetina($sprite)
+  spriteHeightRetina($sprite)
 }
 {{/options.functions}}
