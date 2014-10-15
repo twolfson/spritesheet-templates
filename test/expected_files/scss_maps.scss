@@ -1,10 +1,10 @@
-/*
-SCSS variables are information about icon's compiled state, stored under its original file name
-
-.icon-home {
-  width: map-get($icon-home, 'width');
-}
-*/
+//
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: map-get($icon-home, 'width');
+// }
+//
 $sprite1: (
   x: 0px,
   y: 0px,
@@ -39,17 +39,17 @@ $sprite3: (
   image: 'nested/dir/%28%20%27%22%29/spritesheet.png'
 );
 
-/*
-The provided mixins are intended to be used with variables directly
-
-.icon-home {
-  @include sprite-width($icon-home);
-}
-
-.icon-email {
-  @include sprite($icon-email);
-}
-*/
+//
+// The provided mixins are intended to be used with variables directly
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
 @mixin sprite-width($sprite) {
   width: map-get($sprite, 'width');
 }
