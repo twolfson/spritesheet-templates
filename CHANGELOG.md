@@ -1,4 +1,6 @@
 # json2css changelog
+6.0.0 - Renamed `cssClass` option to `cssSelector`
+
 5.2.2 - Added documentation and example for each template flavor
 
 5.2.1 - Updated Travis CI badge via @shinn in #32
