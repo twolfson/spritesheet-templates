@@ -77,12 +77,12 @@ json2css.addMustacheTemplate(name, tmplStr);
 These are the various template options for `options.format`:
 
 #### `css`
-Ouput CSS variables as CSS classes.
+Ouput CSS variables as CSS rules.
 
 **Options:**
 
-- cssClass `Function` - Override mapping for CSS selector
-    - `cssClass` should have signature `function (item) { return 'selector'; }`
+- cssSelector `Function` - Override mapping for CSS selector
+    - `cssSelector` should have signature `function (item) { return 'selector'; }`
     - By default this will return `'.icon-' + item.name`
     - It will receive `item` with all parameters designed for template
 
