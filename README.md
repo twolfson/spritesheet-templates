@@ -77,7 +77,7 @@ json2css.addMustacheTemplate(name, tmplStr);
 These are the various template options for `options.format`:
 
 #### `css`
-Ouput CSS variables as CSS classes
+Ouput CSS variables as CSS classes.
 
 **Options:**
 
