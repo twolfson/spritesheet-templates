@@ -166,7 +166,7 @@ Output CSS variables as an array of objects.
 ```
 
 #### `less`
-Output CSS variable as [LESS][] variables
+Output CSS variables as [LESS][] variables.
 
 **Options:**
 
@@ -189,6 +189,115 @@ Output CSS variable as [LESS][] variables
 @sprite2-x: 10px;
 // ...
 ```
+
+[LESS]: http://lesscss.org/
+
+### `sass`
+Output CSS variables as [SASS][] variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+
+**Example:**
+
+```sass
+$sprite1-x: 0px
+$sprite1-y: 0px
+$sprite1-offset-x: 0px
+$sprite1-offset-y: 0px
+$sprite1-width: 10px
+$sprite1-height: 20px
+$sprite1-total-width: 80px
+$sprite1-total-height: 100px
+$sprite1-image: 'nested/dir/spritesheet.png'
+$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png'
+$sprite2-x: 10px
+// ...
+```
+
+[SASS]: http://sass-lang.com/
+
+### `scss`
+Output CSS variables as [SCSS][] variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+
+**Example:**
+
+```scss
+$sprite1-x: 0px;
+$sprite1-y: 0px;
+$sprite1-offset-x: 0px;
+$sprite1-offset-y: 0px;
+$sprite1-width: 10px;
+$sprite1-height: 20px;
+$sprite1-total-width: 80px;
+$sprite1-total-height: 100px;
+$sprite1-image: 'nested/dir/spritesheet.png';
+$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
+$sprite2-x: 10px;
+// ...
+```
+
+[SCSS]: http://sass-lang.com/
+
+### `scss_maps`
+Output CSS variables as [SCSS][] maps variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+
+**Example:**
+
+```scss
+$sprite1: (
+  x: 0px,
+  y: 0px,
+  offset_x: 0px,
+  offset_y: 0px,
+  width: 10px,
+  height: 20px,
+  total_width: 80px,
+  total_height: 100px,
+  image: 'nested/dir/spritesheet.png'
+);
+$sprite2: (
+// ...
+```
+
+### `stylus`
+Output CSS variables as [Stylus][] variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+
+**Example:**
+
+```scss
+$sprite1_x = 0px;
+$sprite1_y = 0px;
+$sprite1_offset_x = 0px;
+$sprite1_offset_y = 0px;
+$sprite1_width = 10px;
+$sprite1_height = 20px;
+$sprite1_total_width = 80px;
+$sprite1_total_height = 100px;
+$sprite1_image = 'nested/dir/spritesheet.png';
+$sprite1 = 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
+$sprite2_x = 10px;
+// ...
+```
+
+[Stylus]: http://learnboost.github.io/stylus/
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/cowboy/grunt) and test via `npm test`.
