@@ -164,7 +164,7 @@ Output CSS variables as an array of objects.
     },
     {
         "name": "sprite2",
-    // ...
+        // ...
 ```
 
 #### `less`
