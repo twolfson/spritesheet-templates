@@ -129,6 +129,7 @@ Output CSS variables in JSON format.
         "escaped_image": "nested/dir/spritesheet.png"
     },
     "sprite2": {
+    // ...
 ```
 
 #### `json_array`
@@ -163,6 +164,7 @@ Output CSS variables as an array of objects.
     },
     {
         "name": "sprite2",
+    // ...
 ```
 
 #### `less`
