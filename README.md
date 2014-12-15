@@ -2,12 +2,12 @@
 
 Convert JSON into pre-processor ready CSS.
 
-This is initially designed for generating coordinates for a mapping of sprites on a spritesheet. However, it should be usable for anything related to dimensions/positions and CSS.
+This was initially designed for generating coordinates for a mapping of sprites on a spritesheet. However, it should be usable for anything related to dimensions/positions and CSS.
 
 ## Getting Started
 Install the module with: `npm install json2css`
 
-```javascript
+```js
 // Compilation
 var json2css = require('json2css'),
     obj = [
@@ -58,8 +58,8 @@ json2css is a single function repo
  * @param {Number} input[*].total_height Vertical length of spritesheet
  * @param {Number} input[*].image Path to image itself (used as a URL component)
  * @param {Object} [options] Options to convert JSON with
- * @param {String} [options.format=css] Format to output json in
- *     Available: json, json_array, css, less, sass, scss, scss_maps, stylus
+ * @param {String} [options.format="css"] Format to output json in
+ *   Format options can be found in the Templates section
  * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
  */
 ```
@@ -71,6 +71,123 @@ json2css.addTemplate(name, fn);
 
 // Processes template via mustache
 json2css.addMustacheTemplate(name, tmplStr);
+```
+
+### Templates
+These are the various template options for `options.format`:
+
+#### `css`
+Ouput CSS variables as CSS classes
+
+**Options:**
+
+- cssClass `Function` - Override mapping for CSS selector
+    - `cssClass` should have signature `function (item) { return 'selector'; }`
+    - By default this will return `'.icon-' + item.name`
+    - It will receive `item` with all parameters designed for template
+
+**Example:**
+
+```css
+.icon-sprite1 {
+  background-image: url(nested/dir/spritesheet.png);
+  background-position: 0px 0px;
+  width: 10px;
+  height: 20px;
+}
+.icon-sprite2 {
+/* ... */
+```
+
+#### `json`
+Output CSS variables in JSON format.
+
+**Example:**
+
+```js
+{
+    "sprite1": {
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 20,
+        "total_width": 80,
+        "total_height": 100,
+        "image": "nested/dir/spritesheet.png",
+        "offset_x": 0,
+        "offset_y": 0,
+        "px": {
+            "x": "0px",
+            "y": "0px",
+            "offset_x": "0px",
+            "offset_y": "0px",
+            "height": "20px",
+            "width": "10px",
+            "total_height": "100px",
+            "total_width": "80px"
+        },
+        "escaped_image": "nested/dir/spritesheet.png"
+    },
+    "sprite2": {
+```
+
+#### `json_array`
+Output CSS variables as an array of objects.
+
+**Example:**
+
+```js
+[
+    {
+        "name": "sprite1",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 20,
+        "total_width": 80,
+        "total_height": 100,
+        "image": "nested/dir/spritesheet.png",
+        "offset_x": 0,
+        "offset_y": 0,
+        "px": {
+            "x": "0px",
+            "y": "0px",
+            "offset_x": "0px",
+            "offset_y": "0px",
+            "height": "20px",
+            "width": "10px",
+            "total_height": "100px",
+            "total_width": "80px"
+        },
+        "escaped_image": "nested/dir/spritesheet.png"
+    },
+    {
+        "name": "sprite2",
+```
+
+#### `less`
+Output CSS variable as [LESS][] variables
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+
+**Example:**
+
+```less
+@sprite1-x: 0px;
+@sprite1-y: 0px;
+@sprite1-offset-x: 0px;
+@sprite1-offset-y: 0px;
+@sprite1-width: 10px;
+@sprite1-height: 20px;
+@sprite1-total-width: 80px;
+@sprite1-total-height: 100px;
+@sprite1-image: 'nested/dir/spritesheet.png';
+@sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
+@sprite2-x: 10px;
+// ...
 ```
 
 ## Contributing
