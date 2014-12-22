@@ -23,7 +23,11 @@ describe('An array of image positions, dimensions, and names', function () {
   describe('processed by `json2css` into CSS with an escapable selector', function () {
     before(function () {
       this.options = {
-        cssSelector: '.hello > .world'
+        formatOpts: {
+          cssSelector: function (item) {
+            return '.hello > .icon-' + item.name;
+          }
+        }
       };
       this.filename = 'css-escapable.css';
     });

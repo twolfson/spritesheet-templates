@@ -21,6 +21,7 @@ exports.setupImages = function () {
 exports.runJson2Css = function () {
   before(function () {
     // Convert info into result via json2css
+    console.log(this.options)
     var options = this.options,
         info = this.info,
         result = options ? json2css(info, options) : json2css(info);
