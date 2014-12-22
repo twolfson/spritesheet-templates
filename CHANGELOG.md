@@ -1,4 +1,6 @@
 # json2css changelog
+6.1.0 - Removed HTML escaping of CSS selectors. Fixes Ensighten/grunt-spritesmith#104
+
 6.0.0 - Renamed `cssClass` option to `cssSelector`
 
 5.2.2 - Added documentation and example for each template flavor
