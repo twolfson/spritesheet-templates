@@ -12,28 +12,27 @@ Install the module with: `npm install spritesheet-templates`
 ```js
 // Compilation
 var templater = require('spritesheet-templates');
-var obj = [{
-  name: 'github', x: 0, y: 0, width: 10, height: 20,
-  total_width: 80, total_height: 100, image: 'spritesheet.png'
-}, {
-  name: 'twitter', x: 10, y: 20, width: 20, height: 30,
-  total_width: 80, total_height: 100, image: 'spritesheet.png'
-}, {
-  name: 'rss', x: 30, y: 50, width: 50, height: 50,
-  total_width: 80, total_height: 100, image: 'spritesheet.png'
-}];
-var stylus = templater(obj, {format: 'stylus'});
-
-// Result
-stylus; /*
+templater({
+  items: [{
+    name: 'github', x: 0, y: 0, width: 10, height: 20
+  }, {
+    name: 'twitter', x: 10, y: 20, width: 20, height: 30
+  }, {
+    name: 'rss', x: 30, y: 50, width: 50, height: 50
+  }],
+  spritesheet: {
+    width: 80, height: 100, image: 'url/path/to/spritesheet.png'
+  }
+}, {format: 'stylus'}); /*
+// Result stylus
 $github_x = 0px;
 $github_y = 0px;
 ...
-$github = 0px 0px 0px 0px 10px 20px 80px 100px 'spritesheet.png';
+$github = 0px 0px 0px 0px 10px 20px 80px 100px 'url/path/to/spritesheet.png';
 ...
-$twitter = 10px 20px -10px -20px 20px 30px 80px 100px 'spritesheet.png';
+$twitter = 10px 20px -10px -20px 20px 30px 80px 100px 'url/path/to/spritesheet.png';
 ...
-$rss = 30px 50px -30px -50px 50px 50px 80px 100px 'spritesheet.png';
+$rss = 30px 50px -30px -50px 50px 50px 80px 100px 'url/path/to/spritesheet.png';
 ...
 spriteWidth($sprite) {
   width: $sprite[0];
