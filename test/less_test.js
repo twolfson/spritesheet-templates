@@ -28,7 +28,9 @@ describe('An array of image positions, dimensions, and names', function () {
           '',
           '.feature2 {',
           '  .sprite(@sprite2);',
-          '}'
+          '}',
+          '',
+          '.sprites(@spritesheet-sprites);'
         ].join('\n');
 
         // Render the LESS, assert no errors, and valid CSS
