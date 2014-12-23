@@ -75,7 +75,10 @@ $spritesheet: 80px 100px 'nested/dir/spritesheet.png' $spritesheet-sprites
   @include sprite-width($sprite)
   @include sprite-height($sprite)
 
-@each $sprite in $spritesheet-sprites
-  $sprite-name: nth($sprite, 10)
-  .#{sprite-name}
-    @include sprite($sprite)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{sprite-name}
+      @include sprite($sprite)
+
+@include sprites($spritesheet-sprites)
