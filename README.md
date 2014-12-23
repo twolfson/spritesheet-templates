@@ -4,6 +4,8 @@ Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
 
+[`spritesmith`]: https://github.com/Ensighten/spritesmith
+
 ## Getting Started
 Install the module with: `npm install spritesheet-templates`
 
