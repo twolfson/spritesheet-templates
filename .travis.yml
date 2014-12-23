@@ -9,7 +9,7 @@ matrix:
 
 before_install:
   # Install latest npm to avoid semver issues
-  - npm install npm@1.4.2 -g
+  - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 install:
   # Install node modules
