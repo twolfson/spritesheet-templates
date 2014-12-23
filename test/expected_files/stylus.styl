@@ -84,8 +84,8 @@ sprite($sprite) {
 
 sprites($sprites) {
   for $sprite in $sprites {
-    $sprite_name = $sprite[10];
-    .{sprite_name} {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
       sprite($sprite);
     }
   }
