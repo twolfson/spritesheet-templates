@@ -28,11 +28,11 @@ templater({
 $github_x = 0px;
 $github_y = 0px;
 ...
-$github = 0px 0px 0px 0px 10px 20px 80px 100px 'url/path/to/spritesheet.png';
+$github = 0px 0px 0px 0px 10px 20px 80px 100px 'url/path/to/spritesheet.png' 'github';
 ...
-$twitter = 10px 20px -10px -20px 20px 30px 80px 100px 'url/path/to/spritesheet.png';
+$twitter = 10px 20px -10px -20px 20px 30px 80px 100px 'url/path/to/spritesheet.png' 'twitter';
 ...
-$rss = 30px 50px -30px -50px 50px 50px 80px 100px 'url/path/to/spritesheet.png';
+$rss = 30px 50px -30px -50px 50px 50px 80px 100px 'url/path/to/spritesheet.png' 'rss';
 ...
 spriteWidth($sprite) {
   width: $sprite[0];
@@ -46,7 +46,7 @@ sprite($sprite) {
 }
 
 // Inside of your Stylus
-.githubLogo {
+.github-logo {
   sprite($github);
 }
 */
@@ -189,6 +189,7 @@ Output CSS variables as [LESS][] variables.
 **Example:**
 
 ```less
+@sprite1-name: 'sprite1';
 @sprite1-x: 0px;
 @sprite1-y: 0px;
 @sprite1-offset-x: 0px;
@@ -198,8 +199,8 @@ Output CSS variables as [LESS][] variables.
 @sprite1-total-width: 80px;
 @sprite1-total-height: 100px;
 @sprite1-image: 'nested/dir/spritesheet.png';
-@sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
-@sprite2-x: 10px;
+@sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite1';
+@sprite2-name: 'sprite2';
 // ...
 ```
 
@@ -216,6 +217,7 @@ Output CSS variables as [SASS][] variables.
 **Example:**
 
 ```sass
+$sprite1-name: 'sprite1'
 $sprite1-x: 0px
 $sprite1-y: 0px
 $sprite1-offset-x: 0px
@@ -225,8 +227,8 @@ $sprite1-height: 20px
 $sprite1-total-width: 80px
 $sprite1-total-height: 100px
 $sprite1-image: 'nested/dir/spritesheet.png'
-$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png'
-$sprite2-x: 10px
+$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite1'
+$sprite2-name: 'sprite2'
 // ...
 ```
 
@@ -243,6 +245,7 @@ Output CSS variables as [SCSS][] variables.
 **Example:**
 
 ```scss
+$sprite1-name: 'sprite1';
 $sprite1-x: 0px;
 $sprite1-y: 0px;
 $sprite1-offset-x: 0px;
@@ -252,8 +255,8 @@ $sprite1-height: 20px;
 $sprite1-total-width: 80px;
 $sprite1-total-height: 100px;
 $sprite1-image: 'nested/dir/spritesheet.png';
-$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
-$sprite2-x: 10px;
+$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite1';
+$sprite2-name: 'sprite2';
 // ...
 ```
 
@@ -271,6 +274,7 @@ Output CSS variables as [SCSS][] maps variables.
 
 ```scss
 $sprite1: (
+  name: 'sprite1',
   x: 0px,
   y: 0px,
   offset_x: 0px,
@@ -296,6 +300,7 @@ Output CSS variables as [Stylus][] variables.
 **Example:**
 
 ```scss
+$sprite1_name = 'sprite1';
 $sprite1_x = 0px;
 $sprite1_y = 0px;
 $sprite1_offset_x = 0px;
@@ -306,7 +311,7 @@ $sprite1_total_width = 80px;
 $sprite1_total_height = 100px;
 $sprite1_image = 'nested/dir/spritesheet.png';
 $sprite1 = 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
-$sprite2_x = 10px;
+$sprite2_name = 'sprite2';
 // ...
 ```
 
