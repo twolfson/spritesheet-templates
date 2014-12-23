@@ -1,21 +1,21 @@
-# json2css [![Build status](https://travis-ci.org/twolfson/json2css.svg?branch=master)](https://travis-ci.org/twolfson/json2css)
+# spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
 Convert JSON into pre-processor ready CSS.
 
 This was initially designed for generating coordinates for a mapping of sprites on a spritesheet. However, it should be usable for anything related to dimensions/positions and CSS.
 
 ## Getting Started
-Install the module with: `npm install json2css`
+Install the module with: `npm install spritesheet-templates`
 
 ```js
 // Compilation
-var json2css = require('json2css'),
+var templater = require('spritesheet-templates'),
     obj = [
       {'name': 'github', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total_width': 80, 'total_height': 100, 'image': 'spritesheet.png'},
       {'name': 'twitter', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total_width': 80, 'total_height': 100, 'image': 'spritesheet.png'},
       {'name': 'rss', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'image': 'spritesheet.png'}
     ],
-    stylus = json2css(obj, {'format': 'stylus'});
+    stylus = templater(obj, {'format': 'stylus'});
 
 // Result (stylus)
 $github_x = 0px;
@@ -45,7 +45,8 @@ sprite($sprite) {
 ```
 
 ## Documentation
-json2css is a single function repo
+`spritesheet-templates` is exports the funciton `templater` as its `module.exports`.
+
 ```js
 /**
  * @param {Object[]} input Object to convert into CSS
@@ -64,13 +65,14 @@ json2css is a single function repo
  */
 ```
 
-New templates can be added dynamically via
+New templates can be added dynamically via:
+
 ```js
 // Processes template via function
-json2css.addTemplate(name, fn);
+spritesheet-templates.addTemplate(name, fn);
 
 // Processes template via mustache
-json2css.addMustacheTemplate(name, tmplStr);
+spritesheet-templates.addMustacheTemplate(name, tmplStr);
 ```
 
 ### Templates
@@ -321,4 +323,4 @@ It has been released under the [UNLICENSE][].
 
 Prior to Sep 08 2013, this repository and its contents were licensed under the [MIT license][].
 
-[MIT license]: https://github.com/twolfson/json2css/blob/e601307209b75faa48cb65388a17e0047b561aa0/LICENSE-MIT
+[MIT license]: https://github.com/twolfson/spritesheet-templates/blob/e601307209b75faa48cb65388a17e0047b561aa0/LICENSE-MIT
