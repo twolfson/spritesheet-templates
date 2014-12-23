@@ -8,6 +8,7 @@ Stylus variables are information about icon's compiled state, stored under its o
 The large array-like variables contain all information about a single icon
 $icon_home = x y offset_x offset_y width height total_width total_height image_path;
 */
+$sprite1_name = 'sprite1';
 $sprite1_x = 0px;
 $sprite1_y = 0px;
 $sprite1_offset_x = 0px;
@@ -17,7 +18,8 @@ $sprite1_height = 20px;
 $sprite1_total_width = 80px;
 $sprite1_total_height = 100px;
 $sprite1_image = 'nested/dir/spritesheet.png';
-$sprite1 = 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png';
+$sprite1 = 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite1';
+$sprite2_name = 'sprite2';
 $sprite2_x = 10px;
 $sprite2_y = 20px;
 $sprite2_offset_x = -10px;
@@ -27,7 +29,8 @@ $sprite2_height = 30px;
 $sprite2_total_width = 80px;
 $sprite2_total_height = 100px;
 $sprite2_image = 'nested/dir/spritesheet.png';
-$sprite2 = 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png';
+$sprite2 = 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' 'sprite2';
+$sprite3_name = 'sprite3';
 $sprite3_x = 30px;
 $sprite3_y = 50px;
 $sprite3_offset_x = -30px;
@@ -37,7 +40,13 @@ $sprite3_height = 50px;
 $sprite3_total_width = 80px;
 $sprite3_total_height = 100px;
 $sprite3_image = 'nested/dir/spritesheet.png';
-$sprite3 = 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png';
+$sprite3 = 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'sprite3';
+$spritesheet_width = 80px;
+$spritesheet_height = 100px;
+$spritesheet_image = 'nested/dir/spritesheet.png';
+$spritesheet_sprites = $sprite1 $sprite2 $sprite3;
+$spritesheet = 80px 100px 'nested/dir/spritesheet.png' $spritesheet_sprites;
+// TODO: Document new additions
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -72,3 +81,14 @@ sprite($sprite) {
   spriteWidth($sprite)
   spriteHeight($sprite)
 }
+
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[10];
+    .#{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+// TODO: Test `sprites` functionality
+sprites($spritesheet-sprites);
