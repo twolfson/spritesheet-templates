@@ -18,7 +18,7 @@ Icon classes can be used entirely standalone. They are named after their origina
   height: 30px;
 }
 .icon-sprite3 {
-  background-image: url(nested/dir/%28%20%27%22%29/spritesheet.png);
+  background-image: url(nested/dir/spritesheet.png);
   background-position: -30px -50px;
   width: 50px;
   height: 50px;

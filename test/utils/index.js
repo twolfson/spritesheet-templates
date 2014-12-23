@@ -13,11 +13,11 @@ exports.setupImages = function () {
     // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
     this.info = {
       items: [{
-        name: 'sprite1', x: 0, y: 0, width: 10, height: 20,
+        name: 'sprite1', x: 0, y: 0, width: 10, height: 20
       }, {
-        name: 'sprite2', x: 10, y: 20, width: 20, height: 30,
+        name: 'sprite2', x: 10, y: 20, width: 20, height: 30
       }, {
-        name: 'sprite3', x: 30, y: 50, width: 50, height: 50,
+        name: 'sprite3', x: 30, y: 50, width: 50, height: 50
       }],
       spritesheet: {
         // TODO: Add test cases for this
