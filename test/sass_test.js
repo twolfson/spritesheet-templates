@@ -6,12 +6,12 @@ var assert = require('assert'),
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
-  describe('processed by `json2css` into SASS', function () {
+  describe('processed by `spritesheet-templates` into SASS', function () {
     before(function () {
       this.options = {'format': 'sass'};
       this.filename = 'sass.sass';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
     before(function writeSassToFile () {
       // Add some SASS to our result
       var sassStr = this.result;

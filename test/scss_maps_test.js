@@ -6,12 +6,12 @@ var assert = require('assert'),
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
-  describe('processed by `json2css` into SCSS (Maps)', function () {
+  describe('processed by `spritesheet-templates` into SCSS (Maps)', function () {
     before(function () {
       this.options = {'format': 'scss_maps'};
       this.filename = 'scss_maps.scss';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     before(function writeScssToFile () {
       // Add some SCSS to our result

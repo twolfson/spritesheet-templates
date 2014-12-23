@@ -5,7 +5,7 @@ var assert = require('assert'),
     express = require('express'),
     normalizeMultipart = require('eight-track-normalize-multipart'),
     validateCss = require('css-validator'),
-    json2css = require('../../');
+    templater = require('../../');
 
 exports.setupImages = function () {
   before(function () {
@@ -18,12 +18,12 @@ exports.setupImages = function () {
   });
 };
 
-exports.runJson2Css = function () {
+exports.runTemplater = function () {
   before(function () {
-    // Convert info into result via json2css
+    // Convert info into result via templater
     var options = this.options,
         info = this.info,
-        result = options ? json2css(info, options) : json2css(info);
+        result = options ? templater(info, options) : templater(info);
     this.result = result;
 
     // If we are debugging, output results to a file

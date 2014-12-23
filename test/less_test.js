@@ -5,12 +5,12 @@ var assert = require('assert'),
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
-  describe('processed by `json2css` into LESS', function () {
+  describe('processed by `spritesheet-templates` into LESS', function () {
     before(function () {
       this.options = {'format': 'less'};
       this.filename = 'less.less';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
 

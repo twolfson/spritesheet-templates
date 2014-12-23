@@ -12,22 +12,22 @@ describe('An array of image positions, dimensions, and names', function () {
       });
     });
   }
-  describe('processed by `json2css` into JSON', function () {
+  describe('processed by `spritesheet-templates` into JSON', function () {
     before(function () {
       this.options = {'format': 'json'};
       this.filename = 'json.json';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
     assertValidJson();
   });
-  describe('processed by `json2css` into an array', function () {
+  describe('processed by `spritesheet-templates` into an array', function () {
     before(function () {
       this.options = {'format': 'jsonArray'};
       this.filename = 'jsonArray.json';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
     assertValidJson();

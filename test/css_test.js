@@ -4,12 +4,12 @@ var assert = require('assert'),
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
-  describe('processed by `json2css` into CSS', function () {
+  describe('processed by `spritesheet-templates` into CSS', function () {
     before(function () {
       this.options = null;
       this.filename = 'css.css';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
     utils.runFakeJigsaw();
@@ -20,7 +20,7 @@ describe('An array of image positions, dimensions, and names', function () {
   });
 
   // Edge case test for https://github.com/Ensighten/grunt-spritesmith/issues/104
-  describe('processed by `json2css` into CSS with an escapable selector', function () {
+  describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
     before(function () {
       this.options = {
         formatOpts: {
@@ -31,7 +31,7 @@ describe('An array of image positions, dimensions, and names', function () {
       };
       this.filename = 'css-escapable.css';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
     utils.runFakeJigsaw();

@@ -5,12 +5,12 @@ var assert = require('assert'),
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
-  describe('processed by `json2css` into Stylus', function () {
+  describe('processed by `spritesheet-templates` into Stylus', function () {
     before(function () {
       this.options = {'format': 'stylus'};
       this.filename = 'stylus.styl';
     });
-    utils.runJson2Css();
+    utils.runTemplater();
 
     utils.assertMatchesAsExpected();
 
