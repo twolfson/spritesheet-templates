@@ -55,33 +55,35 @@ sprite($sprite) {
 ## Documentation
 `spritesheet-templates` is exports the funciton `templater` as its `module.exports`.
 
-```js
-/**
- * @param {Object[]} input Object to convert into CSS
- * @param {String} input[*].name Name to use for the image
- * @param {Number} input[*].x Horizontal coordinate of top-left corner of image
- * @param {Number} input[*].y Vertical coordinate of top-left corner of image
- * @param {Number} input[*].width Horizontal length of image
- * @param {Number} input[*].height Vertical length of image
- * @param {Number} input[*].total_width Horizontal length of spritesheet
- * @param {Number} input[*].total_height Vertical length of spritesheet
- * @param {Number} input[*].image Path to image itself (used as a URL component)
- * @param {Object} [options] Options to convert JSON with
- * @param {String} [options.format="css"] Format to output json in
- *   Format options can be found in the Templates section
- * @param {Mixed} [options.formatOpts={}] Options to pass through to the formatter
- */
-```
+#### `templater(params, options)`
+Converter for spritesheet/sprite info into spritesheet
 
-New templates can be added dynamically via:
+- params `Object` - Container for parameters
+    - items `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
+        - * `Object` - Container for sprite coordinate data
+            - For reference, `*` symbolizes any index (e.g. `params.items[0]`)
+            - name `String` - Name to use for the image
+            - x `Number` - Horizontal coordinate of top-left corner of image
+            - y `Number` - Vertical coordinate of top-left corner of image
+            - width `Number` - Horizontal length of image in pixels
+            - height `Number` - Vertical length of image in pixels
+    - spritesheet `Object` - Information about spritesheet
+        - width `Number` - Horizontal length of image in pixels
+        - height `Number` - Vertical length of image in pixels
+        - image `String` - URL to use for spritesheet
+            - This will typically be used in `background-image`
+            - For example, `background-image: url({{spritesheet.image}});`
+- options `Object` - Optional settings
+    - format `String` - Format to generate output in
+        - We accept any format inside of the [Templates section](#templates)
+            - Custom formats can be added via the [custom methods][]
+            - TODO: Link to custom methods
+        - By default, we will use the `css` format
+    - formatOpts `Mixed` - Options to pass through to the formatter
 
-```js
-// Processes template via function
-spritesheet-templates.addTemplate(name, fn);
+**Returns:**
 
-// Processes template via mustache
-spritesheet-templates.addMustacheTemplate(name, tmplStr);
-```
+- retVal `String` - Result from specified formatter
 
 ### Templates
 These are the various template options for `options.format`:
