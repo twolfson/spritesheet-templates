@@ -1,6 +1,7 @@
 // Load in our dependencies
 var assert = require('assert');
 var fs = require('fs');
+var _ = require('underscore');
 var eightTrack = require('eight-track');
 var express = require('express');
 var normalizeMultipart = require('eight-track-normalize-multipart');
@@ -8,9 +9,9 @@ var validateCss = require('css-validator');
 var templater = require('../../');
 
 // Start our utilities
-exports.setupImages = function () {
+exports.setupImages = function (options) {
+  options = options || {};
   before(function () {
-    // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
     this.info = {
       items: [{
         name: 'sprite1', x: 0, y: 0, width: 10, height: 20
@@ -19,11 +20,9 @@ exports.setupImages = function () {
       }, {
         name: 'sprite3', x: 30, y: 50, width: 50, height: 50
       }],
-      spritesheet: {
-        // TODO: Add test cases for this
-        // width: 80, height: 100, image: 'nested/dir/( \'")/spritesheet.png'
+      spritesheet: _.extend({
         width: 80, height: 100, image: 'nested/dir/spritesheet.png'
-      }
+      }, options.spritesheet)
     };
   });
 };

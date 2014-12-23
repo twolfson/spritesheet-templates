@@ -17,8 +17,35 @@ describe('An array of image positions, dimensions, and names', function () {
       utils._assertValidCss(css, done);
     });
   });
+});
 
-  // Edge case test for https://github.com/Ensighten/grunt-spritesmith/issues/104
+// Edge case test for images with filepaths with quotes
+describe('An array of image positions, dimensions, and names', function () {
+  utils.setupImages({
+    spritesheet: {
+      width: 80, height: 100, image: 'nested/dir/( \'")/spritesheet.png'
+    }
+  });
+
+  describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
+    before(function () {
+      this.options = null;
+      this.filename = 'css-quote-image.css';
+    });
+    utils.runTemplater();
+
+    utils.assertMatchesAsExpected();
+    utils.runFakeJigsaw();
+    it('is valid CSS', function (done) {
+      var css = this.result;
+      utils._assertValidCss(css, done);
+    });
+  });
+});
+
+// Edge case test for https://github.com/Ensighten/grunt-spritesmith/issues/104
+describe('An array of image positions, dimensions, and names', function () {
+  utils.setupImages();
   describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
     before(function () {
       this.options = {
@@ -28,7 +55,7 @@ describe('An array of image positions, dimensions, and names', function () {
           }
         }
       };
-      this.filename = 'css-escapable.css';
+      this.filename = 'css-html-selector.css';
     });
     utils.runTemplater();
 
