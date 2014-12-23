@@ -6,7 +6,10 @@ LESS variables are information about icon's compiled state, stored under its ori
 }
 
 The large array-like variables contain all information about a single icon
-@icon-home: x y offset_x offset_y width height total_width total_height image_path;
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name @spritesheet;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
 */
 @sprite1-name: sprite1;
 @sprite1-x: 0px;
