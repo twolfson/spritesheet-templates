@@ -22,7 +22,9 @@ describe('An array of image positions, dimensions, and names', function () {
         '  @include sprite-image($sprite3)',
         '',
         '.feature2',
-        '  @include sprite($sprite2)'
+        '  @include sprite($sprite2)',
+        '',
+        '@include sprites($spritesheet-sprites)'
       ].join('\n');
 
       // Save the SASS to a file for processing
