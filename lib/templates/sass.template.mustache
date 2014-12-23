@@ -64,7 +64,6 @@ ${{spritesheet_name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{sp
   @include sprite-position($sprite)
   @include sprite-width($sprite)
   @include sprite-height($sprite)
-{{/options.functions}}
 
 /*
   The `sprites` mixin generates identical output to the CSS template
@@ -77,3 +76,4 @@ ${{spritesheet_name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{sp
     $sprite-name: nth($sprite, 10)
     .#{$sprite-name}
       @include sprite($sprite)
+{{/options.functions}}
