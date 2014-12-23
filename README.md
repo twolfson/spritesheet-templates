@@ -76,8 +76,7 @@ Converter for spritesheet/sprite info into spritesheet
 - options `Object` - Optional settings
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
-            - Custom formats can be added via the [custom methods][]
-            - TODO: Link to custom methods
+            - Custom formats can be added via the [custom methods](#custom)
         - By default, we will use the `css` format
     - formatOpts `Mixed` - Options to pass through to the formatter
 
