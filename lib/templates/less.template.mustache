@@ -61,11 +61,10 @@ The provided classes are intended to be used with the array-like variables
 }
 
 .sprite-image(@sprite) {
-  {{! DEV: We perform a slice due to a trailing brace from string coercion of arrays }}
-  {{! TODO: Verify we kept a consistent extraction format }}
+  {{! DEV: We slice to trim off excess quotes on an escaped URL }}
   @sprite-image: extract(@sprite, 9);
-  {{! @sprite-image: ~`"@{sprite}".split(', ')[8].slice(1, -2)`; }}
-  background-image: url(@sprite-image);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
 }
 
 .sprite(@sprite) {
