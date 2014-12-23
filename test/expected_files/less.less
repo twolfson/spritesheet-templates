@@ -51,7 +51,8 @@ At the bottom of this section, we provide information about the spritesheet itse
 @spritesheet-height: 100px;
 @spritesheet-image: 'nested/dir/spritesheet.png';
 @spritesheet-sprites: @sprite1 @sprite2 @sprite3;
-@spritesheet: 80px 100px 'nested/dir/spritesheet.png' @spritesheet-sprites;
+/* We currently do not list sprites inside of @spritesheet as it causes recursive errors in `1.7.5` */
+@spritesheet: 80px 100px 'nested/dir/spritesheet.png' /* @spritesheet-sprites */;
 
 /*
 The provided classes are intended to be used with the array-like variables
@@ -95,7 +96,7 @@ The `.sprites` class generates identical output to the CSS template
 
 .sprites(@spritesheet-sprites);
 */
-.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+.sprites(@sprites, @i: 1) when (@i =< length(@sprites)) {
   @sprite: extract(@sprites, @i);
   @sprite-name: extract(@sprite, 10);
   .@{sprite-name} {
@@ -103,3 +104,5 @@ The `.sprites` class generates identical output to the CSS template
   }
   .sprites(@sprites, @i + 1);
 }
+
+.sprites(@spritesheet-sprites);
