@@ -28,11 +28,11 @@ ${{name}}-total-height: {{px.total_height}}
 ${{name}}-image: '{{{escaped_image}}}'
 ${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}'
 {{/items}}
-${{spritesheet_name}}-width: {{spritesheet.width}}
-${{spritesheet_name}}-height: {{spritesheet.height}}
+${{spritesheet_name}}-width: {{spritesheet.px.width}}
+${{spritesheet_name}}-height: {{spritesheet.px.height}}
 ${{spritesheet_name}}-image: '{{{spritesheet.escaped_image}}}'
 ${{spritesheet_name}}-sprites:{{#items}} ${{name}}{{/items}}
-${{spritesheet_name}}: {{spritesheet.width}} {{spritesheet.height}} '{{{spritesheet.escaped_image}}}'
+${{spritesheet_name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet_name}}-sprites
 
 {{#options.functions}}
 /*
