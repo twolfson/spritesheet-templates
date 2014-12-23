@@ -12,6 +12,9 @@ before_install:
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 install:
+  # Install jscs before other modules to avoid conflicts
+  - npm install jscs
+
   # Install node modules
   - npm install
 
