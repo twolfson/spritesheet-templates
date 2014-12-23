@@ -352,14 +352,18 @@ The parameters passed into your template are known as `params`. These are a clon
     - options `Mixed` - Options to passed through via `options.formatOpts`
 
 ##### `templater.addTemplate(name, fn)`
+Method to define a custom template under the format of `name`.
 
-```js
-// Processes template via function
-templater.addTemplate(name, fn);
+- name `String` - Key to store template under for reference via `options.format`
+- fn `Function` - Template function
+    - Should have signature of `function (params)` and return a `String` output
 
-// Processes template via mustache
-templater.addMustacheTemplate(name, tmplStr);
-```
+##### `templater.addMustacheTemplate(name, tmplStr)`
+Method to define a custom mustache template under the format of `name`.
+
+- name `String` - Key to store template under for reference via `options.format`
+- tmplStr `String` - Mustache template to use for formatting
+    - This will receive `params` as its `data` (e.g. `{{items}}` is `params.items`)
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
