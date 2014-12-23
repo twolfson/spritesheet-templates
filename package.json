@@ -26,7 +26,10 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "mocha"
+    "precheck": "twolfson-style precheck lib/ test/",
+    "lint": "twolfson-style lint lib/ test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run precheck && mocha && npm run lint"
   },
   "dependencies": {
     "json-content-demux": "~0.1.2",
