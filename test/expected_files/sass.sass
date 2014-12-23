@@ -6,6 +6,9 @@
 
   The large array-like variables contain all information about a single icon
   $icon-home: x y offset_x offset_y width height total_width total_height image_path
+
+  At the bottom of this section, we provide information about the spritesheet itself
+  $spritesheet: width height image $spritesheet-sprites;
   */
 $sprite1-name: 'sprite1'
 $sprite1-x: 0px
@@ -75,6 +78,13 @@ $spritesheet: 80px 100px 'nested/dir/spritesheet.png' $spritesheet-sprites
   @include sprite-width($sprite)
   @include sprite-height($sprite)
 
+
+/*
+  The `sprites` mixin generates identical output to the CSS template
+    but can be overridden inside of SASS
+
+  @include sprites($spritesheet-sprites)
+  */
 @mixin sprites($sprites)
   @each $sprite in $sprites
     $sprite-name: nth($sprite, 10)
