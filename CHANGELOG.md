@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+7.0.2 - Fixed missing link in README
+
 7.0.1 - Updated README info
 
 7.0.0 - Renamed from `json2css` to `spritesheet-templates` to focus on functionality
