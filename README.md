@@ -206,7 +206,7 @@ Output CSS variables as [LESS][] variables.
 
 [LESS]: http://lesscss.org/
 
-### `sass`
+#### `sass`
 Output CSS variables as [SASS][] variables.
 
 **Options:**
@@ -233,7 +233,7 @@ $sprite2-x: 10px
 
 [SASS]: http://sass-lang.com/
 
-### `scss`
+#### `scss`
 Output CSS variables as [SCSS][] variables.
 
 **Options:**
@@ -260,7 +260,7 @@ $sprite2-x: 10px;
 
 [SCSS]: http://sass-lang.com/
 
-### `scss_maps`
+#### `scss_maps`
 Output CSS variables as [SCSS][] maps variables.
 
 **Options:**
@@ -286,7 +286,7 @@ $sprite2: (
 // ...
 ```
 
-### `stylus`
+#### `stylus`
 Output CSS variables as [Stylus][] variables.
 
 **Options:**
