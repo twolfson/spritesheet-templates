@@ -1,7 +1,7 @@
-var assert = require('assert'),
-    exec = require('child_process').exec,
-    Tempfile = require('temporary/lib/file'),
-    utils = require('./utils');
+var assert = require('assert');
+var exec = require('child_process').exec;
+var Tempfile = require('temporary/lib/file');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();

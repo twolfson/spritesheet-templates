@@ -1,13 +1,13 @@
-var assert = require('assert'),
-    stylus = require('stylus'),
-    utils = require('./utils');
+var assert = require('assert');
+var stylus = require('stylus');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
   describe('processed by `spritesheet-templates` into Stylus', function () {
     before(function () {
-      this.options = {'format': 'stylus'};
+      this.options = {format: 'stylus'};
       this.filename = 'stylus.styl';
     });
     utils.runTemplater();

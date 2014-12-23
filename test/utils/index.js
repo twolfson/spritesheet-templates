@@ -11,20 +11,25 @@ var templater = require('../../');
 exports.setupImages = function () {
   before(function () {
     // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
-    this.info = [
-      {'name': 'sprite1', 'x': 0, 'y': 0, 'width': 10, 'height': 20, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite2', 'x': 10, 'y': 20, 'width': 20, 'height': 30, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/spritesheet.png'},
-      {'name': 'sprite3', 'x': 30, 'y': 50, 'width': 50, 'height': 50, 'total_width': 80, 'total_height': 100, 'image': 'nested/dir/( \'")/spritesheet.png'}
-    ];
+    this.info = [{
+      name: 'sprite1', x: 0, y: 0, width: 10, height: 20,
+      total_width: 80, total_height: 100, image: 'nested/dir/spritesheet.png'
+    }, {
+      name: 'sprite2', x: 10, y: 20, width: 20, height: 30,
+      total_width: 80, total_height: 100, image: 'nested/dir/spritesheet.png'
+    }, {
+      name: 'sprite3', x: 30, y: 50, width: 50, height: 50,
+      total_width: 80, total_height: 100, image: 'nested/dir/( \'")/spritesheet.png'
+    }];
   });
 };
 
 exports.runTemplater = function () {
   before(function () {
     // Convert info into result via templater
-    var options = this.options,
-        info = this.info,
-        result = options ? templater(info, options) : templater(info);
+    var options = this.options;
+    var info = this.info;
+    var result = options ? templater(info, options) : templater(info);
     this.result = result;
 
     // If we are debugging, output results to a file
@@ -38,8 +43,8 @@ exports.runTemplater = function () {
 exports.assertMatchesAsExpected = function () {
   it('matches as expected', function () {
     // Load in the files and assert
-    var actual = this.result,
-        expected = fs.readFileSync(__dirname + '/../expected_files/' + this.filename, 'utf8');
+    var actual = this.result;
+    var expected = fs.readFileSync(__dirname + '/../expected_files/' + this.filename, 'utf8');
     assert.strictEqual(actual, expected);
   });
 };
