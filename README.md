@@ -74,6 +74,9 @@ Converter for spritesheet/sprite info into spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
 - options `Object` - Optional settings
+    - spritesheetName `String` - Prefix to use for all spritesheet variables
+        - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
+        - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
@@ -354,6 +357,10 @@ The parameters passed into your template are known as `params`. These are a clon
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
         - escaped_image `String` - URL encoded `image`
+        - px `Object` container for numeric values including `px`
+            - width `String` - `width` suffixed with `px`
+            - height `String` - `height` suffixed with `px`
+    - spritesheet_name `String` - Name for spritesheet
     - options `Mixed` - Options to passed through via `options.formatOpts`
 
 ##### `templater.addTemplate(name, fn)`
