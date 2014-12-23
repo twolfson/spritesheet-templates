@@ -1,4 +1,6 @@
-# json2css changelog
+# spritesheet-templates changelog
+7.0.0 - Renamed from `json2css` to `spritesheet-templates` to focus on functionality
+
 6.1.0 - Removed HTML escaping of CSS selectors. Fixes Ensighten/grunt-spritesmith#104
 
 6.0.0 - Renamed `cssClass` option to `cssSelector`
