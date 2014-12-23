@@ -43,12 +43,12 @@ The large array-like variables contain all information about a single icon
 @sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'sprite3';
 @spritesheet-sprites: @sprite1 @sprite2 @sprite3;
 
-.generate(@sprites, @i: 0) when (@i <= length(@sprites)) {
-  @sprite: extract(@sprites, 1);
+.generate(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
   .sprite(@sprite);
   .generate(@sprites, @i + 1);
 }
-.generate(@spritesheet-sprites, 0);
+.generate(@spritesheet-sprites);
 
 /*
 The provided classes are intended to be used with the array-like variables
@@ -80,8 +80,11 @@ The provided classes are intended to be used with the array-like variables
 }
 
 .sprite(@sprite) {
-  .sprite-image(@sprite);
-  .sprite-position(@sprite);
-  .sprite-width(@sprite);
-  .sprite-height(@sprite);
+  .wat {
+    width: @sprite;
+  }
+  // .sprite-image(@sprite);
+  // .sprite-position(@sprite);
+  // .sprite-width(@sprite);
+  // .sprite-height(@sprite);
 }
