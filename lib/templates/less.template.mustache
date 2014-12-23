@@ -47,16 +47,16 @@ The provided classes are intended to be used with the array-like variables
 }
 */
 .sprite-width(@sprite) {
-  width: extract(@sprite, 4);
+  width: extract(@sprite, 5);
 }
 
 .sprite-height(@sprite) {
-  height: extract(@sprite, 5);
+  height: extract(@sprite, 6);
 }
 
 .sprite-position(@sprite) {
-  @sprite-offset-x: extract(@sprite, 2);
-  @sprite-offset-y: extract(@sprite, 3);
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
   background-position: @sprite-offset-x @sprite-offset-y;
 }
 
