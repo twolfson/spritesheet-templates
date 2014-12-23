@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+7.1.0 - Added `twolfson-style` for consistent styling and linting
+
 7.0.2 - Fixed missing link in README
 
 7.0.1 - Updated README info
