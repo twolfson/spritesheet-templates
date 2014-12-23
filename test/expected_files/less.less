@@ -61,21 +61,21 @@ The provided classes are intended to be used with the array-like variables
 }
 */
 .sprite-width(@sprite) {
-  width: ~`"@{sprite}".split(', ')[4]`;
+  width: extract(@sprite, 4);
 }
 
 .sprite-height(@sprite) {
-  height: ~`"@{sprite}".split(', ')[5]`;
+  height: extract(@sprite, 5);
 }
 
 .sprite-position(@sprite) {
-  @sprite-offset-x: ~`"@{sprite}".split(', ')[2]`;
-  @sprite-offset-y: ~`"@{sprite}".split(', ')[3]`;
+  @sprite-offset-x: extract(@sprite, 2);
+  @sprite-offset-y: extract(@sprite, 3);
   background-position: @sprite-offset-x  @sprite-offset-y;
 }
 
 .sprite-image(@sprite) {
-  @sprite-image: ~`"@{sprite}".split(', ')[8].slice(1, -2)`;
+  @sprite-image: extract(@sprite, 8);
   background-image: url(@sprite-image);
 }
 
