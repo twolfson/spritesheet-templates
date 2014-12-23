@@ -41,17 +41,13 @@
     "eight-track": "~1.3.0",
     "eight-track-normalize-multipart": "~0.1.0",
     "express": "~3.4.8",
-    "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-watch": "~0.6.1",
     "jscs": "~1.8.1",
     "jshint": "~2.5.11",
     "less": "~1.3.3",
     "mocha": "~1.14.0",
     "stylus": "~0.32.0",
     "temporary": "0.0.5",
-    "twolfson-style": "~1.6.0",
-    "underscore": "~1.4.4"
+    "twolfson-style": "~1.6.0"
   },
   "keywords": [
     "json",
