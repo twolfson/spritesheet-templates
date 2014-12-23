@@ -96,7 +96,7 @@ The `.sprites` class generates identical output to the CSS template
 
 .sprites(@spritesheet-sprites);
 */
-.sprites(@sprites, @i: 1) when (@i =< length(@sprites)) {
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
   @sprite-name: extract(@sprite, 10);
   .@{sprite-name} {
