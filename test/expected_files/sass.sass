@@ -7,6 +7,7 @@
   The large array-like variables contain all information about a single icon
   $icon-home: x y offset_x offset_y width height total_width total_height image_path
   */
+$sprite1-name: 'sprite1'
 $sprite1-x: 0px
 $sprite1-y: 0px
 $sprite1-offset-x: 0px
@@ -16,7 +17,8 @@ $sprite1-height: 20px
 $sprite1-total-width: 80px
 $sprite1-total-height: 100px
 $sprite1-image: 'nested/dir/spritesheet.png'
-$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png'
+$sprite1-spritesheet: $spritesheet
+$sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite1' $spritesheet
 $sprite2-x: 10px
 $sprite2-y: 20px
 $sprite2-offset-x: -10px
@@ -26,7 +28,8 @@ $sprite2-height: 30px
 $sprite2-total-width: 80px
 $sprite2-total-height: 100px
 $sprite2-image: 'nested/dir/spritesheet.png'
-$sprite2: 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png'
+$sprite2-spritesheet: $spritesheet
+$sprite2: 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' 'sprite2' $spritesheet
 $sprite3-x: 30px
 $sprite3-y: 50px
 $sprite3-offset-x: -30px
@@ -36,7 +39,13 @@ $sprite3-height: 50px
 $sprite3-total-width: 80px
 $sprite3-total-height: 100px
 $sprite3-image: 'nested/dir/spritesheet.png'
-$sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png'
+$sprite3-spritesheet: $spritesheet
+$sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'sprite3' $spritesheet
+$spritesheet-width: 80px
+$spritesheet-height: 100px
+$spritesheet-image: 'nested/dir/spritesheet.png'
+$spritesheet-sprites: @sprite1 @sprite2 @sprite3
+$spritesheet: 80px 100px 'nested/dir/spritesheet.png' $spritesheet-sprites
 
 /*
   The provided mixins are intended to be used with the array-like variables
