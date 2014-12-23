@@ -88,10 +88,9 @@ The provided mixins are intended to be used with variables directly
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
-@include sprites($spritesheet);
+@include sprites(map-get($spritesheet, 'sprites'));
 */
-@mixin sprites($spritesheet) {
-  $sprites: map-get($spritesheet, 'sprites');
+@mixin sprites($sprites) {
   @each $sprite in $sprites {
     $sprite-name: map-get($sprite, 'name');
     .#{$sprite-name} {
@@ -100,4 +99,4 @@ The `sprites` mixin generates identical output to the CSS template
   }
 }
 // TODO: Test `@mixin sprites` functionality
-@include sprites($spritesheet);
+@include sprites(map-get($spritesheet, 'sprites'));
