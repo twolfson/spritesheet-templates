@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+7.2.0 - Moved to more maintainable pattern in code
+
 7.1.1 - Removed unused `grunt` dependencies
 
 7.1.0 - Added `twolfson-style` for consistent styling and linting
