@@ -25,7 +25,9 @@ describe('An array of image positions, dimensions, and names', function () {
         '',
         '.feature2 {',
         '  @include sprite($sprite2);',
-        '}'
+        '}',
+        '',
+        '@include sprites(map-get($spritesheet, \'sprites\'));'
       ].join('\n');
 
       // Save the SCSS to a file for processing
