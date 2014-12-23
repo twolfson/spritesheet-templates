@@ -85,10 +85,10 @@ sprite($sprite) {
 sprites($sprites) {
   for $sprite in $sprites {
     $sprite_name = $sprite[10];
-    .#{$sprite_name} {
+    .{sprite_name} {
       sprite($sprite);
     }
   }
 }
 // TODO: Test `sprites` functionality
-sprites($spritesheet-sprites);
+sprites($spritesheet_sprites);
