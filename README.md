@@ -313,6 +313,54 @@ $sprite2_x = 10px;
 
 [Stylus]: http://learnboost.github.io/stylus/
 
+#### Custom
+Custom templates can be added dynamically via `templater.addTemplate` and `templater.addMustacheTemplate`.
+
+##### Template data
+The parameters passed into your template are known as `params`. These are a cloned copy of the `params` originally passed in. We add some normalized properties for your convenience.
+
+- params `Object` - Container for parameters
+    - items `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
+        - * `Object` - Container for sprite coordinate data
+            - For reference, `*` symbolizes any index (e.g. `params.items[0]`)
+            - name `String` - Name to use for the image
+            - x `Number` - Horizontal coordinate of top-left corner of image
+            - y `Number` - Vertical coordinate of top-left corner of image
+            - width `Number` - Horizontal length of image in pixels
+            - height `Number` - Vertical length of image in pixels
+            - total_width `Number` - Width of entire spritesheet
+            - total_height `Number` - Height of entire spritesheet
+            - image `String` - URL path to spritesheet
+            - escaped_image `String` - URL encoded `image`
+            - offset_x `Number` - Negative value of `x`. Useful to `background-position`
+            - offset_y `Number` - Negative value of `y`. Useful to `background-position`
+            - px `Object` - Container for numeric values including `px`
+                - x `String` - `x` suffixed with `px`
+                - y `String` - `y` suffixed with `px`
+                - width `String` - `width` suffixed with `px`
+                - height `String` - `height` suffixed with `px`
+                - total_width `String` - `total_width` suffixed with `px`
+                - total_height `String` - `total_height` suffixed with `px`
+                - offset_x `String` - `offset_x` suffixed with `px`
+                - offset_y `String` - `offset_y` suffixed with `px`
+    - spritesheet `Object` - Information about spritesheet
+        - width `Number` - Horizontal length of image in pixels
+        - height `Number` - Vertical length of image in pixels
+        - image `String` - URL to use for spritesheet
+            - This will typically be used in `background-image`
+            - For example, `background-image: url({{spritesheet.image}});`
+    - options `Mixed` - Options to passed through via `options.formatOpts`
+
+##### `templater.addTemplate(name, fn)`
+
+```js
+// Processes template via function
+templater.addTemplate(name, fn);
+
+// Processes template via mustache
+templater.addMustacheTemplate(name, tmplStr);
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
