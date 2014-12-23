@@ -92,8 +92,7 @@ The `.sprites` mixin generates identical output to the CSS template
 
 .sprites(@spritesheet-sprites);
 */
-.sprites(@spritesheet, @i: 1) when (@i <= length(extract(@spritesheet, 4))) {
-  @sprites: extract(@spritesheet, 4);
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
   @sprite-name: extract(@sprite, 10);
   .@{sprite-name} {
@@ -102,4 +101,4 @@ The `.sprites` mixin generates identical output to the CSS template
   .sprites(@sprites, @i + 1);
 }
 // TODO: Test `.sprites` functionality
-.sprites(@spritesheet);
+// .sprites(@spritesheet-sprites);
