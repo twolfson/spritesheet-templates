@@ -74,3 +74,8 @@ $spritesheet: 80px 100px 'nested/dir/spritesheet.png' $spritesheet-sprites
   @include sprite-position($sprite)
   @include sprite-width($sprite)
   @include sprite-height($sprite)
+
+@each $sprite in $spritesheet-sprites
+  $sprite-name: nth($sprite, 10)
+  .#{sprite-name}
+    @include sprite($sprite)
