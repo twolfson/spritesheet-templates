@@ -348,6 +348,7 @@ The parameters passed into your template are known as `params`. These are a clon
         - image `String` - URL to use for spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
+        - escaped_image `String` - URL encoded `image`
     - options `Mixed` - Options to passed through via `options.formatOpts`
 
 ##### `templater.addTemplate(name, fn)`
