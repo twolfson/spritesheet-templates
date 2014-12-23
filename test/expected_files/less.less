@@ -41,14 +41,14 @@ The large array-like variables contain all information about a single icon
 @sprite3-total-height: 100px;
 @sprite3-image: 'nested/dir/spritesheet.png';
 @sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'sprite3';
-@spritesheet-sprites: @sprite1, @sprite2, @sprite3;
+@spritesheet-sprites: @sprite1 @sprite2 @sprite3;
 
 // for @sprite in @spritesheet-sprites:
 //   .hai {
 //     width: 10px;
 //   }
 .hai {
-  width: @spritesheet-sprites[1];
+  width: extract(@spritesheet-sprites, 1);
 }
 .generate(@n, @i: 1) when (@i =< @n) {
   // .~"@spritesheet-sprites" {
