@@ -1,8 +1,8 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-Convert JSON into pre-processor ready CSS.
+Convert spritesheet data into CSS or CSS pre-processor data
 
-This was initially designed for generating coordinates for a mapping of sprites on a spritesheet. However, it should be usable for anything related to dimensions/positions and CSS.
+`spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
 
 ## Getting Started
 Install the module with: `npm install spritesheet-templates`
