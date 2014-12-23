@@ -69,4 +69,19 @@ sprite($sprite) {
   spriteWidth($sprite)
   spriteHeight($sprite)
 }
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
 {{/options.functions}}
