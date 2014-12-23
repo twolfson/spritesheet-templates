@@ -35,7 +35,9 @@ describe('An array of image positions, dimensions, and names', function () {
 
         // Render the LESS, assert no errors, and valid CSS
         var that = this;
+        console.log(lessStr);
         less.render(lessStr, function (err, css) {
+          console.log(css);
           // Verify there are no braces in the CSS (array string coercion)
           assert.strictEqual(err, null);
           assert.notEqual(css, '');
