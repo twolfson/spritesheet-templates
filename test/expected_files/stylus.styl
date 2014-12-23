@@ -7,6 +7,9 @@ Stylus variables are information about icon's compiled state, stored under its o
 
 The large array-like variables contain all information about a single icon
 $icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
 */
 $sprite1_name = 'sprite1';
 $sprite1_x = 0px;
@@ -46,7 +49,6 @@ $spritesheet_height = 100px;
 $spritesheet_image = 'nested/dir/spritesheet.png';
 $spritesheet_sprites = $sprite1 $sprite2 $sprite3;
 $spritesheet = 80px 100px 'nested/dir/spritesheet.png' $spritesheet_sprites;
-// TODO: Document new additions
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -82,6 +84,12 @@ sprite($sprite) {
   spriteHeight($sprite)
 }
 
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+sprites($spritesheet_sprites);
+*/
 sprites($sprites) {
   for $sprite in $sprites {
     $sprite_name = $sprite[9];
@@ -91,4 +99,4 @@ sprites($sprites) {
   }
 }
 // TODO: Test `sprites` functionality
-sprites($spritesheet_sprites);
+// sprites($spritesheet_sprites);
