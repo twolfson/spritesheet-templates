@@ -1,14 +1,14 @@
-var assert = require('assert'),
-    exec = require('child_process').exec,
-    Tempfile = require('temporary/lib/file'),
-    utils = require('./utils');
+var assert = require('assert');
+var exec = require('child_process').exec;
+var Tempfile = require('temporary/lib/file');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
   describe('processed by `spritesheet-templates` into SCSS (Maps)', function () {
     before(function () {
-      this.options = {'format': 'scss_maps'};
+      this.options = {format: 'scss_maps'};
       this.filename = 'scss_maps.scss';
     });
     utils.runTemplater();

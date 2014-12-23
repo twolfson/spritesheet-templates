@@ -1,5 +1,5 @@
-var assert = require('assert'),
-    utils = require('./utils');
+var assert = require('assert');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
@@ -14,7 +14,7 @@ describe('An array of image positions, dimensions, and names', function () {
   }
   describe('processed by `spritesheet-templates` into JSON', function () {
     before(function () {
-      this.options = {'format': 'json'};
+      this.options = {format: 'json'};
       this.filename = 'json.json';
     });
     utils.runTemplater();
@@ -24,7 +24,7 @@ describe('An array of image positions, dimensions, and names', function () {
   });
   describe('processed by `spritesheet-templates` into an array', function () {
     before(function () {
-      this.options = {'format': 'jsonArray'};
+      this.options = {format: 'jsonArray'};
       this.filename = 'jsonArray.json';
     });
     utils.runTemplater();

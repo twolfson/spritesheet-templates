@@ -8,7 +8,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
   describe('processed by `spritesheet-templates` into SCSS', function () {
     before(function () {
-      this.options = {'format': 'scss'};
+      this.options = {format: 'scss'};
       this.filename = 'scss.scss';
     });
     utils.runTemplater();

@@ -40,4 +40,3 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 });
-

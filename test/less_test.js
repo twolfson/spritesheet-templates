@@ -1,13 +1,13 @@
-var assert = require('assert'),
-    less = require('less'),
-    utils = require('./utils');
+var assert = require('assert');
+var less = require('less');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();
 
   describe('processed by `spritesheet-templates` into LESS', function () {
     before(function () {
-      this.options = {'format': 'less'};
+      this.options = {format: 'less'};
       this.filename = 'less.less';
     });
     utils.runTemplater();
