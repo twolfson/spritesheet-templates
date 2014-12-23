@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+8.0.0 - Moved to `params` as input and requiring spritesheet information
+
 7.2.0 - Moved to more maintainable pattern in code
 
 7.1.1 - Removed unused `grunt` dependencies
