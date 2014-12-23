@@ -19,7 +19,7 @@ describe('An array of image positions, dimensions, and names', function () {
   });
 });
 
-// Edge case test for images with filepaths with quotes
+// Edge case test for filepaths with quotes
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages({
     spritesheet: {
@@ -30,7 +30,7 @@ describe('An array of image positions, dimensions, and names', function () {
   describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
     before(function () {
       this.options = null;
-      this.filename = 'css-quote-image.css';
+      this.filename = 'css-quote-filepath.css';
     });
     utils.runTemplater();
 
