@@ -1,5 +1,4 @@
-var assert = require('assert'),
-    utils = require('./utils');
+var utils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
   utils.setupImages();

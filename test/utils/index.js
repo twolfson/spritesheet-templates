@@ -1,12 +1,13 @@
-var assert = require('assert'),
-    fs = require('fs'),
-    _ = require('underscore'),
-    eightTrack = require('eight-track'),
-    express = require('express'),
-    normalizeMultipart = require('eight-track-normalize-multipart'),
-    validateCss = require('css-validator'),
-    templater = require('../../');
+// Load in our dependencies
+var assert = require('assert');
+var fs = require('fs');
+var eightTrack = require('eight-track');
+var express = require('express');
+var normalizeMultipart = require('eight-track-normalize-multipart');
+var validateCss = require('css-validator');
+var templater = require('../../');
 
+// Start our utilities
 exports.setupImages = function () {
   before(function () {
     // TODO: The malicious URL should be placed in a separate test but I want to test every engine and hate the bloat
