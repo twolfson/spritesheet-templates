@@ -89,7 +89,7 @@ The provided mixins are intended to be used with the array-like variables
 
 /*
 The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of SASS
+  but can be overridden inside of SCSS
 
 @include sprites($spritesheet-sprites);
 */
@@ -101,6 +101,5 @@ The `sprites` mixin generates identical output to the CSS template
     }
   }
 }
-
 // TODO: Test `@mixin sprites` functionality
-@include sprites($spritesheet-sprites);
+// @include sprites($spritesheet-sprites);

@@ -4,8 +4,11 @@ SCSS variables are information about icon's compiled state, stored under its ori
 .icon-home {
   width: map-get($icon-home, 'width');
 }
+
+At the bottom of this section, we provide information about the spritesheet itself
 */
 $sprite1: (
+  name: 'sprite1',
   x: 0px,
   y: 0px,
   offset_x: 0px,
@@ -17,6 +20,7 @@ $sprite1: (
   image: 'nested/dir/spritesheet.png'
 );
 $sprite2: (
+  name: 'sprite2',
   x: 10px,
   y: 20px,
   offset_x: -10px,
@@ -28,6 +32,7 @@ $sprite2: (
   image: 'nested/dir/spritesheet.png'
 );
 $sprite3: (
+  name: 'sprite3',
   x: 30px,
   y: 50px,
   offset_x: -30px,
@@ -37,6 +42,12 @@ $sprite3: (
   total_width: 80px,
   total_height: 100px,
   image: 'nested/dir/spritesheet.png'
+);
+$spritesheet: (
+  width: 80px,
+  height: 100px,
+  image: 'nested/dir/spritesheet.png',
+  sprites: $sprite1 $sprite2 $sprite3
 );
 
 /*
@@ -72,3 +83,21 @@ The provided mixins are intended to be used with variables directly
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet);
+*/
+@mixin sprites($spritesheet) {
+  $sprites: map-get($spritesheet, 'sprites');
+  @each $sprite in $sprites {
+    $sprite-name: map-get($sprite, 'name');
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
+// TODO: Test `@mixin sprites` functionality
+@include sprites($spritesheet);
