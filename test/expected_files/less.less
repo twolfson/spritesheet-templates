@@ -40,10 +40,13 @@ The large array-like variables contain all information about a single icon
 @sprite3-total-width: 80px;
 @sprite3-total-height: 100px;
 @sprite3-image: 'nested/dir/spritesheet.png';
+@sprite3-spritesheet: @spritesheet;
 @sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' sprite3;
+@spritesheet-width: 80px;
+@spritesheet-height: 100px;
+@spritesheet-image: 'nested/dir/spritesheet.png';
 @spritesheet-sprites: @sprite1 @sprite2 @sprite3;
-
-.sprites(@spritesheet-sprites);
+@spritesheet: @spritesheet-width @spritesheet-height @spritesheet-image @spritesheet-sprites;
 
 /*
 The provided classes are intended to be used with the array-like variables
