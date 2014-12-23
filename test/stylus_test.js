@@ -26,7 +26,9 @@ describe('An array of image positions, dimensions, and names', function () {
           '  spriteImage($sprite3)',
           '',
           '.feature2',
-          '  sprite($sprite2)'
+          '  sprite($sprite2)',
+          '',
+          'sprites($spritesheet_sprites)'
         ].join('\n');
 
         // Render the stylus
