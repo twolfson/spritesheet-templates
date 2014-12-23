@@ -12,8 +12,12 @@ LESS variables are information about icon's compiled state, stored under its ori
 
 The large array-like variables contain all information about a single icon
 @icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
 */
 {{#items}}
+@{{name}}-name: {{name}};
 @{{name}}-x: {{px.x}};
 @{{name}}-y: {{px.y}};
 @{{name}}-offset-x: {{px.offset_x}};
@@ -23,8 +27,13 @@ The large array-like variables contain all information about a single icon
 @{{name}}-total-width: {{px.total_width}};
 @{{name}}-total-height: {{px.total_height}};
 @{{name}}-image: '{{{escaped_image}}}';
-@{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}';
+@{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' {{name}};
 {{/items}}
+${{spritesheet_name}}-width: {{spritesheet.px.width}};
+${{spritesheet_name}}-height: {{spritesheet.px.height}};
+${{spritesheet_name}}-image: '{{{spritesheet.escaped_image}}}';
+${{spritesheet_name}}-sprites:{{#items}} ${{name}}{{/items}};
+${{spritesheet_name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet_name}}-sprites;
 
 {{#options.functions}}
 /*
@@ -53,6 +62,7 @@ The provided classes are intended to be used with the array-like variables
 
 .sprite-image(@sprite) {
   {{! DEV: We perform a slice due to a trailing brace from string coercion of arrays }}
+  {{! TODO: Verify we kept a consistent extraction format }}
   @sprite-image: ~`"@{sprite}".split(', ')[8].slice(1, -2)`;
   background-image: url(@sprite-image);
 }
@@ -62,5 +72,20 @@ The provided classes are intended to be used with the array-like variables
   .sprite-position(@sprite);
   .sprite-width(@sprite);
   .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: extract(@sprite, 10);
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
 }
 {{/options.functions}}
