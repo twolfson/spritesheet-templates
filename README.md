@@ -222,6 +222,12 @@ Output CSS variables as [SASS][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -250,6 +256,12 @@ Output CSS variables as [SCSS][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -278,6 +290,12 @@ Output CSS variables as [SCSS][] maps variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -305,6 +323,12 @@ Output CSS variables as [Stylus][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
