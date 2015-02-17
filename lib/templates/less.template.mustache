@@ -30,11 +30,11 @@ At the bottom of this section, we provide information about the spritesheet itse
 @{{strings.name-image}}: '{{{escaped_image}}}';
 @{{strings.name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' {{name}};
 {{/items}}
-@{{strings.spritesheet-name-width}}: {{spritesheet.px.width}};
-@{{strings.spritesheet-name-height}}: {{spritesheet.px.height}};
-@{{strings.spritesheet-name-image}}: '{{{spritesheet.escaped_image}}}';
-@{{strings.spritesheet-name-sprites}}:{{#items}} @{{name}}{{/items}};
-@{{strings.spritesheet-name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' @{{strings.spritesheet-name-sprites}};
+@{{spritesheet.strings.name-width}}: {{spritesheet.px.width}};
+@{{spritesheet.strings.name-height}}: {{spritesheet.px.height}};
+@{{spritesheet.strings.name-image}}: '{{{spritesheet.escaped_image}}}';
+@{{spritesheet.strings.name-sprites}}:{{#items}} @{{name}}{{/items}};
+@{{spritesheet.strings.name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' @{{spritesheet.strings.name-sprites}};
 
 {{#options.functions}}
 /*
