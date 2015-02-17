@@ -1,5 +1,6 @@
 {
   // Default options
+  'case': 'dash-case',
   'functions': true
 }
 
@@ -17,9 +18,9 @@ At the bottom of this section, we provide information about the spritesheet itse
 @spritesheet: width height image @spritesheet-sprites;
 */
 {{#items}}
-@{{name}}-name: {{name}};
-@{{name}}-x: {{px.x}};
-@{{name}}-y: {{px.y}};
+@{{name.name}}: {{name}};
+@{{name.x}}: {{px.x}};
+@{{name.y}}: {{px.y}};
 @{{name}}-offset-x: {{px.offset_x}};
 @{{name}}-offset-y: {{px.offset_y}};
 @{{name}}-width: {{px.width}};
