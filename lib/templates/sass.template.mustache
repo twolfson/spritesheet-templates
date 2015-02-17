@@ -17,23 +17,23 @@
   $spritesheet: width height image $spritesheet-sprites
   */
 {{#items}}
-${{name}}-name: '{{name}}'
-${{name}}-x: {{px.x}}
-${{name}}-y: {{px.y}}
-${{name}}-offset-x: {{px.offset_x}}
-${{name}}-offset-y: {{px.offset_y}}
-${{name}}-width: {{px.width}}
-${{name}}-height: {{px.height}}
-${{name}}-total-width: {{px.total_width}}
-${{name}}-total-height: {{px.total_height}}
-${{name}}-image: '{{{escaped_image}}}'
-${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}'
+${{strings.name_name}}: '{{name}}'
+${{strings.name_x}}: {{px.x}}
+${{strings.name_y}}: {{px.y}}
+${{strings.name_offset_x}}: {{px.offset_x}}
+${{strings.name_offset_y}}: {{px.offset_y}}
+${{strings.name_width}}: {{px.width}}
+${{strings.name_height}}: {{px.height}}
+${{strings.name_total_width}}: {{px.total_width}}
+${{strings.name_total_height}}: {{px.total_height}}
+${{strings.name_image}}: '{{{escaped_image}}}'
+${{strings.name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}'
 {{/items}}
-${{spritesheet_name}}-width: {{spritesheet.px.width}}
-${{spritesheet_name}}-height: {{spritesheet.px.height}}
-${{spritesheet_name}}-image: '{{{spritesheet.escaped_image}}}'
-${{spritesheet_name}}-sprites:{{#items}} ${{name}}{{/items}}
-${{spritesheet_name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet_name}}-sprites
+${{spritesheet.strings.name_width}}: {{spritesheet.px.width}}
+${{spritesheet.strings.name_height}}: {{spritesheet.px.height}}
+${{spritesheet.strings.name_image}}: '{{{spritesheet.escaped_image}}}'
+${{spritesheet.strings.name_sprites}}:{{#items}} ${{name}}{{/items}}
+${{spritesheet.strings.name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet.strings.name_sprites}}
 
 {{#options.functions}}
 /*
