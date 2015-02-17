@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+8.3.0 - Added `variableNameTransforms`/`strings` for Mustache templates. Fixes #37
+
 8.2.1 - Corrected CSS sprite example. Fixes Ensighten/grunt-spritesmith#112
 
 8.2.0 - Added `spritesheetName` option, `spritesheet.px`/`spritesheet_name` variables for formatters, and a bunch of spritesheet/sprites variables to preprocessor templates
