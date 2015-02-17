@@ -47,19 +47,19 @@ The provided mixins are intended to be used with variables directly
 }
 */
 @mixin sprite-width($sprite) {
-  width: map-get($sprite, '{{spritesheet.strings.bare_width}}');
+  width: map-get($sprite, '{{strings.bare_width}}');
 }
 
 @mixin sprite-height($sprite) {
-  height: map-get($sprite, '{{spritesheet.strings.bare_height}}');
+  height: map-get($sprite, '{{strings.bare_height}}');
 }
 
 @mixin sprite-position($sprite) {
-  background-position: map-get($sprite, '{{spritesheet.strings.bare_offset_x}}') map-get($sprite, '{{spritesheet.strings.bare_offset_y}}');
+  background-position: map-get($sprite, '{{strings.bare_offset_x}}') map-get($sprite, '{{strings.bare_offset_y}}');
 }
 
 @mixin sprite-image($sprite) {
-  background-image: url(map-get($sprite, '{{spritesheet.strings.bare_image}}'));
+  background-image: url(map-get($sprite, '{{strings.bare_image}}'));
 }
 
 @mixin sprite($sprite) {
@@ -73,11 +73,11 @@ The provided mixins are intended to be used with variables directly
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
-@include sprites(map-get($spritesheet, '{{spritesheet.strings.bare_sprites}}'));
+@include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
 */
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
-    $sprite-name: map-get($sprite, '{{spritesheet.strings.bare_name}}');
+    $sprite-name: map-get($sprite, '{{strings.bare_name}}');
     .#{$sprite-name} {
       @include sprite($sprite);
     }
