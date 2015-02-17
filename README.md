@@ -192,7 +192,7 @@ Output CSS variables as [LESS][] variables.
     - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
     - By default, this is `['dasherize']` which yields a `dash-case` name
     - `underscore.string`: http://epeli.github.io/underscore.string/#api
-        - We leverage chaining which allows for `toUpperCase` and `toLowerCase`
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
