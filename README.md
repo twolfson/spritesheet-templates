@@ -397,7 +397,7 @@ The parameters passed into your template are known as `params`. These are a clon
 ###### Mustache template data
 We provide an extra set of data for `mustache` templates for variable/string names.
 
-- params.items[*].strings - Container for sprite-relevant variable/string names
+- params.items[*].strings `Object` - Container for sprite-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of sprite (e.g. `icon-home`)
     - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
@@ -422,7 +422,7 @@ We provide an extra set of data for `mustache` templates for variable/string nam
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
-- params.spritesheet.strings - Container for spritesheet-relevant variable/string names
+- params.spritesheet.strings `Object` - Container for spritesheet-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of sprite (e.g. `icon-home`)
     - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
@@ -447,7 +447,7 @@ We provide an extra set of data for `mustache` templates for variable/string nam
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
-- params.strings - Container for generic strings
+- params.strings `Object` - Container for generic strings
     - Each of these strings will be transformed via `variableNameTransforms`
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
