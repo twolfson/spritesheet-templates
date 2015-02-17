@@ -55,7 +55,7 @@ The provided mixins are intended to be used with variables directly
 }
 
 @mixin sprite-position($sprite) {
-  background-position: map-get($sprite, '{{spritesheet.strings.bare_offset_x}}') map-get($sprite, '{{spritesheet.strings.bare_offset_x}}');
+  background-position: map-get($sprite, '{{spritesheet.strings.bare_offset_x}}') map-get($sprite, '{{spritesheet.strings.bare_offset_y}}');
 }
 
 @mixin sprite-image($sprite) {
