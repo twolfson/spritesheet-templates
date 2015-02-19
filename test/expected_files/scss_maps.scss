@@ -7,47 +7,47 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
-$sprite1: (
-  name: 'sprite1',
+$sprite-dash-case: (
+  name: 'sprite-dash-case',
   x: 0px,
   y: 0px,
-  offset_x: 0px,
-  offset_y: 0px,
+  offset-x: 0px,
+  offset-y: 0px,
   width: 10px,
   height: 20px,
-  total_width: 80px,
-  total_height: 100px,
+  total-width: 80px,
+  total-height: 100px,
   image: 'nested/dir/spritesheet.png'
 );
-$sprite2: (
-  name: 'sprite2',
+$sprite-snake-case: (
+  name: 'sprite_snake_case',
   x: 10px,
   y: 20px,
-  offset_x: -10px,
-  offset_y: -20px,
+  offset-x: -10px,
+  offset-y: -20px,
   width: 20px,
   height: 30px,
-  total_width: 80px,
-  total_height: 100px,
+  total-width: 80px,
+  total-height: 100px,
   image: 'nested/dir/spritesheet.png'
 );
-$sprite3: (
-  name: 'sprite3',
+$sprite-camel-case: (
+  name: 'spriteCamelCase',
   x: 30px,
   y: 50px,
-  offset_x: -30px,
-  offset_y: -50px,
+  offset-x: -30px,
+  offset-y: -50px,
   width: 50px,
   height: 50px,
-  total_width: 80px,
-  total_height: 100px,
+  total-width: 80px,
+  total-height: 100px,
   image: 'nested/dir/spritesheet.png'
 );
 $spritesheet: (
   width: 80px,
   height: 100px,
   image: 'nested/dir/spritesheet.png',
-  sprites: $sprite1 $sprite2 $sprite3
+  sprites: $sprite-dash-case $sprite-snake-case $sprite-camel-case
 );
 
 /*
@@ -70,7 +70,7 @@ The provided mixins are intended to be used with variables directly
 }
 
 @mixin sprite-position($sprite) {
-  background-position: map-get($sprite, 'offset_x') map-get($sprite, 'offset_y');
+  background-position: map-get($sprite, 'offset-x') map-get($sprite, 'offset-y');
 }
 
 @mixin sprite-image($sprite) {
