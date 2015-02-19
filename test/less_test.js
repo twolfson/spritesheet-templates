@@ -22,13 +22,13 @@ describe('An array of image positions, dimensions, and names', function () {
         console.log(this.result);
         lessStr += [
           '.feature {',
-          '  height: @sprite1-height;',
-          '  .sprite-width(@sprite2);',
-          '  .sprite-image(@sprite3);',
+          '  height: @sprite-dash-case-height;',
+          '  .sprite-width(@sprite-snake-case);',
+          '  .sprite-image(@sprite-camel-case);',
           '}',
           '',
           '.feature2 {',
-          '  .sprite(@sprite2);',
+          '  .sprite(@sprite-snake-case);',
           '}',
           '',
           '.sprites(@spritesheet-sprites);'

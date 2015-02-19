@@ -18,13 +18,13 @@ describe('An array of image positions, dimensions, and names', function () {
       var scssStr = this.result;
       scssStr += '\n' + [
         '.feature {',
-        '  height: $sprite1-height;',
-        '  @include sprite-width($sprite2);',
-        '  @include sprite-image($sprite3);',
+        '  height: $sprite-dash-case-height;',
+        '  @include sprite-width($sprite-snake-case);',
+        '  @include sprite-image($sprite-camel-case);',
         '}',
         '',
         '.feature2 {',
-        '  @include sprite($sprite2);',
+        '  @include sprite($sprite-snake-case);',
         '}',
         '',
         '@include sprites($spritesheet-sprites);'

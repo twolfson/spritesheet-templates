@@ -21,12 +21,12 @@ describe('An array of image positions, dimensions, and names', function () {
         var styl = this.result;
         styl += [
           '.feature',
-          '  height: $sprite1_height;',
-          '  spriteWidth($sprite2)',
-          '  spriteImage($sprite3)',
+          '  height: $sprite_dash_case_height;',
+          '  spriteWidth($sprite_snake_case)',
+          '  spriteImage($sprite_camel_case)',
           '',
           '.feature2',
-          '  sprite($sprite2)',
+          '  sprite($sprite_snake_case)',
           '',
           'sprites($spritesheet_sprites)'
         ].join('\n');
