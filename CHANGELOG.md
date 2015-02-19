@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+8.4.0 - Reverted `8.3.0` to remove breaking changes
+
 8.3.0 - Added `variableNameTransforms`/`strings` for Mustache templates. Fixes #37
 
 8.2.1 - Corrected CSS sprite example. Fixes Ensighten/grunt-spritesmith#112
