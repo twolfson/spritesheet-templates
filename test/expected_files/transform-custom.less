@@ -1,9 +1,3 @@
-{
-  // Default options
-  'functions': true,
-  'variableNameTransforms': ['dasherize']
-}
-
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -17,26 +11,11 @@ The large array-like variables contain all information about a single icon
 At the bottom of this section, we provide information about the spritesheet itself
 @spritesheet: width height image @spritesheet-sprites;
 */
-{{#items}}
-@{{strings.name_name}}: {{name}};
-@{{strings.name_x}}: {{px.x}};
-@{{strings.name_y}}: {{px.y}};
-@{{strings.name_offset_x}}: {{px.offset_x}};
-@{{strings.name_offset_y}}: {{px.offset_y}};
-@{{strings.name_width}}: {{px.width}};
-@{{strings.name_height}}: {{px.height}};
-@{{strings.name_total_width}}: {{px.total_width}};
-@{{strings.name_total_height}}: {{px.total_height}};
-@{{strings.name_image}}: '{{{escaped_image}}}';
-@{{strings.name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' {{name}};
-{{/items}}
-@{{spritesheet.strings.name_width}}: {{spritesheet.px.width}};
-@{{spritesheet.strings.name_height}}: {{spritesheet.px.height}};
-@{{spritesheet.strings.name_image}}: '{{{spritesheet.escaped_image}}}';
-@{{spritesheet.strings.name_sprites}}:{{#items}} @{{name}}{{/items}};
-@{{spritesheet.strings.name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' @{{spritesheet.strings.name_sprites}};
+@sprite1: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' sprite1;
+@sprite2: 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' sprite2;
+@sprite3: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' sprite3;
+@spritesheet: 80px 100px 'nested/dir/spritesheet.png' @spritesheet-sprites;
 
-{{#options.functions}}
 /*
 The provided classes are intended to be used with the array-like variables
 
@@ -62,7 +41,6 @@ The provided classes are intended to be used with the array-like variables
 }
 
 .sprite-image(@sprite) {
-  {{! DEV: We slice to trim off excess quotes on an escaped URL }}
   @sprite-image: extract(@sprite, 9);
   @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
   background-image: url(@sprite-image-bare);
@@ -89,4 +67,3 @@ The `.sprites` mixin generates identical output to the CSS template
   }
   .sprites(@sprites, @i + 1);
 }
-{{/options.functions}}

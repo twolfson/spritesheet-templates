@@ -188,6 +188,12 @@ Output CSS variables as [LESS][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -216,6 +222,12 @@ Output CSS variables as [SASS][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -244,6 +256,12 @@ Output CSS variables as [SCSS][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -272,6 +290,12 @@ Output CSS variables as [SCSS][] maps variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -299,6 +323,12 @@ Output CSS variables as [Stylus][] variables.
 
 - functions `Boolean` - Flag to include mixins or not
     - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
 **Example:**
 
@@ -351,6 +381,7 @@ The parameters passed into your template are known as `params`. These are a clon
                 - offset_x `String` - `offset_x` suffixed with `px`
                 - offset_y `String` - `offset_y` suffixed with `px`
     - spritesheet `Object` - Information about spritesheet
+        - name `String` - Name for spritesheet
         - width `Number` - Horizontal length of image in pixels
         - height `Number` - Vertical length of image in pixels
         - image `String` - URL to use for spritesheet
@@ -362,6 +393,73 @@ The parameters passed into your template are known as `params`. These are a clon
             - height `String` - `height` suffixed with `px`
     - spritesheet_name `String` - Name for spritesheet
     - options `Mixed` - Options to passed through via `options.formatOpts`
+
+###### Mustache template data
+We provide an extra set of data for `mustache` templates for variable/string names.
+
+- params.items[*].strings `Object` - Container for sprite-relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - name `String` - Transformed name of sprite (e.g. `icon-home`)
+    - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
+    - name_x `String` - Transformed combination of sprite name and `-x` string (e.g. `icon-home-x`)
+    - name_y `String` - Transformed combination of sprite name and `-y` string (e.g. `icon-home-y`)
+    - name_offset_x `String` - Transformed combination of sprite name and `-offset-x` string (e.g. `icon-home-offset-x`)
+    - name_offset_y `String` - Transformed combination of sprite name and `-offset-y` string (e.g. `icon-home-offset-y`)
+    - name_width `String` - Transformed combination of sprite name and `-width` string (e.g. `icon-home-width`)
+    - name_height `String` - Transformed combination of sprite name and `-height` string (e.g. `icon-home-height`)
+    - name_total_width `String` - Transformed combination of sprite name and `-total-width` string (e.g. `icon-home-total-width`)
+    - name_total_height `String` - Transformed combination of sprite name and `-total-height` string (e.g. `icon-home-total-height`)
+    - name_image `String` - Transformed combination of sprite name and `-image` string (e.g. `icon-home-image`)
+    - name_sprites `String` - Transformed combination of sprite name and `-sprites` string (e.g. `icon-home-sprites`)
+    - bare_name `String` - Transformed word for `name`
+    - bare_x `String` - Transformed word for `x`
+    - bare_y `String` - Transformed word for `y`
+    - bare_offset_x `String` - Transformed word for `offset-x`
+    - bare_offset_y `String` - Transformed word for `offset-y`
+    - bare_width `String` - Transformed word for `width`
+    - bare_height `String` - Transformed word for `height`
+    - bare_total_width `String` - Transformed word for `total-width`
+    - bare_total_height `String` - Transformed word for `total-height`
+    - bare_image `String` - Transformed word for `image`
+    - bare_sprites `String` - Transformed word for `sprites`
+- params.spritesheet.strings `Object` - Container for spritesheet-relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - name `String` - Transformed name of sprite (e.g. `icon-home`)
+    - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
+    - name_x `String` - Transformed combination of sprite name and `-x` string (e.g. `icon-home-x`)
+    - name_y `String` - Transformed combination of sprite name and `-y` string (e.g. `icon-home-y`)
+    - name_offset_x `String` - Transformed combination of sprite name and `-offset-x` string (e.g. `icon-home-offset-x`)
+    - name_offset_y `String` - Transformed combination of sprite name and `-offset-y` string (e.g. `icon-home-offset-y`)
+    - name_width `String` - Transformed combination of sprite name and `-width` string (e.g. `icon-home-width`)
+    - name_height `String` - Transformed combination of sprite name and `-height` string (e.g. `icon-home-height`)
+    - name_total_width `String` - Transformed combination of sprite name and `-total-width` string (e.g. `icon-home-total-width`)
+    - name_total_height `String` - Transformed combination of sprite name and `-total-height` string (e.g. `icon-home-total-height`)
+    - name_image `String` - Transformed combination of sprite name and `-image` string (e.g. `icon-home-image`)
+    - name_sprites `String` - Transformed combination of sprite name and `-sprites` string (e.g. `icon-home-sprites`)
+    - bare_name `String` - Transformed word for `name`
+    - bare_x `String` - Transformed word for `x`
+    - bare_y `String` - Transformed word for `y`
+    - bare_offset_x `String` - Transformed word for `offset-x`
+    - bare_offset_y `String` - Transformed word for `offset-y`
+    - bare_width `String` - Transformed word for `width`
+    - bare_height `String` - Transformed word for `height`
+    - bare_total_width `String` - Transformed word for `total-width`
+    - bare_total_height `String` - Transformed word for `total-height`
+    - bare_image `String` - Transformed word for `image`
+    - bare_sprites `String` - Transformed word for `sprites`
+- params.strings `Object` - Container for generic strings
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - bare_name `String` - Transformed word for `name`
+    - bare_x `String` - Transformed word for `x`
+    - bare_y `String` - Transformed word for `y`
+    - bare_offset_x `String` - Transformed word for `offset-x`
+    - bare_offset_y `String` - Transformed word for `offset-y`
+    - bare_width `String` - Transformed word for `width`
+    - bare_height `String` - Transformed word for `height`
+    - bare_total_width `String` - Transformed word for `total-width`
+    - bare_total_height `String` - Transformed word for `total-height`
+    - bare_image `String` - Transformed word for `image`
+    - bare_sprites `String` - Transformed word for `sprites`
 
 ##### `templater.addTemplate(name, fn)`
 Method to define a custom template under the format of `name`.

@@ -34,7 +34,8 @@
   "dependencies": {
     "json-content-demux": "~0.1.2",
     "mustache": "~0.7.0",
-    "underscore": "~1.4.2"
+    "underscore": "~1.4.2",
+    "underscore.string": "~3.0.3"
   },
   "devDependencies": {
     "css-validator": "~0.5.0",

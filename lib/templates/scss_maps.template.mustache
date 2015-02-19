@@ -1,6 +1,7 @@
 {
   // Default options
-  'functions': true
+  'functions': true,
+  'variableNameTransforms': ['underscored']
 }
 
 /*
@@ -13,24 +14,24 @@ SCSS variables are information about icon's compiled state, stored under its ori
 At the bottom of this section, we provide information about the spritesheet itself
 */
 {{#items}}
-${{name}}: (
-  name: '{{name}}',
-  x: {{px.x}},
-  y: {{px.y}},
-  offset_x: {{px.offset_x}},
-  offset_y: {{px.offset_y}},
-  width: {{px.width}},
-  height: {{px.height}},
-  total_width: {{px.total_width}},
-  total_height: {{px.total_height}},
-  image: '{{{escaped_image}}}'
+${{strings.name}}: (
+  {{strings.bare_name}}: '{{name}}',
+  {{strings.bare_x}}: {{px.x}},
+  {{strings.bare_y}}: {{px.y}},
+  {{strings.bare_offset_x}}: {{px.offset_x}},
+  {{strings.bare_offset_y}}: {{px.offset_y}},
+  {{strings.bare_width}}: {{px.width}},
+  {{strings.bare_height}}: {{px.height}},
+  {{strings.bare_total_width}}: {{px.total_width}},
+  {{strings.bare_total_height}}: {{px.total_height}},
+  {{strings.bare_image}}: '{{{escaped_image}}}'
 );
 {{/items}}
-${{spritesheet_name}}: (
-  width: {{spritesheet.px.width}},
-  height: {{spritesheet.px.height}},
-  image: '{{{spritesheet.escaped_image}}}',
-  sprites:{{#items}} ${{name}}{{/items}}
+${{spritesheet.strings.name}}: (
+  {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
+  {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
+  {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
+  {{spritesheet.strings.bare_sprites}}:{{#items}} ${{name}}{{/items}}
 );
 
 {{#options.functions}}
@@ -46,19 +47,19 @@ The provided mixins are intended to be used with variables directly
 }
 */
 @mixin sprite-width($sprite) {
-  width: map-get($sprite, 'width');
+  width: map-get($sprite, '{{strings.bare_width}}');
 }
 
 @mixin sprite-height($sprite) {
-  height: map-get($sprite, 'height');
+  height: map-get($sprite, '{{strings.bare_height}}');
 }
 
 @mixin sprite-position($sprite) {
-  background-position: map-get($sprite, 'offset_x') map-get($sprite, 'offset_y');
+  background-position: map-get($sprite, '{{strings.bare_offset_x}}') map-get($sprite, '{{strings.bare_offset_y}}');
 }
 
 @mixin sprite-image($sprite) {
-  background-image: url(map-get($sprite, 'image'));
+  background-image: url(map-get($sprite, '{{strings.bare_image}}'));
 }
 
 @mixin sprite($sprite) {
@@ -72,11 +73,11 @@ The provided mixins are intended to be used with variables directly
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
-@include sprites(map-get($spritesheet, 'sprites'));
+@include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
 */
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
-    $sprite-name: map-get($sprite, 'name');
+    $sprite-name: map-get($sprite, '{{strings.bare_name}}');
     .#{$sprite-name} {
       @include sprite($sprite);
     }
