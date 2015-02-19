@@ -14,11 +14,11 @@ exports.setupImages = function (options) {
   before(function () {
     this.info = {
       items: [{
-        name: 'sprite1', x: 0, y: 0, width: 10, height: 20
+        name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
       }, {
-        name: 'sprite2', x: 10, y: 20, width: 20, height: 30
+        name: 'sprite_snake_case', x: 10, y: 20, width: 20, height: 30
       }, {
-        name: 'sprite3', x: 30, y: 50, width: 50, height: 50
+        name: 'spriteCamelCase', x: 30, y: 50, width: 50, height: 50
       }],
       spritesheet: _.extend({
         width: 80, height: 100, image: 'nested/dir/spritesheet.png'

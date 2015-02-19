@@ -19,6 +19,7 @@ describe('An array of image positions, dimensions, and names', function () {
       before(function (done) {
         // Add some LESS to our result
         var lessStr = this.result;
+        console.log(this.result);
         lessStr += [
           '.feature {',
           '  height: @sprite1-height;',
