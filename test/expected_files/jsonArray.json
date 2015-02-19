@@ -1,6 +1,6 @@
 [
     {
-        "name": "sprite1",
+        "name": "sprite-dash-case",
         "x": 0,
         "y": 0,
         "width": 10,
@@ -23,7 +23,7 @@
         }
     },
     {
-        "name": "sprite2",
+        "name": "sprite_snake_case",
         "x": 10,
         "y": 20,
         "width": 20,
@@ -46,7 +46,7 @@
         }
     },
     {
-        "name": "sprite3",
+        "name": "spriteCamelCase",
         "x": 30,
         "y": 50,
         "width": 50,
