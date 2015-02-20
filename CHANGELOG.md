@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.0.0 - Reintroduced `8.3.0` as a major change and fixed Ensighten/spritesmith#49
+
 8.4.0 - Reverted `8.3.0` to remove breaking changes
 
 8.3.0 - Added `variableNameTransforms`/`strings` for Mustache templates. Fixes #37
