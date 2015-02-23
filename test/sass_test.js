@@ -1,10 +1,10 @@
 var assert = require('assert');
 var exec = require('child_process').exec;
 var Tempfile = require('temporary/lib/file');
-var utils = require('./utils');
+var testUtils = require('./utils');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into SASS', function () {
     before(function () {
