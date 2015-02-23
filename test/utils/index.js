@@ -27,6 +27,20 @@ exports.setupImages = function (options) {
   });
 };
 
+exports.setupSingleImage = function (options) {
+  options = options || {};
+  before(function () {
+    this.info = {
+      items: [{
+        name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
+      }],
+      spritesheet: _.extend({
+        width: 10, height: 20, image: 'nested/dir/spritesheet.png'
+      }, options.spritesheet)
+    };
+  });
+};
+
 exports.runTemplater = function () {
   before(function () {
     // Convert info into result via templater
