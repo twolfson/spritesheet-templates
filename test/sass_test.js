@@ -10,7 +10,7 @@ describe('An array of image positions, dimensions, and names', function () {
     testUtils.runTemplater({format: 'sass'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/sass.sass');
 
-    describe.skip('processed by SASS into CSS', function () {
+    describe('processed by SASS into CSS', function () {
       testUtils.generateCssFile('\n' + [
         '.feature',
         '  height: $sprite-dash-case-height',
