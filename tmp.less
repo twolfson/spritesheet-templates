@@ -1,5 +1,7 @@
 @a: 1px, 2px;
-@items: @a,;
+// @items: (@a,);
+@items: (@a);
+// @items: [@a];
 // @items: $a, $a;
 
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
