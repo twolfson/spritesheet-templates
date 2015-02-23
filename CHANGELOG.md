@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.1.0 - Added explicit list syntax for SASS/SCSS and notes for single-sprite spritesheets in LESS/Stylus
+
 9.0.1 - Refactored test suite to make it more transparent
 
 9.0.0 - Reintroduced `8.3.0` as a major change and fixed Ensighten/spritesmith#49
