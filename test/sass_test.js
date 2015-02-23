@@ -1,17 +1,14 @@
 var assert = require('assert');
 var exec = require('child_process').exec;
 var Tempfile = require('temporary/lib/file');
-var testUtils = require('./utils');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into SASS', function () {
-    before(function () {
-      this.options = {format: 'sass'};
-      this.filename = 'sass.sass';
-    });
-    utils.runTemplater();
+    testUtils.runTemplater({format: 'sass'});
+      // this.filename = 'sass.sass';
     before(function writeSassToFile () {
       // Add some SASS to our result
       var sassStr = this.result;
@@ -36,9 +33,9 @@ describe('An array of image positions, dimensions, and names', function () {
       this.tmp.unlinkSync();
     });
 
-    utils.assertMatchesAsExpected();
+    testUtils.assertOutputMatches(__dirname + '/expected_files/sass.sass');
 
-    describe('processed by SASS into CSS', function () {
+    describe.skip('processed by SASS into CSS', function () {
       // Process the SASS
       before(function (done) {
         var that = this;
@@ -55,7 +52,7 @@ describe('An array of image positions, dimensions, and names', function () {
       });
 
       // Assert agains the generated CSS
-      utils.assertValidCss();
+      testUtils.assertValidCss();
     });
   });
 });
