@@ -1,6 +1,5 @@
 var assert = require('assert');
 var exec = require('child_process').exec;
-var Tempfile = require('temporary/lib/file');
 var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
@@ -9,11 +8,10 @@ describe('An array of image positions, dimensions, and names', function () {
 
   describe('processed by `spritesheet-templates` into SASS', function () {
     testUtils.runTemplater({format: 'sass'});
-      // this.filename = 'sass.sass';
-    before(function writeSassToFile () {
-      // Add some SASS to our result
-      var sassStr = this.result;
-      sassStr += '\n' + [
+    testUtils.assertOutputMatches(__dirname + '/expected_files/sass.sass');
+
+    describe.skip('processed by SASS into CSS', function () {
+      testUtils.generateCssFile('\n' + [
         '.feature',
         '  height: $sprite-dash-case-height',
         '  @include sprite-width($sprite-snake-case)',
@@ -23,32 +21,15 @@ describe('An array of image positions, dimensions, and names', function () {
         '  @include sprite($sprite-snake-case)',
         '',
         '@include sprites($spritesheet-sprites)'
-      ].join('\n');
+      ].join('\n'));
 
-      // Save the SASS to a file for processing
-      var tmp = new Tempfile();
-      tmp.writeFileSync(sassStr);
-      this.tmp = tmp;
-    });
-    after(function () {
-      this.tmp.unlinkSync();
-    });
-
-    testUtils.assertOutputMatches(__dirname + '/expected_files/sass.sass');
-
-    describe.skip('processed by SASS into CSS', function () {
       // Process the SASS
-      before(function (done) {
-        var that = this;
+      testUtils.processCss(function processSass (cb) {
         exec('sass ' + this.tmp.path, function (err, css, stderr) {
-          // Assert no errors during conversion
+          // Assert no errors during conversion and save our CSS
           assert.strictEqual(stderr, '');
-          assert.strictEqual(err, null);
           assert.notEqual(css, '');
-
-          // Save CSS for later and callback
-          that.css = css;
-          done(err);
+          cb(err, css);
         });
       });
 

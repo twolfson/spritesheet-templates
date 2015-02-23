@@ -4,6 +4,7 @@ var fs = require('fs');
 var eightTrack = require('eight-track');
 var express = require('express');
 var normalizeMultipart = require('eight-track-normalize-multipart');
+var Tempfile = require('temporary/lib/file');
 var validateCss = require('css-validator');
 var templater = require('../../');
 
@@ -38,6 +39,38 @@ exports.assertOutputMatches = function (expectedFilepath) {
     var actual = this.result;
     var expected = fs.readFileSync(expectedFilepath, 'utf8');
     assert.strictEqual(actual, expected);
+  });
+};
+
+exports.generateCssFile = function (content) {
+  before(function generateCssFileFn () {
+    // Concatenate content with our result
+    var result = this.result || '';
+    var output = result + (content || '');
+
+    // Output the content to a file
+    var tmp = new Tempfile();
+    tmp.writeFileSync(output);
+    this.tmp = tmp;
+  });
+  after(function cleanup () {
+    this.tmp.unlinkSync();
+    delete this.tmp;
+  });
+};
+
+exports.processCss = function (fn) {
+  before(function processCssFn (done) {
+    // Run our function
+    var that = this;
+    fn.call(this, function handleResult (err, css) {
+      // Save our CSS and callback with any errors
+      that.css = css;
+      done(err);
+    });
+  });
+  after(function cleanup () {
+    delete this.css;
   });
 };
 
