@@ -47,7 +47,7 @@ $spritesheet: (
   width: 80px,
   height: 100px,
   image: 'nested/dir/spritesheet.png',
-  sprites: $sprite-dash-case $sprite-snake-case $sprite-camel-case
+  sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, )
 );
 
 /*

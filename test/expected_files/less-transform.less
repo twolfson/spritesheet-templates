@@ -91,6 +91,9 @@ The provided classes are intended to be used with the array-like variables
 The `.sprites` mixin generates identical output to the CSS template
   but can be overridden inside of LESS
 
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
 .sprites(@spritesheet-sprites);
 */
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
