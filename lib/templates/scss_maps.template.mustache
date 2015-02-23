@@ -31,7 +31,7 @@ ${{spritesheet.strings.name}}: (
   {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
   {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
   {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
-  {{spritesheet.strings.bare_sprites}}:{{#items}} ${{strings.name}}{{/items}}
+  {{spritesheet.strings.bare_sprites}}: ({{#items}}${{strings.name}}, {{/items}})
 );
 
 {{#options.functions}}
