@@ -40,50 +40,25 @@ describe('An array of image positions, dimensions, and names', function () {
 });
 
 describe('An array of 1 image', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.singleItem);
 
   describe('processed by `spritesheet-templates` into SASS', function () {
-    before(function () {
-      this.options = {format: 'sass'};
-      this.filename = 'sass-single.sass';
-    });
-    utils.runTemplater();
-    before(function writeSassToFile () {
-      // Add some SASS to our result
-      var sassStr = this.result;
-      sassStr += '\n' + [
-        '@include sprites($spritesheet-sprites)'
-      ].join('\n');
+    testUtils.runTemplater({format: 'sass'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/sass-single.sass');
 
-      // Save the SASS to a file for processing
-      var tmp = new Tempfile();
-      tmp.writeFileSync(sassStr);
-      this.tmp = tmp;
-    });
-    after(function () {
-      this.tmp.unlinkSync();
-    });
-
-    utils.assertMatchesAsExpected();
+    testUtils.generateCssFile('\n' + [
+      '@include sprites($spritesheet-sprites)'
+    ].join('\n'));
 
     describe('processed by SASS into CSS', function () {
-      // Process the SASS
-      before(function (done) {
-        var that = this;
+      testUtils.processCss(function processSass (cb) {
         exec('sass ' + this.tmp.path, function (err, css, stderr) {
-          // Assert no errors during conversion
           assert.strictEqual(stderr, '');
-          assert.strictEqual(err, null);
           assert.notEqual(css, '');
-
-          // Save CSS for later and callback
-          that.css = css;
-          done(err);
+          cb(err, css);
         });
       });
-
-      // Assert agains the generated CSS
-      utils.assertValidCss();
+      // testUtils.assertValidCss();
     });
   });
 });

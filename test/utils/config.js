@@ -1,3 +1,12 @@
+exports.singleItem = {
+  items: [{
+    name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
+  }],
+  spritesheet: {
+    width: 10, height: 20, image: 'nested/dir/spritesheet.png'
+  }
+};
+
 exports.multipleItems = {
   items: [{
     name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
