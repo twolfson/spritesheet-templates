@@ -41,13 +41,12 @@ describe('An array of image positions, dimensions, and names', function () {
   });
 });
 
-
 describe('An array of 1 image', function () {
   testUtils.setInfo(configUtils.singleItem);
 
   describe('processed by `spritesheet-templates` into SASS', function () {
-    testUtils.runTemplater({format: 'sass'});
-    testUtils.assertOutputMatches(__dirname + '/expected_files/sass-single.sass');
+    testUtils.runTemplater({format: 'scss_maps'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/scss_maps-single.scss');
 
     testUtils.generateCssFile('\n' + [
       '@include sprites(map-get($spritesheet, \'sprites\'));'
