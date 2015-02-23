@@ -52,3 +52,38 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 });
+
+describe('An array of 1 image', function () {
+  testUtils.setInfo(configUtils.singleItem);
+
+  describe('processed by `spritesheet-templates` into SCSS', function () {
+    testUtils.runTemplater({format: 'scss'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/scss-single.scss');
+
+    testUtils.generateCssFile('\n' + [
+      '@include sprites($spritesheet-sprites);'
+    ].join('\n'));
+
+    describe('processed by `sass --scss` (ruby) into CSS', function () {
+      testUtils.processCss(function processScss (cb) {
+        exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
+          assert.strictEqual(stderr, '');
+          assert.notEqual(css, '');
+          cb(err, css);
+        });
+      });
+      testUtils.assertValidCss();
+    });
+
+    describe('processed by `sassc` (libsass) into CSS', function () {
+      testUtils.processCss(function processScss (cb) {
+        exec('sassc ' + this.tmp.path, function (err, css, stderr) {
+          assert.strictEqual(stderr, '');
+          assert.notEqual(css, '');
+          cb(err, css);
+        });
+      });
+      testUtils.assertValidCss();
+    });
+  });
+});
