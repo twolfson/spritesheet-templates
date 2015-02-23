@@ -1,22 +1,18 @@
 var assert = require('assert');
 var less = require('less');
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into LESS', function () {
-    before(function () {
-      this.options = {format: 'less'};
-      this.filename = 'less.less';
-    });
-    utils.runTemplater();
-
-    utils.assertMatchesAsExpected();
+    testUtils.runTemplater({format: 'less'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/less.less');
 
     describe('processed by LESS into CSS', function () {
-      // Process into CSS
-      before(function (done) {
+      // Process the LESS
+      testUtils.processCss(function processLess (cb) {
         // Add some LESS to our result
         var lessStr = this.result;
         lessStr += [
@@ -34,23 +30,19 @@ describe('An array of image positions, dimensions, and names', function () {
         ].join('\n');
 
         // Render the LESS, assert no errors, and valid CSS
-        var that = this;
         less.render(lessStr, function (err, css) {
           // Verify there are no braces in the CSS (array string coercion)
           assert.strictEqual(err, null);
           assert.notEqual(css, '');
           assert.strictEqual(css.indexOf(']'), -1);
 
-          // Save the CSS for later
-          that.css = css;
-
-          // Callback
-          done(err);
+          // Callback with our CSS
+          cb(null, css);
         });
       });
 
       // Assert against generated CSS
-      utils.assertValidCss();
+      testUtils.assertValidCss();
     });
   });
 });
