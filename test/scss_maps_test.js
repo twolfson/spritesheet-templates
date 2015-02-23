@@ -1,64 +1,42 @@
 var assert = require('assert');
 var exec = require('child_process').exec;
-var Tempfile = require('temporary/lib/file');
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into SCSS (Maps)', function () {
-    before(function () {
-      this.options = {format: 'scss_maps'};
-      this.filename = 'scss_maps.scss';
-    });
-    utils.runTemplater();
+    testUtils.runTemplater({format: 'scss_maps'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/scss_maps.scss');
 
-    before(function writeScssToFile () {
-      // Add some SCSS to our result
-      var scssStr = this.result;
-      scssStr += '\n' + [
-        '.feature {',
-        '  height: map-get($sprite-dash-case, "height");',
-        '  @include sprite-width($sprite-snake-case);',
-        '  @include sprite-image($sprite-camel-case);',
-        '}',
-        '',
-        '.feature2 {',
-        '  @include sprite($sprite-snake-case);',
-        '}',
-        '',
-        '@include sprites(map-get($spritesheet, \'sprites\'));'
-      ].join('\n');
-
-      // Save the SCSS to a file for processing
-      var tmp = new Tempfile();
-      tmp.writeFileSync(scssStr);
-      this.tmp = tmp;
-    });
-    after(function () {
-      this.tmp.unlinkSync();
-    });
-
-    utils.assertMatchesAsExpected();
+    testUtils.generateCssFile('\n' + [
+      '.feature {',
+      '  height: map-get($sprite-dash-case, "height");',
+      '  @include sprite-width($sprite-snake-case);',
+      '  @include sprite-image($sprite-camel-case);',
+      '}',
+      '',
+      '.feature2 {',
+      '  @include sprite($sprite-snake-case);',
+      '}',
+      '',
+      '@include sprites(map-get($spritesheet, \'sprites\'));'
+    ].join('\n'));
 
     describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
-      before(function (done) {
-        var that = this;
+      testUtils.processCss(function processScss (cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
           // Assert no errors during conversion
           assert.strictEqual(stderr, '');
-          assert.strictEqual(err, null);
           assert.notEqual(css, '');
-
-          // Save CSS for later and callback
-          that.css = css;
-          done(err);
+          cb(err, css);
         });
       });
 
       // Assert agains the generated CSS
-      utils.assertValidCss();
+      testUtils.assertValidCss();
     });
   });
 });

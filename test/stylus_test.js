@@ -1,22 +1,18 @@
 var assert = require('assert');
 var stylus = require('stylus');
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into Stylus', function () {
-    before(function () {
-      this.options = {format: 'stylus'};
-      this.filename = 'stylus.styl';
-    });
-    utils.runTemplater();
-
-    utils.assertMatchesAsExpected();
+    testUtils.runTemplater({format: 'stylus'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/stylus.styl');
 
     describe('processed by Stylus into CSS', function () {
       // Process the Stylus
-      before(function (done) {
+      testUtils.processCss(function processStylus (cb) {
         // Add some stylus which hooks into our result
         var styl = this.result;
         styl += [
@@ -32,19 +28,15 @@ describe('An array of image positions, dimensions, and names', function () {
         ].join('\n');
 
         // Render the stylus
-        var that = this;
         stylus.render(styl, function handleStylus (err, css) {
-          // Assert no errors and CSS was generated
+          // Assert no errors, CSS was generated, and callback
           assert.strictEqual(err, null);
           assert.notEqual(css, '');
-
-          // Save the CSS and callback
-          that.css = css;
-          done(err);
+          cb(null, css);
         });
       });
 
-      utils.assertValidCss();
+      testUtils.assertValidCss();
     });
   });
 });

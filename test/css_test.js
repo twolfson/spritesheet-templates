@@ -1,69 +1,62 @@
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into CSS', function () {
-    before(function () {
-      this.options = null;
-      this.filename = 'css.css';
-    });
-    utils.runTemplater();
+    testUtils.runTemplater(null);
+    testUtils.assertOutputMatches(__dirname + '/expected_files/css.css');
 
-    utils.assertMatchesAsExpected();
-    utils.runFakeJigsaw();
+    testUtils.runFakeJigsaw();
     it('is valid CSS', function (done) {
       var css = this.result;
-      utils._assertValidCss(css, done);
+      testUtils._assertValidCss(css, done);
     });
   });
 });
 
 // Edge case test for filepaths with quotes
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages({
+  testUtils.setInfo({
+    items: configUtils.multipleItems.items,
     spritesheet: {
-      width: 80, height: 100, image: 'nested/dir/( \'")/spritesheet.png'
+      width: configUtils.multipleItems.spritesheet.width,
+      height: configUtils.multipleItems.spritesheet.height,
+      image: 'nested/dir/( \'")/spritesheet.png'
     }
   });
 
   describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
-    before(function () {
-      this.options = null;
-      this.filename = 'css-quote-filepath.css';
-    });
-    utils.runTemplater();
+    testUtils.runTemplater(null);
+    testUtils.assertOutputMatches(__dirname + '/expected_files/css-quote-filepath.css');
 
-    utils.assertMatchesAsExpected();
-    utils.runFakeJigsaw();
+    testUtils.runFakeJigsaw();
     it('is valid CSS', function (done) {
       var css = this.result;
-      utils._assertValidCss(css, done);
+      testUtils._assertValidCss(css, done);
     });
   });
 });
 
 // Edge case test for https://github.com/Ensighten/grunt-spritesmith/issues/104
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
-  describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
-    before(function () {
-      this.options = {
-        formatOpts: {
-          cssSelector: function (item) {
-            return '.hello > .icon-' + item.name;
-          }
-        }
-      };
-      this.filename = 'css-html-selector.css';
-    });
-    utils.runTemplater();
+  testUtils.setInfo(configUtils.multipleItems);
 
-    utils.assertMatchesAsExpected();
-    utils.runFakeJigsaw();
+  describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
+    testUtils.runTemplater({
+      formatOpts: {
+        cssSelector: function (item) {
+          return '.hello > .icon-' + item.name;
+        }
+      }
+    });
+    testUtils.assertOutputMatches(__dirname + '/expected_files/css-html-selector.css');
+
+    testUtils.runFakeJigsaw();
     it('is valid CSS', function (done) {
       var css = this.result;
-      utils._assertValidCss(css, done);
+      testUtils._assertValidCss(css, done);
     });
   });
 });

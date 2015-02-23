@@ -1,68 +1,76 @@
 // Load in our dependencies
 var assert = require('assert');
 var fs = require('fs');
-var _ = require('underscore');
 var eightTrack = require('eight-track');
 var express = require('express');
 var normalizeMultipart = require('eight-track-normalize-multipart');
+var Tempfile = require('temporary/lib/file');
 var validateCss = require('css-validator');
 var templater = require('../../');
 
 // Start our utilities
-exports.setupImages = function (options) {
-  options = options || {};
-  before(function () {
-    this.info = {
-      items: [{
-        name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
-      }, {
-        name: 'sprite_snake_case', x: 10, y: 20, width: 20, height: 30
-      }, {
-        name: 'spriteCamelCase', x: 30, y: 50, width: 50, height: 50
-      }],
-      spritesheet: _.extend({
-        width: 80, height: 100, image: 'nested/dir/spritesheet.png'
-      }, options.spritesheet)
-    };
+exports.setInfo = function (info) {
+  assert(info, '`testUtils.setInfo` requires `info` but it was not provided. Please provide it.');
+  before(function setInfoFn () {
+    this.info = info;
+  });
+  after(function cleanup () {
+    delete this.info;
   });
 };
 
-exports.setupSingleImage = function (options) {
-  options = options || {};
-  before(function () {
-    this.info = {
-      items: [{
-        name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
-      }],
-      spritesheet: _.extend({
-        width: 10, height: 20, image: 'nested/dir/spritesheet.png'
-      }, options.spritesheet)
-    };
-  });
-};
-
-exports.runTemplater = function () {
-  before(function () {
+exports.runTemplater = function (options) {
+  before(function runTemplaterFn () {
     // Convert info into result via templater
-    var options = this.options;
     var info = this.info;
+    assert(info, '`testUtils.runTemplater` requires `this.info` to be defined. ' +
+      'Please make sure `testUtils.setInfo` was run already');
     var result = options ? templater(info, options) : templater(info);
     this.result = result;
-
-    // If we are debugging, output results to a file
-    if (process.env.TEST_DEBUG) {
-      try { fs.mkdirSync(__dirname + '/../actual_files/'); } catch (e) {}
-      fs.writeFileSync(__dirname + '/../actual_files/' + this.filename, result, 'utf8');
-    }
+  });
+  after(function cleanup () {
+    delete this.result;
   });
 };
 
-exports.assertMatchesAsExpected = function () {
-  it('matches as expected', function () {
+exports.assertOutputMatches = function (expectedFilepath) {
+  it('matches as expected', function assertOutputMatchesFn () {
     // Load in the files and assert
     var actual = this.result;
-    var expected = fs.readFileSync(__dirname + '/../expected_files/' + this.filename, 'utf8');
+    var expected = fs.readFileSync(expectedFilepath, 'utf8');
     assert.strictEqual(actual, expected);
+  });
+};
+
+exports.generateCssFile = function (content) {
+  before(function generateCssFileFn () {
+    // Concatenate content with our result
+    var result = this.result || '';
+    var output = result + (content || '');
+
+    // Output the content to a file
+    var tmp = new Tempfile();
+    tmp.writeFileSync(output);
+    this.tmp = tmp;
+  });
+  after(function cleanup () {
+    this.tmp.unlinkSync();
+    delete this.tmp;
+  });
+};
+
+exports.processCss = function (fn) {
+  before(function processCssFn (done) {
+    // Run our function
+    var that = this;
+    fn.call(this, function handleResult (err, css) {
+      // Save our CSS and callback with any errors
+      that.css = css;
+      done(err);
+    });
+  });
+  after(function cleanup () {
+    delete this.css;
   });
 };
 

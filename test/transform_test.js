@@ -1,42 +1,36 @@
 var fs = require('fs');
 var templater = require('../');
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` into LESS with `variableNameTransforms`', function () {
-    before(function () {
-      this.options = {
-        format: 'less',
-        formatOpts: {
-          variableNameTransforms: ['underscored', 'toUpperCase']
-        }
-      };
-      this.filename = 'less-transform.less';
+    testUtils.runTemplater({
+      format: 'less',
+      formatOpts: {
+        variableNameTransforms: ['underscored', 'toUpperCase']
+      }
     });
-    utils.runTemplater();
 
-    utils.assertMatchesAsExpected();
+    testUtils.assertOutputMatches(__dirname + '/expected_files/less-transform.less');
   });
 });
 
 // DEV: Legacy test
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   describe('processed by `spritesheet-templates` via custom template with no `variableNameTransforms`', function () {
-    before(function () {
+    before(function addCustomTemplate () {
       var customTemplate = fs.readFileSync(__dirname + '/test_files/transform_custom.template.mustache', 'utf8');
       templater.addMustacheTemplate('transform_custom', customTemplate);
-
-      this.options = {
-        format: 'transform_custom'
-      };
-      this.filename = 'transform-custom.less';
     });
-    utils.runTemplater();
+    testUtils.runTemplater({
+      format: 'transform_custom'
+    });
 
-    utils.assertMatchesAsExpected();
+    testUtils.assertOutputMatches(__dirname + '/expected_files/transform-custom.less');
   });
 });

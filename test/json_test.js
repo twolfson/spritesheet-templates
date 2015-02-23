@@ -1,8 +1,9 @@
 var assert = require('assert');
-var utils = require('./utils');
+var configUtils = require('./utils/config');
+var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  utils.setupImages();
+  testUtils.setInfo(configUtils.multipleItems);
 
   function assertValidJson() {
     it('is valid JSON', function () {
@@ -12,24 +13,18 @@ describe('An array of image positions, dimensions, and names', function () {
       });
     });
   }
-  describe('processed by `spritesheet-templates` into JSON', function () {
-    before(function () {
-      this.options = {format: 'json'};
-      this.filename = 'json.json';
-    });
-    utils.runTemplater();
 
-    utils.assertMatchesAsExpected();
+  describe('processed by `spritesheet-templates` into JSON', function () {
+    testUtils.runTemplater({format: 'json'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/json.json');
+
     assertValidJson();
   });
-  describe('processed by `spritesheet-templates` into an array', function () {
-    before(function () {
-      this.options = {format: 'jsonArray'};
-      this.filename = 'jsonArray.json';
-    });
-    utils.runTemplater();
 
-    utils.assertMatchesAsExpected();
+  describe('processed by `spritesheet-templates` into an array', function () {
+    testUtils.runTemplater({format: 'jsonArray'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/jsonArray.json');
+
     assertValidJson();
   });
 });
