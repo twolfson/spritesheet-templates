@@ -10,19 +10,19 @@ describe('An array of image positions, dimensions, and names', function () {
     testUtils.runTemplater({format: 'sass'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/sass.sass');
 
-    describe('processed by SASS into CSS', function () {
-      testUtils.generateCssFile('\n' + [
-        '.feature',
-        '  height: $sprite-dash-case-height',
-        '  @include sprite-width($sprite-snake-case)',
-        '  @include sprite-image($sprite-camel-case)',
-        '',
-        '.feature2',
-        '  @include sprite($sprite-snake-case)',
-        '',
-        '@include sprites($spritesheet-sprites)'
-      ].join('\n'));
+    testUtils.generateCssFile('\n' + [
+      '.feature',
+      '  height: $sprite-dash-case-height',
+      '  @include sprite-width($sprite-snake-case)',
+      '  @include sprite-image($sprite-camel-case)',
+      '',
+      '.feature2',
+      '  @include sprite($sprite-snake-case)',
+      '',
+      '@include sprites($spritesheet-sprites)'
+    ].join('\n'));
 
+    describe('processed by SASS into CSS', function () {
       // Process the SASS
       testUtils.processCss(function processSass (cb) {
         exec('sass ' + this.tmp.path, function (err, css, stderr) {
