@@ -1,9 +1,10 @@
 // $a = (1px, 2px, 3px);
 // $a = [1px, 2px, 3px];
-$a = 1px, 2px, 3px,;
+$a = (1px);
+$items = ($a) ($a);
 
-for $width in $a {
+for $item in $items {
   .hello {
-    width: $width;
+    width: $item[0];
   }
 }
