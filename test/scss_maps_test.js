@@ -40,3 +40,28 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   });
 });
+
+
+describe('An array of 1 image', function () {
+  testUtils.setInfo(configUtils.singleItem);
+
+  describe('processed by `spritesheet-templates` into SASS', function () {
+    testUtils.runTemplater({format: 'sass'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/sass-single.sass');
+
+    testUtils.generateCssFile('\n' + [
+      '@include sprites(map-get($spritesheet, \'sprites\'));'
+    ].join('\n'));
+
+    describe('processed by SASS into CSS', function () {
+      testUtils.processCss(function processScss (cb) {
+        exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
+          assert.strictEqual(stderr, '');
+          assert.notEqual(css, '');
+          cb(err, css);
+        });
+      });
+      testUtils.assertValidCss();
+    });
+  });
+});

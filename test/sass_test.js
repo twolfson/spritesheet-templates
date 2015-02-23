@@ -58,7 +58,7 @@ describe('An array of 1 image', function () {
           cb(err, css);
         });
       });
-      // testUtils.assertValidCss();
+      testUtils.assertValidCss();
     });
   });
 });
