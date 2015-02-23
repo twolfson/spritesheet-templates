@@ -32,13 +32,12 @@ install:
   # Install libsass/sassc
   - git clone https://github.com/hcatlin/libsass.git libsass
   - cd libsass
-  # a3d3bc7 is libsass 2.1 beta
-  - git checkout a3d3bc7
+  - git checkout 3.0.2
   - cd -
   - export SASS_LIBSASS_PATH=$PWD/libsass
   - git clone https://github.com/hcatlin/sassc.git sassc
   - cd sassc
-  - git checkout v1.0.1
+  - git checkout 3.0.2
   - make
   - sudo ln -s $PWD/bin/sassc /usr/local/bin/sassc
   - cd ..
