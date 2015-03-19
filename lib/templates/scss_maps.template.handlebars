@@ -13,7 +13,7 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
-{{#items}}
+{{#each items}}
 ${{strings.name}}: (
   {{strings.bare_name}}: '{{name}}',
   {{strings.bare_x}}: {{px.x}},
@@ -26,15 +26,15 @@ ${{strings.name}}: (
   {{strings.bare_total_height}}: {{px.total_height}},
   {{strings.bare_image}}: '{{{escaped_image}}}'
 );
-{{/items}}
+{{/each}}
 ${{spritesheet.strings.name}}: (
   {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
   {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
   {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
-  {{spritesheet.strings.bare_sprites}}: ({{#items}}${{strings.name}}, {{/items}})
+  {{spritesheet.strings.bare_sprites}}: ({{#each items}}${{strings.name}}, {{/each}})
 );
 
-{{#options.functions}}
+{{#if options.functions}}
 /*
 The provided mixins are intended to be used with variables directly
 
@@ -83,4 +83,4 @@ The `sprites` mixin generates identical output to the CSS template
     }
   }
 }
-{{/options.functions}}
+{{/if}}
