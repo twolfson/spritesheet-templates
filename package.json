@@ -32,8 +32,8 @@
     "test": "npm run precheck && mocha --timeout 10000 && npm run lint"
   },
   "dependencies": {
+    "handlebars": "~3.0.0",
     "json-content-demux": "~0.1.2",
-    "mustache": "~0.7.0",
     "underscore": "~1.4.2",
     "underscore.string": "~3.0.3"
   },
