@@ -5,10 +5,7 @@
 }
 
 {{#extend "stylus"}}
-{{#content spritesheet mode="append"}}
-$retina_spritesheet = 'hi';
-// TODO: This won't quite work... the current spritesheet/retina spritesheets would doubly list items which is undesired =/
-We need to separate the sets of items
-By separating them, we can probably do away with the pairings concept but I am not sure; we would need an index operator in handlebars instead
+{{#content "sprite" mode="replace"}}
+hello;
 {{/content}}
 {{/extend}}
