@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.2.0 - Moved to `handlebars` and `handlebars-layouts` to support inheritance (and ultimately retina templates)
+
 9.1.1 - Deprecated `libsass@1.0.1` from Travis CI in favor of `libsass@3.0.2`
 
 9.1.0 - Added explicit list syntax for SASS/SCSS and notes for single-sprite spritesheets in LESS/Stylus
