@@ -89,7 +89,7 @@ Converter for spritesheet/sprite info into spritesheet
 - retVal `String` - Result from specified formatter
 
 ### Templates
-We provide a variety of template options. These can be changed via `options.format`.
+Below are our template options for `options.format`.
 
 Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally.
 
