@@ -91,9 +91,7 @@ Converter for spritesheet/sprite info into spritesheet
 ### Templates
 Below are our template options for `options.format`.
 
-Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally.
-
-Inherited templates must copy/paste JSON front matter. An example can be found in the [Examples section](#examples).
+Handlebars-based templates support inheritance via [`handlebars-layouts`][] (e.g. `{{#extend "css"}}`). Inherited templates must copy/paste JSON front matter. An example can be found in the [Examples section](#examples).
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
