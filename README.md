@@ -1,8 +1,6 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document shift to Handlebars (e.g. references to Mustache)
 // TODO: Document inheritance
-// TODO: Document `items` -> `sprites` rename
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
@@ -356,7 +354,7 @@ $sprite2_name = 'sprite2';
 [Stylus]: http://learnboost.github.io/stylus/
 
 #### Custom
-Custom templates can be added dynamically via `templater.addTemplate` and `templater.addMustacheTemplate`.
+Custom templates can be added dynamically via `templater.addTemplate` and `templater.addHandlebarsTemplate`.
 
 ##### Template data
 The parameters passed into your template are known as `params`. These are a cloned copy of the `params` originally passed in. We add some normalized properties for your convenience.
@@ -400,8 +398,8 @@ The parameters passed into your template are known as `params`. These are a clon
     - spritesheet_name `String` - Name for spritesheet
     - options `Mixed` - Options to passed through via `options.formatOpts`
 
-###### Mustache template data
-We provide an extra set of data for `mustache` templates for variable/string names.
+###### Handlebars template data
+We provide an extra set of data for `handlebars` templates for variable/string names.
 
 - params.sprites[*].strings `Object` - Container for sprite-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
@@ -474,12 +472,15 @@ Method to define a custom template under the format of `name`.
 - fn `Function` - Template function
     - Should have signature of `function (params)` and return a `String` output
 
-##### `templater.addMustacheTemplate(name, tmplStr)`
-Method to define a custom mustache template under the format of `name`.
+##### `templater.addHandlebarsTemplate(name, tmplStr)`
+Method to define a custom handlebars template under the format of `name`.
 
 - name `String` - Key to store template under for reference via `options.format`
-- tmplStr `String` - Mustache template to use for formatting
+- tmplStr `String` - Handlebars template to use for formatting
     - This will receive `params` as its `data` (e.g. `{{sprites}}` is `params.sprites`)
+
+##### `templater.addMustacheTemplate(name, tmplStr)`
+Deprecated alias for `templater.addHandlebarsTemplate`
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
