@@ -2,7 +2,6 @@
 
 // TODO: Document shift to Handlebars (e.g. references to Mustache)
 // TODO: Document inheritance
-// TODO: Document hooks
 // TODO: Document `items` -> `sprites` rename
 
 Convert spritesheet data into CSS or CSS pre-processor data
@@ -18,7 +17,7 @@ Install the module with: `npm install spritesheet-templates`
 // Compilation
 var templater = require('spritesheet-templates');
 templater({
-  items: [{
+  sprites: [{
     name: 'github', x: 0, y: 0, width: 10, height: 20
   }, {
     name: 'twitter', x: 10, y: 20, width: 20, height: 30
@@ -64,9 +63,10 @@ sprite($sprite) {
 Converter for spritesheet/sprite info into spritesheet
 
 - params `Object` - Container for parameters
-    - items `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
+    - items `Object[]` - Deprecated alternative key to define `params.sprites`
+    - sprites `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
         - * `Object` - Container for sprite coordinate data
-            - For reference, `*` symbolizes any index (e.g. `params.items[0]`)
+            - For reference, `*` symbolizes any index (e.g. `params.sprites[0]`)
             - name `String` - Name to use for the image
             - x `Number` - Horizontal coordinate of top-left corner of image
             - y `Number` - Vertical coordinate of top-left corner of image
@@ -101,9 +101,9 @@ Ouput CSS variables as CSS rules.
 **Options:**
 
 - cssSelector `Function` - Override mapping for CSS selector
-    - `cssSelector` should have signature `function (item) { return 'selector'; }`
-    - By default this will return `'.icon-' + item.name`
-    - It will receive `item` with all parameters designed for template
+    - `cssSelector` should have signature `function (sprite) { return 'selector'; }`
+    - By default this will return `'.icon-' + sprite.name`
+    - It will receive `sprite` with all parameters designed for template
 
 **Example:**
 
@@ -362,9 +362,10 @@ Custom templates can be added dynamically via `templater.addTemplate` and `templ
 The parameters passed into your template are known as `params`. These are a cloned copy of the `params` originally passed in. We add some normalized properties for your convenience.
 
 - params `Object` - Container for parameters
-    - items `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
+    - items `Object[]` - Deprecated alias for `params.sprites`
+    - sprites `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
         - * `Object` - Container for sprite coordinate data
-            - For reference, `*` symbolizes any index (e.g. `params.items[0]`)
+            - For reference, `*` symbolizes any index (e.g. `params.sprites[0]`)
             - name `String` - Name to use for the image
             - x `Number` - Horizontal coordinate of top-left corner of image
             - y `Number` - Vertical coordinate of top-left corner of image
@@ -402,7 +403,7 @@ The parameters passed into your template are known as `params`. These are a clon
 ###### Mustache template data
 We provide an extra set of data for `mustache` templates for variable/string names.
 
-- params.items[*].strings `Object` - Container for sprite-relevant variable/string names
+- params.sprites[*].strings `Object` - Container for sprite-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of sprite (e.g. `icon-home`)
     - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
@@ -478,7 +479,7 @@ Method to define a custom mustache template under the format of `name`.
 
 - name `String` - Key to store template under for reference via `options.format`
 - tmplStr `String` - Mustache template to use for formatting
-    - This will receive `params` as its `data` (e.g. `{{items}}` is `params.items`)
+    - This will receive `params` as its `data` (e.g. `{{sprites}}` is `params.sprites`)
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.

@@ -3,7 +3,7 @@ var templater = require('../');
 
 // Render spritesheet information into Stylus variables/mixins
 console.log(templater({
-  items: [{
+  sprites: [{
     name: 'github', x: 0, y: 0, width: 10, height: 20
   }, {
     name: 'twitter', x: 10, y: 20, width: 20, height: 30
