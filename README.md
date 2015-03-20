@@ -105,6 +105,10 @@ Ouput CSS variables as CSS rules.
     - By default this will return `'.icon-' + sprite.name`
     - It will receive `sprite` with all parameters designed for template
 
+**Handlebars blocks:**
+
+`css` is a Handlebars based template. We allow for overriding the comment via `{{#content sprite-comment}}` and CSS rules via `{{#content sprites}}`.
+
 **Example:**
 
 ```css
