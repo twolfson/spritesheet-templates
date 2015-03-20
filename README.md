@@ -3,6 +3,7 @@
 // TODO: Document shift to Handlebars (e.g. references to Mustache)
 // TODO: Document inheritance
 // TODO: Document hooks
+// TODO: Document `items` -> `sprites` rename
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
