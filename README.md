@@ -1,7 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document inheritance
-
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
@@ -91,7 +89,11 @@ Converter for spritesheet/sprite info into spritesheet
 - retVal `String` - Result from specified formatter
 
 ### Templates
-These are the various template options for `options.format`:
+We provide a variety of template options. These can be changed via `options.format`.
+
+Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally.
+
+[`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
 #### `css`
 Ouput CSS variables as CSS rules.
