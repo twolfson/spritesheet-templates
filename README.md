@@ -544,6 +544,60 @@ In this example, we will extend the SCSS template to output a minimal set of tem
 
 It should be noted that we must include the JSON front matter from the original template we are inheriting from to preserve default casing and options.
 
+**scss-minimal.handlebars:**
+
+```handlebars
+{
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['dasherize']
+}
+
+{{#extend "scss"}}
+{{#content "sprites"}}
+{{#each sprites}}
+${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.width}}, {{px.height}}, {{px.total_width}}, {{px.total_height}}, '{{{escaped_image}}}', '{{name}}', );
+{{/each}}
+{{/content}}
+{{#content "spritesheet"}}
+${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+{{/content}}
+{{/extend}}
+```
+
+**index.js:**
+
+```js
+// Load in our dependencies
+var fs = require('fs');
+var templater = require('spritesheet-templates');
+
+// Register our new template
+var scssMinimalHandlebars = fs.readFileSync('scss-minimal.handlebars', 'utf8');
+templater.addHandlebarsTemplate('scss-minimal', scssMinimalHandlebars);
+
+// Run our templater
+templater({
+  sprites: [{
+    name: 'github', x: 0, y: 0, width: 10, height: 20
+  }, {
+    name: 'twitter', x: 10, y: 20, width: 20, height: 30
+  }, {
+    name: 'rss', x: 30, y: 50, width: 50, height: 50
+  }],
+  spritesheet: {
+    width: 80, height: 100, image: 'url/path/to/spritesheet.png'
+  }
+}, {format: 'scss-minimal'}); /*
+$github: (0px, 0px, 0px, 0px, 10px, 20px, 80px, 100px, 'url/path/to/spritesheet.png', 'github', );
+$twitter: (10px, 20px, -10px, -20px, 20px, 30px, 80px, 100px, 'url/path/to/spritesheet.png', 'twitter', );
+$rss: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'url/path/to/spritesheet.png', 'rss', );
+$spritesheet-sprites: ($github, $twitter, $rss, );
+$spritesheet: (80px, 100px, 'url/path/to/spritesheet.png', $spritesheet-sprites, );
+*/
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
