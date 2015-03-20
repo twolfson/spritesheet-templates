@@ -93,8 +93,6 @@ Below are our template options for `options.format`.
 
 Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally. Unfortunately, templates must copy/paste JSON front matter. An example can be found in the [Examples section](#examples).
 
-// TODO: Add example for inheritance
-
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
 #### `css`
@@ -531,12 +529,20 @@ Method to define a custom template under the format of `name`.
 ##### `templater.addHandlebarsTemplate(name, tmplStr)`
 Method to define a custom handlebars template under the format of `name`.
 
+As noted in the [Templates section](#templates), these can inherit from existing templates via [`handlebars-layouts`][] conventions (e.g. `{{#extend "scss"}}`). An example can be found in the [Examples section](#examples).
+
 - name `String` - Key to store template under for reference via `options.format`
 - tmplStr `String` - Handlebars template to use for formatting
     - This will receive `params` as its `data` (e.g. `{{sprites}}` is `params.sprites`)
 
 ##### `templater.addMustacheTemplate(name, tmplStr)`
 Deprecated alias for `templater.addHandlebarsTemplate`
+
+## Examples
+### Inheriting from a template
+In this example, we will extend the SCSS template to output a minimal set of template data.
+
+It should be noted that we must include the JSON front matter from the original template we are inheriting from to preserve default casing and options.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
