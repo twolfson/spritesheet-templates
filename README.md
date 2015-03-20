@@ -107,6 +107,8 @@ Ouput CSS variables as CSS rules.
 
 **Handlebars blocks:**
 
+`css` is a Handlebars based template. We allow for overriding the following sections:
+
 - {{#content "sprite-comment"}} - Comment before CSS rules
 - {{#content "sprites"}} - CSS rules
 
@@ -204,6 +206,13 @@ Output CSS variables as [LESS][] variables.
     - `underscore.string`: http://epeli.github.io/underscore.string/#api
         - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+`css` is a Handlebars based template. We allow for overriding the following sections:
+
+- {{#content "sprite-comment"}} - Comment before CSS rules
+- {{#content "sprites"}} - CSS rules
 
 **Example:**
 
