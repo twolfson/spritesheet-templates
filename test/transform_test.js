@@ -4,7 +4,7 @@ var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprite);
 
   describe('processed by `spritesheet-templates` into LESS with `variableNameTransforms`', function () {
     testUtils.runTemplater({
@@ -20,7 +20,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
 // DEV: Legacy test
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprite);
 
   describe('processed by `spritesheet-templates` via custom template with no `variableNameTransforms`', function () {
     before(function addCustomTemplate () {

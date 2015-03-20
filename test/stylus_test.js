@@ -4,7 +4,7 @@ var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprites);
 
   describe('processed by `spritesheet-templates` into Stylus', function () {
     testUtils.runTemplater({format: 'stylus'});

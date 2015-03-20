@@ -1,5 +1,5 @@
-exports.singleItem = {
-  items: [{
+exports.singleSprite = {
+  sprites: [{
     name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
   }],
   spritesheet: {
@@ -7,8 +7,8 @@ exports.singleItem = {
   }
 };
 
-exports.multipleItems = {
-  items: [{
+exports.multipleSprites = {
+  sprites: [{
     name: 'sprite-dash-case', x: 0, y: 0, width: 10, height: 20
   }, {
     name: 'sprite_snake_case', x: 10, y: 20, width: 20, height: 30

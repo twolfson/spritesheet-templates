@@ -2,7 +2,7 @@ var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprites);
 
   describe('processed by `spritesheet-templates` into CSS', function () {
     testUtils.runTemplater(null);
@@ -19,10 +19,10 @@ describe('An array of image positions, dimensions, and names', function () {
 // Edge case test for filepaths with quotes
 describe('An array of image positions, dimensions, and names', function () {
   testUtils.setInfo({
-    items: configUtils.multipleItems.items,
+    sprites: configUtils.multipleSprites.sprites,
     spritesheet: {
-      width: configUtils.multipleItems.spritesheet.width,
-      height: configUtils.multipleItems.spritesheet.height,
+      width: configUtils.multipleSprites.spritesheet.width,
+      height: configUtils.multipleSprites.spritesheet.height,
       image: 'nested/dir/( \'")/spritesheet.png'
     }
   });
@@ -41,13 +41,13 @@ describe('An array of image positions, dimensions, and names', function () {
 
 // Edge case test for https://github.com/Ensighten/grunt-spritesmith/issues/104
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprites);
 
   describe('processed by `spritesheet-templates` into CSS with an escapable selector', function () {
     testUtils.runTemplater({
       formatOpts: {
-        cssSelector: function (item) {
-          return '.hello > .icon-' + item.name;
+        cssSelector: function (sprite) {
+          return '.hello > .icon-' + sprite.name;
         }
       }
     });

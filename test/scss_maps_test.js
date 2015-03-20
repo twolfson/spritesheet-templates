@@ -4,7 +4,7 @@ var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
 describe('An array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleItems);
+  testUtils.setInfo(configUtils.multipleSprites);
 
   describe('processed by `spritesheet-templates` into SCSS (Maps)', function () {
     testUtils.runTemplater({format: 'scss_maps'});
@@ -42,7 +42,7 @@ describe('An array of image positions, dimensions, and names', function () {
 });
 
 describe('An array of 1 image', function () {
-  testUtils.setInfo(configUtils.singleItem);
+  testUtils.setInfo(configUtils.singleSprite);
 
   describe('processed by `spritesheet-templates` into SASS', function () {
     testUtils.runTemplater({format: 'scss_maps'});
