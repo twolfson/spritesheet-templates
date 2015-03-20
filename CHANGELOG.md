@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.2.1 - Fixed naming inconsistency with sprites-comment section
+
 9.2.0 - Moved to `handlebars` and `handlebars-layouts` to support inheritance (and ultimately retina templates)
 
 9.1.1 - Deprecated `libsass@1.0.1` from Travis CI in favor of `libsass@3.0.2`
