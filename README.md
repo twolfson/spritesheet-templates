@@ -91,7 +91,9 @@ Converter for spritesheet/sprite info into spritesheet
 ### Templates
 Below are our template options for `options.format`.
 
-Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally.
+Handlebars-based templates support inheritance via [`handlebars-layouts`][]. Each one is registered as a partial to Handlebars globally. Unfortunately, templates must copy/paste JSON front matter. An example can be found in the [Examples section](#examples).
+
+// TODO: Add example for inheritance
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
@@ -209,10 +211,12 @@ Output CSS variables as [LESS][] variables.
 
 **Handlebars blocks:**
 
-`css` is a Handlebars based template. We allow for overriding the following sections:
+`less` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before CSS rules
-- {{#content "sprites"}} - CSS rules
+- {{#content "sprite-comment"}} - Comment before LESS variable declarations
+- {{#content "sprites"}} - LESS variable declarations for sprites
+- {{#content "spritesheet"}} - LESS variable declarations for spritesheet
+- {{#content "functions"}} - LESS functions for sprite variables
 
 **Example:**
 
@@ -248,6 +252,15 @@ Output CSS variables as [SASS][] variables.
         - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
+**Handlebars blocks:**
+
+`sass` is a Handlebars based template. We allow for overriding the following sections:
+
+- {{#content "sprite-comment"}} - Comment before SASS variable declarations
+- {{#content "sprites"}} - SASS variable declarations for sprites
+- {{#content "spritesheet"}} - SASS variable declarations for spritesheet
+- {{#content "functions"}} - SASS functions for sprite variables
+
 **Example:**
 
 ```sass
@@ -281,6 +294,15 @@ Output CSS variables as [SCSS][] variables.
     - `underscore.string`: http://epeli.github.io/underscore.string/#api
         - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+`scss` is a Handlebars based template. We allow for overriding the following sections:
+
+- {{#content "sprite-comment"}} - Comment before SCSS variable declarations
+- {{#content "sprites"}} - SCSS variable declarations for sprites
+- {{#content "spritesheet"}} - SCSS variable declarations for spritesheet
+- {{#content "functions"}} - SCSS functions for sprite variables
 
 **Example:**
 
@@ -316,6 +338,15 @@ Output CSS variables as [SCSS][] maps variables.
         - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
 
+**Handlebars blocks:**
+
+`scss_maps` is a Handlebars based template. We allow for overriding the following sections:
+
+- {{#content "sprite-comment"}} - Comment before SCSS variable declarations
+- {{#content "sprites"}} - SCSS variable declarations for sprites
+- {{#content "spritesheet"}} - SCSS variable declaration for spritesheet
+- {{#content "functions"}} - SCSS functions for sprite variables
+
 **Example:**
 
 ```scss
@@ -348,6 +379,15 @@ Output CSS variables as [Stylus][] variables.
     - `underscore.string`: http://epeli.github.io/underscore.string/#api
         - We use `chain` which allows for `toUpperCase` and `toLowerCase`
         - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+`stylus` is a Handlebars based template. We allow for overriding the following sections:
+
+- {{#content "sprite-comment"}} - Comment before Stylus variable declarations
+- {{#content "sprites"}} - Stylus variable declarations for sprites
+- {{#content "spritesheet"}} - Stylus variable declarations for spritesheet
+- {{#content "functions"}} - Stylus functions for sprite variables
 
 **Example:**
 
