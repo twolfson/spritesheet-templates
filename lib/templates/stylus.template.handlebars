@@ -20,7 +20,7 @@ $spritesheet = width height image $spritesheet_sprites;
 */
 {{/block}}
 {{#block "sprites"}}
-{{#each items}}
+{{#each sprites}}
 ${{strings.name_name}} = '{{name}}';
 ${{strings.name_x}} = {{px.x}};
 ${{strings.name_y}} = {{px.y}};
@@ -38,7 +38,7 @@ ${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width
 ${{spritesheet.strings.name_width}} = {{spritesheet.px.width}};
 ${{spritesheet.strings.name_height}} = {{spritesheet.px.height}};
 ${{spritesheet.strings.name_image}} = '{{{spritesheet.escaped_image}}}';
-${{spritesheet.strings.name_sprites}} ={{#each items}} ${{strings.name}}{{/each}};
+${{spritesheet.strings.name_sprites}} ={{#each sprites}} ${{strings.name}}{{/each}};
 ${{spritesheet.strings.name}} = {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet.strings.name_sprites}};
 {{/block}}
 

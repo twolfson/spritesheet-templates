@@ -16,7 +16,7 @@ At the bottom of this section, we provide information about the spritesheet itse
 */
 {{/block}}
 {{#block "sprites"}}
-{{#each items}}
+{{#each sprites}}
 ${{strings.name}}: (
   {{strings.bare_name}}: '{{name}}',
   {{strings.bare_x}}: {{px.x}},
@@ -36,7 +36,7 @@ ${{spritesheet.strings.name}}: (
   {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
   {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
   {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
-  {{spritesheet.strings.bare_sprites}}: ({{#each items}}${{strings.name}}, {{/each}})
+  {{spritesheet.strings.bare_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}})
 );
 {{/block}}
 
