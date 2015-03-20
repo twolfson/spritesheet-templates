@@ -4,6 +4,7 @@
   'variableNameTransforms': ['dasherize']
 }
 
+{{#block "sprite-comment"}}
 /*
 SCSS variables are information about icon's compiled state, stored under its original file name
 
@@ -13,6 +14,8 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
+{{/block}}
+{{#block "sprites"}}
 {{#each items}}
 ${{strings.name}}: (
   {{strings.bare_name}}: '{{name}}',
@@ -27,13 +30,17 @@ ${{strings.name}}: (
   {{strings.bare_image}}: '{{{escaped_image}}}'
 );
 {{/each}}
+{{/block}}
+{{#block "spritesheet"}}
 ${{spritesheet.strings.name}}: (
   {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
   {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
   {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
   {{spritesheet.strings.bare_sprites}}: ({{#each items}}${{strings.name}}, {{/each}})
 );
+{{/block}}
 
+{{#block "functions"}}
 {{#if options.functions}}
 /*
 The provided mixins are intended to be used with variables directly
@@ -84,3 +91,4 @@ The `sprites` mixin generates identical output to the CSS template
   }
 }
 {{/if}}
+{{/block}}

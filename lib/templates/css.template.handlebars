@@ -1,3 +1,4 @@
+{{#block "sprite-comment"}}
 /*
 Icon classes can be used entirely standalone. They are named after their original file names.
 
@@ -9,6 +10,8 @@ Icon classes can be used entirely standalone. They are named after their origina
 <img class="icon-home" />
 ```
 */
+{{/block}}
+{{#block "sprite-items"}}
 {{#each items}}
 {{{selector}}} {
   background-image: url({{{escaped_image}}});
@@ -17,3 +20,4 @@ Icon classes can be used entirely standalone. They are named after their origina
   height: {{px.height}};
 }
 {{/each}}
+{{/block}}
