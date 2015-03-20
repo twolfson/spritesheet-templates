@@ -5,7 +5,19 @@
 }
 
 {{#extend "stylus"}}
-{{#content "sprite" mode="replace"}}
-hello;
+{{#content "after-sprite-items"}}
+{{#each retina_items}}
+${{strings.name_name}} = '{{name}}';
+${{strings.name_x}} = {{px.x}};
+${{strings.name_y}} = {{px.y}};
+${{strings.name_offset_x}} = {{px.offset_x}};
+${{strings.name_offset_y}} = {{px.offset_y}};
+${{strings.name_width}} = {{px.width}};
+${{strings.name_height}} = {{px.height}};
+${{strings.name_total_width}} = {{px.total_width}};
+${{strings.name_total_height}} = {{px.total_height}};
+${{strings.name_image}} = '{{{escaped_image}}}';
+${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}';
+{{/each}}
 {{/content}}
 {{/extend}}
