@@ -4,6 +4,7 @@
   'variableNameTransforms': ['underscored']
 }
 
+{{block "before-sprite-comment"}}
 /*
 {{#block "sprite-comment"}}
 Stylus variables are information about icon's compiled state, stored under its original file name
@@ -19,7 +20,9 @@ At the bottom of this section, we provide information about the spritesheet itse
 $spritesheet = width height image $spritesheet_sprites;
 {{/block}}
 */
-{{#block "sprite"}}
+{{block "after-sprite-comment"}}
+{{block "before-sprite-items"}}
+{{#block "sprite-items"}}
 {{#each items}}
 ${{strings.name_name}} = '{{name}}';
 ${{strings.name_x}} = {{px.x}};
@@ -34,6 +37,8 @@ ${{strings.name_image}} = '{{{escaped_image}}}';
 ${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}';
 {{/each}}
 {{/block}}
+{{block "after-sprite-items"}}
+{{block "before-spritesheet"}}
 {{#block "spritesheet"}}
 ${{spritesheet.strings.name_width}} = {{spritesheet.px.width}};
 ${{spritesheet.strings.name_height}} = {{spritesheet.px.height}};
@@ -41,8 +46,10 @@ ${{spritesheet.strings.name_image}} = '{{{spritesheet.escaped_image}}}';
 ${{spritesheet.strings.name_sprites}} ={{#each items}} ${{strings.name}}{{/each}};
 ${{spritesheet.strings.name}} = {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' ${{spritesheet.strings.name_sprites}};
 {{/block}}
+{{block "after-spritesheet"}}
 
 {{#if options.functions}}
+{{block "before-functions"}}
 {{#block "functions"}}
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -96,4 +103,5 @@ sprites($sprites) {
   }
 }
 {{/block}}
+{{block "after-functions"}}
 {{/if}}
