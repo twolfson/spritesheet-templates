@@ -109,8 +109,8 @@ Ouput CSS variables as CSS rules.
 
 `css` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before CSS rules
-- {{#content "sprites"}} - CSS rules
+- `{{#content "sprite-comment"}}` - Comment before CSS rules
+- `{{#content "sprites"}}` - CSS rules
 
 **Example:**
 
