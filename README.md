@@ -211,10 +211,10 @@ Output CSS variables as [LESS][] variables.
 
 `less` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before LESS variable declarations
-- {{#content "sprites"}} - LESS variable declarations for sprites
-- {{#content "spritesheet"}} - LESS variable declarations for spritesheet
-- {{#content "functions"}} - LESS functions for sprite variables
+- `{{#content "sprite-comment"}}` - Comment before LESS variable declarations
+- `{{#content "sprites"}}` - LESS variable declarations for sprites
+- `{{#content "spritesheet"}}` - LESS variable declarations for spritesheet
+- `{{#content "functions"}}` - LESS functions for sprite variables
 
 **Example:**
 
@@ -254,10 +254,10 @@ Output CSS variables as [SASS][] variables.
 
 `sass` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before SASS variable declarations
-- {{#content "sprites"}} - SASS variable declarations for sprites
-- {{#content "spritesheet"}} - SASS variable declarations for spritesheet
-- {{#content "functions"}} - SASS functions for sprite variables
+- `{{#content "sprite-comment"}}` - Comment before SASS variable declarations
+- `{{#content "sprites"}}` - SASS variable declarations for sprites
+- `{{#content "spritesheet"}}` - SASS variable declarations for spritesheet
+- `{{#content "functions"}}` - SASS functions for sprite variables
 
 **Example:**
 
@@ -297,10 +297,10 @@ Output CSS variables as [SCSS][] variables.
 
 `scss` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before SCSS variable declarations
-- {{#content "sprites"}} - SCSS variable declarations for sprites
-- {{#content "spritesheet"}} - SCSS variable declarations for spritesheet
-- {{#content "functions"}} - SCSS functions for sprite variables
+- `{{#content "sprite-comment"}}` - Comment before SCSS variable declarations
+- `{{#content "sprites"}}` - SCSS variable declarations for sprites
+- `{{#content "spritesheet"}}` - SCSS variable declarations for spritesheet
+- `{{#content "functions"}}` - SCSS functions for sprite variables
 
 **Example:**
 
@@ -340,10 +340,10 @@ Output CSS variables as [SCSS][] maps variables.
 
 `scss_maps` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before SCSS variable declarations
-- {{#content "sprites"}} - SCSS variable declarations for sprites
-- {{#content "spritesheet"}} - SCSS variable declaration for spritesheet
-- {{#content "functions"}} - SCSS functions for sprite variables
+- `{{#content "sprite-comment"}}` - Comment before SCSS variable declarations
+- `{{#content "sprites"}}` - SCSS variable declarations for sprites
+- `{{#content "spritesheet"}}` - SCSS variable declaration for spritesheet
+- `{{#content "functions"}}` - SCSS functions for sprite variables
 
 **Example:**
 
@@ -382,10 +382,10 @@ Output CSS variables as [Stylus][] variables.
 
 `stylus` is a Handlebars based template. We allow for overriding the following sections:
 
-- {{#content "sprite-comment"}} - Comment before Stylus variable declarations
-- {{#content "sprites"}} - Stylus variable declarations for sprites
-- {{#content "spritesheet"}} - Stylus variable declarations for spritesheet
-- {{#content "functions"}} - Stylus functions for sprite variables
+- `{{#content "sprite-comment"}}` - Comment before Stylus variable declarations
+- `{{#content "sprites"}}` - Stylus variable declarations for sprites
+- `{{#content "spritesheet"}}` - Stylus variable declarations for spritesheet
+- `{{#content "functions"}}` - Stylus functions for sprite variables
 
 **Example:**
 
