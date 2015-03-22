@@ -42,7 +42,7 @@ ${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/e
 ${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
 {{/block}}
 
-{{#block "functions"}}
+{{#block "sprite-functions-comment"}}
 {{#if options.functions}}
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -55,6 +55,10 @@ The provided mixins are intended to be used with the array-like variables
   @include sprite($icon-email);
 }
 */
+{{/if}}
+{{/block}}
+{{#block "sprite-functions"}}
+{{#if options.functions}}
 @mixin sprite-width($sprite) {
   width: nth($sprite, 5);
 }
@@ -80,13 +84,21 @@ The provided mixins are intended to be used with the array-like variables
   @include sprite-width($sprite);
   @include sprite-height($sprite);
 }
+{{/if}}
+{{/block}}
 
+{{#block "spritesheet-functions-comment"}}
+{{#if options.functions}}
 /*
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
 @include sprites($spritesheet-sprites);
 */
+{{/if}}
+{{/block}}
+{{#block "spritesheet-functions"}}
+{{#if options.functions}}
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
     $sprite-name: nth($sprite, 10);
