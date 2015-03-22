@@ -5,7 +5,7 @@
 }
 
 {{#extend "stylus"}}
-{{#content "after-sprite-items"}}
+{{#content "sprites" mode="append"}}
 {{#each retina_items}}
 ${{strings.name_name}} = '{{name}}';
 ${{strings.name_x}} = {{px.x}};
