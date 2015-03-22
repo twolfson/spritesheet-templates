@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.2.2 - Made functions block more granular for future proofing
+
 9.2.1 - Fixed naming inconsistency with sprites-comment section
 
 9.2.0 - Moved to `handlebars` and `handlebars-layouts` to support inheritance (and ultimately retina templates)
