@@ -42,7 +42,7 @@ At the bottom of this section, we provide information about the spritesheet itse
 @{{spritesheet.strings.name}}: {{spritesheet.px.width}} {{spritesheet.px.height}} '{{{spritesheet.escaped_image}}}' @{{spritesheet.strings.name_sprites}};
 {{/block}}
 
-{{#block "functions"}}
+{{#block "sprite-functions-comment"}}
 {{#if options.functions}}
 /*
 The provided classes are intended to be used with the array-like variables
@@ -54,6 +54,10 @@ The provided classes are intended to be used with the array-like variables
   .sprite(@icon-email);
 }
 */
+{{/if}}
+{{/block}}
+{{#block "sprite-functions"}}
+{{#if options.functions}}
 .sprite-width(@sprite) {
   width: extract(@sprite, 5);
 }
@@ -81,7 +85,11 @@ The provided classes are intended to be used with the array-like variables
   .sprite-width(@sprite);
   .sprite-height(@sprite);
 }
+{{/if}}
+{{/block}}
 
+{{#block "spritesheet-functions-comment"}}
+{{#if options.functions}}
 /*
 The `.sprites` mixin generates identical output to the CSS template
   but can be overridden inside of LESS
@@ -91,6 +99,10 @@ This must be run when you have at least 2 sprites.
 
 .sprites(@spritesheet-sprites);
 */
+{{/if}}
+{{/block}}
+{{#block "spritesheet-functions"}}
+{{#if options.functions}}
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
   @sprite-name: extract(@sprite, 10);
