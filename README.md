@@ -214,7 +214,10 @@ Output CSS variables as [LESS][] variables.
 - `{{#content "sprites-comment"}}` - Comment before LESS variable declarations
 - `{{#content "sprites"}}` - LESS variable declarations for sprites
 - `{{#content "spritesheet"}}` - LESS variable declarations for spritesheet
-- `{{#content "functions"}}` - LESS functions for sprite variables
+- `{{#content "sprite-functions-comment"}}` - Comment before LESS functions for sprite variables
+- `{{#content "sprite-functions"}}` - LESS functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before LESS functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - LESS functions for spritesheet variables
 
 **Example:**
 
@@ -257,7 +260,10 @@ Output CSS variables as [SASS][] variables.
 - `{{#content "sprites-comment"}}` - Comment before SASS variable declarations
 - `{{#content "sprites"}}` - SASS variable declarations for sprites
 - `{{#content "spritesheet"}}` - SASS variable declarations for spritesheet
-- `{{#content "functions"}}` - SASS functions for sprite variables
+- `{{#content "sprite-functions-comment"}}` - Comment before SASS functions for sprite variables
+- `{{#content "sprite-functions"}}` - SASS functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before SASS functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - SASS functions for spritesheet variables
 
 **Example:**
 
@@ -300,7 +306,10 @@ Output CSS variables as [SCSS][] variables.
 - `{{#content "sprites-comment"}}` - Comment before SCSS variable declarations
 - `{{#content "sprites"}}` - SCSS variable declarations for sprites
 - `{{#content "spritesheet"}}` - SCSS variable declarations for spritesheet
-- `{{#content "functions"}}` - SCSS functions for sprite variables
+- `{{#content "sprite-functions-comment"}}` - Comment before SCSS functions for sprite variables
+- `{{#content "sprite-functions"}}` - SCSS functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before SCSS functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - SCSS functions for spritesheet variables
 
 **Example:**
 
@@ -343,7 +352,10 @@ Output CSS variables as [SCSS][] maps variables.
 - `{{#content "sprites-comment"}}` - Comment before SCSS variable declarations
 - `{{#content "sprites"}}` - SCSS variable declarations for sprites
 - `{{#content "spritesheet"}}` - SCSS variable declaration for spritesheet
-- `{{#content "functions"}}` - SCSS functions for sprite variables
+- `{{#content "sprite-functions-comment"}}` - Comment before SCSS functions for sprite variables
+- `{{#content "sprite-functions"}}` - SCSS functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before SCSS functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - SCSS functions for spritesheet variables
 
 **Example:**
 
@@ -385,7 +397,10 @@ Output CSS variables as [Stylus][] variables.
 - `{{#content "sprites-comment"}}` - Comment before Stylus variable declarations
 - `{{#content "sprites"}}` - Stylus variable declarations for sprites
 - `{{#content "spritesheet"}}` - Stylus variable declarations for spritesheet
-- `{{#content "functions"}}` - Stylus functions for sprite variables
+- `{{#content "sprite-functions-comment"}}` - Comment before Stylus functions for sprite variables
+- `{{#content "sprite-functions"}}` - Stylus functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before Stylus functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - Stylus functions for spritesheet variables
 
 **Example:**
 
