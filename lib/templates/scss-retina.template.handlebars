@@ -29,7 +29,7 @@ ${{retina_spritesheet.strings.name_image}}: '{{{retina_spritesheet.escaped_image
 ${{retina_spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
 ${{retina_spritesheet.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet.strings.name_sprites}}, );
 {{#each retina_pairs}}
-${{strings.name}}: ${{normal.strings.name}}, ${{retina.strings.name}};
+${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
 {{/each}}
 {{/content}}
 
@@ -40,7 +40,7 @@ ${{strings.name}}: ${{normal.strings.name}}, ${{retina.strings.name}};
 }
 
 @mixin retina-sprite($sprite-pair) {
-  @include sprite(nth($sprite-pair, 0));
+  @include sprite(nth($sprite-pair, 2));
 
   {{! TODO: Google to compare with other results }}
   {{! TODO: Remove extra whitespace... }}
@@ -50,8 +50,8 @@ ${{strings.name}}: ${{normal.strings.name}}, ${{retina.strings.name}};
          only screen and (        min-device-pixel-ratio: 2),
          only screen and (                min-resolution: 192dpi),
          only screen and (                min-resolution: 2dppx) {
-    @include sprite-image(nth($sprite-pair, 1));
-    @include sprite-background-size(nth($sprite-pair, 0));
+    @include sprite-image(nth($sprite-pair, 3));
+    @include sprite-background-size(nth($sprite-pair, 2));
   }
 }
 {{/content}}
@@ -59,7 +59,7 @@ ${{strings.name}}: ${{normal.strings.name}}, ${{retina.strings.name}};
 {{#content "spritesheet-functions"}}
 @mixin retina-sprites($sprite-pairs) {
   @each $sprite-pair in $sprite-pairs {
-    $sprite-name: nth(nth($sprite-pair, 0), 10);
+    $sprite-name: nth($sprite-pair, 1);
     .#{$sprite-name} {
       @include sprite-pair($sprite-pair);
     }
