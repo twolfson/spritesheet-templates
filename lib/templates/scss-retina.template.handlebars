@@ -36,7 +36,7 @@ ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}
 {{#content "sprite-functions" mode="append"}}
 {{! TODO: We need to include the `if's` }}
 @mixin sprite-background-size($sprite) {
-  background-size: nth($sprite, 6) nth($sprite, 7);
+  background-size: nth($sprite, 7) nth($sprite, 8);
 }
 
 @mixin retina-sprite($sprite-pair) {
