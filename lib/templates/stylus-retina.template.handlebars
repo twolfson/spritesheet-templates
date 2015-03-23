@@ -32,4 +32,26 @@ ${{retina_spritesheet.strings.name}} = {{retina_spritesheet.px.width}} {{retina_
 ${{strings.name}} = ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
 {{/content}}
+
+{{#content "sprite-functions" mode="append"}}
+
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
+spriteRetina($spritePair) {
+  sprite($spritePair[0]);
+
+  // TODO: Google to compare with other results
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (   min--moz-device-pixel-ratio: 2),
+         only screen and (     -o-min-device-pixel-ratio: 2/1),
+         only screen and (        min-device-pixel-ratio: 2),
+         only screen and (                min-resolution: 192dpi),
+         only screen and (                min-resolution: 2dppx) {
+    spriteImage($spritePair[1]);
+    spriteBackgroundSize($spritePair[0]);
+  }
+}
+{{/content}}
 {{/extend}}
