@@ -35,6 +35,9 @@ ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}
 
 {{#content "sprite-functions" mode="append"}}
 {{! TODO: We need to include the `if's` }}
+// TODO: Consider renaming sprite pairs to retina pairs
+// TODO: We need to define retina pairs in our template
+
 @mixin sprite-background-size($sprite) {
   background-size: nth($sprite, 7) nth($sprite, 8);
 }
