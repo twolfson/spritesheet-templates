@@ -28,10 +28,8 @@ ${{retina_spritesheet.strings.name_height}} = {{retina_spritesheet.px.height}};
 ${{retina_spritesheet.strings.name_image}} = '{{{retina_spritesheet.escaped_image}}}';
 ${{retina_spritesheet.strings.name_sprites}} ={{#each sprites}} ${{strings.name}}{{/each}};
 ${{retina_spritesheet.strings.name}} = {{retina_spritesheet.px.width}} {{retina_spritesheet.px.height}} '{{{retina_spritesheet.escaped_image}}}' ${{retina_spritesheet.strings.name_sprites}};
-
 {{#each retina_pairs}}
-{{!-- ${{strings.name}} = ${{strings.normal_name}} ${{strings.retina_name}}; --}}
-hello;
+${{strings.name}} = ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
 {{/content}}
 {{/extend}}
