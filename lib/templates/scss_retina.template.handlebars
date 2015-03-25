@@ -33,10 +33,10 @@ These are variables that map to original `normal` and `retina` sprite counterpar
 
 The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
 */
-{{#each retina_sprites.sprites}}
+{{#each retina_groups.groups}}
 ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
 {{/each}}
-${{retina_sprites.strings.name}}: ({{#each retina_sprites.sprites}}${{strings.name}}, {{/each}});
+${{retina_groups.strings.name}}: ({{#each retina_groups.groups}}${{strings.name}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
