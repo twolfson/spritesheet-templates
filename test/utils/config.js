@@ -39,7 +39,7 @@ exports.retinaMultipleSprites = {
     name: 'spriteCamelCaseRetina', x: 60, y: 100, width: 100, height: 100
   }],
   retinaSpritesheet: {
-    width: 160, height: 200, image: 'nested/dir/spritesheet.png'
+    width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
   },
   // TODO: Should we make an object or a side-object like `info`?
   // TODO: Add back name somehow
