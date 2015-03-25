@@ -42,17 +42,18 @@ exports.retinaMultipleSprites = {
     width: 160, height: 200, image: 'nested/dir/spritesheet.png'
   },
   // TODO: Should we make an object or a side-object like `info`?
-  retinaGroups: {
-    name: null,
-    groups: [{
-      normal: 'sprite-dash-case-normal',
-      retina: 'sprite-dash-case-retina'
-    }, {
-      normal: 'sprite_snake_case_normal',
-      retina: 'sprite_snake_case_retina'
-    }, {
-      normal: 'spriteCamelCaseRetina',
-      retina: 'spriteCamelCaseNormal'
-    }]
-  }
+  // TODO: Add back name somehow
+  retinaGroups: [{
+    name: 'sprite-dash-case',
+    normal: 'sprite-dash-case-normal',
+    retina: 'sprite-dash-case-retina'
+  }, {
+    name: 'sprite_snake_case',
+    normal: 'sprite_snake_case_normal',
+    retina: 'sprite_snake_case_retina'
+  }, {
+    name: 'spriteCamelCase',
+    normal: 'spriteCamelCaseNormal',
+    retina: 'spriteCamelCaseRetina'
+  }]
 };

@@ -33,14 +33,16 @@ These are variables that map to original `normal` and `retina` sprite counterpar
 
 The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
 */
-{{#each retina_groups.groups}}
-${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
+{{#each retina_groups}}
+${{strings.name_name}}: '{{name}}';
+${{strings.name}}: ('{{name}}', ${{normal}}, ${{retina}}, );
 {{/each}}
-${{retina_groups.strings.name}}: ({{#each retina_groups.groups}}${{strings.name}}, {{/each}});
+$retina-sprites: ({{#each retina_groups}}${{strings.name}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
+
 /*
 The `sprite-retina` mixin is intended to be used on a `sprite-group`.
 
@@ -78,16 +80,14 @@ The `retina-sprites` mixin generates classes for retina sprite groups
 
 @include retina-sprites($retina-sprites);
 */
-@mixin retina-sprites($sprite-pairs) {
-  @each $sprite-pair in $sprite-pairs {
-    $sprite-name: nth($sprite-pair, 1);
+@mixin retina-sprites($retina-sprites) {
+  @each $retina-sprite in $retina-sprites {
+    $sprite-name: nth($retina-sprite, 1);
     .#{$sprite-name} {
-      @include sprite-pair($sprite-pair);
+      @include retina-sprite($retina-sprite);
     }
   }
 }
 {{/if}}
 {{/content}}
 {{/extend}}
-
-

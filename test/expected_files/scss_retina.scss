@@ -43,7 +43,7 @@ $sprite-camel-case-normal-height: 50px;
 $sprite-camel-case-normal-total-width: 80px;
 $sprite-camel-case-normal-total-height: 100px;
 $sprite-camel-case-normal-image: 'nested/dir/spritesheet.png';
-$sprite-camel-case: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCaseNormal', );
+$sprite-camel-case-normal: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCaseNormal', );
 $sprite-dash-case-retina-name: 'sprite-dash-case-retina';
 $sprite-dash-case-retina-x: 0px;
 $sprite-dash-case-retina-y: 0px;
@@ -77,11 +77,11 @@ $sprite-camel-case-retina-total-width: 160px;
 $sprite-camel-case-retina-total-height: 200px;
 $sprite-camel-case-retina-image: 'nested/dir/spritesheet.png';
 $sprite-camel-case-retina: (60px, 100px, -60px, -100px, 100px, 100px, 160px, 200px, 'nested/dir/spritesheet.png', 'spriteCamelCaseRetina', );
-$spritesheet-width: 80px;
-$spritesheet-height: 100px;
-$spritesheet-image: 'nested/dir/spritesheet.png';
-$spritesheet-sprites: ($sprite-dash-case-normal, $sprite-snake-case-normal, $sprite-camel-case-normal, );
-$spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, );
+$normal-spritesheet-width: 80px;
+$normal-spritesheet-height: 100px;
+$normal-spritesheet-image: 'nested/dir/spritesheet.png';
+$normal-spritesheet-sprites: ($sprite-dash-case-normal, $sprite-snake-case-normal, $sprite-camel-case-normal, );
+$normal-spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, );
 $retina-spritesheet-width: 160px;
 $retina-spritesheet-height: 200px;
 $retina-spritesheet-image: 'nested/dir/spritesheet-retina.png';
@@ -94,12 +94,12 @@ These are variables that map to original `normal` and `retina` sprite counterpar
 The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
 */
 $sprite-dash-case-name: 'sprite-dash-case';
-$sprite-dash-case: ('sprite-dash-case', $sprite-dash-case-normal, $sprite-dash-case-retina );
+$sprite-dash-case: ('sprite-dash-case', $sprite-dash-case-normal, $sprite-dash-case-retina, );
 $sprite-snake-case-name: 'sprite_snake_case';
-$sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina );
+$sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina, );
 $sprite-camel-case-name: 'spriteCamelCase';
-$sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina );
-$retina-sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case );
+$sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina, );
+$retina-sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -154,12 +154,14 @@ $icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
 }
 
 @mixin retina-sprite($sprite-group) {
-  @include sprite(nth($sprite-pair, 2));
+  $normal-sprite: nth($sprite-group, 2);
+  $retina-sprite: nth($sprite-group, 3);
+  @include sprite($normal-sprite);
 
   @media (-webkit-min-device-pixel-ratio: 2),
          (min-resolution: 192dpi) {
-    @include sprite-image(nth($sprite-pair, 3));
-    @include sprite-background-size(nth($sprite-pair, 2));
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
   }
 }
 
