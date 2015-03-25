@@ -28,11 +28,10 @@ ${{retina_spritesheet.strings.name_height}}: {{retina_spritesheet.px.height}};
 ${{retina_spritesheet.strings.name_image}}: '{{{retina_spritesheet.escaped_image}}}';
 ${{retina_spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
 ${{retina_spritesheet.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet.strings.name_sprites}}, );
-{{#each retina_pairs}}
+{{#each retina_groups.groups}}
 ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
 {{/each}}
-// TODO: Define variable for all pairs
-// TODO: Rename `pairs` to `groups` as its more appropriate now (`sprite-group`) and `sprite-groups`. Buuut how do we establish it's retina specific? I think retina-groups is better.
+${{retina_groups.strings.name}}: ({{#each retina_groups.groups}}${{strings.name}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
@@ -40,18 +39,30 @@ ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}
 // TODO: Consider renaming sprite pairs to retina pairs
 // TODO: We need to define retina pairs in our template
 
+/*
+The `sprite-retina` mixin is intended to be used on a `sprite-group`.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
+
+.icon-home {
+  @include retina-sprite($icon-home);
+}
+*/
 @mixin sprite-background-size($sprite) {
   background-size: nth($sprite, 7) nth($sprite, 8);
 }
 
-@mixin retina-sprite($sprite-pair) {
-  @include sprite(nth($sprite-pair, 2));
+@mixin retina-sprite($sprite-group) {
+  $normal-sprite: nth($sprite-group, 2);
+  $retina-sprite: nth($sprite-group, 3);
+  @include sprite($normal-sprite);
 
-  {{! https://css-tricks.com/snippets/css/retina-display-media-query/ }}
   @media (-webkit-min-device-pixel-ratio: 2),
          (min-resolution: 192dpi) {
-    @include sprite-image(nth($sprite-pair, 3));
-    @include sprite-background-size(nth($sprite-pair, 2));
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
   }
 }
 {{/content}}
