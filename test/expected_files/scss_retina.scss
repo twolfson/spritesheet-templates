@@ -99,7 +99,7 @@ $sprite-snake-case-name: 'sprite_snake_case';
 $sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina );
 $sprite-camel-case-name: 'spriteCamelCase';
 $sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina );
-$retina-groups: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case );
+$retina-sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case );
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -181,13 +181,13 @@ The `sprites` mixin generates identical output to the CSS template
 /*
 The `retina-sprites` mixin generates classes for retina sprite groups
 
-@include retina-sprites($retina-groups);
+@include retina-sprites($retina-sprites);
 */
-@mixin retina-sprites($retina-groups) {
-  @each $retina-group in $retina-groups {
-    $sprite-name: nth($retina-group, 1);
+@mixin retina-sprites($retina-sprites) {
+  @each $retina-sprite in $retina-sprites {
+    $sprite-name: nth($retina-sprite, 1);
     .#{$sprite-name} {
-      @include retina-sprite($retina-group);
+      @include retina-sprite($retina-sprite);
     }
   }
 }

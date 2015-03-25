@@ -22,23 +22,25 @@ ${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.w
 {{/content}}
 
 {{#content "spritesheet" mode="append"}}
-{{! TODO: Is it possible to create a block here named `retina_sprites` and inherit that later on? }}
 ${{retina_spritesheet.strings.name_width}}: {{retina_spritesheet.px.width}};
 ${{retina_spritesheet.strings.name_height}}: {{retina_spritesheet.px.height}};
 ${{retina_spritesheet.strings.name_image}}: '{{{retina_spritesheet.escaped_image}}}';
 ${{retina_spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
 ${{retina_spritesheet.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet.strings.name_sprites}}, );
-{{#each retina_groups.groups}}
+
+/*
+These are variables that map to original `normal` and `retina` sprite counterparts.
+
+The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
+*/
+{{#each retina_sprites.sprites}}
 ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
 {{/each}}
-${{retina_groups.strings.name}}: ({{#each retina_groups.groups}}${{strings.name}}, {{/each}});
+${{retina_sprites.strings.name}}: ({{#each retina_sprites.sprites}}${{strings.name}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
-{{! TODO: We need to include the `if's` }}
-// TODO: Consider renaming sprite pairs to retina pairs
-// TODO: We need to define retina pairs in our template
-
+{{#if options.functions}}
 /*
 The `sprite-retina` mixin is intended to be used on a `sprite-group`.
 
@@ -65,9 +67,17 @@ $icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
     @include sprite-background-size($normal-sprite);
   }
 }
+{{/if}}
 {{/content}}
 
-{{#content "spritesheet-functions"}}
+{{#content "spritesheet-functions" mode="append"}}
+{{#if options.functions}}
+
+/*
+The `retina-sprites` mixin generates classes for retina sprite groups
+
+@include retina-sprites($retina-sprites);
+*/
 @mixin retina-sprites($sprite-pairs) {
   @each $sprite-pair in $sprite-pairs {
     $sprite-name: nth($sprite-pair, 1);
@@ -76,6 +86,7 @@ $icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
     }
   }
 }
+{{/if}}
 {{/content}}
 {{/extend}}
 
