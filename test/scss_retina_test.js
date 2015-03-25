@@ -14,13 +14,15 @@ describe('An retina array of image positions, dimensions, and names', function (
       '@include retina-sprites($retina-sprites);'
     ].join('\n'));
 
-    describe.skip('processed by `sass --scss` (ruby) into CSS', function () {
+    describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
           // Assert no errors during conversion
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');
+          // DEV: Repair vendor specific validation issues
+          css = css.replace(/(-webkit-min-device-pixel-ratio: 2)/g, '');
           cb(err, css);
         });
       });
