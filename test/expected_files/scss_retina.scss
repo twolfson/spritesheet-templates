@@ -166,4 +166,16 @@ The `sprites` mixin generates identical output to the CSS template
   }
 }
 
-// TODO: Add in `retina-sprites($sprite-groups)`
+/*
+The `retina-sprites` mixin generates classes for retina sprite groups
+
+@include retina-sprites($sprite-groups);
+*/
+@mixin retina-sprites($sprite-groups) {
+  @each $sprite-group in $sprite-groups {
+    $sprite-group-name: nth($sprite-group, 1);
+    .#{$sprite-group-name} {
+      @include retina-sprite($sprite-group);
+    }
+  }
+}
