@@ -41,8 +41,6 @@ exports.retinaMultipleSprites = {
   retinaSpritesheet: {
     width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
   },
-  // TODO: Should we make an object or a side-object like `info`?
-  // TODO: Add back name somehow
   retinaGroups: {
     groups: [{
       name: 'sprite-dash-case',
