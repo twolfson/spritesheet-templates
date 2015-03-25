@@ -47,14 +47,9 @@ ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}
 @mixin retina-sprite($sprite-pair) {
   @include sprite(nth($sprite-pair, 2));
 
-  {{! TODO: Google to compare with other results }}
-  {{! TODO: Remove extra whitespace... }}
-  @media only screen and (-webkit-min-device-pixel-ratio: 2),
-         only screen and (   min--moz-device-pixel-ratio: 2),
-         only screen and (     -o-min-device-pixel-ratio: 2/1),
-         only screen and (        min-device-pixel-ratio: 2),
-         only screen and (                min-resolution: 192dpi),
-         only screen and (                min-resolution: 2dppx) {
+  {{! https://css-tricks.com/snippets/css/retina-display-media-query/ }}
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
     @include sprite-image(nth($sprite-pair, 3));
     @include sprite-background-size(nth($sprite-pair, 2));
   }
