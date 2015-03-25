@@ -87,6 +87,12 @@ $retina-spritesheet-height: 200px;
 $retina-spritesheet-image: 'nested/dir/spritesheet-retina.png';
 $retina-spritesheet-sprites: ($sprite-dash-case-retina, $sprite-snake-case-retina, $sprite-camel-case-retina, );
 $retina-spritesheet: (160px, 200px, 'nested/dir/spritesheet-retina.png', $spritesheet-sprites, );
+
+/*
+These are variables that map to original `normal` and `retina` sprite counterparts.
+
+The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
+*/
 $sprite-dash-case-name: 'sprite-dash-case';
 $sprite-dash-case: ('sprite-dash-case', $sprite-dash-case-normal, $sprite-dash-case-retina );
 $sprite-snake-case-name: 'sprite_snake_case';
@@ -133,6 +139,19 @@ The provided mixins are intended to be used with the array-like variables
 }
 
 /*
+The `sprite-retina` mixin is intended to be used on a `sprite-group`
+
+$icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
+
+.icon-home {
+  @include retina-sprite($icon-home);
+}
+*/
+@mixin retina-sprite($sprite-group) {
+  // TODO: This will be identical to template
+}
+
+/*
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
 
@@ -146,3 +165,5 @@ The `sprites` mixin generates identical output to the CSS template
     }
   }
 }
+
+// TODO: Add in `retina-sprites($sprite-groups)`
