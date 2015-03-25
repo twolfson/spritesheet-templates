@@ -45,15 +45,15 @@ exports.retinaMultipleSprites = {
   // TODO: Add back name somehow
   retinaGroups: [{
     name: 'sprite-dash-case',
-    normal: 'sprite-dash-case-normal',
-    retina: 'sprite-dash-case-retina'
+    normal: {name: 'sprite-dash-case-normal'},
+    retina: {name: 'sprite-dash-case-retina'}
   }, {
     name: 'sprite_snake_case',
-    normal: 'sprite_snake_case_normal',
-    retina: 'sprite_snake_case_retina'
+    normal: {name: 'sprite_snake_case_normal'},
+    retina: {name: 'sprite_snake_case_retina'}
   }, {
     name: 'spriteCamelCase',
-    normal: 'spriteCamelCaseNormal',
-    retina: 'spriteCamelCaseRetina'
+    normal: {name: 'spriteCamelCaseNormal'},
+    retina: {name: 'spriteCamelCaseRetina'}
   }]
 };

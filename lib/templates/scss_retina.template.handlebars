@@ -35,7 +35,7 @@ The list formats are intended to be used with mixins like `retina-sprite` and `r
 */
 {{#each retina_groups}}
 ${{strings.name_name}}: '{{name}}';
-${{strings.name}}: ('{{name}}', ${{normal}}, ${{retina}}, );
+${{strings.name}}: ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}}, );
 {{/each}}
 $retina-sprites: ({{#each retina_groups}}${{strings.name}}, {{/each}});
 {{/content}}
