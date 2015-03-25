@@ -22,7 +22,7 @@ describe('An retina array of image positions, dimensions, and names', function (
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');
           // DEV: Repair vendor specific validation issues
-          css = css.replace(/(-webkit-min-device-pixel-ratio: 2)/g, '');
+          css = css.replace(/\(-webkit-min-device-pixel-ratio: 2\), /g, '');
           cb(err, css);
         });
       });
