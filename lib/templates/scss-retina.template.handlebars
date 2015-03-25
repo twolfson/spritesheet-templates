@@ -31,6 +31,8 @@ ${{retina_spritesheet.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina
 {{#each retina_pairs}}
 ${{strings.name}}: '{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}};
 {{/each}}
+// TODO: Define variable for all pairs
+// TODO: Rename `pairs` to `groups` as its more appropriate now (`sprite-group`) and `sprite-groups`. Buuut how do we establish it's retina specific? I think retina-groups is better.
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
