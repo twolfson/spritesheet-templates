@@ -1,0 +1,148 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$sprite-dash-case-normal-name: 'sprite-dash-case-normal';
+$sprite-dash-case-normal-x: 0px;
+$sprite-dash-case-normal-y: 0px;
+$sprite-dash-case-normal-offset-x: 0px;
+$sprite-dash-case-normal-offset-y: 0px;
+$sprite-dash-case-normal-width: 10px;
+$sprite-dash-case-normal-height: 20px;
+$sprite-dash-case-normal-total-width: 80px;
+$sprite-dash-case-normal-total-height: 100px;
+$sprite-dash-case-normal-image: 'nested/dir/spritesheet.png';
+$sprite-dash-case-normal: (0px, 0px, 0px, 0px, 10px, 20px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite-dash-case-normal', );
+$sprite-snake-case-normal-name: 'sprite_snake_case_normal';
+$sprite-snake-case-normal-x: 10px;
+$sprite-snake-case-normal-y: 20px;
+$sprite-snake-case-normal-offset-x: -10px;
+$sprite-snake-case-normal-offset-y: -20px;
+$sprite-snake-case-normal-width: 20px;
+$sprite-snake-case-normal-height: 30px;
+$sprite-snake-case-normal-total-width: 80px;
+$sprite-snake-case-normal-total-height: 100px;
+$sprite-snake-case-normal-image: 'nested/dir/spritesheet.png';
+$sprite-snake-case-normal: (10px, 20px, -10px, -20px, 20px, 30px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite_snake_case_normal', );
+$sprite-camel-case-normal-name: 'spriteCamelCaseNormal';
+$sprite-camel-case-normal-x: 30px;
+$sprite-camel-case-normal-y: 50px;
+$sprite-camel-case-normal-offset-x: -30px;
+$sprite-camel-case-normal-offset-y: -50px;
+$sprite-camel-case-normal-width: 50px;
+$sprite-camel-case-normal-height: 50px;
+$sprite-camel-case-normal-total-width: 80px;
+$sprite-camel-case-normal-total-height: 100px;
+$sprite-camel-case-normal-image: 'nested/dir/spritesheet.png';
+$sprite-camel-case: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCaseNormal', );
+$sprite-dash-case-retina-name: 'sprite-dash-case-retina';
+$sprite-dash-case-retina-x: 0px;
+$sprite-dash-case-retina-y: 0px;
+$sprite-dash-case-retina-offset-x: 0px;
+$sprite-dash-case-retina-offset-y: 0px;
+$sprite-dash-case-retina-width: 10px;
+$sprite-dash-case-retina-height: 20px;
+$sprite-dash-case-retina-total-width: 80px;
+$sprite-dash-case-retina-total-height: 100px;
+$sprite-dash-case-retina-image: 'nested/dir/spritesheet.png';
+$sprite-dash-case-retina: (0px, 0px, 0px, 0px, 10px, 20px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite-dash-case-retina', );
+$sprite-snake-case-retina-name: 'sprite_snake_case_retina';
+$sprite-snake-case-retina-x: 10px;
+$sprite-snake-case-retina-y: 20px;
+$sprite-snake-case-retina-offset-x: -10px;
+$sprite-snake-case-retina-offset-y: -20px;
+$sprite-snake-case-retina-width: 20px;
+$sprite-snake-case-retina-height: 30px;
+$sprite-snake-case-retina-total-width: 80px;
+$sprite-snake-case-retina-total-height: 100px;
+$sprite-snake-case-retina-image: 'nested/dir/spritesheet.png';
+$sprite-snake-case-retina: (10px, 20px, -10px, -20px, 20px, 30px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite_snake_case_retina', );
+$sprite-camel-case-retina-name: 'spriteCamelCaseRetina';
+$sprite-camel-case-retina-x: 30px;
+$sprite-camel-case-retina-y: 50px;
+$sprite-camel-case-retina-offset-x: -30px;
+$sprite-camel-case-retina-offset-y: -50px;
+$sprite-camel-case-retina-width: 50px;
+$sprite-camel-case-retina-height: 50px;
+$sprite-camel-case-retina-total-width: 80px;
+$sprite-camel-case-retina-total-height: 100px;
+$sprite-camel-case-retina-image: 'nested/dir/spritesheet.png';
+$sprite-camel-case-retina: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCaseRetina', );
+$spritesheet-width: 80px;
+$spritesheet-height: 100px;
+$spritesheet-image: 'nested/dir/spritesheet.png';
+$spritesheet-sprites: ($sprite-dash-case-normal, $sprite-snake-case-normal, $sprite-camel-case-normal, );
+$spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, );
+$retina-spritesheet-width: 80px;
+$retina-spritesheet-height: 100px;
+$retina-spritesheet-image: 'nested/dir/spritesheet-retina.png';
+$retina-spritesheet-sprites: ($sprite-dash-case-retina, $sprite-snake-case-retina, $sprite-camel-case-retina, );
+$retina-spritesheet: (80px, 100px, 'nested/dir/spritesheet-retina.png', $spritesheet-sprites, );
+$sprite-dash-case-name: 'sprite-dash-case';
+$sprite-dash-case: ('sprite-dash-case', $sprite-dash-case-normal, $sprite-dash-case-retina );
+$sprite-snake-case-name: 'sprite_snake_case';
+$sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina );
+$sprite-camel-case-name: 'spriteCamelCase';
+$sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina );
+$sprite-groups: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
