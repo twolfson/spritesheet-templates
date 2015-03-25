@@ -43,17 +43,19 @@ exports.retinaMultipleSprites = {
   },
   // TODO: Should we make an object or a side-object like `info`?
   // TODO: Add back name somehow
-  retinaGroups: [{
-    name: 'sprite-dash-case',
-    normal: {name: 'sprite-dash-case-normal'},
-    retina: {name: 'sprite-dash-case-retina'}
-  }, {
-    name: 'sprite_snake_case',
-    normal: {name: 'sprite_snake_case_normal'},
-    retina: {name: 'sprite_snake_case_retina'}
-  }, {
-    name: 'spriteCamelCase',
-    normal: {name: 'spriteCamelCaseNormal'},
-    retina: {name: 'spriteCamelCaseRetina'}
-  }]
+  retinaGroups: {
+    groups: [{
+      name: 'sprite-dash-case',
+      normal: {name: 'sprite-dash-case-normal'},
+      retina: {name: 'sprite-dash-case-retina'}
+    }, {
+      name: 'sprite_snake_case',
+      normal: {name: 'sprite_snake_case_normal'},
+      retina: {name: 'sprite_snake_case_retina'}
+    }, {
+      name: 'spriteCamelCase',
+      normal: {name: 'spriteCamelCaseNormal'},
+      retina: {name: 'spriteCamelCaseRetina'}
+    }]
+  }
 };
