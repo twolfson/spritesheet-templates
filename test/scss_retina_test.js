@@ -31,12 +31,13 @@ describe('An retina array of image positions, dimensions, and names', function (
       testUtils.assertValidCss();
     });
 
-    describe.skip('processed by `sassc` (libsass) into CSS', function () {
+    describe('processed by `sassc` (libsass) into CSS', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         exec('sassc ' + this.tmp.path, function (err, css, stderr) {
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');
+          css = css.replace(/\(-webkit-min-device-pixel-ratio: 2\), /g, '');
           cb(err, css);
         });
       });
