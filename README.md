@@ -463,7 +463,7 @@ The parameters passed into your template are known as `data`. These are a cloned
                 - offset_x `String` - `offset_x` suffixed with `px`
                 - offset_y `String` - `offset_y` suffixed with `px`
     - spritesheet `Object` - Information about spritesheet
-        - name `String` - Name for spritesheet
+        - name `String` - Deprecated alias for `spritesheet_info.name`
         - width `Number` - Horizontal length of image in pixels
         - height `Number` - Vertical length of image in pixels
         - image `String` - URL to use for spritesheet
@@ -473,7 +473,9 @@ The parameters passed into your template are known as `data`. These are a cloned
         - px `Object` container for numeric values including `px`
             - width `String` - `width` suffixed with `px`
             - height `String` - `height` suffixed with `px`
-    - spritesheet_name `String` - Name for spritesheet
+    - spritesheet_name `String` - Deprecated alias for `spritesheet_info.name`
+    - spritesheet_info `Object` - Container for information about `spritesheet` and its representation
+        - name `String` - Name for `spritesheet`
     - options `Mixed` - Options to passed through via `options.formatOpts`
 
 ###### Handlebars template data
@@ -504,20 +506,22 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
-- data.spritesheet.strings `Object` - Container for spritesheet-relevant variable/string names
+- data.spritesheet.strings `Object` - Deprecated container for spritesheet-relevant variable/string names
+    - Contents will match the same as `data.spritesheet_info.strings`
+- data.spritesheet_info.strings `Object` - Container for spritesheet-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
-    - name `String` - Transformed name of sprite (e.g. `icon-home`)
-    - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
-    - name_x `String` - Transformed combination of sprite name and `-x` string (e.g. `icon-home-x`)
-    - name_y `String` - Transformed combination of sprite name and `-y` string (e.g. `icon-home-y`)
-    - name_offset_x `String` - Transformed combination of sprite name and `-offset-x` string (e.g. `icon-home-offset-x`)
-    - name_offset_y `String` - Transformed combination of sprite name and `-offset-y` string (e.g. `icon-home-offset-y`)
-    - name_width `String` - Transformed combination of sprite name and `-width` string (e.g. `icon-home-width`)
-    - name_height `String` - Transformed combination of sprite name and `-height` string (e.g. `icon-home-height`)
-    - name_total_width `String` - Transformed combination of sprite name and `-total-width` string (e.g. `icon-home-total-width`)
-    - name_total_height `String` - Transformed combination of sprite name and `-total-height` string (e.g. `icon-home-total-height`)
-    - name_image `String` - Transformed combination of sprite name and `-image` string (e.g. `icon-home-image`)
-    - name_sprites `String` - Transformed combination of sprite name and `-sprites` string (e.g. `icon-home-sprites`)
+    - name `String` - Transformed name of spritesheet (e.g. `icon-home`)
+    - name_name `String` - Transformed combination of spritesheet name and `-name` string (e.g. `icon-home-name`)
+    - name_x `String` - Transformed combination of spritesheet name and `-x` string (e.g. `icon-home-x`)
+    - name_y `String` - Transformed combination of spritesheet name and `-y` string (e.g. `icon-home-y`)
+    - name_offset_x `String` - Transformed combination of spritesheet name and `-offset-x` string (e.g. `icon-home-offset-x`)
+    - name_offset_y `String` - Transformed combination of spritesheet name and `-offset-y` string (e.g. `icon-home-offset-y`)
+    - name_width `String` - Transformed combination of spritesheet name and `-width` string (e.g. `icon-home-width`)
+    - name_height `String` - Transformed combination of spritesheet name and `-height` string (e.g. `icon-home-height`)
+    - name_total_width `String` - Transformed combination of spritesheet name and `-total-width` string (e.g. `icon-home-total-width`)
+    - name_total_height `String` - Transformed combination of spritesheet name and `-total-height` string (e.g. `icon-home-total-height`)
+    - name_image `String` - Transformed combination of spritesheet name and `-image` string (e.g. `icon-home-image`)
+    - name_sprites `String` - Transformed combination of spritesheet name and `-sprites` string (e.g. `icon-home-sprites`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -584,8 +588,8 @@ ${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.w
 {{/each}}
 {{/content}}
 {{#content "spritesheet"}}
-${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
-${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+${{spritesheet_info.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet_info.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet_info.strings.name_sprites}}, );
 {{/content}}
 {{/extend}}
 ```
