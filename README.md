@@ -108,6 +108,8 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
     - retina_spritesheet_info
     - retina_groups_info
 
+// TODO: Revisit changes from spritesheetName release (e.g. `params -> data`)
+
 ### Templates
 Below are our template options for `options.format`.
 
