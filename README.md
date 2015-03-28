@@ -1,9 +1,16 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
+// TODO: Add tests in `grunt-spritesmith` that leverage `retinaCssVarMap`, `retinaCssSpritesheetName`, and `retinaCssRetinaSpritesName`?
+
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
 
-// TODO: Revisit changes from spritesheetName release (e.g. `params -> data`)
+// TODO: Add jsonArray_retina
+// TODO: Add less_retina
+// TODO: Add sass_retina
+// TODO: Add scss_maps_retina
+// TODO: Add stylus_maps_retina
+
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
