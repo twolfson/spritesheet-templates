@@ -11,39 +11,39 @@ $icon-home: x y offset_x offset_y width height total_width total_height image_pa
 At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet: width height image $spritesheet-sprites;
 */
-$sprite-dash-case-normal-name: 'sprite-dash-case-normal';
-$sprite-dash-case-normal-x: 0px;
-$sprite-dash-case-normal-y: 0px;
-$sprite-dash-case-normal-offset-x: 0px;
-$sprite-dash-case-normal-offset-y: 0px;
-$sprite-dash-case-normal-width: 10px;
-$sprite-dash-case-normal-height: 20px;
-$sprite-dash-case-normal-total-width: 80px;
-$sprite-dash-case-normal-total-height: 100px;
-$sprite-dash-case-normal-image: 'nested/dir/spritesheet.png';
-$sprite-dash-case-normal: (0px, 0px, 0px, 0px, 10px, 20px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite-dash-case-normal', );
-$sprite-snake-case-normal-name: 'sprite_snake_case_normal';
-$sprite-snake-case-normal-x: 10px;
-$sprite-snake-case-normal-y: 20px;
-$sprite-snake-case-normal-offset-x: -10px;
-$sprite-snake-case-normal-offset-y: -20px;
-$sprite-snake-case-normal-width: 20px;
-$sprite-snake-case-normal-height: 30px;
-$sprite-snake-case-normal-total-width: 80px;
-$sprite-snake-case-normal-total-height: 100px;
-$sprite-snake-case-normal-image: 'nested/dir/spritesheet.png';
-$sprite-snake-case-normal: (10px, 20px, -10px, -20px, 20px, 30px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite_snake_case_normal', );
-$sprite-camel-case-normal-name: 'spriteCamelCaseNormal';
-$sprite-camel-case-normal-x: 30px;
-$sprite-camel-case-normal-y: 50px;
-$sprite-camel-case-normal-offset-x: -30px;
-$sprite-camel-case-normal-offset-y: -50px;
-$sprite-camel-case-normal-width: 50px;
-$sprite-camel-case-normal-height: 50px;
-$sprite-camel-case-normal-total-width: 80px;
-$sprite-camel-case-normal-total-height: 100px;
-$sprite-camel-case-normal-image: 'nested/dir/spritesheet.png';
-$sprite-camel-case-normal: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCaseNormal', );
+$sprite-dash-case-name: 'sprite-dash-case';
+$sprite-dash-case-x: 0px;
+$sprite-dash-case-y: 0px;
+$sprite-dash-case-offset-x: 0px;
+$sprite-dash-case-offset-y: 0px;
+$sprite-dash-case-width: 10px;
+$sprite-dash-case-height: 20px;
+$sprite-dash-case-total-width: 80px;
+$sprite-dash-case-total-height: 100px;
+$sprite-dash-case-image: 'nested/dir/spritesheet.png';
+$sprite-dash-case: (0px, 0px, 0px, 0px, 10px, 20px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite-dash-case', );
+$sprite-snake-case-name: 'sprite_snake_case';
+$sprite-snake-case-x: 10px;
+$sprite-snake-case-y: 20px;
+$sprite-snake-case-offset-x: -10px;
+$sprite-snake-case-offset-y: -20px;
+$sprite-snake-case-width: 20px;
+$sprite-snake-case-height: 30px;
+$sprite-snake-case-total-width: 80px;
+$sprite-snake-case-total-height: 100px;
+$sprite-snake-case-image: 'nested/dir/spritesheet.png';
+$sprite-snake-case: (10px, 20px, -10px, -20px, 20px, 30px, 80px, 100px, 'nested/dir/spritesheet.png', 'sprite_snake_case', );
+$sprite-camel-case-name: 'spriteCamelCase';
+$sprite-camel-case-x: 30px;
+$sprite-camel-case-y: 50px;
+$sprite-camel-case-offset-x: -30px;
+$sprite-camel-case-offset-y: -50px;
+$sprite-camel-case-width: 50px;
+$sprite-camel-case-height: 50px;
+$sprite-camel-case-total-width: 80px;
+$sprite-camel-case-total-height: 100px;
+$sprite-camel-case-image: 'nested/dir/spritesheet.png';
+$sprite-camel-case: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCase', );
 $sprite-dash-case-retina-name: 'sprite-dash-case-retina';
 $sprite-dash-case-retina-x: 0px;
 $sprite-dash-case-retina-y: 0px;
@@ -80,7 +80,7 @@ $sprite-camel-case-retina: (60px, 100px, -60px, -100px, 100px, 100px, 160px, 200
 $spritesheet-width: 80px;
 $spritesheet-height: 100px;
 $spritesheet-image: 'nested/dir/spritesheet.png';
-$spritesheet-sprites: ($sprite-dash-case-normal, $sprite-snake-case-normal, $sprite-camel-case-normal, );
+$spritesheet-sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, );
 $spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, );
 $spritesheet-retina-width: 160px;
 $spritesheet-retina-height: 200px;
@@ -93,13 +93,13 @@ These variables are known as "retina groups", they are mappings to `normal` and 
 
 The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
 */
-$sprite-dash-case-name: 'sprite-dash-case';
-$sprite-dash-case: ('sprite-dash-case', $sprite-dash-case-normal, $sprite-dash-case-retina, );
-$sprite-snake-case-name: 'sprite_snake_case';
-$sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina, );
-$sprite-camel-case-name: 'spriteCamelCase';
-$sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina, );
-$retina-groups: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, );
+$sprite-dash-case-group-name: 'sprite-dash-case';
+$sprite-dash-case-group: ('sprite-dash-case', $sprite-dash-case, $sprite-dash-case-retina, );
+$sprite-snake-case-group-name: 'sprite_snake_case';
+$sprite-snake-case-group: ('sprite_snake_case', $sprite-snake-case, $sprite-snake-case-retina, );
+$sprite-camel-case-group-name: 'spriteCamelCase';
+$sprite-camel-case-group: ('spriteCamelCase', $sprite-camel-case, $sprite-camel-case-retina, );
+$retina-groups: ($sprite-dash-case-group, $sprite-snake-case-group, $sprite-camel-case-group, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -143,10 +143,10 @@ The `sprite-retina` mixin is intended to be used on a "retina group".
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-$icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
+$icon-home-group = ('icon-home', $icon-home, $icon-home-retina);
 
 .icon-home {
-  @include retina-sprite($icon-home);
+  @include retina-sprite($icon-home-group);
 }
 */
 @mixin sprite-background-size($sprite) {
