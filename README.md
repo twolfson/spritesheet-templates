@@ -77,9 +77,10 @@ Converter for spritesheet/sprite info into spritesheet
     - retinaSprites
     - retinaSpritesheet
     - retinaGroups
-        - name
-        - normal
-        - retina
+        - retinaGroups[*]
+            - name
+            - normal
+            - retina
 - options `Object` - Optional settings
     - spritesheetName `String` - Deprecated altenrative for `spritesheetInfo.name`
     - spritesheetInfo
