@@ -2,6 +2,8 @@
 
 // TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaSpritesName`, and `cssSelector` for retina? (Is the other variable `retinaGroupName`)?... maybe we should name them `groups` and let people figure out the naming
 
+// TODO: With rename again, implement all the way to website
+
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
 
