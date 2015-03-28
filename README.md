@@ -2,14 +2,6 @@
 
 // TODO: Should we suffix all groups with `_group` to establish different type and preserve backwards compatibility? Be sure to update our template comments
 
-// TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaGroupsName`, and `cssSelector` for retina? (Is the other variable `cssRetinaGroupVarMap`)?... maybe we should name them `groups` and let people figure out the naming
-
-// TODO: Definitely define `cssRetinaVarMap` and execute it separately from `cssVarMap`. We will have frustrations over needing to re-detect normal sprites vs retina sprites. Then, definitely document how in retina spritesheets we will their `cssVarMap` to add a `normal` suffix to prevent overloading.
-//   Prob need to add an assert to...
-//   Now I am doubting this since we have allievated the issue by splitting naming
-
-// TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
-
 // TODO: With rename again, implement all the way to website
 
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
@@ -19,7 +11,7 @@
 // TODO: Add less_retina
 // TODO: Add sass_retina
 // TODO: Add scss_maps_retina
-// TODO: Add stylus_maps_retina
+// TODO: Add stylus_retina
 
 
 Convert spritesheet data into CSS or CSS pre-processor data
