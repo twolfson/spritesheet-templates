@@ -43,9 +43,6 @@ exports.retinaMultipleSprites = {
   },
   retina_groups: [{
     name: 'sprite-dash-case',
-    // TODO: The problem is arising from from not doing naming here...
-    // Maybe we can provide an alternative variable name here?
-    // Probably add double support in normal and retina as well -_-;;
     index: 0
   }, {
     name: 'sprite_snake_case',
