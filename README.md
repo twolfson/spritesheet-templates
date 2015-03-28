@@ -3,10 +3,6 @@
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
 
-// TODO: When we do the `info` release, fix that double space in SASS/SCSS as well
-
-// TODO: While we change the interface for `spritesheetName` in `spritesheet-templates`, I don't think we should transfer it to `grunt-spritesmith`. That is worthwhile complexity to keep since we technically don't know what other properties go in the info object.
-
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
@@ -83,19 +79,21 @@ Converter for spritesheet/sprite info into spritesheet
             - For example, `background-image: url({{spritesheet.image}});`
     - spritesheet_info `Object` - Optional container for metadata about `spritesheet` and its representation
     // TODO: Move to `snake_case`
-    - retinaSprites
-    - retinaSpritesheet
+    - retina_sprites `Object[]` - Array of objects with coordinate data about each retina sprite for the retina spritesheet
+        - `retina_sprites`, `retina_spritesheet` and `retina_groups` are required for using `retina` templates
+            - If `retina_sprites` is provided, we will expect the other `retina` parameters
+        - For the variables to be useful, the retina spritesheet should be a 2:1 scale image of the original spritesheet
+        - Retina sprites should be positioned in the same fashion and order as their `sprites` counterparts (e.g. `[{x: 0, y: 0}, {x: 20, y: 20}]` should correspond to `[{x: 0, y: 0}, {x: 40, y: 40}]`)
+        - * `Object` - Sprite signature should match `data.sprites[*]`
+    - retina_spritesheet `Object` - Information
     - retinaGroups
         - retinaGroups[*]
             - name
+            // TODO: Why not `index` over specifying `normal/retina`?
             - normal
             - retina
 - options `Object` - Optional settings
-    - spritesheetName `String` - Deprecated altenrative for `spritesheetInfo.name`
-    - spritesheetInfo
-        - name `String` - Prefix to use for all spritesheet variables
-            - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
-            - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
+    - spritesheetName `String` - Deprecated altenrative for `data.spritesheet_info.name`
 - options `Object` - Optional settings
     - spritesheetName `String` - Deprecated alternative for `spritesheet_info.name`
     // TODO: Move to snake case and `data`
