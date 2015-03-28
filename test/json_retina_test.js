@@ -14,7 +14,7 @@ describe('An array of image positions, dimensions, and names', function () {
     });
   }
 
-  describe.only('processed by `spritesheet-templates` into retina JSON', function () {
+  describe('processed by `spritesheet-templates` into retina JSON', function () {
     testUtils.runTemplater({format: 'json_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/json_retina.json');
 

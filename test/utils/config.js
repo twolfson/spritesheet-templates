@@ -31,17 +31,17 @@ exports.retinaMultipleSprites = {
   spritesheet: {
     width: 80, height: 100, image: 'nested/dir/spritesheet.png'
   },
-  retinaSprites: [{
+  retina_sprites: [{
     name: 'sprite-dash-case-retina', x: 0, y: 0, width: 20, height: 40
   }, {
     name: 'sprite_snake_case_retina', x: 20, y: 40, width: 40, height: 60
   }, {
     name: 'spriteCamelCaseRetina', x: 60, y: 100, width: 100, height: 100
   }],
-  retinaSpritesheet: {
+  retina_spritesheet: {
     width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
   },
-  retinaGroups: [{
+  retina_groups: [{
     name: 'sprite-dash-case',
     index: 0
   }, {
