@@ -48,7 +48,7 @@
     "less": "~1.5.1",
     "mocha": "~1.14.0",
     "stylus": "~0.41.3",
-    "temporary": "0.0.5",
+    "temporary": "0.0.8",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
