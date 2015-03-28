@@ -26,7 +26,7 @@ ${{retina_spritesheet_info.strings.name_width}} = {{retina_spritesheet.px.width}
 ${{retina_spritesheet_info.strings.name_height}} = {{retina_spritesheet.px.height}};
 ${{retina_spritesheet_info.strings.name_image}} = '{{{retina_spritesheet.escaped_image}}}';
 ${{retina_spritesheet_info.strings.name_sprites}} = ({{#each retina_sprites}}${{strings.name}}, {{/each}});
-${{retina_spritesheet_info.strings.name}} = ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet_info.strings.name_sprites}}, );
+${{retina_spritesheet_info.strings.name}} = {{retina_spritesheet.px.width}} {{retina_spritesheet.px.height}} '{{{retina_spritesheet.escaped_image}}}' ${{retina_spritesheet_info.strings.name_sprites}};
 
 /*
 These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
@@ -37,7 +37,7 @@ The list formats are intended to be used with mixins like `retinaSprite` and `re
 ${{strings.name_name}} = '{{name}}';
 ${{strings.name}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
-${{retina_groups_info.strings.name}} ={{#each retina_groups}}${{strings.name}} {{/each}};
+${{retina_groups_info.strings.name}} ={{#each retina_groups}} ${{strings.name}}{{/each}};
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
@@ -51,7 +51,7 @@ The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-d
 $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 
 .icon_home {
-  @include retinaSprite($icon_home)
+  retinaSprite($icon_home)
 }
 */
 @mixin spriteBackgroundSize($sprite) {
@@ -61,12 +61,12 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 @mixin retinaSprite($retina_group) {
   $normal_sprite = $retina_group[1];
   $retina_sprite = $retina_group[2];
-  @include sprite($normal_sprite);
+  sprite($normal_sprite)
 
   @media (-webkit-min-device-pixel-ratio: 2),
          (min-resolution: 192dpi) {
-    @include spriteImage($retina_sprite);
-    @include spriteBackgroundSize($normal_sprite);
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
   }
 }
 {{/if}}
@@ -78,13 +78,13 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 /*
 The `retinaSprites` mixin generates classes for retina sprite groups
 
-@include retinaSprites($retina_groups);
+retinaSprites($retina_groups);
 */
 @mixin retinaSprites($retina_groups) {
   @each $retina_group in $retina_groups {
     $sprite_name = $retina_group[0];
     .#{$sprite_name} {
-      @include retinaSprite($retina_group);
+      retinaSprite($retina_group);
     }
   }
 }
