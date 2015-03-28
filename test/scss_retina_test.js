@@ -11,7 +11,7 @@ describe('An retina array of image positions, dimensions, and names', function (
     testUtils.assertOutputMatches(__dirname + '/expected_files/scss_retina.scss');
 
     testUtils.generateCssFile('\n' + [
-      '@include retina-sprites($retina-sprites);'
+      '@include retina-sprites($retina-groups);'
     ].join('\n'));
 
     describe('processed by `sass --scss` (ruby) into CSS', function () {
