@@ -89,7 +89,7 @@ $spritesheet-retina-sprites: ($sprite-dash-case-retina, $sprite-snake-case-retin
 $spritesheet-retina: (160px, 200px, 'nested/dir/spritesheet-retina.png', $spritesheet-retina-sprites, );
 
 /*
-These are variables that map to original `normal` and `retina` sprite counterparts.
+These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
 
 The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
 */
@@ -99,7 +99,7 @@ $sprite-snake-case-name: 'sprite_snake_case';
 $sprite-snake-case: ('sprite_snake_case', $sprite-snake-case-normal, $sprite-snake-case-retina, );
 $sprite-camel-case-name: 'spriteCamelCase';
 $sprite-camel-case: ('spriteCamelCase', $sprite-camel-case-normal, $sprite-camel-case-retina, );
-$retina-sprites: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, );
+$retina-groups: ($sprite-dash-case, $sprite-snake-case, $sprite-camel-case, );
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -139,7 +139,7 @@ The provided mixins are intended to be used with the array-like variables
 }
 
 /*
-The `sprite-retina` mixin is intended to be used on a `sprite-group`.
+The `sprite-retina` mixin is intended to be used on a "retina group".
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
@@ -153,9 +153,9 @@ $icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
   background-size: nth($sprite, 7) nth($sprite, 8);
 }
 
-@mixin retina-sprite($sprite-group) {
-  $normal-sprite: nth($sprite-group, 2);
-  $retina-sprite: nth($sprite-group, 3);
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
   @include sprite($normal-sprite);
 
   @media (-webkit-min-device-pixel-ratio: 2),
@@ -183,13 +183,13 @@ The `sprites` mixin generates identical output to the CSS template
 /*
 The `retina-sprites` mixin generates classes for retina sprite groups
 
-@include retina-sprites($retina-sprites);
+@include retina-sprites($retina-groups);
 */
-@mixin retina-sprites($retina-sprites) {
-  @each $retina-sprite in $retina-sprites {
-    $sprite-name: nth($retina-sprite, 1);
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
     .#{$sprite-name} {
-      @include retina-sprite($retina-sprite);
+      @include retina-sprite($retina-group);
     }
   }
 }
