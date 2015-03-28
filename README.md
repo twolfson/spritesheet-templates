@@ -104,9 +104,7 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
     - retina_groups
         - retina_groups[*]
             - name
-            // TODO: Why not `index` over specifying `normal/retina`?
-            - normal
-            - retina
+            - index
     // TODO: Move to snake case and `data`
     - retina_spritesheet_info
     - retina_groups_info
