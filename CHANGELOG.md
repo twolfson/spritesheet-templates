@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.3.1 - Fixed regression with `data.spritesheet_info` fallback logic
+
 9.3.0 - Relocated `options.spritesheetName` to `data.spritesheet_info` in preparation for retina conventions
 
 9.2.2 - Made functions block more granular for future proofing
