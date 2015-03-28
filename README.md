@@ -97,7 +97,6 @@ Converter for spritesheet/sprite info into spritesheet
 For the variables to be useful, the retina spritesheet should be a 2x scale image of the original spritesheet. Similarly, retina sprites should be positioned in the same fashion and order as their sprites counterparts (e.g. `[{x: 0, y: 0}, {x: 20, y: 20}]` should correspond to `[{x: 0, y: 0}, {x: 40, y: 40}]`).
 
 - data `Object` - Same container as defined above
-    // TODO: Handle snake case
     - retina_sprites `Object[]` - Array of objects with coordinate data about each retina sprite for the retina spritesheet
         - Properties are retina equivalent of `data.sprites`
     - retina_spritesheet `Object` - Information about retina spritesheet
@@ -105,7 +104,6 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
     - retina_groups
         - retina_groups[*]
             - name
-            // TODO: Rename index
             - index
     // TODO: Move to snake case and `data`
     - retina_spritesheet_info
