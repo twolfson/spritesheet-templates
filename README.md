@@ -3,6 +3,8 @@
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
 
+// TODO: Revisit changes from spritesheetName release (e.g. `params -> data`)
+
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
@@ -107,8 +109,6 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
             - index
     - retina_spritesheet_info
     - retina_groups_info
-
-// TODO: Revisit changes from spritesheetName release (e.g. `params -> data`)
 
 ### Templates
 Below are our template options for `options.format`.
