@@ -1,8 +1,9 @@
 language: node_js
 node_js:
+  - "0.12"
   - "0.11"
   - "0.10"
-  - "0.8"
+  - "iojs"
 matrix:
   allow_failures:
     - node_js: "0.11"
@@ -12,9 +13,6 @@ before_install:
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 install:
-  # Install jscs before other modules to avoid conflicts
-  - npm install jscs@~1.8.1
-
   # Install node modules
   - npm install
 
