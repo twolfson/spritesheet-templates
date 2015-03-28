@@ -40,20 +40,20 @@ exports.retinaMultipleSprites = {
   }],
   retinaSpritesheet: {
     width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
-  },
-  retinaGroups: {
-    groups: [{
-      name: 'sprite-dash-case',
-      normal: 'sprite-dash-case-normal',
-      retina: 'sprite-dash-case-retina'
-    }, {
-      name: 'sprite_snake_case',
-      normal: 'sprite_snake_case_normal',
-      retina: 'sprite_snake_case_retina'
-    }, {
-      name: 'spriteCamelCase',
-      normal: 'spriteCamelCaseNormal',
-      retina: 'spriteCamelCaseRetina'
-    }]
   }
+};
+exports.retinaGroups = {
+  groups: [{
+    name: 'sprite-dash-case',
+    normal: exports.retinaMultipleSprites.sprites[0],
+    retina: exports.retinaMultipleSprites.retinaSprites[0]
+  }, {
+    name: 'sprite_snake_case',
+    normal: exports.retinaMultipleSprites.sprites[1],
+    retina: exports.retinaMultipleSprites.retinaSprites[1]
+  }, {
+    name: 'spriteCamelCase',
+    normal: exports.retinaMultipleSprites.sprites[2],
+    retina: exports.retinaMultipleSprites.retinaSprites[2]
+  }]
 };
