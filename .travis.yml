@@ -13,7 +13,7 @@ before_install:
 
 install:
   # Install jscs before other modules to avoid conflicts
-  - npm install jscs
+  - npm install jscs@~1.8.1
 
   # Install node modules
   - npm install
