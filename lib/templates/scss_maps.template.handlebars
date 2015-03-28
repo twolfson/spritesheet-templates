@@ -32,11 +32,11 @@ ${{strings.name}}: (
 {{/each}}
 {{/block}}
 {{#block "spritesheet"}}
-${{spritesheet.strings.name}}: (
-  {{spritesheet.strings.bare_width}}: {{spritesheet.px.width}},
-  {{spritesheet.strings.bare_height}}: {{spritesheet.px.height}},
-  {{spritesheet.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
-  {{spritesheet.strings.bare_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}})
+${{spritesheet_info.strings.name}}: (
+  {{spritesheet_info.strings.bare_width}}: {{spritesheet.px.width}},
+  {{spritesheet_info.strings.bare_height}}: {{spritesheet.px.height}},
+  {{spritesheet_info.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
+  {{spritesheet_info.strings.bare_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}})
 );
 {{/block}}
 
