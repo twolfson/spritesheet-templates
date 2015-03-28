@@ -31,7 +31,7 @@ ${{retina_spritesheet_info.strings.name}} = ({{retina_spritesheet.px.width}}, {{
 /*
 These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
 
-The list formats are intended to be used with mixins like `retina-sprite` and `retina-sprites`
+The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
 */
 {{#each retina_groups}}
 ${{strings.name_name}} = '{{name}}';
@@ -76,7 +76,7 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 {{#if options.functions}}
 
 /*
-The `retina-sprites` mixin generates classes for retina sprite groups
+The `retinaSprites` mixin generates classes for retina sprite groups
 
 @include retinaSprites($retina_groups);
 */
