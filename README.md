@@ -5,6 +5,8 @@
 
 // TODO: Before releasing, try out `grunt` integration again
 
+// TODO: When we do the `info` release, fix that double space in SASS/SCSS as well
+
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
