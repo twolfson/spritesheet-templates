@@ -30,18 +30,16 @@ Icon classes can be used entirely standalone. They are named after their origina
 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
-  .sprite-dash-case {
+  .icon-sprite-dash-case {
     background-image: url(nested/dir/spritesheet-retina.png);
-    background-size: 100px 100px;
+    background-size: 80px 100px;
   }
-
-  .sprite_snake_case {
+  .icon-sprite_snake_case {
     background-image: url(nested/dir/spritesheet-retina.png);
-    background-size: 100px 100px;
+    background-size: 80px 100px;
   }
-
-  .spriteCamelCase {
+  .icon-spriteCamelCase {
     background-image: url(nested/dir/spritesheet-retina.png);
-    background-size: 100px 100px;
+    background-size: 80px 100px;
   }
 }

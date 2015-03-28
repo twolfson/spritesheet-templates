@@ -1,17 +1,5 @@
-{{#block "sprites-comment"}}
-/*
-Icon classes can be used entirely standalone. They are named after their original file names.
-
-```html
-<!-- `display: block` sprite -->
-<div class="icon-home"></div>
-
-<!-- `display: inline-block` sprite -->
-<img class="icon-home" />
-```
-*/
-{{/block}}
-{{#block "sprites"}}
+{{#extend "css"}}
+{{#content "sprites" method="replace"}}
 {{#each retina_groups.groups}}
 {{{selector}}} {
   background-image: url({{{normal.escaped_image}}});
@@ -20,4 +8,15 @@ Icon classes can be used entirely standalone. They are named after their origina
   height: {{normal.px.height}};
 }
 {{/each}}
-{{/block}}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+{{#each retina_groups.groups}}
+  {{{selector}}} {
+    background-image: url({{{retina.escaped_image}}});
+    background-size: {{normal.px.total_width}} {{normal.px.total_height}};
+  }
+{{/each}}
+}
+{{/content}}
+{{/extend}}
