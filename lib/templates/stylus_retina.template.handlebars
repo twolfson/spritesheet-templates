@@ -34,10 +34,10 @@ These variables are known as "retina groups", they are mappings to `normal` and 
 The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
 */
 {{#each retina_groups}}
-${{strings.name_name}} = '{{name}}';
-${{strings.name}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
+${{strings.name_group_name}} = '{{name}}';
+${{strings.name_group}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
-${{retina_groups_info.strings.name}} ={{#each retina_groups}} ${{strings.name}}{{/each}};
+${{retina_groups_info.strings.name}} ={{#each retina_groups}} ${{strings.name_group}}{{/each}};
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
