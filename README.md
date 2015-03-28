@@ -74,10 +74,20 @@ Converter for spritesheet/sprite info into spritesheet
         - image `String` - URL to use for spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
+    - retinaSprites
+    - retinaSpritesheet
+    - retinaGroups
+        - name
+        - normal
+        - retina
 - options `Object` - Optional settings
-    - spritesheetName `String` - Prefix to use for all spritesheet variables
-        - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
-        - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
+    - spritesheetName `String` - Deprecated altenrative for `spritesheetInfo.name`
+    - spritesheetInfo
+        - name `String` - Prefix to use for all spritesheet variables
+            - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
+            - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
+    - retinaSpritesheetInfo
+    - retinaGroupsInfo
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
