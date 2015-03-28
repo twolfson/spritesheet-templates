@@ -42,7 +42,7 @@ exports.retinaMultipleSprites = {
     width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
   }
 };
-exports.retinaGroups = {
+exports.retinaMultipleSprites.retinaGroups = {
   groups: [{
     name: 'sprite-dash-case',
     normal: exports.retinaMultipleSprites.sprites[0],
