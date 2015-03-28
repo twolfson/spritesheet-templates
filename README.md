@@ -2,6 +2,9 @@
 
 // TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaGroupsName`, and `cssSelector` for retina? (Is the other variable `cssRetinaGroupVarMap`)?... maybe we should name them `groups` and let people figure out the naming
 
+// TODO: Definitely define `cssRetinaVarMap` and execute it separately from `cssVarMap`. We will have frustrations over needing to re-detect normal sprites vs retina sprites. Then, definitely document how in retina spritesheets we will their `cssVarMap` to add a `normal` suffix to prevent overloading.
+//   Prob need to add an assert to...
+
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
 // TODO: With rename again, implement all the way to website
