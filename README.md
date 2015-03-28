@@ -1,7 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Should we suffix all groups with `_group` to establish different type and preserve backwards compatibility? Be sure to update our template comments
-
 // TODO: With rename again, implement all the way to website
 
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
