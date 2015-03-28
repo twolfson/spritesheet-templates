@@ -81,7 +81,7 @@ Converter for spritesheet/sprite info into spritesheet
         - image `String` - URL to use for spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
-    - spritesheet_info `Object` - Container for metadata about `spritesheet` and its representation
+    - spritesheet_info `Object` - Optional container for metadata about `spritesheet` and its representation
         - name `String` - Prefix to use for all spritesheet variables
             - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
             - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
