@@ -4,7 +4,7 @@ var testUtils = require('./utils/test');
 describe('An retina array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.retinaMultipleSprites);
 
-  describe.skip('processed by `spritesheet-templates` into retina CSS', function () {
+  describe.only('processed by `spritesheet-templates` into retina CSS', function () {
     testUtils.runTemplater({format: 'css_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/css_retina.css');
 
