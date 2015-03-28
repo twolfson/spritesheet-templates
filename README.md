@@ -62,14 +62,14 @@ sprite($sprite) {
 ## Documentation
 `spritesheet-templates` is exports the funciton `templater` as its `module.exports`.
 
-#### `templater(params, options)`
+#### `templater(data, options)`
 Converter for spritesheet/sprite info into spritesheet
 
-- params `Object` - Container for data for template
-    - items `Object[]` - Deprecated alternative key to define `params.sprites`
+- data `Object` - Container for data for template
+    - items `Object[]` - Deprecated alternative key to define `data.sprites`
     - sprites `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
         - * `Object` - Container for sprite coordinate data
-            - For reference, `*` symbolizes any index (e.g. `params.sprites[0]`)
+            - For reference, `*` symbolizes any index (e.g. `data.sprites[0]`)
             - name `String` - Name to use for the image
             - x `Number` - Horizontal coordinate of top-left corner of image
             - y `Number` - Vertical coordinate of top-left corner of image
@@ -435,13 +435,13 @@ $sprite2_name = 'sprite2';
 Custom templates can be added dynamically via `templater.addTemplate` and `templater.addHandlebarsTemplate`.
 
 ##### Template data
-The parameters passed into your template are known as `params`. These are a cloned copy of the `params` originally passed in. We add some normalized properties for your convenience.
+The parameters passed into your template are known as `data`. These are a cloned copy of the `data` originally passed in. We add some normalized properties for your convenience.
 
-- params `Object` - Container for parameters
-    - items `Object[]` - Deprecated alias for `params.sprites`
+- data `Object` - Data available to template
+    - items `Object[]` - Deprecated alias for `data.sprites`
     - sprites `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
         - * `Object` - Container for sprite coordinate data
-            - For reference, `*` symbolizes any index (e.g. `params.sprites[0]`)
+            - For reference, `*` symbolizes any index (e.g. `data.sprites[0]`)
             - name `String` - Name to use for the image
             - x `Number` - Horizontal coordinate of top-left corner of image
             - y `Number` - Vertical coordinate of top-left corner of image
@@ -479,7 +479,7 @@ The parameters passed into your template are known as `params`. These are a clon
 ###### Handlebars template data
 We provide an extra set of data for `handlebars` templates for variable/string names.
 
-- params.sprites[*].strings `Object` - Container for sprite-relevant variable/string names
+- data.sprites[*].strings `Object` - Container for sprite-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of sprite (e.g. `icon-home`)
     - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
@@ -504,7 +504,7 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
-- params.spritesheet.strings `Object` - Container for spritesheet-relevant variable/string names
+- data.spritesheet.strings `Object` - Container for spritesheet-relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of sprite (e.g. `icon-home`)
     - name_name `String` - Transformed combination of sprite name and `-name` string (e.g. `icon-home-name`)
@@ -529,7 +529,7 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
-- params.strings `Object` - Container for generic strings
+- data.strings `Object` - Container for generic strings
     - Each of these strings will be transformed via `variableNameTransforms`
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
@@ -548,7 +548,7 @@ Method to define a custom template under the format of `name`.
 
 - name `String` - Key to store template under for reference via `options.format`
 - fn `Function` - Template function
-    - Should have signature of `function (params)` and return a `String` output
+    - Should have signature of `function (data)` and return a `String` output
 
 ##### `templater.addHandlebarsTemplate(name, tmplStr)`
 Method to define a custom handlebars template under the format of `name`.
@@ -557,7 +557,7 @@ As noted in the [Templates section](#templates), these can inherit from existing
 
 - name `String` - Key to store template under for reference via `options.format`
 - tmplStr `String` - Handlebars template to use for formatting
-    - This will receive `params` as its `data` (e.g. `{{sprites}}` is `params.sprites`)
+    - This will receive `data` as its `data` (e.g. `{{sprites}}` is `data.sprites`)
 
 ##### `templater.addMustacheTemplate(name, tmplStr)`
 Deprecated alias for `templater.addHandlebarsTemplate`
