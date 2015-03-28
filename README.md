@@ -65,7 +65,7 @@ sprite($sprite) {
 #### `templater(params, options)`
 Converter for spritesheet/sprite info into spritesheet
 
-- params `Object` - Container for parameters
+- params `Object` - Container for data for template
     - items `Object[]` - Deprecated alternative key to define `params.sprites`
     - sprites `Object[]` - Array of objects with coordinate data about each sprite on the spritesheet
         - * `Object` - Container for sprite coordinate data
@@ -81,12 +81,12 @@ Converter for spritesheet/sprite info into spritesheet
         - image `String` - URL to use for spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
-- options `Object` - Optional settings
-    - spritesheetName `String` - Deprecated altenrative for `spritesheetInfo.name`
-    - spritesheetInfo
+    - spritesheet_info `Object` - Container for metadata about `spritesheet` and its representation
         - name `String` - Prefix to use for all spritesheet variables
             - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
             - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
+- options `Object` - Optional settings
+    - spritesheetName `String` - Deprecated altenrative for `spritesheet_info.name`
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
