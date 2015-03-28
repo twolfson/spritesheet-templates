@@ -1,6 +1,6 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaGroupsName`, and `cssSelector` for retina? (Is the other variable `cssRetinaGroupMap`)?... maybe we should name them `groups` and let people figure out the naming
+// TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaGroupsName`, and `cssSelector` for retina? (Is the other variable `cssRetinaGroupVarMap`)?... maybe we should name them `groups` and let people figure out the naming
 
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
