@@ -1,5 +1,12 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
+// TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
+//   Diff afterwards for funzies
+
+// TODO: When we do the `info` release, fix that double space in SASS/SCSS as well
+
+// TODO: While we change the interface for `spritesheetName` in `spritesheet-templates`, I don't think we should transfer it to `grunt-spritesmith`. That is worthwhile complexity to keep since we technically don't know what other properties go in the info object.
+
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
@@ -75,9 +82,11 @@ Converter for spritesheet/sprite info into spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
 - options `Object` - Optional settings
-    - spritesheetName `String` - Prefix to use for all spritesheet variables
-        - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
-        - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
+    - spritesheetName `String` - Deprecated altenrative for `spritesheetInfo.name`
+    - spritesheetInfo
+        - name `String` - Prefix to use for all spritesheet variables
+            - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
+            - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
