@@ -1,51 +1,49 @@
 /*
-SCSS variables are information about icon's compiled state, stored under its original file name
+Icon classes can be used entirely standalone. They are named after their original file names.
 
-.icon-home {
-  width: $icon-home-width;
-}
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
 
-The large array-like variables contain all information about a single icon
-$icon-home: x y offset_x offset_y width height total_width total_height image_path;
-
-At the bottom of this section, we provide information about the spritesheet itself
-$spritesheet: width height image $spritesheet-sprites;
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
 */
-.sprite-dash-case {
-  width: 20px;
+.icon-sprite-dash-case {
+  background-image: url(nested/dir/spritesheet.png);
+  background-position: 0px 0px;
+  width: 10px;
   height: 20px;
-  background-position: 20px 20px;
-  background-image: url(path.png);
 }
 
-.sprite_snake_case {
+.icon-sprite_snake_case {
+  background-image: url(nested/dir/spritesheet.png);
+  background-position: -10px -20px;
   width: 20px;
-  height: 20px;
-  background-position: 20px 20px;
-  background-image: url(path.png);
+  height: 30px;
 }
 
-.spriteCamelCase {
-  width: 20px;
-  height: 20px;
-  background-position: 20px 20px;
-  background-image: url(path.png);
+.icon-spriteCamelCase {
+  background-image: url(nested/dir/spritesheet.png);
+  background-position: -30px -50px;
+  width: 50px;
+  height: 50px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .sprite-dash-case {
-    background-image: url(path-retina.png);
+    background-image: url(nested/dir/spritesheet-retina.png);
     background-size: 100px 100px;
   }
 
   .sprite_snake_case {
-    background-image: url(pathpath-retina.png);
+    background-image: url(nested/dir/spritesheet-retina.png);
     background-size: 100px 100px;
   }
 
   .spriteCamelCase {
-    background-image: url(pathpath-retina.png);
+    background-image: url(nested/dir/spritesheet-retina.png);
     background-size: 100px 100px;
   }
 }
