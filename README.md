@@ -86,7 +86,7 @@ Converter for spritesheet/sprite info into spritesheet
             - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
             - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
 - options `Object` - Optional settings
-    - spritesheetName `String` - Deprecated altenrative for `spritesheet_info.name`
+    - spritesheetName `String` - Deprecated alternative for `spritesheet_info.name`
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
