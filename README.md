@@ -6,6 +6,7 @@
 
 // TODO: Definitely define `cssRetinaVarMap` and execute it separately from `cssVarMap`. We will have frustrations over needing to re-detect normal sprites vs retina sprites. Then, definitely document how in retina spritesheets we will their `cssVarMap` to add a `normal` suffix to prevent overloading.
 //   Prob need to add an assert to...
+//   Now I am doubting this since we have allievated the issue by splitting naming
 
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
