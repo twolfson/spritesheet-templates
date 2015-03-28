@@ -15,14 +15,12 @@ Icon classes can be used entirely standalone. They are named after their origina
   width: 10px;
   height: 20px;
 }
-
 .icon-sprite_snake_case {
   background-image: url(nested/dir/spritesheet.png);
   background-position: -10px -20px;
   width: 20px;
   height: 30px;
 }
-
 .icon-spriteCamelCase {
   background-image: url(nested/dir/spritesheet.png);
   background-position: -30px -50px;
