@@ -41,19 +41,17 @@ exports.retinaMultipleSprites = {
   retinaSpritesheet: {
     width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
   },
-  retinaGroups: {
-    groups: [{
-      name: 'sprite-dash-case',
-      normal: 0,
-      retina: 0
-    }, {
-      name: 'sprite_snake_case',
-      normal: 1,
-      retina: 1
-    }, {
-      name: 'spriteCamelCase',
-      normal: 2,
-      retina: 2
-    }]
-  }
+  retinaGroups: [{
+    name: 'sprite-dash-case',
+    normal: 0,
+    retina: 0
+  }, {
+    name: 'sprite_snake_case',
+    normal: 1,
+    retina: 1
+  }, {
+    name: 'spriteCamelCase',
+    normal: 2,
+    retina: 2
+  }]
 };
