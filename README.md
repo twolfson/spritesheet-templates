@@ -1,12 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
-//   Diff afterwards for funzies
-
-// TODO: When we do the `info` release, fix that double space in SASS/SCSS as well
-
-// TODO: While we change the interface for `spritesheetName` in `spritesheet-templates`, I don't think we should transfer it to `grunt-spritesmith`. That is worthwhile complexity to keep since we technically don't know what other properties go in the info object.
-
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
