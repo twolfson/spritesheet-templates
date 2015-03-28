@@ -25,7 +25,7 @@ ${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width
 ${{retina_spritesheet_info.strings.name_width}} = {{retina_spritesheet.px.width}};
 ${{retina_spritesheet_info.strings.name_height}} = {{retina_spritesheet.px.height}};
 ${{retina_spritesheet_info.strings.name_image}} = '{{{retina_spritesheet.escaped_image}}}';
-${{retina_spritesheet_info.strings.name_sprites}} = ({{#each retina_sprites}}${{strings.name}}, {{/each}});
+${{retina_spritesheet_info.strings.name_sprites}} ={{#each retina_sprites}} ${{strings.name}}{{/each}};
 ${{retina_spritesheet_info.strings.name}} = {{retina_spritesheet.px.width}} {{retina_spritesheet.px.height}} '{{{retina_spritesheet.escaped_image}}}' ${{retina_spritesheet_info.strings.name_sprites}};
 
 /*
@@ -81,9 +81,9 @@ The `retinaSprites` mixin generates classes for retina sprite groups
 retinaSprites($retina_groups);
 */
 @mixin retinaSprites($retina_groups) {
-  @each $retina_group in $retina_groups {
+  for $retina_group in $retina_groups {
     $sprite_name = $retina_group[0];
-    .#{$sprite_name} {
+    .{$sprite_name} {
       retinaSprite($retina_group);
     }
   }
