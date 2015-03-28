@@ -1,6 +1,6 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Should we suffix all groups with `_group` to establish different type and preserve backwards compatibility?
+// TODO: Should we suffix all groups with `_group` to establish different type and preserve backwards compatibility? Be sure to update our template comments
 
 // TODO: Add tests in `grunt-spritesmith` that leverage `cssRetinaVarMap`, `cssRetinaSpritesheetName`, `cssRetinaGroupsName`, and `cssSelector` for retina? (Is the other variable `cssRetinaGroupVarMap`)?... maybe we should name them `groups` and let people figure out the naming
 

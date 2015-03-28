@@ -4,7 +4,7 @@
   'variableNameTransforms': ['underscored']
 }
 
-{{#extend "scss"}}
+{{#extend "stylus"}}
 {{#content "sprites" mode="append"}}
 {{#each retina_sprites}}
 ${{strings.name_name}} = '{{name}}';
@@ -35,20 +35,20 @@ The list formats are intended to be used with mixins like `retina-sprite` and `r
 */
 {{#each retina_groups}}
 ${{strings.name_name}} = '{{name}}';
-${{strings.name}} = ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}}, );
+${{strings.name}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
-${{retina_groups_info.strings.name}} = ({{#each retina_groups}}${{strings.name}}, {{/each}});
+${{retina_groups_info.strings.name}} ={{#each retina_groups}}${{strings.name}} {{/each}};
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
 
 /*
-The `sprite-retina` mixin is intended to be used on a "retina group".
+The `spriteRetina` mixin is intended to be used on a "retina group".
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-$icon-home = ('icon-home', $icon-home-normal, $icon-home-retina);
+$icon-home = 'icon-home' $icon-home-normal $icon-home-retina;
 
 .icon-home {
   @include retina-sprite($icon-home);
