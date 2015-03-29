@@ -4,7 +4,7 @@ var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
 describe('An retina array of image positions, dimensions, and names', function () {
-  testUtils.setInfo(configUtils.multipleSprites);
+  testUtils.setInfo(configUtils.retinaMultipleSprites);
 
   describe.only('processed by `spritesheet-templates` into retina SCSS (Maps)', function () {
     testUtils.runTemplater({format: 'scss_maps_retina'});

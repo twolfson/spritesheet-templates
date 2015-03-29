@@ -173,8 +173,8 @@ $icon-home-group: (
   $retina-sprite: map-get($retina-group, 'retina');
   @include sprite($normal-sprite);
 
-  @media (abc: 2x),
-         (def: 2x) {
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
     @include sprite-image($retina-sprite);
     @include sprite-background-size($normal-sprite);
   }
@@ -205,7 +205,7 @@ The `retina-sprites` mixin generates a CSS rule and media query for retina group
   @each $retina-group in $retina-groups {
     $sprite-name: map-get($retina-group, 'name');
     .#{$sprite-name} {
-      @include sprite($retina-group);
+      @include retina-sprite($retina-group);
     }
   }
 }
