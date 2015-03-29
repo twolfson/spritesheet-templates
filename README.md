@@ -612,20 +612,73 @@ These are additional properties of the template data when retina parameters have
     - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
         - name `String` - Name for `retina_groups`
 
-####### Retina handlebars template data
+####### Retina Handlebars template data
+Retina specific properties will have the same corresponding new data for Handlebars templates
 
-retina_sprites[*].strings
-// TODO: Verify we don't allow `retina_spritesheet.strings`
-retina_spritesheet_info.strings
-retina_groups[*].strings
-retina_groups_info.strings
-
-
-// TODO: Support add bare strings for
+- data.retina_sprites[*].strings `Object` - Container for retina sprite-relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - Properties are retina equivalent of `data.sprites[*].strings` (e.g. `name`, `name_name`, `bare_name`)
+- data.retina_spritesheet_info.strings `Object` - Container for retina spritesheet-relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - Properties are retina equivalent of `data.spritesheet_info.strings` (e.g. `name`, `name_sprites`, `bare_name`)
+- data.retina_groups[*].strings `Object` - Container for group-relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - name `String` - Transformed name of retina group (e.g. `icon-home`)
+    - name_name `String` - Transformed combination of retina group name and `-name` string (e.g. `icon-home-name`)
+    - name_x `String` - Transformed combination of retina group name and `-x` string (e.g. `icon-home-x`)
+    - name_y `String` - Transformed combination of retina group name and `-y` string (e.g. `icon-home-y`)
+    - name_offset_x `String` - Transformed combination of retina group name and `-offset-x` string (e.g. `icon-home-offset-x`)
+    - name_offset_y `String` - Transformed combination of retina group name and `-offset-y` string (e.g. `icon-home-offset-y`)
+    - name_width `String` - Transformed combination of retina group name and `-width` string (e.g. `icon-home-width`)
+    - name_height `String` - Transformed combination of retina group name and `-height` string (e.g. `icon-home-height`)
+    - name_total_width `String` - Transformed combination of retina group name and `-total-width` string (e.g. `icon-home-total-width`)
+    - name_total_height `String` - Transformed combination of retina group name and `-total-height` string (e.g. `icon-home-total-height`)
+    - name_image `String` - Transformed combination of retina group name and `-image` string (e.g. `icon-home-image`)
+    - name_sprites `String` - Transformed combination of retina group name and `-sprites` string (e.g. `icon-home-sprites`)
+    - name_group `String` - Transformed combination of retina group name and `-group` string (e.g. `icon-home-group`)
+    - name_group_name `String` - Transformed combination of retina group name and `-group-name` string (e.g. `icon-home-group-name`)
+    - bare_name `String` - Transformed word for `name`
+    - bare_x `String` - Transformed word for `x`
+    - bare_y `String` - Transformed word for `y`
+    - bare_offset_x `String` - Transformed word for `offset-x`
+    - bare_offset_y `String` - Transformed word for `offset-y`
+    - bare_width `String` - Transformed word for `width`
+    - bare_height `String` - Transformed word for `height`
+    - bare_total_width `String` - Transformed word for `total-width`
+    - bare_total_height `String` - Transformed word for `total-height`
+    - bare_image `String` - Transformed word for `image`
+    - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
-
-
+- data.retina_spritesheet_info.strings `Object` - Container for retina groups relevant variable/string names
+    - Each of these strings will be transformed via `variableNameTransforms`
+    - name `String` - Transformed name of retina groups (e.g. `icon-home`)
+    - name_name `String` - Transformed combination of retina groups name and `-name` string (e.g. `icon-home-name`)
+    - name_x `String` - Transformed combination of retina groups name and `-x` string (e.g. `icon-home-x`)
+    - name_y `String` - Transformed combination of retina groups name and `-y` string (e.g. `icon-home-y`)
+    - name_offset_x `String` - Transformed combination of retina groups name and `-offset-x` string (e.g. `icon-home-offset-x`)
+    - name_offset_y `String` - Transformed combination of retina groups name and `-offset-y` string (e.g. `icon-home-offset-y`)
+    - name_width `String` - Transformed combination of retina groups name and `-width` string (e.g. `icon-home-width`)
+    - name_height `String` - Transformed combination of retina groups name and `-height` string (e.g. `icon-home-height`)
+    - name_total_width `String` - Transformed combination of retina groups name and `-total-width` string (e.g. `icon-home-total-width`)
+    - name_total_height `String` - Transformed combination of retina groups name and `-total-height` string (e.g. `icon-home-total-height`)
+    - name_image `String` - Transformed combination of retina groups name and `-image` string (e.g. `icon-home-image`)
+    - name_sprites `String` - Transformed combination of retina groups name and `-sprites` string (e.g. `icon-home-sprites`)
+    - name_group `String` - Transformed combination of retina groups name and `-group` string (e.g. `icon-home-group`)
+    - name_group_name `String` - Transformed combination of retina groups name and `-group-name` string (e.g. `icon-home-group-name`)
+    - bare_name `String` - Transformed word for `name`
+    - bare_x `String` - Transformed word for `x`
+    - bare_y `String` - Transformed word for `y`
+    - bare_offset_x `String` - Transformed word for `offset-x`
+    - bare_offset_y `String` - Transformed word for `offset-y`
+    - bare_width `String` - Transformed word for `width`
+    - bare_height `String` - Transformed word for `height`
+    - bare_total_width `String` - Transformed word for `total-width`
+    - bare_total_height `String` - Transformed word for `total-height`
+    - bare_image `String` - Transformed word for `image`
+    - bare_sprites `String` - Transformed word for `sprites`
+    - bare_group `String` - Transformed word for `group`
+    - bare_group_name `String` - Transformed word for `group-name`
 
 ##### `templater.addTemplate(name, fn)`
 Method to define a custom template under the format of `name`.
