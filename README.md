@@ -508,6 +508,8 @@ The parameters passed into your template are known as `data`. These are a cloned
     - spritesheet_info `Object` - Container for information about `spritesheet` and its representation
         - name `String` - Name for `spritesheet`
     - options `Mixed` - Options to passed through via `options.formatOpts`
+    - If we have retina parameters were passed in, then we prepare additional retina properties as well
+        - More info can be found on these parameters in [Retina template data](#Retina-template-data)
 
 ###### Handlebars template data
 We provide an extra set of data for `handlebars` templates for variable/string names.
@@ -526,6 +528,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - name_total_height `String` - Transformed combination of sprite name and `-total-height` string (e.g. `icon-home-total-height`)
     - name_image `String` - Transformed combination of sprite name and `-image` string (e.g. `icon-home-image`)
     - name_sprites `String` - Transformed combination of sprite name and `-sprites` string (e.g. `icon-home-sprites`)
+    - name_group `String` - Transformed combination of sprite name and `-group` string (e.g. `icon-home-group`)
+    - name_group_name `String` - Transformed combination of sprite name and `-group-name` string (e.g. `icon-home-group-name`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -537,6 +541,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
+    - bare_group `String` - Transformed word for `group`
+    - bare_group_name `String` - Transformed word for `group-name`
 - data.spritesheet.strings `Object` - Deprecated container for spritesheet-relevant variable/string names
     - Contents will match the same as `data.spritesheet_info.strings`
 - data.spritesheet_info.strings `Object` - Container for spritesheet-relevant variable/string names
@@ -553,6 +559,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - name_total_height `String` - Transformed combination of spritesheet name and `-total-height` string (e.g. `icon-home-total-height`)
     - name_image `String` - Transformed combination of spritesheet name and `-image` string (e.g. `icon-home-image`)
     - name_sprites `String` - Transformed combination of spritesheet name and `-sprites` string (e.g. `icon-home-sprites`)
+    - name_group `String` - Transformed combination of spritesheet name and `-group` string (e.g. `icon-home-group`)
+    - name_group_name `String` - Transformed combination of spritesheet name and `-group-name` string (e.g. `icon-home-group-name`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -564,6 +572,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
+    - bare_group `String` - Transformed word for `group`
+    - bare_group_name `String` - Transformed word for `group-name`
 - data.strings `Object` - Container for generic strings
     - Each of these strings will be transformed via `variableNameTransforms`
     - bare_name `String` - Transformed word for `name`
@@ -577,6 +587,18 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_total_height `String` - Transformed word for `total-height`
     - bare_image `String` - Transformed word for `image`
     - bare_sprites `String` - Transformed word for `sprites`
+    - bare_group `String` - Transformed word for `group`
+    - bare_group_name `String` - Transformed word for `group-name`
+
+####### Retina template data
+
+####### Retina handlebars template data
+
+// TODO: Support add bare strings for
+    - bare_group `String` - Transformed word for `group`
+    - bare_group_name `String` - Transformed word for `group-name`
+
+
 
 ##### `templater.addTemplate(name, fn)`
 Method to define a custom template under the format of `name`.
