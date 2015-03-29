@@ -21,9 +21,9 @@ describe('An array of image positions, dimensions, and names', function () {
     assertValidJson();
   });
 
-  describe.skip('processed by `spritesheet-templates` into an retina array', function () {
-    testUtils.runTemplater({format: 'jsonArray'});
-    testUtils.assertOutputMatches(__dirname + '/expected_files/jsonArray.json');
+  describe.only('processed by `spritesheet-templates` into an retina array', function () {
+    testUtils.runTemplater({format: 'jsonArray_retina'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/jsonArray_retina.json');
 
     assertValidJson();
   });
