@@ -1,7 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document JSON and SCSS retina
-
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
 
