@@ -41,31 +41,54 @@ The list formatted variables are intended for mixins like `retina-sprite` and `r
 
 {{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
-{{/if}}
-{{/content}}
-
-{{#content "spritesheet-functions-comment" mode="append"}}
-{{#if options.functions}}
 /*
-The `.sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of LESS
+The `retina-sprite` class sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
 
-This must be run when you have at least 2 sprites.
-  If run with a single sprite, then there will be reference errors.
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-.sprites(@spritesheet-sprites);
+@icon-home-group: 'icon-home' $icon-home $icon-home-2x;
+
+.icon-home {
+  .retina-sprite(@icon-home-group);
+}
 */
+.sprite-background-size(@sprite) {
+  @sprite-total-width: extract(@sprite, 7);
+  @sprite-total-height: extract(@sprite, 8);
+  background-size: @sprite-total-width @sprite-total-height;
+}
+
+.retina-sprite(@retina-group) {
+  @normal-sprite: extract(@retina-group, 2);
+  @retina-sprite: extract(@retina-group, 3);
+  .sprite(@normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    .sprite-image(@retina-sprite);
+    .sprite-background-size(@normal-sprite);
+  }
+}
 {{/if}}
 {{/content}}
+
 {{#content "spritesheet-functions" mode="append"}}
 {{#if options.functions}}
-.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
-  @sprite: extract(@sprites, @i);
-  @sprite-name: extract(@sprite, 10);
+
+/*
+The `.retina-sprites` mixin generates a CSS rule and media query for retina group
+  This yields the same output as CSS retina template but can be overridden in LESS
+
+.retina-sprites(@retina-groups);
+*/
+.retina-sprites(@retina-groups, @i: 1) when (@i <= length(@retina-groups)) {
+  @retina-group: extract(@retina-groups, @i);
+  @sprite-name: extract(@retina-group, 1);
   .@{sprite-name} {
-    .sprite(@sprite);
+    .retina-sprite(@retina-group);
   }
-  .sprites(@sprites, @i + 1);
+  .retina-sprites(@retina-groups, @i + 1);
 }
 {{/if}}
 {{/content}}
