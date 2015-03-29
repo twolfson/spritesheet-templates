@@ -1,0 +1,195 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$sprite_dash_case_name = 'sprite-dash-case';
+$sprite_dash_case_x = 0px;
+$sprite_dash_case_y = 0px;
+$sprite_dash_case_offset_x = 0px;
+$sprite_dash_case_offset_y = 0px;
+$sprite_dash_case_width = 10px;
+$sprite_dash_case_height = 20px;
+$sprite_dash_case_total_width = 80px;
+$sprite_dash_case_total_height = 100px;
+$sprite_dash_case_image = 'nested/dir/spritesheet.png';
+$sprite_dash_case = 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite-dash-case';
+$sprite_snake_case_name = 'sprite_snake_case';
+$sprite_snake_case_x = 10px;
+$sprite_snake_case_y = 20px;
+$sprite_snake_case_offset_x = -10px;
+$sprite_snake_case_offset_y = -20px;
+$sprite_snake_case_width = 20px;
+$sprite_snake_case_height = 30px;
+$sprite_snake_case_total_width = 80px;
+$sprite_snake_case_total_height = 100px;
+$sprite_snake_case_image = 'nested/dir/spritesheet.png';
+$sprite_snake_case = 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' 'sprite_snake_case';
+$sprite_camel_case_name = 'spriteCamelCase';
+$sprite_camel_case_x = 30px;
+$sprite_camel_case_y = 50px;
+$sprite_camel_case_offset_x = -30px;
+$sprite_camel_case_offset_y = -50px;
+$sprite_camel_case_width = 50px;
+$sprite_camel_case_height = 50px;
+$sprite_camel_case_total_width = 80px;
+$sprite_camel_case_total_height = 100px;
+$sprite_camel_case_image = 'nested/dir/spritesheet.png';
+$sprite_camel_case = 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'spriteCamelCase';
+$spritesheet_width = 80px;
+$spritesheet_height = 100px;
+$sprite_dash_case_retina_name = 'sprite-dash-case-retina';
+$sprite_dash_case_retina_x = 0px;
+$sprite_dash_case_retina_y = 0px;
+$sprite_dash_case_retina_offset_x = 0px;
+$sprite_dash_case_retina_offset_y = 0px;
+$sprite_dash_case_retina_width = 20px;
+$sprite_dash_case_retina_height = 40px;
+$sprite_dash_case_retina_total_width = 160px;
+$sprite_dash_case_retina_total_height = 200px;
+$sprite_dash_case_retina_image = 'nested/dir/spritesheet-retina.png';
+$sprite_dash_case_retina = 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet-retina.png' 'sprite-dash-case-retina';
+$sprite_snake_case_retina_name = 'sprite_snake_case_retina';
+$sprite_snake_case_retina_x = 20px;
+$sprite_snake_case_retina_y = 40px;
+$sprite_snake_case_retina_offset_x = -20px;
+$sprite_snake_case_retina_offset_y = -40px;
+$sprite_snake_case_retina_width = 40px;
+$sprite_snake_case_retina_height = 60px;
+$sprite_snake_case_retina_total_width = 160px;
+$sprite_snake_case_retina_total_height = 200px;
+$sprite_snake_case_retina_image = 'nested/dir/spritesheet-retina.png';
+$sprite_snake_case_retina = 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spritesheet-retina.png' 'sprite_snake_case_retina';
+$sprite_camel_case_retina_name = 'spriteCamelCaseRetina';
+$sprite_camel_case_retina_x = 60px;
+$sprite_camel_case_retina_y = 100px;
+$sprite_camel_case_retina_offset_x = -60px;
+$sprite_camel_case_retina_offset_y = -100px;
+$sprite_camel_case_retina_width = 100px;
+$sprite_camel_case_retina_height = 100px;
+$sprite_camel_case_retina_total_width = 160px;
+$sprite_camel_case_retina_total_height = 200px;
+$sprite_camel_case_retina_image = 'nested/dir/spritesheet-retina.png';
+$sprite_camel_case_retina = 60px 100px -60px -100px 100px 100px 160px 200px 'nested/dir/spritesheet-retina.png' 'spriteCamelCaseRetina';
+$spritesheet_image = 'nested/dir/spritesheet.png';
+$spritesheet_sprites = $sprite_dash_case $sprite_snake_case $sprite_camel_case;
+$spritesheet = 80px 100px 'nested/dir/spritesheet.png' $spritesheet_sprites;
+$retina_spritesheet_image = 'nested/dir/spritesheet-retina.png';
+$retina_spritesheet_sprites = $sprite_dash_case_retina $sprite_snake_case_retina $sprite_camel_case_retina;
+$retina_spritesheet = 160px 200px 'nested/dir/spritesheet-retina.png' $retina_spritesheet_sprites;
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
+*/
+$sprite_dash_case_group_name = 'sprite-dash-case';
+$sprite_dash_case_group = 'sprite-dash-case' $sprite_dash_case $sprite_dash_case_retina;
+$sprite_snake_case_group_name = 'sprite_snake_case';
+$sprite_snake_case_group = 'sprite_snake_case' $sprite_snake_case $sprite_snake_case_retina;
+$sprite_camel_case_group_name = 'spriteCamelCase';
+$sprite_camel_case_group = 'spriteCamelCase' $sprite_camel_case $sprite_camel_case_retina;
+$retina_groups = $sprite_dash_case_group $sprite_snake_case_group $sprite_camel_case_group;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
+
+.icon-home {
+  retinaSprite($icon_home_group)
+}
+*/
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
+retinaSprite($sprite_group) {
+  $normal_sprite = $sprite[1];
+  $retina_sprite = $sprite[2];
+  sprite($normal_sprite)
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retinaSprites` mixin generates a CSS rule and media query for retina group
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+retinaSprites($retina_groups);
+*/
+retinaSprites($retina_groups) {
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
+    .{$sprite_name} {
+      retinaSprite($retina_group);
+    }
+  }
+}
