@@ -761,7 +761,7 @@ Retina specific properties will have the same corresponding new data for Handleb
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
-- data.retina_spritesheet_info.strings `Object` - Container for retina groups relevant variable/string names
+- data.retina_groups_info.strings `Object` - Container for retina groups relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of retina groups (e.g. `icon-home`)
     - name_name `String` - Transformed combination of retina groups name and `-name` string (e.g. `icon-home-name`)
