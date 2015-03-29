@@ -1,6 +1,6 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document CSS and SCSS retina
+// TODO: Document JSON and SCSS retina
 
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
 //   Diff afterwards for funzies
@@ -499,6 +499,44 @@ We extend from the [`css` template](#css) and have its blocks. There are no new 
 }
 ```
 
+#### `json_retina`
+Output retina CSS variables in JSON format.
+
+**Example:**
+
+```js
+{
+    "sprite1": {
+        "normal": {
+            "x": 0,
+            "y": 0,
+            "width": 10,
+            "height": 20,
+            "image": "nested/dir/spritesheet.png",
+            "escaped_image": "nested/dir/spritesheet.png",
+            "total_width": 80,
+            "total_height": 100,
+            "offset_x": 0,
+            "offset_y": 0,
+            "px": {
+                "x": "0px",
+                "y": "0px",
+                "offset_x": "0px",
+                "offset_y": "0px",
+                "height": "20px",
+                "width": "10px",
+                "total_height": "100px",
+                "total_width": "80px"
+            }
+        },
+        "retina": {
+            "x": 0,
+            "y": 0,
+            // ...
+    },
+    "sprite2": {
+    // ...
+```
 
 #### Custom
 Custom templates can be added dynamically via `templater.addTemplate` and `templater.addHandlebarsTemplate`.
