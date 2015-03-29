@@ -1,13 +1,14 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Add sass_retina
 // TODO: Add scss_maps_retina
 
+// TODO: Document sass_retina
 // TODO: Document stylus_retina
 // TODO: Document json_array_retina
 // TODO: Document less_retina
 
 // TODO: Verify we didn't name anything sprite-group (or a variant)
+// TODO: Verify no language cross over
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
