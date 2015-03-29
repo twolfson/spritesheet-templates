@@ -538,6 +538,43 @@ Output retina CSS variables in JSON format.
     // ...
 ```
 
+#### `scss_retina`
+Output retina CSS variables as [SCSS][] variables and mixins.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+We extend from the [`scss` template](#scss) and have its blocks. There are no new sections for retina data.
+
+**Example:**
+
+```scss
+$sprite1-name: 'sprite1';
+$sprite1-x: 0px;
+$sprite1-y: 0px;
+$sprite1-offset-x: 0px;
+$sprite1-total-width: 80px;
+$sprite1-total-height: 100px;
+// ...
+$sprite2-2x-total-width: 160px;
+$sprite2-2x-total-height: 200px;
+$sprite2-2x-image: 'nested/dir/spritesheet-retina.png';
+$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-retina.png', 'sprite2-2x', );
+// ...
+$sprite3-group: ('sprite3', $sprite3, $sprite3-2x, );
+$retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
+```
+
 #### Custom
 Custom templates can be added dynamically via `templater.addTemplate` and `templater.addHandlebarsTemplate`.
 
