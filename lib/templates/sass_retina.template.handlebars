@@ -63,8 +63,7 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_gr
   $retina-sprite: nth($retina-group, 3)
   @include sprite($normal-sprite)
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi)
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
     @include sprite-image($retina-sprite)
     @include sprite-background-size($normal-sprite)
 {{/if}}
