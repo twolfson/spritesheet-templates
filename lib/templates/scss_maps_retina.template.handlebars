@@ -45,11 +45,19 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}},
 
 /* Comment about retina-sprite */
 @mixin sprite-background-size($sprite) {
-
+  background-size: map-get($sprite, '{{strings.bare_total_width}}') map-get($sprite, '{{strings.bare_total_height}}');
 }
 
 @mixin retina-sprite($retina-group) {
+  $normal-sprite: map-get($retina-group, '{{strings.bare_normal}}');
+  $retina-sprite: map-get($retina-group, '{{strings.bare_retina}}');
+  @include sprite($normal-sprite);
 
+  @media (hello: 2x),
+         (world: 2x) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
 }
 {{/if}}
 {{/content}}
@@ -59,7 +67,12 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}},
 
 /* Comment about retina-sprites */
 @mixin retina-sprites($retina-groups) {
-
+  @each $retina-group in $retina-groups {
+    $sprite-name: map-get($retina-group, '{{strings.bare_name}}');
+    .${sprite-name} {
+      @include retina-sprite($retina-group);
+    }
+  }
 }
 {{/if}}
 {{/content}}
