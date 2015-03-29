@@ -4,7 +4,8 @@
   'variableNameTransforms': ['dasherize']
 }
 
-{{#block "sprites-comment"}}
+{{#extend "scss_maps"}}
+{{#content "sprites-comment"}}
 /*
 SCSS variables are information about icon's compiled state, stored under its original file name
 
@@ -14,8 +15,8 @@ SCSS variables are information about icon's compiled state, stored under its ori
 
 At the bottom of this section, we provide information about the spritesheet itself
 */
-{{/block}}
-{{#block "sprites"}}
+{{/content}}
+{{#content "sprites"}}
 {{#each sprites}}
 ${{strings.name}}: (
   {{strings.bare_name}}: '{{name}}',
@@ -30,17 +31,17 @@ ${{strings.name}}: (
   {{strings.bare_image}}: '{{{escaped_image}}}'
 );
 {{/each}}
-{{/block}}
-{{#block "spritesheet"}}
+{{/content}}
+{{#content "spritesheet"}}
 ${{spritesheet_info.strings.name}}: (
   {{spritesheet_info.strings.bare_width}}: {{spritesheet.px.width}},
   {{spritesheet_info.strings.bare_height}}: {{spritesheet.px.height}},
   {{spritesheet_info.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
   {{spritesheet_info.strings.bare_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}})
 );
-{{/block}}
+{{/content}}
 
-{{#block "sprite-functions-comment"}}
+{{#content "sprite-functions-comment"}}
 {{#if options.functions}}
 /*
 The provided mixins are intended to be used with variables directly
@@ -54,8 +55,8 @@ The provided mixins are intended to be used with variables directly
 }
 */
 {{/if}}
-{{/block}}
-{{#block "sprite-functions"}}
+{{/content}}
+{{#content "sprite-functions"}}
 {{#if options.functions}}
 @mixin sprite-width($sprite) {
   width: map-get($sprite, '{{strings.bare_width}}');
@@ -80,9 +81,9 @@ The provided mixins are intended to be used with variables directly
   @include sprite-height($sprite);
 }
 {{/if}}
-{{/block}}
+{{/content}}
 
-{{#block "spritesheet-functions-comment"}}
+{{#content "spritesheet-functions-comment"}}
 {{#if options.functions}}
 /*
 The `sprites` mixin generates identical output to the CSS template
@@ -91,8 +92,8 @@ The `sprites` mixin generates identical output to the CSS template
 @include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
 */
 {{/if}}
-{{/block}}
-{{#block "spritesheet-functions"}}
+{{/content}}
+{{#content "spritesheet-functions"}}
 {{#if options.functions}}
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
@@ -103,4 +104,5 @@ The `sprites` mixin generates identical output to the CSS template
   }
 }
 {{/if}}
-{{/block}}
+{{/content}}
+{{/extend}}
