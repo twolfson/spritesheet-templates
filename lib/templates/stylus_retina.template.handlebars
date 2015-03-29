@@ -1,0 +1,108 @@
+{
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['underscored']
+}
+
+{{#extend "stylus"}}
+{{#content "sprites" mode="append"}}
+{{#each retina_sprites}}
+${{strings.name_name}} = '{{name}}';
+${{strings.name_x}} = {{px.x}};
+${{strings.name_y}} = {{px.y}};
+${{strings.name_offset_x}} = {{px.offset_x}};
+${{strings.name_offset_y}} = {{px.offset_y}};
+${{strings.name_width}} = {{px.width}};
+${{strings.name_height}} = {{px.height}};
+${{strings.name_total_width}} = {{px.total_width}};
+${{strings.name_total_height}} = {{px.total_height}};
+${{strings.name_image}} = '{{{escaped_image}}}';
+${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' '{{name}}';
+{{/each}}
+{{/content}}
+{{#content "spritesheet" mode="append"}}
+${{retina_spritesheet_info.strings.name_width}} = {{retina_spritesheet.px.width}};
+${{retina_spritesheet_info.strings.name_height}} = {{retina_spritesheet.px.height}};
+${{retina_spritesheet_info.strings.name_image}} = '{{{retina_spritesheet.escaped_image}}}';
+${{retina_spritesheet_info.strings.name_sprites}} ={{#each sprites}} ${{strings.name}}{{/each}};
+${{retina_spritesheet_info.strings.name}} = {{retina_spritesheet.px.width}} {{retina_spritesheet.px.height}} '{{{retina_spritesheet.escaped_image}}}' ${{retina_spritesheet_info.strings.name_sprites}};
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
+{{#each retina_groups}}
+${{strings.name_group_name}} = '{{name}}';
+${{strings.name_group}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
+{{/each}}
+${{retina_group_info.strings.name}} ={{#each retina_groups}} ${{strings.name_group}}{{/each}};
+{{/content}}
+
+{{#block "sprite-functions-comment"}}
+{{#if options.functions}}
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+{{/if}}
+{{/block}}
+{{#block "sprite-functions"}}
+{{#if options.functions}}
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+{{/if}}
+{{/block}}
+
+{{#block "spritesheet-functions-comment"}}
+{{#if options.functions}}
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+{{/if}}
+{{/block}}
+{{#block "spritesheet-functions"}}
+{{#if options.functions}}
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+{{/if}}
+{{/block}}
