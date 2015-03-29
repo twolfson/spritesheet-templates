@@ -591,24 +591,26 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_group_name `String` - Transformed word for `group-name`
 
 ####### Retina template data
+These are additional properties of the template data when retina parameters have been passed in (e.g. `retina_sprites`, `retina_groups`). As with the normal data, it is cloned copy of the original data with additional properties for convenience.
+
 - data `Object` - Same container as defined above
     - retina_sprites `Object[]` - Array of objects with coordinate data about each retina sprite for the retina spritesheet
-        - Properties are retina equivalent of `data.sprites`
-        - These should be in the same order as their normal complements
+        - Properties are retina equivalent of `data.sprites` (e.g. `name`, `x`, `offset_y`, `px`)
     - retina_spritesheet `Object` - Information about retina spritesheet
-        - Properties are retina equivalent of `data.spritesheet`
+        - Properties are retina equivalent of `data.spritesheet` (e.g. `width`, `image`, `px`)
+            - We do not provide `retina_spritesheet.name` as `name` is deprecated
     - retina_spritesheet_info `Object` - Optional container for metadata about `retina_spritesheet` and its representation
-        - Properties are retina equivalent of `data.spritesheet_info`
-            - For example, `name` will change the corresponding name variable
+        - Properties are retina equivalent of `data.spritesheet_info` (e.g. `name`)
     - retina_groups `Object[]` - Array of objects that maps to normal and retina sprites
         - * `Object` - Container for data about sprite mapping
             - name `String` - Name to refer to mapping by
-                - This is typically used for CSS selectors and variable names
-            - index `Number` - Index to look up corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
+            - index `Number` - Index of corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
+            - normal `Object` - Normal sprite from `data.sprites` that corresponds to our mapping
+                - This has all the same properties as `data.sprites[*]` (e.g. `name`, `x`, `offset_y`, `px`)
+            - retina `Object` - Retina sprite from `data.retina_sprites` that corresponds to our mapping
+                - This has all the same properties as `data.retina_sprites[*]` (e.g. `name`, `x`, `offset_y`, `px`)
     - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
-        - name `String` - Name to use for `retina_groups` variable
-            - For example, `icon-groups` will generate `$icons-groups` in a SCSS template
-            - By default, this is `retina-groups` (e.g. `$retina-groups`)
+        - name `String` - Name for `retina_groups`
 
 ####### Retina handlebars template data
 
