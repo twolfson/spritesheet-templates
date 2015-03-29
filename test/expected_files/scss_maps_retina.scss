@@ -92,7 +92,11 @@ $retina-spritesheet: (
   sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case2x, )
 );
 
-/* TODO: Add comment */
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The map variables are intended for the `retina-sprite` mixin. The list variable is for `retina-sprites`.
+*/
 $sprite-dash-case-group: (
   name: 'sprite-dash-case',
   normal: $sprite-dash-case,
@@ -144,7 +148,22 @@ The provided mixins are intended to be used with variables directly
   @include sprite-height($sprite);
 }
 
-/* TODO: Add comment */
+/*
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home-group: (
+  name: 'icon-home',
+  normal: $icon-home,
+  retina: $icon-home-2x
+);
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
+*/
 @mixin sprite-background-size($sprite) {
   background-size: map-get($sprite, 'total-width') map-get($sprite, 'total-height');
 }
@@ -176,7 +195,12 @@ The `sprites` mixin generates identical output to the CSS template
   }
 }
 
-/* TODO: Comment */
+/*
+The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+@include retina-sprites($retina-groups);
+*/
 @mixin retina-sprites($retina-groups) {
   @each $retina-group in $retina-groups {
     $sprite-name: map-get($retina-group, 'name');
