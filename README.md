@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Create example for retina spritesheet
 // TODO: Document CSS and SCSS retina
 
 // TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
@@ -134,6 +133,8 @@ Below are our template options for `options.format`.
 Handlebars-based templates support inheritance via [`handlebars-layouts`][] (e.g. `{{#extend "css"}}`). Inherited templates must copy/paste JSON front matter. An example can be found in the [Examples section](#examples).
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
+
+Retina templates have the same setup but are located in the [Retina templates section](#retina-templates) for convenience.
 
 #### `css`
 Ouput CSS variables as CSS rules.
@@ -461,6 +462,43 @@ $sprite2_name = 'sprite2';
 ```
 
 [Stylus]: http://learnboost.github.io/stylus/
+
+#### Retina templates
+These are a subset of templates that support retina spritesheets. These require retina parameters like `retina_sprites` are provided in order to work properly.
+
+#### `css_retina`
+Ouput CSS variables as CSS rules with media query and additional rules for retina support.
+
+**Options:**
+
+- cssSelector `Function` - Override mapping for CSS selector
+    - `cssSelector` should have signature `function (retinaGroup) { return 'selector'; }`
+    - By default this will return `'.icon-' + retinaGroup.name`
+    - It will receive `retinaGroup` with all parameters designed for `retina_groups[*]` in templates (e.g. `name`, `normal`, `retina`)
+
+**Handlebars blocks:**
+
+We extend from the [`css` template](#css) and have its blocks. There are no new sections for retina data.
+
+**Example:**
+
+```css
+.icon-sprite1 {
+  background-image: url(nested/dir/spritesheet.png);
+  background-position: 0px 0px;
+  width: 10px;
+  height: 20px;
+}
+/* ... */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .icon-sprite1 {
+    background-image: url(nested/dir/spritesheet-retina.png);
+    background-size: 80px 100px;
+  }
+}
+```
+
 
 #### Custom
 Custom templates can be added dynamically via `templater.addTemplate` and `templater.addHandlebarsTemplate`.
