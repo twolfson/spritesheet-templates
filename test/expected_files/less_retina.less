@@ -93,12 +93,12 @@ These "retina group" variables are mappings for the naming and pairing of normal
 
 The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
 */
-@sprite-dash-case-group-name: 'sprite-dash-case';
-@sprite-dash-case-group: 'sprite-dash-case' $sprite-dash-case $sprite-dash-case-2x;
-@sprite-snake-case-group-name: 'sprite_snake_case';
-@sprite-snake-case-group: 'sprite_snake_case' $sprite-snake-case $sprite-snake-case-2x;
-@sprite-camel-case-group-name: 'spriteCamelCase';
-@sprite-camel-case-group: 'spriteCamelCase' $sprite-camel-case $sprite-camel-case2x;
+@sprite-dash-case-group-name: sprite-dash-case;
+@sprite-dash-case-group: sprite-dash-case $sprite-dash-case $sprite-dash-case-2x;
+@sprite-snake-case-group-name: sprite_snake_case;
+@sprite-snake-case-group: sprite_snake_case $sprite-snake-case $sprite-snake-case-2x;
+@sprite-camel-case-group-name: spriteCamelCase;
+@sprite-camel-case-group: spriteCamelCase $sprite-camel-case $sprite-camel-case2x;
 @retina-groups: @sprite-dash-case-group @sprite-camel-case-group @sprite-camel-case-group;
 
 /*
@@ -189,7 +189,7 @@ This must be run when you have at least 2 sprites.
 }
 
 /*
-The `retina-sprites` class generates a CSS rule and media query for retina group
+The `.retina-sprites` mixin generates a CSS rule and media query for retina group
   This yields the same output as CSS retina template but can be overridden in LESS
 
 .retina-sprites(@retina-groups);
