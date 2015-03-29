@@ -27,12 +27,16 @@ ${{retina_spritesheet_info.strings.name_image}}: '{{{retina_spritesheet.escaped_
 ${{retina_spritesheet_info.strings.name_sprites}}: ({{#each retina_sprites}}${{strings.name}}, {{/each}});
 ${{retina_spritesheet_info.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet_info.strings.name_sprites}}, );
 
-/* nice comment */
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
 {{#each retina_groups}}
-${{strings.name_name}}: '{{name}}';
-${{strings.name}}: ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}}, );
-{{/each
-${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}}, {{/each}});
+${{strings.name_group_name}}: '{{name}}';
+${{strings.name_group}}: ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}}, );
+{{/each}}
+${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_group}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}

@@ -1,6 +1,6 @@
 {{#extend "css"}}
-{{#content "sprites"}}
-{{#each sprite_groups}}
+{{#content "sprites" mode="replace"}}
+{{#each retina_groups}}
 {{{selector}}} {
   background-image: url({{{normal.escaped_image}}});
   background-position: {{normal.px.offset_x}} {{normal.px.offset_y}};
@@ -11,7 +11,7 @@
 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
-{{#each sprite_groups}}
+{{#each retina_groups}}
   {{{selector}}} {
     background-image: url({{{retina.escaped_image}}});
     background-size: {{normal.px.total_width}} {{normal.px.total_height}};
