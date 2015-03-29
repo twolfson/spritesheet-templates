@@ -41,20 +41,28 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_group}}{{strings.name_grou
 {{#if options.functions}}
 
 /*
-  Diligently transcribe comment, indent, leave out semicolons/braces
+  The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+    It should be used with a "retina group" variable.
+
+  The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+  $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, )
+
+  .icon-home
+    @include retina-sprite($icon-home-group)
   */
 @mixin sprite-background-size($sprite)
   $sprite-total-width: nth($sprite, 7)
   $sprite-total-height: nth($sprite, 8)
-  background-size: $sprite-total-width  $sprite-total-height
+  background-size: $sprite-total-width $sprite-total-height
 
 @mixin retina-sprite($retina-group)
   $normal-sprite: nth($retina-group, 2)
   $retina-sprite: nth($retina-group, 3)
   @include sprite($normal-sprite)
 
-  @media (abc: 2x),
-         (def: 2x)
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi)
     @include sprite-image($retina-sprite)
     @include sprite-background-size($normal-sprite)
 {{/if}}
@@ -64,7 +72,10 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_group}}{{strings.name_grou
 {{#if options.functions}}
 
 /*
-  Diligently transcribe comment, indent, leave out semicolons/braces
+  The `retina-sprites` mixin generates a CSS rule and media query for retina group
+    This yields the same output as CSS retina template but can be overridden in SASS
+
+  @include retina-sprites($retina-groups)
   */
 @mixin retina-sprites($retina-groups)
   @each $retina-group in $retina-groups

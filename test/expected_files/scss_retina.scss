@@ -156,9 +156,9 @@ $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, );
   background-size: $sprite-total-width $sprite-total-height;
 }
 
-@mixin retina-sprite($sprite-group) {
-  $normal-sprite: nth($sprite-group, 2);
-  $retina-sprite: nth($sprite-group, 3);
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: nth($retina-group, 2);
+  $retina-sprite: nth($retina-group, 3);
   @include sprite($normal-sprite);
 
   @media (-webkit-min-device-pixel-ratio: 2),
