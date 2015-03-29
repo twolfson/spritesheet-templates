@@ -32,14 +32,14 @@ exports.retinaMultipleSprites = {
     width: 80, height: 100, image: 'nested/dir/spritesheet.png'
   },
   retina_sprites: [{
-    name: 'sprite-dash-case-retina', x: 0, y: 0, width: 20, height: 40
+    name: 'sprite-dash-case-2x', x: 0, y: 0, width: 20, height: 40
   }, {
-    name: 'sprite_snake_case_retina', x: 20, y: 40, width: 40, height: 60
+    name: 'sprite_snake_case_2x', x: 20, y: 40, width: 40, height: 60
   }, {
-    name: 'spriteCamelCaseRetina', x: 60, y: 100, width: 100, height: 100
+    name: 'spriteCamelCase2x', x: 60, y: 100, width: 100, height: 100
   }],
   retina_spritesheet: {
-    width: 160, height: 200, image: 'nested/dir/spritesheet-retina.png'
+    width: 160, height: 200, image: 'nested/dir/spritesheet-2x.png'
   },
   retina_groups: [{
     name: 'sprite-dash-case',
