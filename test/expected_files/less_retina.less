@@ -156,9 +156,9 @@ The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-d
   background-size: @sprite-total-width @sprite-total-height;
 }
 
-.retina-sprite(@sprite-group) {
-  @normal-sprite: extract(@sprite-group, 2);
-  @retina-sprite: extract(@sprite-group, 3);
+.retina-sprite(@retina-group) {
+  @normal-sprite: extract(@retina-group, 2);
+  @retina-sprite: extract(@retina-group, 3);
   .sprite(@normal-sprite);
 
   @media (-webkit-min-device-pixel-ratio: 2),
