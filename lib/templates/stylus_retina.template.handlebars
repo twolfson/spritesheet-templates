@@ -58,9 +58,9 @@ spriteBackgroundSize($sprite) {
   background-size: $sprite[6] $sprite[7];
 }
 
-retinaSprite($sprite_group) {
-  $normal_sprite = $sprite[1];
-  $retina_sprite = $sprite[2];
+retinaSprite($retina_group) {
+  $normal_sprite = $retina_group[1];
+  $retina_sprite = $retina_group[2];
   sprite($normal_sprite)
 
   @media (-webkit-min-device-pixel-ratio: 2),

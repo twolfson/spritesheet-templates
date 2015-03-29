@@ -10,7 +10,7 @@ describe('An retina array of image positions, dimensions, and names', function (
     testUtils.runTemplater({format: 'stylus_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/stylus_retina.styl');
 
-    describe.skip('processed by Stylus into CSS', function () {
+    describe('processed by Stylus into CSS', function () {
       // Process the Stylus
       testUtils.processCss(function processStylus (cb) {
         // Add some stylus which hooks into our result
