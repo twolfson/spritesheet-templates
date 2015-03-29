@@ -44,39 +44,39 @@ $sprite-camel-case-total-width: 80px;
 $sprite-camel-case-total-height: 100px;
 $sprite-camel-case-image: 'nested/dir/spritesheet.png';
 $sprite-camel-case: (30px, 50px, -30px, -50px, 50px, 50px, 80px, 100px, 'nested/dir/spritesheet.png', 'spriteCamelCase', );
-$sprite-dash-case-2x-name: 'sprite-dash-case-2x';
-$sprite-dash-case-2x-x: 0px;
-$sprite-dash-case-2x-y: 0px;
-$sprite-dash-case-2x-offset-x: 0px;
-$sprite-dash-case-2x-offset-y: 0px;
-$sprite-dash-case-2x-width: 20px;
-$sprite-dash-case-2x-height: 40px;
-$sprite-dash-case-2x-total-width: 160px;
-$sprite-dash-case-2x-total-height: 200px;
-$sprite-dash-case-2x-image: 'nested/dir/spritesheet-2x.png';
-$sprite-dash-case-2x: (0px, 0px, 0px, 0px, 10px, 20px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite-dash-case-2x', );
-$sprite-snake-case-2x-name: 'sprite_snake_case_2x';
-$sprite-snake-case-2x-x: 20px;
-$sprite-snake-case-2x-y: 40px;
-$sprite-snake-case-2x-offset-x: -20px;
-$sprite-snake-case-2x-offset-y: -40px;
-$sprite-snake-case-2x-width: 40px;
-$sprite-snake-case-2x-height: 60px;
-$sprite-snake-case-2x-total-width: 160px;
-$sprite-snake-case-2x-total-height: 200px;
-$sprite-snake-case-2x-image: 'nested/dir/spritesheet-2x.png';
-$sprite-snake-case-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite_snake_case', );
-$sprite-camel-case-2x-name: 'spriteCamelCase2x';
-$sprite-camel-case-2x-x: 60px;
-$sprite-camel-case-2x-y: 100px;
-$sprite-camel-case-2x-offset-x: -60px;
-$sprite-camel-case-2x-offset-y: -100px;
-$sprite-camel-case-2x-width: 100px;
-$sprite-camel-case-2x-height: 100px;
-$sprite-camel-case-2x-total-width: 160px;
-$sprite-camel-case-2x-total-height: 200px;
-$sprite-camel-case-2x-image: 'nested/dir/spritesheet-2x.png';
-$sprite-camel-case-2x: (60px, 100px, -60px, -100px, 100px, 100px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'spriteCamelCase', );
+$sprite-dash-case-retina-name: 'sprite-dash-case-retina';
+$sprite-dash-case-retina-x: 0px;
+$sprite-dash-case-retina-y: 0px;
+$sprite-dash-case-retina-offset-x: 0px;
+$sprite-dash-case-retina-offset-y: 0px;
+$sprite-dash-case-retina-width: 20px;
+$sprite-dash-case-retina-height: 40px;
+$sprite-dash-case-retina-total-width: 160px;
+$sprite-dash-case-retina-total-height: 200px;
+$sprite-dash-case-retina-image: 'nested/dir/spritesheet-retina.png';
+$sprite-dash-case-retina: (0px, 0px, 0px, 0px, 10px, 20px, 160px, 200px, 'nested/dir/spritesheet-retina.png', 'sprite-dash-case-retina', );
+$sprite-snake-case-retina-name: 'sprite_snake_case_retina';
+$sprite-snake-case-retina-x: 20px;
+$sprite-snake-case-retina-y: 40px;
+$sprite-snake-case-retina-offset-x: -20px;
+$sprite-snake-case-retina-offset-y: -40px;
+$sprite-snake-case-retina-width: 40px;
+$sprite-snake-case-retina-height: 60px;
+$sprite-snake-case-retina-total-width: 160px;
+$sprite-snake-case-retina-total-height: 200px;
+$sprite-snake-case-retina-image: 'nested/dir/spritesheet-retina.png';
+$sprite-snake-case-retina: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-retina.png', 'sprite_snake_case_retina', );
+$sprite-camel-case-retina-name: 'spriteCamelCaseRetina';
+$sprite-camel-case-retina-x: 60px;
+$sprite-camel-case-retina-y: 100px;
+$sprite-camel-case-retina-offset-x: -60px;
+$sprite-camel-case-retina-offset-y: -100px;
+$sprite-camel-case-retina-width: 100px;
+$sprite-camel-case-retina-height: 100px;
+$sprite-camel-case-retina-total-width: 160px;
+$sprite-camel-case-retina-total-height: 200px;
+$sprite-camel-case-retina-image: 'nested/dir/spritesheet-retina.png';
+$sprite-camel-case-retina: (60px, 100px, -60px, -100px, 100px, 100px, 160px, 200px, 'nested/dir/spritesheet-retina.png', 'spriteCamelCaseRetina', );
 $spritesheet-width: 80px;
 $spritesheet-height: 100px;
 $spritesheet-image: 'nested/dir/spritesheet.png';
@@ -85,18 +85,18 @@ $spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, 
 $retina-spritesheet-width: 160px;
 $retina-spritesheet-height: 200px;
 $retina-spritesheet-image: 'nested/dir/spritesheet-retina.png';
-$retina-spritesheet-sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case-2x, );
+$retina-spritesheet-sprites: ($sprite-dash-case-retina, $sprite-snake-case-retina, $sprite-camel-case-retina, );
 $retina-spritesheet: (160px, 200px, 'nested/dir/spritesheet-retina.png', $retina-spritesheet-sprites, );
 
 /*
 These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
 */
 $sprite-dash-case-group-name: 'sprite-dash-case';
-$sprite-dash-case-group: ('sprite-dash-case', $sprite-dash-case, $sprite-dash-case-2x, );
+$sprite-dash-case-group: ('sprite-dash-case', $sprite-dash-case, $sprite-dash-case-retina, );
 $sprite-snake-case-group-name: 'sprite_snake_case';
-$sprite-snake-case-group: ('sprite_snake_case', $sprite-snake-case, $sprite-snake-case-2x, );
+$sprite-snake-case-group: ('sprite_snake_case', $sprite-snake-case, $sprite-snake-case-retina, );
 $sprite-camel-case-group-name: 'spriteCamelCase';
-$sprite-camel-case-group: ('spriteCamelCase', $sprite-camel-case, $sprite-camel-case-2x, );
+$sprite-camel-case-group: ('spriteCamelCase', $sprite-camel-case, $sprite-camel-case-retina, );
 $retina-groups: ($sprite-dash-case-group, $sprite-snake-case-group, $sprite-camel-case-group, );
 
 /*
@@ -134,6 +134,35 @@ The provided mixins are intended to be used with the array-like variables
   @include sprite-position($sprite);
   @include sprite-width($sprite);
   @include sprite-height($sprite);
+}
+
+/*
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+
+It should be used with a "retina group" variable.
+
+$icon-home-group: ('icon-home', $icon-home, $icon-home-retina, );
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
+*/
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($sprite-group) {
+  $normal-sprite: nth($sprite-group, 2);
+  $retina-sprite: nth($sprite-group, 2);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
 }
 
 /*
