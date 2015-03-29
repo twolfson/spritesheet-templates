@@ -88,9 +88,12 @@ Converter for spritesheet/sprite info into spritesheet
             - This will typically be used in `background-image`
             - For example, `background-image: url({{spritesheet.image}});`
     - spritesheet_info `Object` - Optional container for metadata about `spritesheet` and its representation
+        - name `String` - Prefix to use for all spritesheet variables
+            - For example, `icons` will generate `$icons-width`/`$icons-image`/etc in a Stylus template
+            - By default, this is `spritesheet` (e.g. `$spritesheet-width`, `$spritesheet-image`)
     - Additional parameters for `retina` templates are documented in the [Retina parameters section](#retina-parameters)
 - options `Object` - Optional settings
-    - spritesheetName `String` - Deprecated alternative for `data.spritesheet_info.name`
+    - spritesheetName `String` - Deprecated alternative for `spritesheet_info.name`
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
@@ -120,7 +123,8 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
             - name `String` - Name to refer to mapping by
                 - This is typically used for CSS selectors and variable names
             - index `Number` - Index to look up corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
-    - retina_groups_info
+    - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
+        -
 
 ### Templates
 Below are our template options for `options.format`.
