@@ -41,7 +41,7 @@ ${{strings.name_group}}: (
   {{strings.bare_retina}}: ${{retina.strings.name}}
 );
 {{/each}}
-${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}}, {{/each}});
+${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_group}}, {{/each}});
 {{/content}}
 
 {{#content "sprite-functions" mode="append"}}
