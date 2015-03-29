@@ -6,7 +6,7 @@ var testUtils = require('./utils/test');
 describe('An retina array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.retinaMultipleSprites);
 
-  describe.only('processed by `spritesheet-templates` into retina SCSS', function () {
+  describe('processed by `spritesheet-templates` into retina SCSS', function () {
     testUtils.runTemplater({format: 'scss_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/scss_retina.scss');
 
@@ -14,7 +14,7 @@ describe('An retina array of image positions, dimensions, and names', function (
       '@include retina-sprites($retina-groups);'
     ].join('\n'));
 
-    describe.skip('processed by `sass --scss` (ruby) into CSS', function () {
+    describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
@@ -31,7 +31,7 @@ describe('An retina array of image positions, dimensions, and names', function (
       testUtils.assertValidCss();
     });
 
-    describe.skip('processed by `sassc` (libsass) into CSS', function () {
+    describe('processed by `sassc` (libsass) into CSS', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         exec('sassc ' + this.tmp.path, function (err, css, stderr) {
