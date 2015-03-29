@@ -39,49 +39,40 @@ ${{strings.name_group}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.
 ${{retina_group_info.strings.name}} ={{#each retina_groups}} ${{strings.name_group}}{{/each}};
 {{/content}}
 
-{{#block "sprite-functions-comment"}}
+{{#content "sprite-functions"}}
 {{#if options.functions}}
+
 /*
-The provided mixins are intended to be used with the array-like variables
+The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
 
 .icon-home {
-  spriteWidth($icon_home)
-}
-
-.icon-email {
-  sprite($icon_email)
+  retinaSprite($icon_home_group)
 }
 */
-{{/if}}
-{{/block}}
-{{#block "sprite-functions"}}
-{{#if options.functions}}
-spriteWidth($sprite) {
-  width: $sprite[4];
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
 }
 
-spriteHeight($sprite) {
-  height: $sprite[5];
-}
+retinaSprite($sprite_group) {
+  $normal_sprite = $sprite[1];
+  $retina_sprite = $sprite[2];
+  sprite($normal_sprite)
 
-spritePosition($sprite) {
-  background-position: $sprite[2] $sprite[3];
-}
-
-spriteImage($sprite) {
-  background-image: url($sprite[8]);
-}
-
-sprite($sprite) {
-  spriteImage($sprite)
-  spritePosition($sprite)
-  spriteWidth($sprite)
-  spriteHeight($sprite)
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
 }
 {{/if}}
-{{/block}}
+{{/content}}
 
-{{#block "spritesheet-functions-comment"}}
+{{#content "spritesheet-functions-comment" mode="append"}}
 {{#if options.functions}}
 /*
 The `sprites` mixin generates identical output to the CSS template
@@ -93,16 +84,22 @@ This must be run when you have at least 2 sprites.
 sprites($spritesheet_sprites);
 */
 {{/if}}
-{{/block}}
-{{#block "spritesheet-functions"}}
-{{#if options.functions}}
-sprites($sprites) {
-  for $sprite in $sprites {
-    $sprite_name = $sprite[9];
+{{/content}}
+{{#content "spritesheet-functions" mode="append"}}
+/*
+The `retinaSprites` mixin generates a CSS rule and media query for retina group
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+retinaSprites($retina_groups);
+*/
+retinaSprites($retina_groups) {
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
     .{$sprite_name} {
-      sprite($sprite);
+      retinaSprite($retina_group);
     }
   }
 }
 {{/if}}
-{{/block}}
+{{/content}}
+{{/extend}}
