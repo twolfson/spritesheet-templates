@@ -591,8 +591,33 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_group_name `String` - Transformed word for `group-name`
 
 ####### Retina template data
+- data `Object` - Same container as defined above
+    - retina_sprites `Object[]` - Array of objects with coordinate data about each retina sprite for the retina spritesheet
+        - Properties are retina equivalent of `data.sprites`
+        - These should be in the same order as their normal complements
+    - retina_spritesheet `Object` - Information about retina spritesheet
+        - Properties are retina equivalent of `data.spritesheet`
+    - retina_spritesheet_info `Object` - Optional container for metadata about `retina_spritesheet` and its representation
+        - Properties are retina equivalent of `data.spritesheet_info`
+            - For example, `name` will change the corresponding name variable
+    - retina_groups `Object[]` - Array of objects that maps to normal and retina sprites
+        - * `Object` - Container for data about sprite mapping
+            - name `String` - Name to refer to mapping by
+                - This is typically used for CSS selectors and variable names
+            - index `Number` - Index to look up corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
+    - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
+        - name `String` - Name to use for `retina_groups` variable
+            - For example, `icon-groups` will generate `$icons-groups` in a SCSS template
+            - By default, this is `retina-groups` (e.g. `$retina-groups`)
 
 ####### Retina handlebars template data
+
+retina_sprites[*].strings
+// TODO: Verify we don't allow `retina_spritesheet.strings`
+retina_spritesheet_info.strings
+retina_groups[*].strings
+retina_groups_info.strings
+
 
 // TODO: Support add bare strings for
     - bare_group `String` - Transformed word for `group`
