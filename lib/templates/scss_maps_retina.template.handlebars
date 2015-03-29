@@ -5,19 +5,8 @@
 }
 
 {{#extend "scss_maps"}}
-{{#content "sprites-comment"}}
-/*
-SCSS variables are information about icon's compiled state, stored under its original file name
-
-.icon-home {
-  width: map-get($icon-home, 'width');
-}
-
-At the bottom of this section, we provide information about the spritesheet itself
-*/
-{{/content}}
-{{#content "sprites"}}
-{{#each sprites}}
+{{#content "sprites" mode="append"}}
+{{#each retina_sprites}}
 ${{strings.name}}: (
   {{strings.bare_name}}: '{{name}}',
   {{strings.bare_x}}: {{px.x}},
@@ -32,76 +21,45 @@ ${{strings.name}}: (
 );
 {{/each}}
 {{/content}}
-{{#content "spritesheet"}}
-${{spritesheet_info.strings.name}}: (
-  {{spritesheet_info.strings.bare_width}}: {{spritesheet.px.width}},
-  {{spritesheet_info.strings.bare_height}}: {{spritesheet.px.height}},
-  {{spritesheet_info.strings.bare_image}}: '{{{spritesheet.escaped_image}}}',
-  {{spritesheet_info.strings.bare_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}})
+{{#content "spritesheet" mode="append"}}
+${{retina_spritesheet_info.strings.name}}: (
+  {{retina_spritesheet_info.strings.bare_width}}: {{retina_spritesheet.px.width}},
+  {{retina_spritesheet_info.strings.bare_height}}: {{retina_spritesheet.px.height}},
+  {{retina_spritesheet_info.strings.bare_image}}: '{{{retina_spritesheet.escaped_image}}}',
+  {{retina_spritesheet_info.strings.bare_sprites}}: ({{#each retina_sprites}}${{strings.name}}, {{/each}})
 );
+
+/* Comment about groups */
+{{#each retina_groups}}
+${{strings.name}}: (
+  {{strings.bare_name}}: '{{name}}',
+  {{strings.bare_normal}}: ${{normal.strings.name}},
+  {{strings.bare_retina}}: ${{retina.strings.name}}
+);
+{{/each}}
+${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}}, {{/each}});
 {{/content}}
 
-{{#content "sprite-functions-comment"}}
+{{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
-/*
-The provided mixins are intended to be used with variables directly
 
-.icon-home {
-  @include sprite-width($icon-home);
+/* Comment about retina-sprite */
+@mixin sprite-background-size($sprite) {
+
 }
 
-.icon-email {
-  @include sprite($icon-email);
-}
-*/
-{{/if}}
-{{/content}}
-{{#content "sprite-functions"}}
-{{#if options.functions}}
-@mixin sprite-width($sprite) {
-  width: map-get($sprite, '{{strings.bare_width}}');
-}
+@mixin retina-sprite($retina-group) {
 
-@mixin sprite-height($sprite) {
-  height: map-get($sprite, '{{strings.bare_height}}');
-}
-
-@mixin sprite-position($sprite) {
-  background-position: map-get($sprite, '{{strings.bare_offset_x}}') map-get($sprite, '{{strings.bare_offset_y}}');
-}
-
-@mixin sprite-image($sprite) {
-  background-image: url(map-get($sprite, '{{strings.bare_image}}'));
-}
-
-@mixin sprite($sprite) {
-  @include sprite-image($sprite);
-  @include sprite-position($sprite);
-  @include sprite-width($sprite);
-  @include sprite-height($sprite);
 }
 {{/if}}
 {{/content}}
 
-{{#content "spritesheet-functions-comment"}}
+{{#content "spritesheet-functions" mode="append"}}
 {{#if options.functions}}
-/*
-The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of SCSS
 
-@include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
-*/
-{{/if}}
-{{/content}}
-{{#content "spritesheet-functions"}}
-{{#if options.functions}}
-@mixin sprites($sprites) {
-  @each $sprite in $sprites {
-    $sprite-name: map-get($sprite, '{{strings.bare_name}}');
-    .#{$sprite-name} {
-      @include sprite($sprite);
-    }
-  }
+/* Comment about retina-sprites */
+@mixin retina-sprites($retina-groups) {
+
 }
 {{/if}}
 {{/content}}
