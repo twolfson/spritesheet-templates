@@ -35,53 +35,54 @@ ${{strings.name}}: ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name
 ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name}}, {{/each}});
 {{/content}}
 
-{{#content "sprite-functions"}}
-{{#if options.functions}}
-@mixin sprite-width($sprite) {
-  width: nth($sprite, 5);
-}
-
-@mixin sprite-height($sprite) {
-  height: nth($sprite, 6);
-}
-
-@mixin sprite-position($sprite) {
-  $sprite-offset-x: nth($sprite, 3);
-  $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
-}
-
-@mixin sprite-image($sprite) {
-  $sprite-image: nth($sprite, 9);
-  background-image: url(#{$sprite-image});
-}
-
-@mixin sprite($sprite) {
-  @include sprite-image($sprite);
-  @include sprite-position($sprite);
-  @include sprite-width($sprite);
-  @include sprite-height($sprite);
-}
-{{/if}}
-{{/content}}
-
-{{#content "spritesheet-functions-comment"}}
+{{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
 /*
-The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of SCSS
+The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
 
-@include sprites($spritesheet-sprites);
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon-home-group: ('icon-home', $icon-home, $icon-home-retina, );
+
+.icon-home {
+  @include retina-sprite($icon-home-group);
+}
 */
+@mixin sprite-background-size($sprite) {
+  $sprite-total-width: nth($sprite, 7);
+  $sprite-total-height: nth($sprite, 8);
+  background-size: $sprite-total-width $sprite-total-height;
+}
+
+@mixin retina-sprite($sprite-group) {
+  $normal-sprite: nth($sprite-group, 2);
+  $retina-sprite: nth($sprite-group, 3);
+  @include sprite($normal-sprite);
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
 {{/if}}
 {{/content}}
-{{#content "spritesheet-functions"}}
+
+{{#content "spritesheet-functions" mode="append"}}
 {{#if options.functions}}
-@mixin sprites($sprites) {
-  @each $sprite in $sprites {
-    $sprite-name: nth($sprite, 10);
+
+/*
+The `retina-sprites` mixin generates a CSS rule and media query for retina group
+  This yields the same output as CSS retina template but can be overridden in SCSS
+
+@include retina-sprites($retina-groups);
+*/
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: nth($retina-group, 1);
     .#{$sprite-name} {
-      @include sprite($sprite);
+      @include retina-sprite($retina-group);
     }
   }
 }
