@@ -144,6 +144,23 @@ The provided mixins are intended to be used with variables directly
   @include sprite-height($sprite);
 }
 
+/* TODO: Add comment */
+@mixin sprite-background-size($sprite) {
+  background-size: map-get($sprite, 'total-width') map-get($sprite, 'total-height');
+}
+
+@mixin retina-sprite($retina-group) {
+  $normal-sprite: map-get($retina-group, 'normal');
+  $retina-sprite: map-get($retina-group, 'retina');
+  @include sprite($normal-sprite);
+
+  @media (abc: 2x),
+         (def: 2x) {
+    @include sprite-image($retina-sprite);
+    @include sprite-background-size($normal-sprite);
+  }
+}
+
 /*
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of SCSS
@@ -155,6 +172,16 @@ The `sprites` mixin generates identical output to the CSS template
     $sprite-name: map-get($sprite, 'name');
     .#{$sprite-name} {
       @include sprite($sprite);
+    }
+  }
+}
+
+/* TODO: Comment */
+@mixin retina-sprites($retina-groups) {
+  @each $retina-group in $retina-groups {
+    $sprite-name: map-get($retina-group, 'name');
+    .#{$sprite-name} {
+      @include sprite($retina-group);
     }
   }
 }

@@ -9,6 +9,7 @@
 
 // TODO: Verify we didn't name anything sprite-group (or a variant)
 // TODO: Verify no language cross over
+// TODO: Double check all CSS
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
