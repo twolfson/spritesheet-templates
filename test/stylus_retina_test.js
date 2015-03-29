@@ -6,7 +6,7 @@ var testUtils = require('./utils/test');
 describe('An retina array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.retinaMultipleSprites);
 
-  describe('processed by `spritesheet-templates` into retina Stylus', function () {
+  describe.only('processed by `spritesheet-templates` into retina Stylus', function () {
     testUtils.runTemplater({format: 'stylus_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/stylus_retina.styl');
 

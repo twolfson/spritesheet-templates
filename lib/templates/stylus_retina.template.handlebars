@@ -24,22 +24,22 @@ ${{strings.name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width
 ${{retina_spritesheet_info.strings.name_width}} = {{retina_spritesheet.px.width}};
 ${{retina_spritesheet_info.strings.name_height}} = {{retina_spritesheet.px.height}};
 ${{retina_spritesheet_info.strings.name_image}} = '{{{retina_spritesheet.escaped_image}}}';
-${{retina_spritesheet_info.strings.name_sprites}} ={{#each sprites}} ${{strings.name}}{{/each}};
+${{retina_spritesheet_info.strings.name_sprites}} ={{#each retina_sprites}} ${{strings.name}}{{/each}};
 ${{retina_spritesheet_info.strings.name}} = {{retina_spritesheet.px.width}} {{retina_spritesheet.px.height}} '{{{retina_spritesheet.escaped_image}}}' ${{retina_spritesheet_info.strings.name_sprites}};
 
 /*
 These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
 
-The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
 */
 {{#each retina_groups}}
 ${{strings.name_group_name}} = '{{name}}';
 ${{strings.name_group}} = '{{name}}' ${{normal.strings.name}} ${{retina.strings.name}};
 {{/each}}
-${{retina_group_info.strings.name}} ={{#each retina_groups}} ${{strings.name_group}}{{/each}};
+${{retina_groups_info.strings.name}} ={{#each retina_groups}} ${{strings.name_group}}{{/each}};
 {{/content}}
 
-{{#content "sprite-functions"}}
+{{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
 
 /*
@@ -72,20 +72,9 @@ retinaSprite($sprite_group) {
 {{/if}}
 {{/content}}
 
-{{#content "spritesheet-functions-comment" mode="append"}}
-{{#if options.functions}}
-/*
-The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of Stylus
-
-This must be run when you have at least 2 sprites.
-  If run with a single sprite, then there will be reference errors.
-
-sprites($spritesheet_sprites);
-*/
-{{/if}}
-{{/content}}
 {{#content "spritesheet-functions" mode="append"}}
+{{#if options.functions}}
+
 /*
 The `retinaSprites` mixin generates a CSS rule and media query for retina group
   This yields the same output as CSS retina template but can be overridden in SCSS
