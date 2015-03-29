@@ -87,7 +87,7 @@ Converter for spritesheet/sprite info into spritesheet
     - spritesheet_info `Object` - Optional container for metadata about `spritesheet` and its representation
     - Additional parameters for `retina` templates are documented in the [Retina parameters section](#retina-parameters)
 - options `Object` - Optional settings
-    - spritesheetName `String` - Deprecated altenrative for `data.spritesheet_info.name`
+    - spritesheetName `String` - Deprecated alternative for `data.spritesheet_info.name`
     - format `String` - Format to generate output in
         - We accept any format inside of the [Templates section](#templates)
             - Custom formats can be added via the [custom methods](#custom)
@@ -101,18 +101,22 @@ Converter for spritesheet/sprite info into spritesheet
 #### Retina parameters
 `retina` templates require additional parameters `data.retina_sprites`, `data.retina_spritesheet` and `data.retina_groups` to be passed in.
 
-For the variables to be useful, the retina spritesheet should be a 2x scale image of the original spritesheet. Similarly, retina sprites should be positioned in the same fashion and order as their sprites counterparts (e.g. `[{x: 0, y: 0}, {x: 20, y: 20}]` should correspond to `[{x: 0, y: 0}, {x: 40, y: 40}]`).
+For the variables to be useful, the retina spritesheet should be a 2x scale image of the original spritesheet. Similarly, retina sprites should be positioned in the same layout and order as their normal counterparts (e.g. `[{x: 0, y: 0}, {x: 20, y: 20}]` should correspond to `[{x: 0, y: 0}, {x: 40, y: 40}]`).
 
 - data `Object` - Same container as defined above
     - retina_sprites `Object[]` - Array of objects with coordinate data about each retina sprite for the retina spritesheet
         - Properties are retina equivalent of `data.sprites`
+        - These should be in the same order as their normal complements
     - retina_spritesheet `Object` - Information about retina spritesheet
-        - Properties are retina equivalent of `data.retina_spritesheet`
-    - retina_groups
-        - retina_groups[*]
-            - name
-            - index
-    - retina_spritesheet_info
+        - Properties are retina equivalent of `data.spritesheet`
+    - retina_spritesheet_info `Object` - Optional container for metadata about `retina_spritesheet` and its representation
+        - Properties are retina equivalent of `data.spritesheet_info`
+            - For example, `name` will change the corresponding name variable
+    - retina_groups `Object[]` - Array of objects that maps to normal and retina sprites
+        - * `Object` - Container for data about sprite mapping
+            - name `String` - Name to refer to mapping by
+                - This is typically used for CSS selectors and variable names
+            - index `Number` - Index to look up corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
     - retina_groups_info
 
 ### Templates
