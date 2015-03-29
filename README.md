@@ -113,8 +113,9 @@ For the variables to be useful, the retina spritesheet should be a 2x scale imag
     - retina_spritesheet `Object` - Information about retina spritesheet
         - Properties are retina equivalent of `data.spritesheet`
     - retina_spritesheet_info `Object` - Optional container for metadata about `retina_spritesheet` and its representation
-        - Properties are retina equivalent of `data.spritesheet_info`
-            - For example, `name` will change the corresponding name variable
+        - name `String` - Prefix to use for all retina spritesheet variables
+            - For example, `retina-icons` will generate `$retina-icons-width`/`$retina-icons-image`/etc in a SCSS template
+            - By default, this is `retina-spritesheet` (e.g. `$retina-spritesheet-width`, `$retina-spritesheet-image`)
     - retina_groups `Object[]` - Array of objects that maps to normal and retina sprites
         - * `Object` - Container for data about sprite mapping
             - name `String` - Name to refer to mapping by
