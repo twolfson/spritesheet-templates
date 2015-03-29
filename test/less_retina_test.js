@@ -6,11 +6,11 @@ var testUtils = require('./utils/test');
 describe('An retina array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.retinaMultipleSprites);
 
-  describe.only('processed by `spritesheet-templates` into retina LESS', function () {
+  describe('processed by `spritesheet-templates` into retina LESS', function () {
     testUtils.runTemplater({format: 'less_retina'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/less_retina.less');
 
-    describe.skip('processed by LESS into CSS', function () {
+    describe('processed by LESS into CSS', function () {
       // Process the LESS
       testUtils.processCss(function processLess (cb) {
         // Add some LESS to our result
