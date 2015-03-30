@@ -576,6 +576,43 @@ Output retina CSS variables as an array of objects.
         // ...
 ```
 
+#### `less_retina`
+Output retina CSS variables as [LESS][] variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+We extend from the [`less` template](#less) and have its blocks. There are no new sections for retina data.
+
+**Example:**
+
+```less
+@sprite1-name: 'sprite1';
+@sprite1-x: 0px;
+@sprite1-y: 0px;
+@sprite1-offset-x: 0px;
+@sprite1-offset-y: 0px;
+@sprite1-total-width: 80px;
+@sprite1-total-height: 100px;
+// ...
+@sprite2-2x-total-width: 160px;
+@sprite2-2x-total-height: 200px;
+@sprite2-2x-image: 'nested/dir/spritesheet-2x.png';
+@sprite2-2x: 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet-2x.png' sprite2-2x;
+// ...
+@sprite3-group: spriteCamelCase @sprite3 @sprite3-2x;
+@retina-groups: @sprite1-group @sprite2-group @sprite3-group;
+```
 
 #### `sass_retina`
 Output retina CSS variables as [SASS][] variables and mixins.
