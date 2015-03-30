@@ -7,7 +7,7 @@
 // TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
 // TODO: In grunt-spritesmith, verify all new links in README
-// TODO: Document how we will always append `-group` to retina group name
+// TODO: In grunt-spritesmith, document how we will always append `-group` to retina group name
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
