@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Verify no language cross over
 // TODO: Double check all CSS (log it in the tests)
 // TODO: Verify all new links in README
 // TODO: Verify ellipses in all the right places
@@ -9,6 +8,7 @@
 // TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
 // TODO: In grunt-spritesmith, verify all new links in README
+// TODO: Document how we will always append `-group` to retina group name
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
