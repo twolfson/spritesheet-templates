@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Double check all CSS (log it in the tests)
 // TODO: Verify all new links in README
 // TODO: Verify ellipses in all the right places
 
