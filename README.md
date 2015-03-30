@@ -682,8 +682,8 @@ $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
 // ...
 ```
 
-#### `scss_maps`
-Output CSS variables as [SCSS][] maps variables.
+#### `scss_maps_retina`
+Output retina CSS variables as [SCSS][] maps variables.
 
 **Options:**
 
@@ -698,15 +698,7 @@ Output CSS variables as [SCSS][] maps variables.
 
 **Handlebars blocks:**
 
-`scss_maps` is a Handlebars based template. We allow for overriding the following sections:
-
-- `{{#content "sprites-comment"}}` - Comment before SCSS variable declarations
-- `{{#content "sprites"}}` - SCSS variable declarations for sprites
-- `{{#content "spritesheet"}}` - SCSS variable declaration for spritesheet
-- `{{#content "sprite-functions-comment"}}` - Comment before SCSS functions for sprite variables
-- `{{#content "sprite-functions"}}` - SCSS functions for sprite variables
-- `{{#content "spritesheet-functions-comment"}}` - Comment before SCSS functions for spritesheet variables
-- `{{#content "spritesheet-functions"}}` - SCSS functions for spritesheet variables
+We extend from the [`scss_maps` template](#scss_maps) and have its blocks. There are no new sections for retina data.
 
 **Example:**
 
