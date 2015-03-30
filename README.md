@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document json_array_retina
 // TODO: Document less_retina
 // TODO: Document scss_maps_retina
 
