@@ -604,6 +604,7 @@ We extend from the [`less` template](#less) and have its blocks. There are no ne
 // ...
 @sprite3-group: spriteCamelCase @sprite3 @sprite3-2x;
 @retina-groups: @sprite1-group @sprite2-group @sprite3-group;
+// ...
 ```
 
 #### `sass_retina`
@@ -641,6 +642,7 @@ $sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/sp
 // ...
 $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, )
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, )
+// ...
 ```
 
 #### `scss_retina`
@@ -764,6 +766,7 @@ $sprite2_2x = 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spriteshee
 // ...
 $sprite3_group = 'sprite3' $sprite3 $sprite3_2x;
 $retina_groups = $sprite1_group $sprite2_group $sprite3_group;
+// ...
 ```
 
 #### Custom
