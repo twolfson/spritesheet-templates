@@ -1,8 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document less_retina
-// TODO: Document scss_maps_retina
-
 // TODO: Document new template variables (e.g. normal, retina)
 //   Make sure we document group and group name
 
@@ -686,6 +683,62 @@ $sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/sp
 // ...
 $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, );
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
+// ...
+```
+
+#### `scss_maps`
+Output CSS variables as [SCSS][] maps variables.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+`scss_maps` is a Handlebars based template. We allow for overriding the following sections:
+
+- `{{#content "sprites-comment"}}` - Comment before SCSS variable declarations
+- `{{#content "sprites"}}` - SCSS variable declarations for sprites
+- `{{#content "spritesheet"}}` - SCSS variable declaration for spritesheet
+- `{{#content "sprite-functions-comment"}}` - Comment before SCSS functions for sprite variables
+- `{{#content "sprite-functions"}}` - SCSS functions for sprite variables
+- `{{#content "spritesheet-functions-comment"}}` - Comment before SCSS functions for spritesheet variables
+- `{{#content "spritesheet-functions"}}` - SCSS functions for spritesheet variables
+
+**Example:**
+
+```scss
+$sprite1: (
+  name: 'sprite1',
+  x: 0px,
+  y: 0px,
+  offset_x: 0px,
+  offset_y: 0px,
+  total_width: 80px,
+  total_height: 100px,
+  // ...
+);
+$sprite2: (
+  // ...
+  total-width: 160px,
+  total-height: 200px,
+  image: 'nested/dir/spritesheet-2x.png'
+);
+// ...
+$sprite3-group: (
+  name: 'sprite3',
+  normal: $sprite3,
+  retina: $sprite3-2x
+);
+$retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
+// ...
 ```
 
 #### `stylus_retina`
