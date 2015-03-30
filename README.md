@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Verify all new links in README
 // TODO: Verify ellipses in all the right places
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
