@@ -905,7 +905,7 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_normal `String` - Transformed word for `normal`
     - bare_retina `String` - Transformed word for `retina`
 
-####### Retina template data
+###### Retina template data
 These are additional properties of the template data when retina parameters have been passed in (e.g. `retina_sprites`, `retina_groups`). As with the normal data, it is cloned copy of the original data with additional properties for convenience.
 
 - data `Object` - Same container as defined above
@@ -927,7 +927,7 @@ These are additional properties of the template data when retina parameters have
     - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
         - name `String` - Name for `retina_groups`
 
-####### Retina Handlebars template data
+###### Retina Handlebars template data
 Retina specific properties will have the same corresponding new data for Handlebars templates
 
 - data.retina_sprites[*].strings `Object` - Container for retina sprite-relevant variable/string names
