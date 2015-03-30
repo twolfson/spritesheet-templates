@@ -1,11 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: In grunt-spritesmith, document new templates and new template variables
-// TODO: In grunt-spritesmith, provide documentation about retina
-// TODO: In grunt-spritesmith, add example usage of retina
-// TODO: In grunt-spritesmith, verify all new links in README
-// TODO: In grunt-spritesmith, document how we will always append `-group` to retina group name
-
 Convert spritesheet data into CSS or CSS pre-processor data
 
 `spritesheet-templates`, formerly `json2css`, was built as part of [`spritesmith`][], a tool that converts images into spritesheets and CSS variables.
