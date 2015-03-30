@@ -814,7 +814,7 @@ The parameters passed into your template are known as `data`. These are a cloned
         - name `String` - Name for `spritesheet`
     - options `Mixed` - Options to passed through via `options.formatOpts`
     - If we have retina parameters were passed in, then we prepare additional retina properties as well
-        - More info can be found on these parameters in [Retina template data](#Retina-template-data)
+        - More info can be found on these parameters in [Retina template data](#retina-template-data)
 
 ###### Handlebars template data
 We provide an extra set of data for `handlebars` templates for variable/string names.
