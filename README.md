@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Verify we didn't name anything sprite-group (or a variant)
 // TODO: Verify no language cross over
 // TODO: Double check all CSS (log it in the tests)
 // TODO: Verify all new links in README
