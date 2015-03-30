@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document sass_retina
 // TODO: Document stylus_retina
 // TODO: Document json_array_retina
 // TODO: Document less_retina
@@ -12,10 +11,12 @@
 // TODO: Verify we didn't name anything sprite-group (or a variant)
 // TODO: Verify no language cross over
 // TODO: Double check all CSS (log it in the tests)
+// TODO: Verify all new links in README
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
 // TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
+// TODO: In grunt-spritesmith, verify all new links in README
 
 Convert spritesheet data into CSS or CSS pre-processor data
 
@@ -451,7 +452,7 @@ Output CSS variables as [Stylus][] variables.
 
 **Example:**
 
-```scss
+```stylus
 $sprite1_name = 'sprite1';
 $sprite1_x = 0px;
 $sprite1_y = 0px;
@@ -499,7 +500,7 @@ We extend from the [`css` template](#css) and have its blocks. There are no new 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .icon-sprite1 {
-    background-image: url(nested/dir/spritesheet-retina.png);
+    background-image: url(nested/dir/spritesheet-2x.png);
     background-size: 80px 100px;
   }
 }
@@ -544,6 +545,43 @@ Output retina CSS variables in JSON format.
     // ...
 ```
 
+#### `sass_retina`
+Output retina CSS variables as [SASS][] variables and mixins.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['dasherize']` which yields a `dash-case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+We extend from the [`sass` template](#sass) and have its blocks. There are no new sections for retina data.
+
+**Example:**
+
+```scss
+$sprite1-name: 'sprite1'
+$sprite1-x: 0px
+$sprite1-y: 0px
+$sprite1-offset-x: 0px
+$sprite1-total-width: 80px
+$sprite1-total-height: 100px
+// ...
+$sprite2-2x-total-width: 160px
+$sprite2-2x-total-height: 200px
+$sprite2-2x-image: 'nested/dir/spritesheet-2x.png'
+$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite2-2x', )
+// ...
+$sprite3-group: ('sprite3', $sprite3, $sprite3-2x, )
+$retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, )
+```
+
 #### `scss_retina`
 Output retina CSS variables as [SCSS][] variables and mixins.
 
@@ -574,11 +612,49 @@ $sprite1-total-height: 100px;
 // ...
 $sprite2-2x-total-width: 160px;
 $sprite2-2x-total-height: 200px;
-$sprite2-2x-image: 'nested/dir/spritesheet-retina.png';
-$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-retina.png', 'sprite2-2x', );
+$sprite2-2x-image: 'nested/dir/spritesheet-2x.png';
+$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite2-2x', );
 // ...
 $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, );
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
+```
+
+#### `stylus`
+Output retina CSS variables as [Stylus][] variables and mixins.
+
+**Options:**
+
+- functions `Boolean` - Flag to include mixins or not
+    - By default this is `true` (mixins will be included)
+- variableNameTransforms `String[]` - Array of `underscore.string` methods to run on variable names
+    - For example, `['camelize']` would transform `icon-home-x` to `iconHomeX`
+    - By default, this is `['underscored']` which yields a `snake_case` name
+    - `underscore.string`: http://epeli.github.io/underscore.string/#api
+        - We use `chain` which allows for `toUpperCase` and `toLowerCase`
+        - http://epeli.github.io/underscore.string/#s-string-gt-chain
+
+**Handlebars blocks:**
+
+We extend from the [`stylus` template](#stylus) and have its blocks. There are no new sections for retina data.
+
+**Example:**
+
+```stylus
+$sprite1_name = 'sprite1';
+$sprite1_x = 0px;
+$sprite1_y = 0px;
+$sprite1_offset_x = 0px;
+$sprite1_offset_y = 0px;
+$sprite1_total_width = 80px;
+$sprite1_total_height = 100px;
+// ...
+$sprite2_2x_total_width = 160px;
+$sprite2_2x_total_height = 200px;
+$sprite2_2x_image = 'nested/dir/spritesheet-2x.png';
+$sprite2_2x = 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spritesheet-2x.png' 'sprite2-2x';
+// ...
+$sprite3_group = 'sprite3' $sprite3 $sprite3_2x;
+$retina_groups = $sprite1_group $sprite2_group $sprite3_group;
 ```
 
 #### Custom
