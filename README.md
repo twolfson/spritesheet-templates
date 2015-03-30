@@ -11,7 +11,7 @@
 
 // TODO: Verify we didn't name anything sprite-group (or a variant)
 // TODO: Verify no language cross over
-// TODO: Double check all CSS
+// TODO: Double check all CSS (log it in the tests)
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
 // TODO: In grunt-spritesmith, provide documentation about retina
