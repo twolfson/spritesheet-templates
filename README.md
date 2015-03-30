@@ -1,12 +1,10 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document new template variables (e.g. normal, retina)
-//   Make sure we document group and group name
-
 // TODO: Verify we didn't name anything sprite-group (or a variant)
 // TODO: Verify no language cross over
 // TODO: Double check all CSS (log it in the tests)
 // TODO: Verify all new links in README
+// TODO: Verify ellipses in all the right places
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
 // TODO: In grunt-spritesmith, provide documentation about retina
@@ -847,6 +845,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - name_sprites `String` - Transformed combination of sprite name and `-sprites` string (e.g. `icon-home-sprites`)
     - name_group `String` - Transformed combination of sprite name and `-group` string (e.g. `icon-home-group`)
     - name_group_name `String` - Transformed combination of sprite name and `-group-name` string (e.g. `icon-home-group-name`)
+    - name_normal `String` - Transformed combination of sprite name and `-normal` string (e.g. `icon-home-normal`)
+    - name_retina `String` - Transformed combination of sprite name and `-retina` string (e.g. `icon-home-retina`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -860,6 +860,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
+    - bare_normal `String` - Transformed word for `normal`
+    - bare_retina `String` - Transformed word for `retina`
 - data.spritesheet.strings `Object` - Deprecated container for spritesheet-relevant variable/string names
     - Contents will match the same as `data.spritesheet_info.strings`
 - data.spritesheet_info.strings `Object` - Container for spritesheet-relevant variable/string names
@@ -878,6 +880,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - name_sprites `String` - Transformed combination of spritesheet name and `-sprites` string (e.g. `icon-home-sprites`)
     - name_group `String` - Transformed combination of spritesheet name and `-group` string (e.g. `icon-home-group`)
     - name_group_name `String` - Transformed combination of spritesheet name and `-group-name` string (e.g. `icon-home-group-name`)
+    - name_normal `String` - Transformed combination of spritesheet and `-normal` string (e.g. `icon-home-normal`)
+    - name_retina `String` - Transformed combination of spritesheet and `-retina` string (e.g. `icon-home-retina`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -891,6 +895,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
+    - bare_normal `String` - Transformed word for `normal`
+    - bare_retina `String` - Transformed word for `retina`
 - data.strings `Object` - Container for generic strings
     - Each of these strings will be transformed via `variableNameTransforms`
     - bare_name `String` - Transformed word for `name`
@@ -906,6 +912,8 @@ We provide an extra set of data for `handlebars` templates for variable/string n
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
+    - bare_normal `String` - Transformed word for `normal`
+    - bare_retina `String` - Transformed word for `retina`
 
 ####### Retina template data
 These are additional properties of the template data when retina parameters have been passed in (e.g. `retina_sprites`, `retina_groups`). As with the normal data, it is cloned copy of the original data with additional properties for convenience.
@@ -954,6 +962,8 @@ Retina specific properties will have the same corresponding new data for Handleb
     - name_sprites `String` - Transformed combination of retina group name and `-sprites` string (e.g. `icon-home-sprites`)
     - name_group `String` - Transformed combination of retina group name and `-group` string (e.g. `icon-home-group`)
     - name_group_name `String` - Transformed combination of retina group name and `-group-name` string (e.g. `icon-home-group-name`)
+    - name_normal `String` - Transformed combination of retina group name and `-normal` string (e.g. `icon-home-normal`)
+    - name_retina `String` - Transformed combination of retina group name and `-retina` string (e.g. `icon-home-retina`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -967,6 +977,8 @@ Retina specific properties will have the same corresponding new data for Handleb
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
+    - bare_normal `String` - Transformed word for `normal`
+    - bare_retina `String` - Transformed word for `retina`
 - data.retina_groups_info.strings `Object` - Container for retina groups relevant variable/string names
     - Each of these strings will be transformed via `variableNameTransforms`
     - name `String` - Transformed name of retina groups (e.g. `icon-home`)
@@ -983,6 +995,8 @@ Retina specific properties will have the same corresponding new data for Handleb
     - name_sprites `String` - Transformed combination of retina groups name and `-sprites` string (e.g. `icon-home-sprites`)
     - name_group `String` - Transformed combination of retina groups name and `-group` string (e.g. `icon-home-group`)
     - name_group_name `String` - Transformed combination of retina groups name and `-group-name` string (e.g. `icon-home-group-name`)
+    - name_normal `String` - Transformed combination of retina groups name and `-normal` string (e.g. `icon-home-normal`)
+    - name_retina `String` - Transformed combination of retina groups name and `-retina` string (e.g. `icon-home-retina`)
     - bare_name `String` - Transformed word for `name`
     - bare_x `String` - Transformed word for `x`
     - bare_y `String` - Transformed word for `y`
@@ -996,6 +1010,8 @@ Retina specific properties will have the same corresponding new data for Handleb
     - bare_sprites `String` - Transformed word for `sprites`
     - bare_group `String` - Transformed word for `group`
     - bare_group_name `String` - Transformed word for `group-name`
+    - bare_normal `String` - Transformed word for `normal`
+    - bare_retina `String` - Transformed word for `retina`
 
 ##### `templater.addTemplate(name, fn)`
 Method to define a custom template under the format of `name`.
