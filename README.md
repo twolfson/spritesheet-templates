@@ -1,6 +1,5 @@
 # spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
 
-// TODO: Document stylus_retina
 // TODO: Document json_array_retina
 // TODO: Document less_retina
 // TODO: Document scss_maps_retina
@@ -545,6 +544,40 @@ Output retina CSS variables in JSON format.
     // ...
 ```
 
+#### `json_array_retina`
+Output retina CSS variables as an array of objects.
+
+**Example:**
+
+```js
+[
+    {
+        "name": "sprite1",
+        "normal": {
+            "x": 0,
+            "y": 0,
+            "width": 10,
+            "height": 20,
+            "total_width": 80,
+            "total_height": 100,
+            // ...
+        },
+        "retina": {
+            "x": 0,
+            "y": 0,
+            "width": 20,
+            "height": 40,
+            "total_width": 160,
+            "total_height": 200,
+            // ...
+        }
+    },
+    {
+        "name": "sprite2",
+        // ...
+```
+
+
 #### `sass_retina`
 Output retina CSS variables as [SASS][] variables and mixins.
 
@@ -619,7 +652,7 @@ $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, );
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
 ```
 
-#### `stylus`
+#### `stylus_retina`
 Output retina CSS variables as [Stylus][] variables and mixins.
 
 **Options:**
