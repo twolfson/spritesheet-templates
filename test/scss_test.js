@@ -57,9 +57,11 @@ describe('An array of image positions, dimensions, and names', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         var scss = this.result + extraScss;
-        var css = nodeSass.renderSync(scss);
+        var result = nodeSass.renderSync({
+          data: scss
+        });
         process.nextTick(function saveCss () {
-          cb(null, css);
+          cb(null, result.css);
         });
       });
       testUtils.assertValidCss();
