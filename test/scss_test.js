@@ -1,5 +1,6 @@
 var assert = require('assert');
 var exec = require('child_process').exec;
+var nodeSass = require('node-sass');
 var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
 
@@ -10,7 +11,7 @@ describe('An array of image positions, dimensions, and names', function () {
     testUtils.runTemplater({format: 'scss'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/scss.scss');
 
-    testUtils.generateCssFile('\n' + [
+    var extraScss = '\n' + [
       '.feature {',
       '  height: $sprite-dash-case-height;',
       '  @include sprite-width($sprite-snake-case);',
@@ -22,7 +23,8 @@ describe('An array of image positions, dimensions, and names', function () {
       '}',
       '',
       '@include sprites($spritesheet-sprites);'
-    ].join('\n'));
+    ].join('\n');
+    testUtils.generateCssFile(extraScss);
 
     describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
@@ -46,6 +48,18 @@ describe('An array of image positions, dimensions, and names', function () {
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');
           cb(err, css);
+        });
+      });
+      testUtils.assertValidCss();
+    });
+
+    describe.only('processed by `node-sass` (libsass) into CSS', function () {
+      // Process the SCSS
+      testUtils.processCss(function processScss (cb) {
+        var scss = this.result + extraScss;
+        var css = nodeSass.renderSync(scss);
+        process.nextTick(function saveCss () {
+          cb(null, css);
         });
       });
       testUtils.assertValidCss();
