@@ -24,7 +24,7 @@ describe('An array of image positions, dimensions, and names', function () {
       '@include sprites($spritesheet-sprites);'
     ].join('\n'));
 
-    describe.only('processed by `sass --scss` (ruby) into CSS', function () {
+    describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
       testUtils.processCss(function processScss (cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
