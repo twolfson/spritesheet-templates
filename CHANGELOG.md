@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.4.1 - Added `node@0.12` and `iojs` to CI tests. Upgraded test suite to support them.
+
 9.4.0 - Added retina templates
 
 9.3.2 - Dropped `node@0.8` testing due to `jscs` dependency issues
