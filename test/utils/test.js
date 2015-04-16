@@ -79,7 +79,18 @@ exports.runFakeJigsaw = function () {
     this.fakeJigsaw = express().use(nineTrack({
       url: 'http://jigsaw.w3.org',
       fixtureDir: __dirname + '/../test_files/fake_jigsaw/',
-      normalizeFn: normalizeMultipart,
+      normalizeFn: function (info) {
+        // Normalize multipart formdata
+        normalizeMultipart(info);
+
+        // Normalize node@0.10 vs iojs `connection` header
+        if (info.headers && info.headers.connection) {
+          info.headers.connection = 'keep-alive';
+        }
+
+        // Return our info
+        return info;
+      },
       preventRecording: process.env.TRAVIS
     })).listen(1337);
   });
