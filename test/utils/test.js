@@ -1,7 +1,7 @@
 // Load in our dependencies
 var assert = require('assert');
 var fs = require('fs');
-var eightTrack = require('eight-track');
+var nineTrack = require('nine-track');
 var express = require('express');
 var normalizeMultipart = require('eight-track-normalize-multipart');
 var Tempfile = require('temporary/lib/file');
@@ -76,7 +76,7 @@ exports.processCss = function (fn) {
 
 exports.runFakeJigsaw = function () {
   before(function () {
-    this.fakeJigsaw = express().use(eightTrack({
+    this.fakeJigsaw = express().use(nineTrack({
       url: 'http://jigsaw.w3.org',
       fixtureDir: __dirname + '/../test_files/fake_jigsaw/',
       normalizeFn: normalizeMultipart
