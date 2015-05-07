@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.5.0 - Added `registerHandlebarsHelper` to allow handlebars helper registration
+
 9.4.1 - Added `node@0.12` and `iojs` to CI tests. Upgraded test suite to support them.
 
 9.4.0 - Added retina templates
