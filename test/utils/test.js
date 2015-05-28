@@ -42,14 +42,6 @@ exports.assertOutputMatches = function (expectedFilepath) {
   });
 };
 
-exports.assertOutputMatchesString = function (expected) {
-  it('matches as expected', function assertOutputMatchesString () {
-    // Check that the content matches the text
-    var actual = this.result;
-    assert.strictEqual(actual, expected);
-  });
-};
-
 exports.generateCssFile = function (content) {
   before(function generateCssFileFn () {
     // Concatenate content with our result

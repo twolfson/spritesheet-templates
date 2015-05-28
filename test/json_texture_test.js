@@ -1,10 +1,10 @@
 var assert = require('assert');
+var fs = require('fs');
 var configUtils = require('./utils/config');
 var testUtils = require('./utils/test');
-var fs = require('fs');
 var pkg = require('../package.json');
 
-describe('A hash map of texture info, similar to TexturePacker', function () {
+describe('An array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.multipleSprites);
 
   function assertValidJson() {
@@ -19,9 +19,11 @@ describe('A hash map of texture info, similar to TexturePacker', function () {
   describe('processed by `spritesheet-templates` into JSON', function () {
     testUtils.runTemplater({format: 'json_texture'});
 
-    var expected = fs.readFileSync(__dirname + '/expected_files/json_texture.json', 'utf8');
-    expected = expected.replace('__VERSION__', pkg.version);
-    testUtils.assertOutputMatchesString(expected);
+    it('matches as expected the map of texture info, similar to TexturePacker', function () {
+      var expected = fs.readFileSync(__dirname + '/expected_files/json_texture.json', 'utf8');
+      expected = expected.replace('__VERSION__', pkg.version);
+      assert.strictEqual(this.result, expected);
+    });
 
     assertValidJson();
   });
