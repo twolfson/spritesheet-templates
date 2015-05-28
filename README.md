@@ -223,6 +223,43 @@ Output CSS variables as an array of objects.
         // ...
 ```
 
+#### `json_texture`
+Output CSS variables as an object in format similar to that of [TexturePacker](https://www.codeandweb.com/texturepacker). Useful for game frameworks, such as [Phaser](http://phaser.io/), [Pixi.js](http://www.pixijs.com/) and others.
+
+This template will not use the `name` field of the sprite object. Instead, it will use the filename of the image file with the file extension retained. If you actually do want to change the key, you can explicity set the `frame_name` field of the sprite obect. If you use grunt-spritesmith, this could be done like this:
+
+```js
+cssVarMap: function (sprite) {
+  sprite.frame_name = 'sprite_' + path.basename(sprite.source_image);
+}
+```
+
+**Example:**
+```js
+{
+    "frames": {
+        "mysprite.png": {
+            "frame": {
+                "x": 10,
+                "y": 20,
+                "w": 20,
+                "h": 30
+            }
+        },
+        // ...
+    },
+    "meta": {
+        "app": "spritesheet-templates",
+        "version": "9.5.0",
+        "image": "nested/dir/spritesheet.png",
+        "scale": 1,
+        "size": {
+            "w": 80,
+            "h": 100
+        }
+    }
+}
+```
 #### `less`
 Output CSS variables as [LESS][] variables.
 
