@@ -270,7 +270,7 @@ For integration in `grunt-spritesmith`/`gulp.spritesmith`, please see their `css
     },
     "meta": {
         "app": "spritesheet-templates",
-        "version": "9.5.0",
+        // ...
         "image": "nested/dir/spritesheet.png",
         "scale": 1,
         "size": {
