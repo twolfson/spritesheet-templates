@@ -224,15 +224,33 @@ Output CSS variables as an array of objects.
 ```
 
 #### `json_texture`
-Output CSS variables as an object in format similar to that of [TexturePacker](https://www.codeandweb.com/texturepacker). Useful for game frameworks, such as [Phaser](http://phaser.io/), [Pixi.js](http://www.pixijs.com/) and others.
+Output CSS variables as an object in format similar to that of [TexturePacker][]. Useful for game frameworks, such as [Phaser][], [Pixi.js][] and others.
 
-This template will not use the `name` field of the sprite object. Instead, it will use the filename of the image file with the file extension retained. If you actually do want to change the key, you can explicity set the `frame_name` field of the sprite obect. If you use grunt-spritesmith, it can be done like this:
+[TexturePacker]: https://www.codeandweb.com/texturepacker
+[Phaser]: http://phaser.io/
+[Pixi.js]: http://www.pixijs.com/
+
+For consistency with [TexturePacker][], we will use the [basename][] of a given image. `spritesmith` provides this via `sprite.source_image`. If you would like to provide a custom name, then please define `sprite.frame_name`:
 
 ```js
-cssVarMap: function (sprite) {
-  sprite.frame_name = 'sprite_' + path.basename(sprite.source_image);
+// Input
+{
+  sprites: [{
+    frame_name: 'hello', name: 'github', x: 0, y: 0, width: 10, height: 20
+  }]
+}
+
+// Output
+{
+  frames: {
+    hello: {x: 0, y: 0, w: 10, h: 20}
+  }
 }
 ```
+
+If neither `sprite.source_image` nor `spriteframe` is used, then `sprite.name` will be used.
+
+For integration in `grunt-spritesmith`/`gulp.spritesmith`, please see their `cssVarMap` documentation.
 
 **Example:**
 ```js
