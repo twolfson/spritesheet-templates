@@ -1,7 +1,7 @@
 {
   "name": "spritesheet-templates",
   "description": "Convert spritesheet data into CSS or CSS pre-processor data",
-  "version": "9.5.0",
+  "version": "9.5.2",
   "homepage": "https://github.com/twolfson/spritesheet-templates",
   "author": {
     "name": "Todd Wolfson",
@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/twolfson/spritesheet-templates/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/twolfson/spritesheet-templates/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "lib/spritesheet-templates",
   "engines": {
     "node": ">= 0.8.0"
