@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.5.2 - Moved iojs to allowed failure in Travis CI until https://github.com/npm/npm/issues/8406 gets patched
+
 9.5.1 - Moved from deprecated `licenses` key to `license` in `package.json`
 
 9.5.0 - Added `registerHandlebarsHelper` to allow handlebars helper registration

@@ -1,7 +1,7 @@
 {
   "name": "spritesheet-templates",
   "description": "Convert spritesheet data into CSS or CSS pre-processor data",
-  "version": "9.5.1",
+  "version": "9.5.2",
   "homepage": "https://github.com/twolfson/spritesheet-templates",
   "author": {
     "name": "Todd Wolfson",
