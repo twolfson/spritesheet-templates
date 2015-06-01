@@ -224,7 +224,7 @@ Output CSS variables as an array of objects.
 ```
 
 #### `json_texture`
-Output CSS variables as an object in format similar to that of [TexturePacker][]. Useful for game frameworks, such as [Phaser][], [Pixi.js][] and others.
+Output CSS variables as an object in format similar to that of [TexturePacker][]. Useful for game frameworks, such as [Phaser][], [Pixi.js][], and others.
 
 [TexturePacker]: https://www.codeandweb.com/texturepacker
 [Phaser]: http://phaser.io/
