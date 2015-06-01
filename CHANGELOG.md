@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.5.1 - Moved from deprecated `licenses` key to `license` in `package.json`
+
 9.5.0 - Added `registerHandlebarsHelper` to allow handlebars helper registration
 
 9.4.1 - Added `node@0.12` and `iojs` to CI tests. Upgraded test suite to support them.
