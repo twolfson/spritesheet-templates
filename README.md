@@ -232,6 +232,8 @@ Output CSS variables as an object in format similar to that of [TexturePacker][]
 
 For consistency with [TexturePacker][], we will use the [basename][] of a given image. `spritesmith` provides this via `sprite.source_image`. If you would like to provide a custom name, then please define `sprite.frame_name`:
 
+[basename]: https://nodejs.org/api/path.html#path_path_basename_p_ext
+
 ```js
 // Input
 {
