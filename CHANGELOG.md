@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+9.6.1 - Added back iojs to Travis CI
+
 9.6.0 - Added `json_texture` template via @limikael in #41
 
 9.5.2 - Moved iojs to allowed failure in Travis CI until https://github.com/npm/npm/issues/8406 gets patched
