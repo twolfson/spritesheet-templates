@@ -63,9 +63,14 @@ retinaSprite($retina_group) {
   $retina_sprite = $retina_group[2];
   sprite($normal_sprite)
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi) {
+  @media  only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min--moz-device-pixel-ratio: 2),
+          only screen and (-o-min-device-pixel-ratio: 2/1),
+          only screen and (min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi),
+          only screen and (min-resolution: 2dppx) {
     spriteImage($retina_sprite)
+    spritePosition($retina_sprite)
     spriteBackgroundSize($normal_sprite)
   }
 }
