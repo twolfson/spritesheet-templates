@@ -66,17 +66,17 @@ At the bottom of this section, we provide information about the spritesheet itse
 @sprite-snake-case@2x-total-height: 200px;
 @sprite-snake-case@2x-image: 'nested/dir/spritesheet@2x.png';
 @sprite-snake-case@2x: 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spritesheet@2x.png' sprite_snake_case@2x;
-@sprite-camel-case2x-name: spriteCamelCase@2x;
-@sprite-camel-case2x-x: 60px;
-@sprite-camel-case2x-y: 100px;
-@sprite-camel-case2x-offset-x: -60px;
-@sprite-camel-case2x-offset-y: -100px;
-@sprite-camel-case2x-width: 100px;
-@sprite-camel-case2x-height: 100px;
-@sprite-camel-case2x-total-width: 160px;
-@sprite-camel-case2x-total-height: 200px;
-@sprite-camel-case2x-image: 'nested/dir/spritesheet@2x.png';
-@sprite-camel-case2x: 60px 100px -60px -100px 100px 100px 160px 200px 'nested/dir/spritesheet@2x.png' spriteCamelCase@2x;
+@sprite-camel-case@2x-name: spriteCamelCase@2x;
+@sprite-camel-case@2x-x: 60px;
+@sprite-camel-case@2x-y: 100px;
+@sprite-camel-case@2x-offset-x: -60px;
+@sprite-camel-case@2x-offset-y: -100px;
+@sprite-camel-case@2x-width: 100px;
+@sprite-camel-case@2x-height: 100px;
+@sprite-camel-case@2x-total-width: 160px;
+@sprite-camel-case@2x-total-height: 200px;
+@sprite-camel-case@2x-image: 'nested/dir/spritesheet@2x.png';
+@sprite-camel-case@2x: 60px 100px -60px -100px 100px 100px 160px 200px 'nested/dir/spritesheet@2x.png' spriteCamelCase@2x;
 @spritesheet-width: 80px;
 @spritesheet-height: 100px;
 @spritesheet-image: 'nested/dir/spritesheet.png';
@@ -85,7 +85,7 @@ At the bottom of this section, we provide information about the spritesheet itse
 @retina-spritesheet-width: 160px;
 @retina-spritesheet-height: 200px;
 @retina-spritesheet-image: 'nested/dir/spritesheet@2x.png';
-@retina-spritesheet-sprites: @sprite-dash-case@2x @sprite-snake-case@2x @sprite-camel-case2x;
+@retina-spritesheet-sprites: @sprite-dash-case@2x @sprite-snake-case@2x @sprite-camel-case@2x;
 @retina-spritesheet: 160px 200px 'nested/dir/spritesheet@2x.png' @retina-spritesheet-sprites;
 
 /*
@@ -98,7 +98,7 @@ The list formatted variables are intended for mixins like `retina-sprite` and `r
 @sprite-snake-case-group-name: sprite_snake_case;
 @sprite-snake-case-group: sprite_snake_case @sprite-snake-case @sprite-snake-case@2x;
 @sprite-camel-case-group-name: spriteCamelCase;
-@sprite-camel-case-group: spriteCamelCase @sprite-camel-case @sprite-camel-case2x;
+@sprite-camel-case-group: spriteCamelCase @sprite-camel-case @sprite-camel-case@2x;
 @retina-groups: @sprite-dash-case-group @sprite-snake-case-group @sprite-camel-case-group;
 
 /*
