@@ -44,7 +44,7 @@ $sprite-camel-case: (
   image: 'nested/dir/spritesheet.png'
 );
 $sprite-dash-case-2x: (
-  name: 'sprite-dash-case-2x',
+  name: 'sprite-dash-case@2x',
   x: 0px,
   y: 0px,
   offset-x: 0px,
@@ -53,10 +53,10 @@ $sprite-dash-case-2x: (
   height: 40px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
 $sprite-snake-case-2x: (
-  name: 'sprite_snake_case_2x',
+  name: 'sprite_snake_case@2x',
   x: 20px,
   y: 40px,
   offset-x: -20px,
@@ -65,10 +65,10 @@ $sprite-snake-case-2x: (
   height: 60px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
-$sprite-camel-case2x: (
-  name: 'spriteCamelCase2x',
+$sprite-camel-case-2x: (
+  name: 'spriteCamelCase@2x',
   x: 60px,
   y: 100px,
   offset-x: -60px,
@@ -77,7 +77,7 @@ $sprite-camel-case2x: (
   height: 100px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
 $spritesheet: (
   width: 80px,
@@ -88,7 +88,7 @@ $spritesheet: (
 $retina-spritesheet: (
   width: 160px,
   height: 200px,
-  image: 'nested/dir/spritesheet-2x.png',
+  image: 'nested/dir/spritesheet@2x.png',
   sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case2x, )
 );
 
