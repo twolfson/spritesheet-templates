@@ -30,7 +30,6 @@
     "handlebars": "~3.0.0",
     "handlebars-layouts": "~1.1.0",
     "json-content-demux": "~0.1.2",
-    "slugg": "~0.1.2",
     "underscore": "~1.4.2",
     "underscore.string": "~3.0.3"
   },

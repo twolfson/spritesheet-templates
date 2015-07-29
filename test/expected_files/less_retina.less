@@ -11,7 +11,7 @@ The large array-like variables contain all information about a single icon
 At the bottom of this section, we provide information about the spritesheet itself
 @spritesheet: width height image @spritesheet-sprites;
 */
-@sprite-dash-case-name: sprite-dash-case;
+@sprite-dash-case-name: 'sprite-dash-case';
 @sprite-dash-case-x: 0px;
 @sprite-dash-case-y: 0px;
 @sprite-dash-case-offset-x: 0px;
@@ -21,8 +21,8 @@ At the bottom of this section, we provide information about the spritesheet itse
 @sprite-dash-case-total-width: 80px;
 @sprite-dash-case-total-height: 100px;
 @sprite-dash-case-image: 'nested/dir/spritesheet.png';
-@sprite-dash-case: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' sprite-dash-case;
-@sprite-snake-case-name: sprite_snake_case;
+@sprite-dash-case: 0px 0px 0px 0px 10px 20px 80px 100px 'nested/dir/spritesheet.png' 'sprite-dash-case';
+@sprite-snake-case-name: 'sprite_snake_case';
 @sprite-snake-case-x: 10px;
 @sprite-snake-case-y: 20px;
 @sprite-snake-case-offset-x: -10px;
@@ -32,8 +32,8 @@ At the bottom of this section, we provide information about the spritesheet itse
 @sprite-snake-case-total-width: 80px;
 @sprite-snake-case-total-height: 100px;
 @sprite-snake-case-image: 'nested/dir/spritesheet.png';
-@sprite-snake-case: 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' sprite_snake_case;
-@sprite-camel-case-name: spriteCamelCase;
+@sprite-snake-case: 10px 20px -10px -20px 20px 30px 80px 100px 'nested/dir/spritesheet.png' 'sprite_snake_case';
+@sprite-camel-case-name: 'spriteCamelCase';
 @sprite-camel-case-x: 30px;
 @sprite-camel-case-y: 50px;
 @sprite-camel-case-offset-x: -30px;
@@ -43,7 +43,7 @@ At the bottom of this section, we provide information about the spritesheet itse
 @sprite-camel-case-total-width: 80px;
 @sprite-camel-case-total-height: 100px;
 @sprite-camel-case-image: 'nested/dir/spritesheet.png';
-@sprite-camel-case: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' spriteCamelCase;
+@sprite-camel-case: 30px 50px -30px -50px 50px 50px 80px 100px 'nested/dir/spritesheet.png' 'spriteCamelCase';
 @sprite-dash-case-2x-name: 'sprite-dash-case@2x';
 @sprite-dash-case-2x-x: 0px;
 @sprite-dash-case-2x-y: 0px;
@@ -93,12 +93,12 @@ These "retina group" variables are mappings for the naming and pairing of normal
 
 The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
 */
-@sprite-dash-case-group-name: sprite-dash-case;
-@sprite-dash-case-group: sprite-dash-case @sprite-dash-case @sprite-dash-case-2x;
-@sprite-snake-case-group-name: sprite_snake_case;
-@sprite-snake-case-group: sprite_snake_case @sprite-snake-case @sprite-snake-case-2x;
-@sprite-camel-case-group-name: spriteCamelCase;
-@sprite-camel-case-group: spriteCamelCase @sprite-camel-case @sprite-camel-case-2x;
+@sprite-dash-case-group-name: 'sprite-dash-case';
+@sprite-dash-case-group: 'sprite-dash-case' @sprite-dash-case @sprite-dash-case-2x;
+@sprite-snake-case-group-name: 'sprite_snake_case';
+@sprite-snake-case-group: 'sprite_snake_case' @sprite-snake-case @sprite-snake-case-2x;
+@sprite-camel-case-group-name: 'spriteCamelCase';
+@sprite-camel-case-group: 'spriteCamelCase' @sprite-camel-case @sprite-camel-case-2x;
 @retina-groups: @sprite-dash-case-group @sprite-snake-case-group @sprite-camel-case-group;
 
 /*
