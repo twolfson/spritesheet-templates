@@ -33,8 +33,8 @@ These "retina group" variables are mappings for the naming and pairing of normal
 The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
 */
 {{#each retina_groups}}
-@{{strings.name_group_name}}: {{name}};
-@{{strings.name_group}}: {{name}} @{{normal.strings.name}} @{{retina.strings.name}};
+@{{strings.name_group_name}}: '{{name}}';
+@{{strings.name_group}}: '{{name}}' @{{normal.strings.name}} @{{retina.strings.name}};
 {{/each}}
 @{{retina_groups_info.strings.name}}:{{#each retina_groups}} @{{strings.name_group}}{{/each}};
 {{/content}}

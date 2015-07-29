@@ -89,7 +89,7 @@ $retina-spritesheet: (
   width: 160px,
   height: 200px,
   image: 'nested/dir/spritesheet@2x.png',
-  sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case2x, )
+  sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case-2x, )
 );
 
 /*
@@ -110,7 +110,7 @@ $sprite-snake-case-group: (
 $sprite-camel-case-group: (
   name: 'spriteCamelCase',
   normal: $sprite-camel-case,
-  retina: $sprite-camel-case2x
+  retina: $sprite-camel-case-2x
 );
 $retina-groups: ($sprite-dash-case-group, $sprite-snake-case-group, $sprite-camel-case-group, );
 
