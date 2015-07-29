@@ -31,15 +31,15 @@ Icon classes can be used entirely standalone. They are named after their origina
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .icon-sprite-dash-case {
-    background-image: url(nested/dir/spritesheet-2x.png);
+    background-image: url(nested/dir/spritesheet@2x.png);
     background-size: 80px 100px;
   }
   .icon-sprite_snake_case {
-    background-image: url(nested/dir/spritesheet-2x.png);
+    background-image: url(nested/dir/spritesheet@2x.png);
     background-size: 80px 100px;
   }
   .icon-spriteCamelCase {
-    background-image: url(nested/dir/spritesheet-2x.png);
+    background-image: url(nested/dir/spritesheet@2x.png);
     background-size: 80px 100px;
   }
 }

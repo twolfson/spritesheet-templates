@@ -12,17 +12,17 @@ console.log(templater({
   }],
   // Note that the retina sprites are in the same order as `sprites`
   retina_sprites: [{
-    name: 'github-2x', x: 0, y: 0, width: 20, height: 40
+    name: 'github@2x', x: 0, y: 0, width: 20, height: 40
   }, {
-    name: 'twitter-2x', x: 20, y: 40, width: 40, height: 60
+    name: 'twitter@2x', x: 20, y: 40, width: 40, height: 60
   }, {
-    name: 'rss-2x', x: 60, y: 100, width: 100, height: 100
+    name: 'rss@2x', x: 60, y: 100, width: 100, height: 100
   }],
   spritesheet: {
     width: 80, height: 100, image: 'url/path/to/spritesheet.png'
   },
   retina_spritesheet: {
-    width: 160, height: 200, image: 'url/path/to/spritesheet-2x.png'
+    width: 160, height: 200, image: 'url/path/to/spritesheet@2x.png'
   },
   retina_groups: [{
     name: 'github', index: 0

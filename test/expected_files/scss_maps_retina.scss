@@ -43,8 +43,8 @@ $sprite-camel-case: (
   total-height: 100px,
   image: 'nested/dir/spritesheet.png'
 );
-$sprite-dash-case-2x: (
-  name: 'sprite-dash-case-2x',
+$sprite-dash-case@2x: (
+  name: 'sprite-dash-case@2x',
   x: 0px,
   y: 0px,
   offset-x: 0px,
@@ -53,9 +53,9 @@ $sprite-dash-case-2x: (
   height: 40px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
-$sprite-snake-case-2x: (
+$sprite-snake-case@2x: (
   name: 'sprite_snake_case_2x',
   x: 20px,
   y: 40px,
@@ -65,7 +65,7 @@ $sprite-snake-case-2x: (
   height: 60px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
 $sprite-camel-case2x: (
   name: 'spriteCamelCase2x',
@@ -77,7 +77,7 @@ $sprite-camel-case2x: (
   height: 100px,
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
 $spritesheet: (
   width: 80px,
@@ -88,8 +88,8 @@ $spritesheet: (
 $retina-spritesheet: (
   width: 160px,
   height: 200px,
-  image: 'nested/dir/spritesheet-2x.png',
-  sprites: ($sprite-dash-case-2x, $sprite-snake-case-2x, $sprite-camel-case2x, )
+  image: 'nested/dir/spritesheet@2x.png',
+  sprites: ($sprite-dash-case@2x, $sprite-snake-case@2x, $sprite-camel-case2x, )
 );
 
 /*
@@ -100,12 +100,12 @@ The map variables are intended for the `retina-sprite` mixin. The list variable 
 $sprite-dash-case-group: (
   name: 'sprite-dash-case',
   normal: $sprite-dash-case,
-  retina: $sprite-dash-case-2x
+  retina: $sprite-dash-case@2x
 );
 $sprite-snake-case-group: (
   name: 'sprite_snake_case',
   normal: $sprite-snake-case,
-  retina: $sprite-snake-case-2x
+  retina: $sprite-snake-case@2x
 );
 $sprite-camel-case-group: (
   name: 'spriteCamelCase',
@@ -157,7 +157,7 @@ The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-d
 $icon-home-group: (
   name: 'icon-home',
   normal: $icon-home,
-  retina: $icon-home-2x
+  retina: $icon-home@2x
 );
 
 .icon-home {
