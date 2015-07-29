@@ -9,7 +9,7 @@ describe('An retina array of image positions, dimensions, and names', function (
     testUtils.assertOutputMatches(__dirname + '/expected_files/css_retina.css');
 
     testUtils.runFakeJigsaw();
-    it.only('is valid CSS', function (done) {
+    it('is valid CSS', function (done) {
       var css = this.result;
       // DEV: Repair vendor specific validation issues
       css = css.replace(/\(-webkit-min-device-pixel-ratio: 2\),/g, '');

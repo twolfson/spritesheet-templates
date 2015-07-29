@@ -111,7 +111,7 @@ exports._assertValidCss = function (css, done) {
     assert.strictEqual(err, null);
     assert.deepEqual(data.errors, []);
     assert.deepEqual(data.warnings, []);
-    done();
+    setTimeout(done, 5000);
   });
 };
 
