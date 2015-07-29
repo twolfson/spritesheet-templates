@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.0.0 - Added escaping to template strings to allow `@2x` names
+
 9.6.1 - Added back iojs to Travis CI
 
 9.6.0 - Added `json_texture` template via @limikael in #41
