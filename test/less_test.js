@@ -6,7 +6,7 @@ var testUtils = require('./utils/test');
 describe('An array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.multipleSprites);
 
-  describe('processed by `spritesheet-templates` into LESS', function () {
+  describe.only('processed by `spritesheet-templates` into LESS', function () {
     testUtils.runTemplater({format: 'less'});
     testUtils.assertOutputMatches(__dirname + '/expected_files/less.less');
 
@@ -31,6 +31,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
         // Render the LESS, assert no errors, and valid CSS
         less.render(lessStr, function (err, css) {
+          console.log(err, css);
           // Verify there are no braces in the CSS (array string coercion)
           assert.strictEqual(err, null);
           assert.notEqual(css, '');

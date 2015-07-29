@@ -98,7 +98,7 @@ This must be run when you have at least 2 sprites.
 */
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
-  @sprite-name: extract(@sprite, 10);
+  @sprite-name: e(extract(@sprite, 10));
   .@{sprite-name} {
     .sprite(@sprite);
   }

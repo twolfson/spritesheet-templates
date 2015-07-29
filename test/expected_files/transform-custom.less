@@ -61,7 +61,7 @@ The `.sprites` mixin generates identical output to the CSS template
 */
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
-  @sprite-name: extract(@sprite, 10);
+  @sprite-name: e(extract(@sprite, 10));
   .@{sprite-name} {
     .sprite(@sprite);
   }

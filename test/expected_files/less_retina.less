@@ -179,7 +179,7 @@ This must be run when you have at least 2 sprites.
 */
 .sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
   @sprite: extract(@sprites, @i);
-  @sprite-name: extract(@sprite, 10);
+  @sprite-name: e(extract(@sprite, 10));
   .@{sprite-name} {
     .sprite(@sprite);
   }
@@ -194,7 +194,7 @@ The `.retina-sprites` mixin generates a CSS rule and media query for retina grou
 */
 .retina-sprites(@retina-groups, @i: 1) when (@i <= length(@retina-groups)) {
   @retina-group: extract(@retina-groups, @i);
-  @sprite-name: extract(@retina-group, 1);
+  @sprite-name: e(extract(@retina-group, 1));
   .@{sprite-name} {
     .retina-sprite(@retina-group);
   }
