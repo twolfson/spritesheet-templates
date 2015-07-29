@@ -539,7 +539,7 @@ We extend from the [`css` template](#css) and have its blocks. There are no new 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .icon-sprite1 {
-    background-image: url(nested/dir/spritesheet-2x.png);
+    background-image: url(nested/dir/spritesheet@2x.png);
     background-size: 80px 100px;
   }
 }
@@ -648,8 +648,8 @@ We extend from the [`less` template](#less) and have its blocks. There are no ne
 // ...
 @sprite2-2x-total-width: 160px;
 @sprite2-2x-total-height: 200px;
-@sprite2-2x-image: 'nested/dir/spritesheet-2x.png';
-@sprite2-2x: 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet-2x.png' sprite2-2x;
+@sprite2-2x-image: 'nested/dir/spritesheet@2x.png';
+@sprite2-2x: 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet@2x.png' sprite2-2x;
 // ...
 @sprite3-group: spriteCamelCase @sprite3 @sprite3-2x;
 @retina-groups: @sprite1-group @sprite2-group @sprite3-group;
@@ -686,8 +686,8 @@ $sprite1-total-height: 100px
 // ...
 $sprite2-2x-total-width: 160px
 $sprite2-2x-total-height: 200px
-$sprite2-2x-image: 'nested/dir/spritesheet-2x.png'
-$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite2-2x', )
+$sprite2-2x-image: 'nested/dir/spritesheet@2x.png'
+$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet@2x.png', 'sprite2@2x', )
 // ...
 $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, )
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, )
@@ -724,8 +724,8 @@ $sprite1-total-height: 100px;
 // ...
 $sprite2-2x-total-width: 160px;
 $sprite2-2x-total-height: 200px;
-$sprite2-2x-image: 'nested/dir/spritesheet-2x.png';
-$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet-2x.png', 'sprite2-2x', );
+$sprite2-2x-image: 'nested/dir/spritesheet@2x.png';
+$sprite2-2x: (20px, 40px, -20px, -40px, 40px, 60px, 160px, 200px, 'nested/dir/spritesheet@2x.png', 'sprite2@2x', );
 // ...
 $sprite3-group: ('sprite3', $sprite3, $sprite3-2x, );
 $retina-groups: ($sprite1-group, $sprite2-group, $sprite3-group, );
@@ -767,7 +767,7 @@ $sprite2: (
   // ...
   total-width: 160px,
   total-height: 200px,
-  image: 'nested/dir/spritesheet-2x.png'
+  image: 'nested/dir/spritesheet@2x.png'
 );
 // ...
 $sprite3-group: (
@@ -810,8 +810,8 @@ $sprite1_total_height = 100px;
 // ...
 $sprite2_2x_total_width = 160px;
 $sprite2_2x_total_height = 200px;
-$sprite2_2x_image = 'nested/dir/spritesheet-2x.png';
-$sprite2_2x = 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spritesheet-2x.png' 'sprite2-2x';
+$sprite2_2x_image = 'nested/dir/spritesheet@2x.png';
+$sprite2_2x = 20px 40px -20px -40px 40px 60px 160px 200px 'nested/dir/spritesheet@2x.png' 'sprite2@2x';
 // ...
 $sprite3_group = 'sprite3' $sprite3 $sprite3_2x;
 $retina_groups = $sprite1_group $sprite2_group $sprite3_group;
@@ -1089,17 +1089,17 @@ templater({
   }],
   // Note that the retina sprites are in the same order as `sprites`
   retina_sprites: [{
-    name: 'github-2x', x: 0, y: 0, width: 20, height: 40
+    name: 'github@2x', x: 0, y: 0, width: 20, height: 40
   }, {
-    name: 'twitter-2x', x: 20, y: 40, width: 40, height: 60
+    name: 'twitter@2x', x: 20, y: 40, width: 40, height: 60
   }, {
-    name: 'rss-2x', x: 60, y: 100, width: 100, height: 100
+    name: 'rss@2x', x: 60, y: 100, width: 100, height: 100
   }],
   spritesheet: {
     width: 80, height: 100, image: 'url/path/to/spritesheet.png'
   },
   retina_spritesheet: {
-    width: 160, height: 200, image: 'url/path/to/spritesheet-2x.png'
+    width: 160, height: 200, image: 'url/path/to/spritesheet@2x.png'
   },
   retina_groups: [{
     name: 'github', index: 0
@@ -1112,7 +1112,7 @@ templater({
 $github-name: 'github';
 $github-x: 0px;
 ...
-$twitter-2x-name: 'twitter-2x';
+$twitter-2x-name: 'twitter@2x';
 $twitter-2x-x: 20px;
 ...
 $rss-group-name: 'rss';
