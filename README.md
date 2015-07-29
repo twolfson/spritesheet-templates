@@ -649,9 +649,9 @@ We extend from the [`less` template](#less) and have its blocks. There are no ne
 @sprite2-2x-total-width: 160px;
 @sprite2-2x-total-height: 200px;
 @sprite2-2x-image: 'nested/dir/spritesheet@2x.png';
-@sprite2-2x: 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet@2x.png' sprite2-2x;
+@sprite2-2x: 0px 0px 0px 0px 20px 40px 160px 200px 'nested/dir/spritesheet@2x.png' 'sprite2@2x';
 // ...
-@sprite3-group: spriteCamelCase @sprite3 @sprite3-2x;
+@sprite3-group: 'sprite3' @sprite3 @sprite3-2x;
 @retina-groups: @sprite1-group @sprite2-group @sprite3-group;
 // ...
 ```
