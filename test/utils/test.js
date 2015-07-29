@@ -103,6 +103,7 @@ exports._assertValidCss = function (css, done) {
   // Assert CSS exists
   assert.notEqual(css, '');
 
+  done();
   // // Assert it was fully valid via w3c
   // validateCss({
   //   text: css,
