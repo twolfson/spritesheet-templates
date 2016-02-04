@@ -57,6 +57,13 @@ $spritesheet: (80px, 100px, 'nested/dir/spritesheet.png', $spritesheet-sprites, 
 
   .icon-email
     @include sprite($icon-email)
+
+  Here are example usages in HTML:
+    `display: block` sprite:
+      <div class="icon-home"></div>
+
+    `display: inline-block` sprite:
+      <img class="icon-home" />
   */
 @mixin sprite-width($sprite)
   width: nth($sprite, 5)

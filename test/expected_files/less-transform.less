@@ -59,6 +59,14 @@ The provided classes are intended to be used with the array-like variables
 .icon-email {
   .sprite(@icon-email);
 }
+
+Here are example usages in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+`display: inline-block` sprite:
+<img class="icon-home" />
 */
 .sprite-width(@sprite) {
   width: extract(@sprite, 5);
