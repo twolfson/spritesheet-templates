@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.1.0 - Added HTML examples to non-CSS templates
+
 10.0.1 - Added foundry for release
 
 10.0.0 - Added escaping to template strings to allow `@2x` names
