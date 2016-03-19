@@ -54,13 +54,7 @@ The provided classes are intended to be used with the array-like variables
   .sprite(@icon-email);
 }
 
-Here are example usages in HTML:
-
-`display: block` sprite:
-<div class="icon-home"></div>
-
-`display: inline-block` sprite:
-<img class="icon-home" />
+Example usage: `<div class="icon-home"></div>`
 */
 {{/if}}
 {{/block}}
@@ -106,6 +100,18 @@ This must be run when you have at least 2 sprites.
   If run with a single sprite, then there will be reference errors.
 
 .sprites(@spritesheet-sprites);
+
+To change `display` (e.g. `display: inline-block;`), create and use an additional CSS class:
+
+```
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+```
 */
 {{/if}}
 {{/block}}
