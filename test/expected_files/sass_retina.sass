@@ -109,12 +109,18 @@ $retina-groups: ($sprite-dash-case-group, $sprite-snake-case-group, $sprite-came
   .icon-email
     @include sprite($icon-email)
 
-  Here are example usages in HTML:
+  Example usage in HTML:
     `display: block` sprite:
-      <div class="icon-home"></div>
+    <div class="icon-home"></div>
 
-    `display: inline-block` sprite:
-      <img class="icon-home" />
+  To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+    // CSS
+    .icon {
+      display: inline-block;
+    }
+
+    // HTML
+    <i class="icon icon-home"></i>
   */
 @mixin sprite-width($sprite)
   width: nth($sprite, 5)
