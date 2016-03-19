@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.1.1 - Corrected CSS documentation to not use `img`. Fixes https://github.com/Ensighten/grunt-spritesmith/issues/153
+
 10.1.0 - Added HTML examples to non-CSS templates
 
 10.0.1 - Added foundry for release
