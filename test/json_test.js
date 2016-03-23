@@ -22,8 +22,8 @@ describe('An array of image positions, dimensions, and names', function () {
   });
 
   describe('processed by `spritesheet-templates` into an array', function () {
-    testUtils.runTemplater({format: 'jsonArray'});
-    testUtils.assertOutputMatches(__dirname + '/expected_files/jsonArray.json');
+    testUtils.runTemplater({format: 'json_array'});
+    testUtils.assertOutputMatches(__dirname + '/expected_files/json_array.json');
 
     assertValidJson();
   });
