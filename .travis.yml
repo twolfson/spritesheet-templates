@@ -13,6 +13,10 @@ before_install:
   # Install latest npm to avoid semver issues
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
+  # Upgrade Ruby
+  - sudo apt-get update
+  - sudo apt-get install -y ruby
+
 install:
   # Install node modules
   - npm install
