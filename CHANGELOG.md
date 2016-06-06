@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.1.3 - Upgraded to Ruby@2.1.1 to repair Travis CI errors
+
 10.1.2 - Corrected jsonArray template to json_array for alignment with documentation
 
 10.1.1 - Corrected CSS documentation to not use `img`. Fixes https://github.com/Ensighten/grunt-spritesmith/issues/153
