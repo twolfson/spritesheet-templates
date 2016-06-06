@@ -14,8 +14,8 @@ before_install:
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
   # Upgrade Ruby
-  - sudo apt-get update
-  - sudo apt-get install -y ruby
+  - rvm install 2.1.1
+  - rvm --default use 2.1.1
 
 install:
   # Install node modules
