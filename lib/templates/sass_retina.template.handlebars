@@ -27,11 +27,9 @@ ${{retina_spritesheet_info.strings.name_image}}: '{{{retina_spritesheet.escaped_
 ${{retina_spritesheet_info.strings.name_sprites}}: ({{#each retina_sprites}}${{strings.name}}, {{/each}})
 ${{retina_spritesheet_info.strings.name}}: ({{retina_spritesheet.px.width}}, {{retina_spritesheet.px.height}}, '{{{retina_spritesheet.escaped_image}}}', ${{retina_spritesheet_info.strings.name_sprites}}, )
 
-/*
-  These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
-
-  The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
-  */
+// These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+//
+// The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
 {{#each retina_groups}}
 ${{strings.name_group_name}}: '{{name}}'
 ${{strings.name_group}}: ('{{name}}', ${{normal.strings.name}}, ${{retina.strings.name}}, )
@@ -42,17 +40,15 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_gr
 {{#content "sprite-functions" mode="append"}}
 {{#if options.functions}}
 
-/*
-  The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
-    It should be used with a "retina group" variable.
-
-  The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
-
-  $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, )
-
-  .icon-home
-    @include retina-sprite($icon-home-group)
-  */
+// The `retina-sprite` mixin sets up rules and a media query for a sprite/retina sprite.
+//   It should be used with a "retina group" variable.
+//
+// The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+//
+// $icon-home-group: ('icon-home', $icon-home, $icon-home-2x, )
+//
+// .icon-home
+//   @include retina-sprite($icon-home-group)
 @mixin sprite-background-size($sprite)
   $sprite-total-width: nth($sprite, 7)
   $sprite-total-height: nth($sprite, 8)
@@ -72,12 +68,10 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_gr
 {{#content "spritesheet-functions" mode="append"}}
 {{#if options.functions}}
 
-/*
-  The `retina-sprites` mixin generates a CSS rule and media query for retina groups
-    This yields the same output as CSS retina template but can be overridden in SASS
-
-  @include retina-sprites($retina-groups)
-  */
+// The `retina-sprites` mixin generates a CSS rule and media query for retina groups
+//   This yields the same output as CSS retina template but can be overridden in SASS
+//
+// @include retina-sprites($retina-groups)
 @mixin retina-sprites($retina-groups)
   @each $retina-group in $retina-groups
     $sprite-name: nth($retina-group, 1)

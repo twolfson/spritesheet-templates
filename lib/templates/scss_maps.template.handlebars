@@ -5,15 +5,13 @@
 }
 
 {{#block "sprites-comment"}}
-/*
-SCSS variables are information about icon's compiled state, stored under its original file name
-
-.icon-home {
-  width: map-get($icon-home, 'width');
-}
-
-At the bottom of this section, we provide information about the spritesheet itself
-*/
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: map-get($icon-home, 'width');
+// }
+//
+// At the bottom of this section, we provide information about the spritesheet itself
 {{/block}}
 {{#block "sprites"}}
 {{#each sprites}}
@@ -42,32 +40,30 @@ ${{spritesheet_info.strings.name}}: (
 
 {{#block "sprite-functions-comment"}}
 {{#if options.functions}}
-/*
-The provided mixins are intended to be used with variables directly
-
-.icon-home {
-  @include sprite-width($icon-home);
-}
-
-.icon-email {
-  @include sprite($icon-email);
-}
-
-Example usage in HTML:
-
-`display: block` sprite:
-<div class="icon-home"></div>
-
-To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
-
-// CSS
-.icon {
-  display: inline-block;
-}
-
-// HTML
-<i class="icon icon-home"></i>
-*/
+// The provided mixins are intended to be used with variables directly
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
 {{/if}}
 {{/block}}
 {{#block "sprite-functions"}}
@@ -99,12 +95,10 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 {{#block "spritesheet-functions-comment"}}
 {{#if options.functions}}
-/*
-The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of SCSS
-
-@include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
-*/
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites(map-get($spritesheet, '{{strings.bare_sprites}}'));
 {{/if}}
 {{/block}}
 {{#block "spritesheet-functions"}}
