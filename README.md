@@ -53,7 +53,7 @@ sprite($sprite) {
 ```
 
 ## Documentation
-`spritesheet-templates` is exports the funciton `templater` as its `module.exports`.
+`spritesheet-templates` exports the function `templater` as its `module.exports`.
 
 ### `templater(data, options)`
 Converter for spritesheet/sprite info into spritesheet
