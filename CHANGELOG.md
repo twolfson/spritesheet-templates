@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.2.1 - Fixed README typo via @dms1lva in #50
+
 10.2.0 - Moved from `/* */` to `//` syntax for SASS/SCSS files for consistency with convention via @dpolivy in #49. Fixes #48
 
 10.1.4 - Upgraded to Handlebars@4.0.5 to repair nodesecurity.io complaints via @ebdrup in #46
