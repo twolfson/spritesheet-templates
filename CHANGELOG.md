@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.2.0 - Moved from `/* */` to `//` syntax for SASS/SCSS files for consistency with convention via @dpolivy in #49. Fixes #48
+
 10.1.4 - Upgraded to Handlebars@4.0.5 to repair nodesecurity.io complaints via @ebdrup in #46
 
 10.1.3 - Upgraded to Ruby@2.1.1 to repair Travis CI errors
