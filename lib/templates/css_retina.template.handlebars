@@ -9,11 +9,16 @@
 }
 {{/each}}
 
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi) {
+@media  only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min--moz-device-pixel-ratio: 2),
+        only screen and (-o-min-device-pixel-ratio: 2/1),
+        only screen and (min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi),
+        only screen and (min-resolution: 2dppx) {
 {{#each retina_groups}}
   {{{selector}}} {
     background-image: url({{{retina.escaped_image}}});
+    background-position: {{retina.px.offset_x}} {{retina.px.offset_y}};
     background-size: {{normal.px.total_width}} {{normal.px.total_height}};
   }
 {{/each}}

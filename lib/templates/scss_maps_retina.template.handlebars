@@ -68,9 +68,14 @@ ${{retina_groups_info.strings.name}}: ({{#each retina_groups}}${{strings.name_gr
   $retina-sprite: map-get($retina-group, '{{strings.bare_retina}}');
   @include sprite($normal-sprite);
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi) {
+  @media  only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min--moz-device-pixel-ratio: 2),
+          only screen and (-o-min-device-pixel-ratio: 2/1),
+          only screen and (min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi),
+          only screen and (min-resolution: 2dppx) {
     @include sprite-image($retina-sprite);
+    @include sprite-position($retina-sprite);
     @include sprite-background-size($normal-sprite);
   }
 }
