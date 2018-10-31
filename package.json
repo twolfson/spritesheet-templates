@@ -36,7 +36,7 @@
   "devDependencies": {
     "css-validator": "~0.5.0",
     "eight-track-normalize-multipart": "~0.2.0",
-    "express": "~3.4.8",
+    "express": "~3.21.2",
     "foundry": "~4.3.2",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
