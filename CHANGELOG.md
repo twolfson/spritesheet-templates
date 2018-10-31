@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.2.3 - Upgraded to express@3.21.2 to fix GitHub vulnerability warning
+
 10.2.2 - Replaced Gratipay with support me pages
 
 10.2.1 - Fixed README typo via @dms1lva in #50
