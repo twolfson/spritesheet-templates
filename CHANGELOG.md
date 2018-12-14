@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.2.4 - Upgraded to underscore.string@3.3.0 to fix npm vulnerability warning
+
 10.2.3 - Upgraded to express@3.21.2 to fix GitHub vulnerability warning
 
 10.2.2 - Replaced Gratipay with support me pages
