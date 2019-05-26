@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.3.0 - Updated LESS template to use proper `e` function for using quoteless strings instead of JS
+
 10.2.4 - Upgraded to underscore.string@3.3.0 to fix npm vulnerability warning
 
 10.2.3 - Upgraded to express@3.21.2 to fix GitHub vulnerability warning
