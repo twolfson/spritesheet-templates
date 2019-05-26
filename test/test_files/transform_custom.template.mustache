@@ -49,8 +49,7 @@ The provided classes are intended to be used with the array-like variables
 .sprite-image(@sprite) {
   {{! DEV: We slice to trim off excess quotes on an escaped URL }}
   @sprite-image: extract(@sprite, 9);
-  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
-  background-image: url(@sprite-image-bare);
+  background-image: e(%('url(%a)', e(@sprite-image)));
 }
 
 .sprite(@sprite) {

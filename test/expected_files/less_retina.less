@@ -142,8 +142,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 
 .sprite-image(@sprite) {
   @sprite-image: extract(@sprite, 9);
-  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
-  background-image: url(@sprite-image-bare);
+  background-image: e(%('url(%a)', e(@sprite-image)));
 }
 
 .sprite(@sprite) {
