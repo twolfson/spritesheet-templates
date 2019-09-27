@@ -1,0 +1,41 @@
+# Based on https://github.com/CircleCI-Public/circleci-demo-workflows/blob/6b20915f578f3b1450f4eb24d3775c2fd8728bea/.circleci/config.yml
+#   and JavaScript example provided by CircleCI
+version: 2.1
+
+# Define common steps for all environments
+node_base: &node_base
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      # Download cached dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # Fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      # Install our dependencies and save them for future usage
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # Run our tests
+      - run: npm test
+
+# Define all our environments
+jobs:
+  node_8:
+    <<: *node_base
+    docker:
+      - image: circleci/node:8
+  node_10:
+    <<: *node_base
+    docker:
+      - image: circleci/node:10
+  node_12:
+    <<: *node_base
+    docker:
+      - image: circleci/node:12
