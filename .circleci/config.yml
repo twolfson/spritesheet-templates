@@ -10,8 +10,8 @@ node_base: &node_base
       - run:
           name: Install Ruby Sass
           command: |-
-            apt-get update
-            apt-get install -y ruby-sass
+            sudo apt-get update
+            sudo apt-get install -y ruby-sass
             ruby --version
             gem --version
             sass --version
@@ -25,7 +25,7 @@ node_base: &node_base
             git checkout 3.6.1
             . script/bootstrap
             make -C sassc -j4
-            PREFIX="/usr" make -C sassc install
+            sudo PREFIX="/usr" make -C sassc install
             sassc -h
 
       - checkout
