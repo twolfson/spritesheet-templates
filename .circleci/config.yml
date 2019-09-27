@@ -6,6 +6,9 @@ version: 2.0
 node_base: &node_base
     working_directory: ~/repo
     steps:
+      # Check out our files first thing
+      - checkout
+
       # Install our dependencies
       - run:
           name: Install Ruby Sass
@@ -28,8 +31,6 @@ node_base: &node_base
             # `make install` wasn't working so this is a workaround
             sudo ln -s $PWD/bin/sassc /usr/local/bin/sassc
             sassc --version
-
-      - checkout
 
       # Download cached dependencies
       - restore_cache:
