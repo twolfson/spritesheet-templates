@@ -24,9 +24,10 @@ node_base: &node_base
             cd sassc
             git checkout 3.6.1
             . script/bootstrap
-            make -C sassc -j4
-            sudo PREFIX="/usr" make -C sassc install
-            sassc -h
+            make -j4
+            # `make install` wasn't working so this is a workaround
+            sudo ln -s $PWD/bin/sassc /usr/local/bin/sassc
+            sassc --version
 
       - checkout
 
