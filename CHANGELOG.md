@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.3.2 - Moved from Travis CI to CircleCI for easier maintenance
+
 10.3.1 - Upgraded to handlebars@4.1.2 to fix vulnerability
 
 10.3.0 - Updated LESS template to use proper `e` function for using quoteless strings instead of JS
