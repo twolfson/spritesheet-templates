@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.3.3 - Added missing fixture for CircleCI
+
 10.3.2 - Moved from Travis CI to CircleCI for easier maintenance
 
 10.3.1 - Upgraded to handlebars@4.1.2 to fix vulnerability
