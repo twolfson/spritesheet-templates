@@ -39,3 +39,10 @@ jobs:
     <<: *node_base
     docker:
       - image: circleci/node:12
+workflows:
+  version: 2
+  build:
+    jobs:
+        - node_8
+        - node_10
+        - node_12
