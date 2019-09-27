@@ -7,10 +7,22 @@ node_base: &node_base
     working_directory: ~/repo
     steps:
       # Install our dependencies
+      ## Ruby SASS
       - apt-get update
-      - apt-get install ruby
+      - apt-get install -y ruby-sass
       - ruby --version
-      - ruby --version
+      - gem --version
+      - sass --version
+
+      ## Sassc
+      # https://github.com/sass/sassc/blob/3.6.1/docs/building/unix-instructions.md
+      - git clone https://github.com/sass/sassc.git
+      - cd sassc
+      - git checkout 3.6.1
+      - . script/bootstrap
+      - make -C sassc -j4
+      - PREFIX="/usr" make -C sassc install
+      - sassc -h
 
       - checkout
 
