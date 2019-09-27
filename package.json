@@ -18,7 +18,7 @@
   "license": "MIT",
   "main": "lib/spritesheet-templates",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 8.0.0"
   },
   "scripts": {
     "precheck": "twolfson-style precheck lib/ test/",
