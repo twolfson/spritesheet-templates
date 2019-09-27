@@ -1,4 +1,4 @@
-# spritesheet-templates [![Build status](https://travis-ci.org/twolfson/spritesheet-templates.svg?branch=master)](https://travis-ci.org/twolfson/spritesheet-templates)
+# spritesheet-templates [![CircleCI](https://circleci.com/gh/twolfson/spritesheet-templates/tree/master.svg?style=svg)](https://circleci.com/gh/twolfson/spritesheet-templates/tree/master)
 
 Convert spritesheet data into CSS or CSS pre-processor data
 

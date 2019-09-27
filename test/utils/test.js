@@ -91,7 +91,7 @@ exports.runFakeJigsaw = function () {
         // Return our info
         return info;
       },
-      preventRecording: process.env.TRAVIS
+      preventRecording: process.env.CI
     })).listen(1337);
   });
   after(function (done) {
