@@ -1,6 +1,6 @@
 # Based on https://github.com/CircleCI-Public/circleci-demo-workflows/blob/6b20915f578f3b1450f4eb24d3775c2fd8728bea/.circleci/config.yml
 #   and JavaScript example provided by CircleCI
-version: 2.1
+version: 2.0
 
 # Define common steps for all environments
 node_base: &node_base
