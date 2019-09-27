@@ -6,6 +6,12 @@ version: 2.1
 node_base: &node_base
     working_directory: ~/repo
     steps:
+      # Install our dependencies
+      - apt-get update
+      - apt-get install ruby
+      - ruby --version
+      - ruby --version
+
       - checkout
 
       # Download cached dependencies
