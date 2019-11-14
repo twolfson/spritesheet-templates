@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.4.1 - Upgraded to handlebars@4.4.5 to fix vulnerability via @ekelvin in #57
+
 10.4.0 - Upgraded to handlebars@4.3.3 to fix vulnerability
 
 10.3.3 - Added missing fixture for CircleCI
