@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.4.3 - Locked down to handlebars@4.5.3 to stop template extension issues
+
 10.4.2 - Added missing text fixture for CircleCI
 
 10.4.1 - Upgraded to handlebars@4.4.5 to fix vulnerability via @ekelvin in #57
