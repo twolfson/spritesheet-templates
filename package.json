@@ -27,7 +27,7 @@
     "test": "npm run precheck && mocha --timeout 10000 && npm run lint"
   },
   "dependencies": {
-    "handlebars": "^4.4.5",
+    "handlebars": "~4.5.3",
     "handlebars-layouts": "~1.1.0",
     "json-content-demux": "~0.1.2",
     "underscore": "~1.4.2",
