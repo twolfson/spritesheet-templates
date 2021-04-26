@@ -30,7 +30,7 @@
     "handlebars": "^4.6.0",
     "handlebars-layouts": "^3.1.4",
     "json-content-demux": "~0.1.2",
-    "underscore": "~1.4.2",
+    "underscore": "~1.13.1",
     "underscore.string": "~3.3.0"
   },
   "devDependencies": {
