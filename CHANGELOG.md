@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.5.2 - Removed accidentally published `node_modules.bak`. Fixed #62
+
 10.5.1 - Upgraded to underscore@1.13.1 via @tcc229 in #61. Fixes #60
 
 10.5.0 - Upgraded to handlebars@4.6.0 and handlebars-layouts@3.1.4 to allow using latest handlebars. Fixes #58
