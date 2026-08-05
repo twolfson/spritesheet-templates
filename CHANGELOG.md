@@ -1,4 +1,6 @@
 # spritesheet-templates changelog
+10.6.0 - Fixed up test suite functionality (incl CircleCI, migration from JSCS + JSHint to ESLint, upgrading Mocha)
+
 10.5.2 - Removed accidentally published `node_modules.bak`. Fixed #62
 
 10.5.1 - Upgraded to underscore@1.13.1 via @tcc229 in #61. Fixes #60
