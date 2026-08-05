@@ -26,7 +26,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
     describe('processed by `sass --scss` (ruby) into CSS', function () {
       // Process the SCSS
-      testUtils.processCss(function processScss (cb) {
+      testUtils.processCss(function processScss(cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
           // Assert no errors during conversion
           assert.strictEqual(stderr, '');
@@ -53,7 +53,7 @@ describe('An array of 1 image', function () {
     ].join('\n'));
 
     describe('processed by SASS into CSS', function () {
-      testUtils.processCss(function processScss (cb) {
+      testUtils.processCss(function processScss(cb) {
         exec('sass --scss ' + this.tmp.path, function (err, css, stderr) {
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');

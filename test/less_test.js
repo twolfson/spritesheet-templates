@@ -12,7 +12,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
     describe('processed by LESS into CSS', function () {
       // Process the LESS
-      testUtils.processCss(function processLess (cb) {
+      testUtils.processCss(function processLess(cb) {
         // Add some LESS to our result
         var lessStr = this.result;
         lessStr += [

@@ -12,7 +12,7 @@ describe('An retina array of image positions, dimensions, and names', function (
 
     describe('processed by Stylus into CSS', function () {
       // Process the Stylus
-      testUtils.processCss(function processStylus (cb) {
+      testUtils.processCss(function processStylus(cb) {
         // Add some stylus which hooks into our result
         var styl = this.result;
         styl += [
@@ -20,7 +20,7 @@ describe('An retina array of image positions, dimensions, and names', function (
         ].join('\n');
 
         // Render the stylus
-        stylus.render(styl, function handleStylus (err, css) {
+        stylus.render(styl, function handleStylus(err, css) {
           // Assert no errors, CSS was generated, and callback
           assert.strictEqual(err, null);
           assert.notEqual(css, '');

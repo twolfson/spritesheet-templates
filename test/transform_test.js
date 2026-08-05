@@ -23,7 +23,7 @@ describe('An array of image positions, dimensions, and names', function () {
   testUtils.setInfo(configUtils.multipleSprites);
 
   describe('processed by `spritesheet-templates` via custom template with no `variableNameTransforms`', function () {
-    before(function addCustomTemplate () {
+    before(function addCustomTemplate() {
       var customTemplate = fs.readFileSync(__dirname + '/test_files/transform_custom.template.mustache', 'utf8');
       templater.addMustacheTemplate('transform_custom', customTemplate);
     });
