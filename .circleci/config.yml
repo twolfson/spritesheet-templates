@@ -54,7 +54,7 @@ jobs:
   node_26:
     <<: *node_base
     docker:
-      - image: cimg/node:26
+      - image: cimg/node:26.6.0
 workflows:
   version: 2
   build:
