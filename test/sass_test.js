@@ -24,7 +24,7 @@ describe('An array of image positions, dimensions, and names', function () {
 
     describe('processed by SASS into CSS', function () {
       // Process the SASS
-      testUtils.processCss(function processSass (cb) {
+      testUtils.processCss(function processSass(cb) {
         exec('sass ' + this.tmp.path, function (err, css, stderr) {
           // Assert no errors during conversion and save our CSS
           assert.strictEqual(stderr, '');
@@ -51,7 +51,7 @@ describe('An array of 1 image', function () {
     ].join('\n'));
 
     describe('processed by SASS into CSS', function () {
-      testUtils.processCss(function processSass (cb) {
+      testUtils.processCss(function processSass(cb) {
         exec('sass ' + this.tmp.path, function (err, css, stderr) {
           assert.strictEqual(stderr, '');
           assert.notEqual(css, '');

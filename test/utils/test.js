@@ -11,16 +11,16 @@ var templater = require('../../');
 // Start our utilities
 exports.setInfo = function (info) {
   assert(info, '`testUtils.setInfo` requires `info` but it was not provided. Please provide it.');
-  before(function setInfoFn () {
+  before(function setInfoFn() {
     this.info = info;
   });
-  after(function cleanup () {
+  after(function cleanup() {
     delete this.info;
   });
 };
 
 exports.runTemplater = function (options) {
-  before(function runTemplaterFn () {
+  before(function runTemplaterFn() {
     // Convert info into result via templater
     var info = this.info;
     assert(info, '`testUtils.runTemplater` requires `this.info` to be defined. ' +
@@ -28,13 +28,13 @@ exports.runTemplater = function (options) {
     var result = options ? templater(info, options) : templater(info);
     this.result = result;
   });
-  after(function cleanup () {
+  after(function cleanup() {
     delete this.result;
   });
 };
 
 exports.assertOutputMatches = function (expectedFilepath) {
-  it('matches as expected', function assertOutputMatchesFn () {
+  it('matches as expected', function assertOutputMatchesFn() {
     // Load in the files and assert
     var actual = this.result;
     var expected = fs.readFileSync(expectedFilepath, 'utf8');
@@ -43,7 +43,7 @@ exports.assertOutputMatches = function (expectedFilepath) {
 };
 
 exports.generateCssFile = function (content) {
-  before(function generateCssFileFn () {
+  before(function generateCssFileFn() {
     // Concatenate content with our result
     var result = this.result || '';
     var output = result + (content || '');
@@ -53,23 +53,23 @@ exports.generateCssFile = function (content) {
     tmp.writeFileSync(output);
     this.tmp = tmp;
   });
-  after(function cleanup () {
+  after(function cleanup() {
     this.tmp.unlinkSync();
     delete this.tmp;
   });
 };
 
 exports.processCss = function (fn) {
-  before(function processCssFn (done) {
+  before(function processCssFn(done) {
     // Run our function
     var that = this;
-    fn.call(this, function handleResult (err, css) {
+    fn.call(this, function handleResult(err, css) {
       // Save our CSS and callback with any errors
       that.css = css;
       done(err);
     });
   });
-  after(function cleanup () {
+  after(function cleanup() {
     delete this.css;
   });
 };
