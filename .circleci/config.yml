@@ -51,12 +51,12 @@ node_base: &node_base
 
 # Define all our environments
 jobs:
-  node_26:
+  node_24:
     <<: *node_base
     docker:
-      - image: cimg/node:26.6.0
+      - image: cimg/node:24.19.0
 workflows:
   version: 2
   build:
     jobs:
-        - node_26
+        - node_24
