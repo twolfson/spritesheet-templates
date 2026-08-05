@@ -42,7 +42,7 @@
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
     "less": "~3.9.0",
-    "mocha": "~1.14.0",
+    "mocha": "~8.4.0",
     "nine-track": "~3.0.1",
     "stylus": "~0.41.3",
     "temporary": "0.0.8"
