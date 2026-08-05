@@ -51,23 +51,12 @@ node_base: &node_base
 
 # Define all our environments
 jobs:
-  node_8:
+  node_26:
     <<: *node_base
     docker:
-      - image: circleci/node:8
-  node_10:
-    <<: *node_base
-    docker:
-      - image: circleci/node:10
-  node_12:
-    <<: *node_base
-    docker:
-      - image: circleci/node:12
+      - image: cimg/node:26
 workflows:
   version: 2
   build:
     jobs:
-        - node_8
-        - node_10
-        # Node@12 disabled for now due to `natives` issue, https://app.circleci.com/jobs/github/twolfson/spritesheet-templates/9
-        # - node_12
+        - node_26
